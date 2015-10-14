@@ -10,4 +10,4 @@
 -->
 
 <#-- Currently simply reuses the default macros -->
-<#include "component://framework/common/webcommon/includes/catoHtmlTemplateDefault.ftl">
+<#include "component://common/webcommon/includes/catoHtmlTemplateDefault.ftl">
