@@ -20,6 +20,8 @@ under the License.
 
 <entity-engine-xml>
     <VisualTheme visualThemeId="BOOTSTRAP" visualThemeSetId="BACKOFFICE" description="Bootstrap - Boostrap CSS Theme in the style of the default bootstrap design"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_THEME_DATA_RES" resourceValue="component://bootstrap-theme/data/BootstrapThemeData.xml" sequenceId="01"/>
+    
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_NAME" resourceValue="BOOTSTRAP" sequenceId="01"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_SCREENSHOT" resourceValue="/bootstrap-theme/screenshot.jpg" sequenceId="01"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_HDR_TMPLT_LOC" resourceValue="component://bootstrap-theme/includes/header.ftl" sequenceId="01"/>
