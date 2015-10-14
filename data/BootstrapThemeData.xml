@@ -30,7 +30,8 @@ under the License.
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_NAV_TMPLT_LOC" resourceValue="component://bootstrap-theme/includes/appbar.ftl" sequenceId="01"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_NAV_OPEN_TMPLT" resourceValue="component://bootstrap-theme/includes/appbarOpen.ftl" sequenceId="01"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_NAV_CLOSE_TMPLT" resourceValue="component://bootstrap-theme/includes/appbarClose.ftl" sequenceId="01"/>
-    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STL_TMPLT_LOC" resourceValue="component://bootstrap-theme/includes/themeStyles.ftl" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STL_VAR_LOC" resourceValue="component://bootstrap-theme/includes/themeStyles.ftl" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STL_TMPLT_LOC" resourceValue="component://bootstrap-theme/includes/themeTemplate.ftl" sequenceId="01"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/css/bower_components/bootstrap/dist/css/bootstrap.css" sequenceId="01"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/css/bower_components/bootstrap/dist/css/bootstrap-theme.css" sequenceId="02"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/css/sb-admin/sb-admin.css" sequenceId="03"/>
