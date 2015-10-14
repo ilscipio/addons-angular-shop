@@ -33,12 +33,12 @@
     "collapse" : "collapse",
     "collapsed" : "collapsed",
     "hidden" : "hide",
-    "icon" : "fi",
-    "icon_button" : "fi-widget",
+    "icon" : "fa",
+    "icon_button" : "fa-widget",
     "icon_button_value" : "&#xf214;",
-    "icon_calendar" : "fi-calendar",
-    "icon_arrow" : "fi-arrow-right",
-    "icon_list" : "fi-list",
+    "icon_calendar" : "fa-calendar",
+    "icon_arrow" : "fa-arrow-right",
+    "icon_list" : "fa-list",
     
   <#-- Menus -->  
     <#-- Generic menu types -->

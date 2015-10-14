@@ -33,6 +33,8 @@ under the License.
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STL_TMPLT_LOC" resourceValue="component://bootstrap-theme/includes/themeStyles.ftl" sequenceId="01"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/css/bower_components/bootstrap/dist/css/bootstrap.css" sequenceId="01"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/css/bower_components/bootstrap/dist/css/bootstrap-theme.css" sequenceId="02"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/css/sb-admin/sb-admin.css" sequenceId="03"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/css/sb-admin/font-awesome/css/font-awesome.css" sequenceId="04"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/bootstrap-theme/css/bower_components/bootstrap/dist/js/bootstrap.min.js" sequenceId="02"/>
     <!-- <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="//fonts.googleapis.com/css?family=Open+Sans:400,600,300" sequenceId="03"/>-->
 </entity-engine-xml>

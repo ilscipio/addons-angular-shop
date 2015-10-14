@@ -64,7 +64,7 @@ under the License.
     </#if>
     <#if userLogin??>
         <li class="divider"></li>
-        <li class="active"><a href="<@ofbizUrl>logout</@ofbizUrl>" <#--class="alert ${styles.button_default!}"-->>${uiLabelMap.CommonLogout}</a></li>
+        <li class="active"><a href="<@ofbizUrl>logout</@ofbizUrl>"><i class="fa fa-fw fa-power-off"></i> ${uiLabelMap.CommonLogout}</a></li>
     </#if>
 </#macro>
 
@@ -140,7 +140,7 @@ so for now we have to split the screens in half and rely on the menu widget rend
             <#else><#if hasLink><a href="<@ofbizUrl>${logoLinkURL}</@ofbizUrl>"></#if><img alt="${layoutSettings.companyName}" src="<@ofbizContentUrl>${StringUtil.wrapString(headerImageUrl)}</@ofbizContentUrl>"/><#if hasLink></a></#if>
         </#if>
         <#else>
-        <a href="<@ofbizUrl>${logoLinkURL!""}</@ofbizUrl>"><img alt="${layoutSettings.companyName}" src="<@ofbizContentUrl>/images/<#if isSmall>feather-tiny.png<#else>ofbiz-logo-tiny.png</#if></@ofbizContentUrl>"/></a>
+        <a href="<@ofbizUrl>${logoLinkURL!""}</@ofbizUrl>" class="navbar-brand"><img alt="${layoutSettings.companyName}" src="<@ofbizContentUrl>/images/<#if isSmall>feather-tiny.png<#else>ofbiz-logo-tiny.png</#if></@ofbizContentUrl>"/></a>
     </#if>
 </#macro>
 
@@ -219,75 +219,108 @@ so for now we have to split the screens in half and rely on the menu widget rend
 </#if>
 <#assign organizationLogoLinkURL = "${layoutSettings.organizationLogoLinkUrl!}">
 <body>
-
-<div class="off-canvas-wrap" data-offcanvas id="body-content">
-<div class="inner-wrap">
-
-    <!-- Off Canvas Menu -->
-    <aside class="right-off-canvas-menu">
-        <!-- whatever you want goes here -->
-        <ul class="off-canvas-list">
-          <@generalMenu />
-          <#assign helpLink><@ofbizUrl>showHelp?helpTopic=${helpTopic!}&amp;portalPageId=${parameters.portalPageId!}</@ofbizUrl></#assign>
-          <#if helpLink?has_content><li class="has-form"><@modal label="${uiLabelMap.CommonHelp}" id="help" href="${helpLink}"></@modal></li></#if>   
-        </ul>
-    </aside>
+<div id="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     
-    <aside class="left-off-canvas-menu">
-      <ul class="off-canvas-list">
-          <@primaryAppsMenu/>
-          <@secondaryAppsMenu/>
-       </ul>
-    </aside>
-
-    <nav class="tab-bar show-for-small">
-        <section class="left-small">
-            <a class="left-off-canvas-toggle menu-icon"><span></span></a>
-        </section>
-        <section class="middle tab-bar-section">
-            <h1><@logoMenu isSmall=true/></h1>
-        </section>
-        <section class="right-small">
-            <a class="right-off-canvas-toggle menu-icon"><span></span></a>
-        </section>
-    </nav>
-    
-    <nav class="top-bar hide-for-small" data-topbar role="navigation">
-      <ul class="title-area">
-        <li class="name">
-            <h1><@logoMenu/></h1>   
-          </li>
-      </ul>
-    
-    
-      <section class="top-bar-section">
-        <!-- Right Nav Section -->
-        <ul class="right">
-          <li class="has-dropdown not-click">
-            <#if userLogin??><a href="#">${uiLabelMap.CommonWelcome}! ${userLogin.userLoginId}<#else><a href="<@ofbizUrl>${checkLoginUrl}</@ofbizUrl>">${uiLabelMap.CommonLogin}</a></#if></a>
-            <ul class="dropdown">       
-                <@generalMenu />
+        <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <@logoMenu/>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <#-- Messages
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu message-dropdown">
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-footer">
+                            <a href="#">Read All New Messages</a>
+                        </li>
+                    </ul>
+                </li>
+                -->
+                <#-- Alerts
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">View All</a>
+                        </li>
+                    </ul>
+                </li>
+                -->
+                <li class="dropdown">
+                    <#if userLogin??><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> ${userLogin.userLoginId} <b class="caret"></b><#else><a href="<@ofbizUrl>${checkLoginUrl}</@ofbizUrl>">${uiLabelMap.CommonLogin}</a></#if></a>
+                    <ul class="dropdown-menu">
+                        <@generalMenu />
+                        <#assign helpLink><@ofbizUrl>showHelp?helpTopic=${helpTopic!}&amp;portalPageId=${parameters.portalPageId!}</@ofbizUrl></#assign>
+                        <#if helpLink?has_content><li class="has-form"><@modal label="${uiLabelMap.CommonHelp}" id="help" href="${helpLink}"></@modal></li></#if>
+                    </ul>
+                </li>
             </ul>
-          </li>
-          <li class="divider"></li>
-          <#assign helpLink><@ofbizUrl>showHelp?helpTopic=${helpTopic!}&amp;portalPageId=${parameters.portalPageId!}</@ofbizUrl></#assign>
-          <#if helpLink?has_content><li class="has-form"><@modal label="${uiLabelMap.CommonHelp}" id="help" href="${helpLink}"></@modal></li></#if>       
-        </ul>
-        
-        <#if userLogin?has_content>
-            <ul class="left">
-              <li class="has-dropdown not-click"><a href="#">${uiLabelMap["CommonApplications"]}</a>
-                <ul class="dropdown">
-                  <li class="has-dropdown not-click"><a href="#">${uiLabelMap["CommonPrimaryApps"]}</a>
-                    <ul class="dropdown">
-                      <@primaryAppsMenu/>
-                    </ul>
-                  </li>
-                  <li class="has-dropdown not-click"><a href="#">${uiLabelMap["CommonSecondaryApps"]}</a>
-                    <ul class="dropdown">
-                      <@secondaryAppsMenu/>
-                    </ul>
-                  </li>                  
+            
+            <#if userLogin?has_content>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#menuPrimary"><i class="fa fa-fw fa-arrows-v"></i> ${uiLabelMap["CommonPrimaryApps"]} <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="menuPrimary" class="collapse">
+                            <@primaryAppsMenu/>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#menuSecondary"><i class="fa fa-fw fa-arrows-v"></i> ${uiLabelMap["CommonSecondaryApps"]} <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="menuSecondary" class="collapse">
+                            <@secondaryAppsMenu/>
+                        </ul>
+                    </li>
                 </ul>
-              </li>
-        </#if>
+            </div>
+            </#if>
+            
+            <!-- /.navbar-collapse -->
+        </nav>
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
