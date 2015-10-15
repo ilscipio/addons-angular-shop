@@ -322,7 +322,4 @@ so for now we have to split the screens in half and rely on the menu widget rend
             </div>
             </#if>
             -->
-            </nav>
-
-    <div id="page-wrapper">
-        <div class="container-fluid">
+ 

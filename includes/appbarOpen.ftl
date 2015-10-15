@@ -18,3 +18,5 @@ under the License.
 -->
 
 <#-- (implemented in tail of header.ftl) -->
+<div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">

@@ -1,2 +1,8 @@
+</ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
 
-<#include "component://base-theme/includes/appbarClose.ftl">
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
