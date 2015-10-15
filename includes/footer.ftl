@@ -17,17 +17,19 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-
+        
             </div>
             <!-- /.container-fluid -->
+
+
 
         </div>
         <!-- /#page-wrapper -->
 
 
         <footer>
-            <div class="row">
-                <div class="col-lg-12">
+            <div class="row ">
+                <div class="col-lg-12 text-center">
                     <p>
                         ${uiLabelMap.CommonCopyright} (c) 2014-${nowTimestamp?string("yyyy")} <a href="http://www.ilscipio.com" target="_blank">ilscipio GmbH</a>. ${uiLabelMap.CommonPoweredBy} <a href="http://www.cato-commerce.com" target="_blank">Cato Commerce.</a> <#include "ofbizhome://runtime/svninfo.ftl" /> <#include "ofbizhome://runtime/gitinfo.ftl" />
                     </p>

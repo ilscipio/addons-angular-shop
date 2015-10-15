@@ -71,7 +71,7 @@ under the License.
 <#macro primaryAppsMenu>
   <#assign appCount = 0>
   <#assign firstApp = true>
-    <li><label>${uiLabelMap["CommonPrimaryApps"]}</label></li>
+  <#--  <li><label>${uiLabelMap["CommonPrimaryApps"]}</label></li>-->
   <#list displayApps as display>
         <#assign thisApp = display.getContextRoot()>
         <#assign selected = false>
@@ -95,7 +95,7 @@ under the License.
 </#macro>
 
 <#macro secondaryAppsMenu>
-    <li><label>${uiLabelMap["CommonSecondaryApps"]}</label></li>
+    <#--<li><label>${uiLabelMap["CommonSecondaryApps"]}</label></li>-->
     <#list displaySecondaryApps as display>
         <#assign thisApp = display.getContextRoot()>
         <#assign selected = false>
@@ -290,6 +290,16 @@ so for now we have to split the screens in half and rely on the menu widget rend
                 </li>
                 -->
                 <li class="dropdown">
+                    <#if userLogin??><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> ${userLogin.userLoginId} <b class="caret"></b><#else><a href="<@ofbizUrl>${checkLoginUrl}</@ofbizUrl>">${uiLabelMap.CommonLogin}</a></#if></a>
+                    <ul class="dropdown-menu">
+                        <@generalMenu />
+                        <#assign helpLink><@ofbizUrl>showHelp?helpTopic=${helpTopic!}&amp;portalPageId=${parameters.portalPageId!}</@ofbizUrl></#assign>
+                        <#if helpLink?has_content><li class="has-form"><@modal label="${uiLabelMap.CommonHelp}" id="help" href="${helpLink}" icon="fa fa-fw fa-info"></@modal></li></#if>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-left top-nav">
+                    <li class="dropdown">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-dashboard"></i> ${uiLabelMap["CommonPrimaryApps"]} <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="menuPrimary" class="dropdown-menu">
                             <@primaryAppsMenu/>
@@ -301,13 +311,5 @@ so for now we have to split the screens in half and rely on the menu widget rend
                             <@secondaryAppsMenu/>
                         </ul>
                     </li>
-                <li class="dropdown">
-                    <#if userLogin??><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> ${userLogin.userLoginId} <b class="caret"></b><#else><a href="<@ofbizUrl>${checkLoginUrl}</@ofbizUrl>">${uiLabelMap.CommonLogin}</a></#if></a>
-                    <ul class="dropdown-menu">
-                        <@generalMenu />
-                        <#assign helpLink><@ofbizUrl>showHelp?helpTopic=${helpTopic!}&amp;portalPageId=${parameters.portalPageId!}</@ofbizUrl></#assign>
-                        <#if helpLink?has_content><li class="has-form"><@modal label="${uiLabelMap.CommonHelp}" id="help" href="${helpLink}" icon="fa fa-fw fa-info"></@modal></li></#if>
-                    </ul>
-                </li>
-            </ul>
+            
  

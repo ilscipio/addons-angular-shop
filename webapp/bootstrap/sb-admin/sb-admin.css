@@ -225,3 +225,5 @@ ul.alert-dropdown {
 .panel-yellow > a:hover {
     color: #df8a13;
 }
+
+.close-reveal-modal {display:none;}
