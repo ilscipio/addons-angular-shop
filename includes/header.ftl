@@ -56,8 +56,8 @@ under the License.
           <li>${userLogin.userLoginId}</li>
         </#if>
         -->
-        <li><a href="<@ofbizUrl>ListLocales</@ofbizUrl>">${uiLabelMap.CommonLanguageTitle}</a></li>
-        <li><a href="<@ofbizUrl>ListVisualThemes</@ofbizUrl>">${uiLabelMap.CommonVisualThemes}</a></li>
+        <li><a href="<@ofbizUrl>ListLocales</@ofbizUrl>"><i class="fa fa-fw fa-language"></i> ${uiLabelMap.CommonLanguageTitle}</a></li>
+        <li><a href="<@ofbizUrl>ListVisualThemes</@ofbizUrl>"><i class="fa fa-fw fa-photo"></i> ${uiLabelMap.CommonVisualThemes}</a></li>
     </#if>
     <#if parameters.componentName?? && requestAttributes._CURRENT_VIEW_?? && helpTopic??>
         <#include "component://common/webcommon/includes/helplink.ftl" />
@@ -290,13 +290,13 @@ so for now we have to split the screens in half and rely on the menu widget rend
                 </li>
                 -->
                 <li class="dropdown">
-                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-arrows-v"></i> ${uiLabelMap["CommonPrimaryApps"]} <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-dashboard"></i> ${uiLabelMap["CommonPrimaryApps"]} <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="menuPrimary" class="dropdown-menu">
                             <@primaryAppsMenu/>
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-arrows-v"></i> ${uiLabelMap["CommonSecondaryApps"]} <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-desktop"></i> ${uiLabelMap["CommonSecondaryApps"]} <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="menuSecondary" class="dropdown-menu">
                             <@secondaryAppsMenu/>
                         </ul>
@@ -306,20 +306,8 @@ so for now we have to split the screens in half and rely on the menu widget rend
                     <ul class="dropdown-menu">
                         <@generalMenu />
                         <#assign helpLink><@ofbizUrl>showHelp?helpTopic=${helpTopic!}&amp;portalPageId=${parameters.portalPageId!}</@ofbizUrl></#assign>
-                        <#if helpLink?has_content><li class="has-form"><@modal label="${uiLabelMap.CommonHelp}" id="help" href="${helpLink}"></@modal></li></#if>
+                        <#if helpLink?has_content><li class="has-form"><@modal label="${uiLabelMap.CommonHelp}" id="help" href="${helpLink}" icon="fa fa-fw fa-info"></@modal></li></#if>
                     </ul>
                 </li>
             </ul>
-            
-            
-            
-            <#--
-            <#if userLogin?has_content>
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    
-                </ul>
-            </div>
-            </#if>
-            -->
  
