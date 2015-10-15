@@ -32,10 +32,24 @@ under the License.
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_NAV_CLOSE_TMPLT" resourceValue="component://bootstrap-theme/includes/appbarClose.ftl" sequenceId="01"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STL_VAR_LOC" resourceValue="component://bootstrap-theme/includes/themeStyles.ftl" sequenceId="01"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STL_TMPLT_LOC" resourceValue="component://bootstrap-theme/includes/themeTemplate.ftl" sequenceId="01"/>
-    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/css/bower_components/bootstrap/dist/css/bootstrap.css" sequenceId="01"/>
-    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/css/bower_components/bootstrap/dist/css/bootstrap-theme.css" sequenceId="02"/>
-    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/css/sb-admin/sb-admin.css" sequenceId="03"/>
-    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/css/sb-admin/font-awesome/css/font-awesome.css" sequenceId="04"/>
-    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/bootstrap-theme/css/bower_components/bootstrap/dist/js/bootstrap.min.js" sequenceId="02"/>
+    
+    
+    
+    <!-- GENERAL -->
+    <!-- Styles -->
+    <!-- Scripts -->
+    <VisualThemeResource visualThemeId="BASE" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/bootstrap-theme/jquery/dist/jquery.min.js" sequenceId="01"/>
+    
+    
+    <!-- THEME SPECIFIC -->
+    <!-- Styles -->
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/bower_components/bootstrap/dist/css/bootstrap.min.css" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" sequenceId="02"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/sb-admin/sb-admin.css" sequenceId="03"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/sb-admin/font-awesome/css/font-awesome.css" sequenceId="04"/>
     <!-- <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="//fonts.googleapis.com/css?family=Open+Sans:400,600,300" sequenceId="03"/>-->
+    
+    <!-- Scripts -->
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/bootstrap/dist/js/bootstrap.min.js" sequenceId="02"/>
+   
 </entity-engine-xml>

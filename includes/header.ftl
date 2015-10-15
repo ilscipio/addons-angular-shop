@@ -290,6 +290,18 @@ so for now we have to split the screens in half and rely on the menu widget rend
                 </li>
                 -->
                 <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-arrows-v"></i> ${uiLabelMap["CommonPrimaryApps"]} <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="menuPrimary" class="dropdown-menu">
+                            <@primaryAppsMenu/>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-arrows-v"></i> ${uiLabelMap["CommonSecondaryApps"]} <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="menuSecondary" class="dropdown-menu">
+                            <@secondaryAppsMenu/>
+                        </ul>
+                    </li>
+                <li class="dropdown">
                     <#if userLogin??><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> ${userLogin.userLoginId} <b class="caret"></b><#else><a href="<@ofbizUrl>${checkLoginUrl}</@ofbizUrl>">${uiLabelMap.CommonLogin}</a></#if></a>
                     <ul class="dropdown-menu">
                         <@generalMenu />
@@ -299,28 +311,18 @@ so for now we have to split the screens in half and rely on the menu widget rend
                 </li>
             </ul>
             
+            
+            
+            <#--
             <#if userLogin?has_content>
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#menuPrimary"><i class="fa fa-fw fa-arrows-v"></i> ${uiLabelMap["CommonPrimaryApps"]} <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="menuPrimary" class="collapse">
-                            <@primaryAppsMenu/>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#menuSecondary"><i class="fa fa-fw fa-arrows-v"></i> ${uiLabelMap["CommonSecondaryApps"]} <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="menuSecondary" class="collapse">
-                            <@secondaryAppsMenu/>
-                        </ul>
-                    </li>
+                    
                 </ul>
             </div>
             </#if>
-            
-            <!-- /.navbar-collapse -->
-        </nav>
+            -->
+            </nav>
 
     <div id="page-wrapper">
         <div class="container-fluid">

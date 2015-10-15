@@ -17,6 +17,7 @@ specific language governing permissions and limitations
 under the License.
 -->
 
+
             </div>
             <!-- /.container-fluid -->
 
@@ -27,20 +28,19 @@ under the License.
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <ul>
-                        <li class="first">${nowTimestamp?datetime?string.short} - <a href="<@ofbizUrl>ListTimezones</@ofbizUrl>">${timeZone.getDisplayName(timeZone.useDaylightTime(), Static["java.util.TimeZone"].LONG, locale)}</a></li>
-                        <li><a href="<@ofbizUrl>ListLocales</@ofbizUrl>">${locale.getDisplayName(locale)}</a></li>
-                        <li class="last"><a href="<@ofbizUrl>ListVisualThemes</@ofbizUrl>">${uiLabelMap.CommonVisualThemes}</a></li>
-                    </ul>
                     <p>
-                        ${uiLabelMap.CommonCopyright} (c) 2001-${nowTimestamp?string("yyyy")} <a href="http://www.apache.org" target="_blank">The Apache Software Foundation</a>. ${uiLabelMap.CommonPoweredBy} <a href="http://ofbiz.apache.org" target="_blank">Apache OFBiz.</a> <#include "ofbizhome://runtime/svninfo.ftl" /> <#include "ofbizhome://runtime/gitinfo.ftl" />
+                        ${uiLabelMap.CommonCopyright} (c) 2014-${nowTimestamp?string("yyyy")} <a href="http://www.ilscipio.com" target="_blank">ilscipio GmbH</a>. ${uiLabelMap.CommonPoweredBy} <a href="http://www.cato-commerce.com" target="_blank">Cato Commerce.</a> <#include "ofbizhome://runtime/svninfo.ftl" /> <#include "ofbizhome://runtime/gitinfo.ftl" />
                     </p>
                 </div>
             </div>
             <!-- /.row -->
         </footer>
+        
     </div>
     <!-- /#wrapper -->
+
+
+
 
     <#-- New in cato; for app scripts that aren't (exclusively) styling but must go at end of page -->
     <#if layoutSettings.javaScriptsFooter?has_content>
