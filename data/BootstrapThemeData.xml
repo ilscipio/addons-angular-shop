@@ -38,7 +38,7 @@ under the License.
     <!-- GENERAL -->
     <!-- Styles -->
     <!-- Scripts -->
-    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/bootstrap-theme/jquery/dist/jquery.min.js" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_HDR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/jquery/dist/jquery.min.js" sequenceId="01"/>
     
     
     <!-- THEME SPECIFIC -->
