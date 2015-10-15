@@ -38,8 +38,8 @@ under the License.
     <!-- GENERAL -->
     <!-- Styles -->
     <!-- Scripts -->
-    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_TOP_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/jquery/dist/jquery.min.js" sequenceId="01"/>
-    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_TOP_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/jquery-migrate/jquery-migrate.min.js" sequenceId="02"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FRST_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/jquery/dist/jquery.min.js" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FRST_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/jquery-migrate/jquery-migrate.min.js" sequenceId="02"/>
 
     
     <!-- THEME SPECIFIC -->
