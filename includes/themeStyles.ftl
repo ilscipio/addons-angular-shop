@@ -170,7 +170,7 @@
     "nav_breadcrumbs_active" : "current",
 
   <#-- Panels -->
-    "panel_wrap" : "panel",
+    "panel_wrap" : "panel panel-default",
     "panel_head" : "panel-heading",
     "panel_title" : "panel-title",
     "panel_body" : "panel-body",
