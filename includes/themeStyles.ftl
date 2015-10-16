@@ -76,13 +76,13 @@
     "menu_section_inline_itemlink" : "button tiny", 
     
   <#-- Data and Tables -->  
-    "table_default" : "",
+    "table_default" : "table",
     "table_default_cellspacing" : "",
     "table_data_list" : "basic-table",
     "table_data_list_cellspacing" : 0,
-    "table_data_complex" : "basic-table",
+    "table_data_complex" : "table-hover",
     "table_data_complex_cellspacing" : 0,
-    "table_summary" : "basic-table",
+    "table_summary" : "table",
     "table_summary_cellspacing" : 0,
     "table_fields" : "",
     "table_fields_cellspacing" : 0,
