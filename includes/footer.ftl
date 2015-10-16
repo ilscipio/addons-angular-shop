@@ -26,10 +26,12 @@ under the License.
         </div>
         <!-- /#page-wrapper -->
 
-
-        <footer>
-            <div class="row ">
-                <div class="col-lg-12 text-center">
+    </div>
+    <!-- /#wrapper -->
+    
+<footer>
+            <div class="container ">
+                <div class="text-center">
                     <p>
                         ${uiLabelMap.CommonCopyright} (c) 2014-${nowTimestamp?string("yyyy")} <a href="http://www.ilscipio.com" target="_blank">ilscipio GmbH</a>. ${uiLabelMap.CommonPoweredBy} <a href="http://www.cato-commerce.com" target="_blank">Cato Commerce.</a> <#include "ofbizhome://runtime/svninfo.ftl" /> <#include "ofbizhome://runtime/gitinfo.ftl" />
                     </p>
@@ -37,10 +39,6 @@ under the License.
             </div>
             <!-- /.row -->
         </footer>
-        
-    </div>
-    <!-- /#wrapper -->
-
 
 
 

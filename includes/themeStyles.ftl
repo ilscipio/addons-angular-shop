@@ -139,9 +139,9 @@
     "grid_medium_centered" : "col-md-centered",
     "grid_large_centered" : "col-lg-centered",
     "grid_sidebar_0_main" : "col-lg-12",
-    "grid_sidebar_1_main" : "",
-    "grid_sidebar_1_side" : "navbar-inverse ",
-    "grid_sidebar_2_main" : "col-lg-12 columns",
+    "grid_sidebar_1_main" : "col-lg-12",
+    "grid_sidebar_1_side" : "",
+    "grid_sidebar_2_main" : "col-lg-12",
     "grid_sidebar_2_side" : "navbar-inverse",
 
   <#-- Floats -->
@@ -151,6 +151,7 @@
     
   <#-- Navigation -->
     "nav_subnav" : "sub-nav",
+    "nav_sidenav" : "navbar-inverse collapse navbar-collapse navbar-ex1-collapse ",
 
   <#-- Lists -->
     "list_inline" : "inline-list",
