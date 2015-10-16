@@ -113,14 +113,15 @@
     "grid_cell" : "columns",
     "grid_display" : "display",      <#-- display grid -->
     "grid_end" : "end",
-    "grid_small" : "small-",   
+    "grid_small" : "col-sm-",   
     "grid_medium" : "col-md-",
     "grid_large" : "col-lg-",       
     "grid_offset" : "col-md-offset-",      
     "grid_small_offset" : "col-sm-offset-",     
     "grid_medium_offset" : "col-md-offset-",    
     "grid_large_offset" : "col-lg-offset-",   
-    "grid_block" : "block-grid-",
+    "grid_block_prefix" : "",
+    "grid_block_postfix" : "block-grid-",
     "grid_columns_1" : "col-lg-1",
     "grid_columns_2" : "col-lg-2 col-md-3",
     "grid_columns_3" : "col-lg-3 col-md-4",
@@ -180,12 +181,12 @@
     "alert_prefix_type" : "alert-",             
 
   <#-- Pricing Tables -->
-    "pricing_wrap" : "pricing-table",
+    "pricing_wrap" : "panel panel-primary",
     "pricing_price" : "price",
-    "pricing_description" : "description",
-    "pricing_title" : "title",
-    "pricing_cta" : "cta-button",
-    "pricing_bullet" : "bullet-item",
+    "pricing_description" : "panel-body text-center",
+    "pricing_title" : "panel-heading",
+    "pricing_cta" : "btn btn-lg btn-block btn-primary",
+    "pricing_bullet" : "list-group-item",
 
   <#-- Modal -->
     "modal_wrap" : "reveal-modal",
