@@ -50,7 +50,7 @@ body {
 
 .top-nav>li {
     display: inline-block;
-    float: left;
+    //float: left;
 }
 
 .top-nav>li>a {
@@ -111,8 +111,9 @@ ul.alert-dropdown {
 }
 
 /* Side Navigation */
-#sidebar{
-	position: fixed;
+@media(min-width:768px) {
+	#sidebar{
+    position: fixed;
     top: 51px;
     left: 225px;
     width: 225px;
@@ -127,10 +128,9 @@ ul.alert-dropdown {
 }
 
 #sidebar .collapse{
-	padding-left: 0px;
+    padding-left: 0px;
 }
 
-@media(min-width:768px) {
     .side-nav {
 
     }
@@ -231,6 +231,16 @@ ul.alert-dropdown {
 
 .panel-yellow > a:hover {
     color: #df8a13;
+}
+
+/* Button Group*/
+ul.btn-group {
+	list-style-type: none;
+	padding:0px;
+}
+
+ul.btn-group li{
+	float:left;
 }
 
 .close-reveal-modal {display:none;}
