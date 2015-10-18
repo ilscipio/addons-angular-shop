@@ -31,8 +31,10 @@
     "round" : "round",
     "radius" : "radius",
     "expand" : "expand",
-    "collapse" : "collapse",
-    "collapsed" : "collapsed",
+    "collapse" : "",
+    "collapsed" : "",
+    "prefix" : "prefix",
+    "postfix" : "postfix",
     "hidden" : "hide",
     "icon" : "fa fa-fw",
     "icon_button" : "fa-widget",
@@ -76,7 +78,7 @@
     "menu_section_inline_itemlink" : "btn btn-xs btn-default", 
     
   <#-- Data and Tables -->
-    "table" : "basic-table",  
+    "table" : "table",  
     "table_basic" : "basic-table",  
     "table_default" : "basic-table",
     "table_default_cellspacing" : "",
@@ -155,6 +157,18 @@
     "nav_subnav" : "sub-nav",
     "nav_sidenav" : "navbar-inverse collapse navbar-collapse navbar-ex1-collapse ",
 
+  <#-- Pagination -->
+    "pagination_wrap" : "text-center",
+    "pagination_list" : "pagination",
+    "pagination_control" : "pull-right",
+    "pagination_item" : "",
+    "pagination_item_first" : "",
+    "pagination_item_last" : "",
+    "pagination_item_previous" : "",
+    "pagination_item_next" : "",
+    "pagination_item_active" : "active",
+    "pagination_item_disabled" : "disabled",
+
   <#-- Lists -->
     "list_inline" : "inline-list",
 
@@ -170,8 +184,8 @@
 
   <#-- Breadcrumbs -->
     "nav_breadcrumbs" : "breadcrumbs",
-    "nav_breadcrumbs_disabled" : "unavailable",
-    "nav_breadcrumbs_active" : "current",
+    "nav_breadcrumbs_disabled" : "disabled",
+    "nav_breadcrumbs_active" : "active",
 
   <#-- Panels -->
     "panel_wrap" : "panel panel-default",
@@ -203,6 +217,8 @@
     "progress_bar" : "sr-only",       
 
   <#-- Fields -->
+    "fields_wrap" : "input-group",
+    "fields_label" : "input-group-addon",
     "fields_default_labeltype" : "gridarea",
     "fields_default_labellayout" : "left",
     "fields_default_labelarea" : true,

@@ -112,7 +112,7 @@ ul.alert-dropdown {
 
 /* Side Navigation */
 @media(min-width:768px) {
-	#sidebar{
+	#left-sidebar{
     position: fixed;
     top: 51px;
     left: 225px;
@@ -127,7 +127,7 @@ ul.alert-dropdown {
     padding-bottom: 40px;
 }
 
-#sidebar .collapse{
+#left-sidebar .collapse{
     padding-left: 0px;
 }
 
@@ -242,6 +242,11 @@ ul.btn-group {
 ul.btn-group li{
 	float:left;
 }
+
+/*Tables*/
+.table th, .table td { 
+     border-top: none !important; 
+ }
 
 .close-reveal-modal {display:none;}
 footer{
