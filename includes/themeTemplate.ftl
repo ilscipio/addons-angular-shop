@@ -185,7 +185,7 @@
     <@macrolib.chart type=type library=library title=title><#nested /></@macrolib.chart>
 </#macro>
 
-<#macro chartdata type="pie" library="foundation" title="">
+<#macro chartdata title value value2="">
     <@macrolib.chartdata title=title value=value value2=value2><#nested /></@macrolib.chartdata>
 </#macro>
 
