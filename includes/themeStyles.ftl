@@ -195,7 +195,13 @@
 
   <#-- Alert Box -->
     "alert_wrap" : "alert",    
-    "alert_prefix_type" : "alert-",             
+    "alert_prefix_type" : "alert-",     <#-- Bootstrap: "alert-"; Note: This may be removed -->
+    "alert_type_info" : "alert-info",
+    "alert_type_success" : "alert-success",
+    "alert_type__warning" : "alert-warning",
+    "alert_type_secondary" : "alert-secondary",  
+    "alert_type_alert" : "alert-danger",        
+    "alert_type_error" : "alert-danger",             
 
   <#-- Pricing Tables -->
     "pricing_wrap" : "panel panel-primary",
