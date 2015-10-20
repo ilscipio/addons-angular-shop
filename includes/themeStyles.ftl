@@ -79,8 +79,8 @@
     "menu_section_inline_itemlink" : "btn btn-xs btn-default", 
     
   <#-- Data and Tables -->
-    "table" : "table",  
-    "table_basic" : "basic-table",  
+    "table" : "table", 
+     
     "table_default" : "basic-table",
     "table_default_cellspacing" : "",
     "table_data_list" : "basic-table",
