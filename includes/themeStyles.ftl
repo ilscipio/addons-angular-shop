@@ -45,9 +45,6 @@
     "icon_list" : "fa-list",
     
   <#-- Menus -->  
-    "menu_default" : "",  
-    "menu_default_item" : "", 
-    "menu_default_itemlink" : "", 
     <#-- Generic menu types -->
     "menu_generic" : "",  
     "menu_generic_item" : "", 
@@ -80,12 +77,14 @@
     "menu_section_inline" : "btn-group",
     "menu_section_inline_item" : "",
     "menu_section_inline_itemlink" : "btn btn-xs btn-default", 
+    <#-- default entry is used for any encountered menu types that have no specific entries in this hash -->    
+    "menu_default" : "",  
+    "menu_default_item" : "", 
+    "menu_default_itemlink" : "", 
     
   <#-- Data and Tables -->
     "table" : "table", 
      
-    "table_default" : "basic-table",
-    "table_default_cellspacing" : "",
     "table_generic" : "basic-table",
     "table_generic_cellspacing" : "",
     "table_data_list" : "basic-table",
@@ -96,6 +95,11 @@
     "table_summary_cellspacing" : 0,
     "table_fields" : "",
     "table_fields_cellspacing" : 0,
+    <#-- default entry is used by @table for any encountered table types that have no specific entries in this hash. 
+         in other words, it is the default style for table types that this theme does not recognize, or "all others". --> 
+    "table_default" : "basic-table",
+    "table_default_cellspacing" : "",
+    
     "row_reg" : "even",
     "row_alt" : "odd",
     "row_selected" : "selected",
