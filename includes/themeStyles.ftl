@@ -83,8 +83,6 @@
     "menu_default_itemlink" : "", 
     
   <#-- Data and Tables -->
-    "table" : "table", 
-     
     "table_generic" : "basic-table",
     "table_generic_cellspacing" : "",
     "table_data_list" : "basic-table",
