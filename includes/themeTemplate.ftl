@@ -39,7 +39,7 @@
 
 <#macro heading elemType=true level="" relLevel="" class=true id="" levelClassPrefix="heading-level-" consumeLevel="" containerElemType=false containerClass=true attribs={} inlineAttribs...>
     <@macrolib.heading elemType=elemType level=level relLevel=relLevel class=class id=id levelClassPrefix=levelClassPrefix consumeLevel=consumeLevel 
-        containerElemType=containerElemType containerClass=containerClass attribs=attribs inlineAttribs=inlineAttribs><#nested /></@macrolib.heading>
+        containerElemType=containerElemType containerClass=containerClass attribs=concatMaps(attribs, inlineAttribs)><#nested /></@macrolib.heading>
 </#macro>
 
 <#macro fields type="default" labelType="" labelLayout="" labelArea="" labelAreaExceptions=true formName="" formId="">
@@ -72,7 +72,7 @@
 </#macro>
 
 <#macro form type="input" name="" id="" class=true attribs={} inlineAttribs...>
-    <@macrolib.form type=type name=name id=id class=class attribs=attribs inlineAttribs=inlineAttribs><#nested /></@macrolib.form>
+    <@macrolib.form type=type name=name id=id class=class attribs=concatMaps(attribs, inlineAttribs)><#nested /></@macrolib.form>
 </#macro>
 
 <#macro modal id label href="" icon="">
@@ -141,32 +141,32 @@
 
 <#macro table type="generic" class=true id="" cellspacing=true scrollable=false autoAltRows="" firstRowAlt="" inheritAltRows=false useFootAltRows=false wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
     <@macrolib.table type=type class=class id=id cellspacing=cellspacing scrollable=scrollable scrollable=scrollable firstRowAlt=firstRowAlt 
-        inheritAltRows=inheritAltRows useFootAltRows=useFootAltRows wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=attribs inlineAttribs=inlineAttribs><#nested /></@macrolib.table>
+        inheritAltRows=inheritAltRows useFootAltRows=useFootAltRows wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@macrolib.table>
 </#macro>
 
 <#macro thead class=true id="" wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
-    <@macrolib.thead class=class id=id wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=attribs inlineAttribs=inlineAttribs><#nested /></@macrolib.thead>
+    <@macrolib.thead class=class id=id wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@macrolib.thead>
 </#macro>
 
 <#macro tbody class=true id="" wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
-    <@macrolib.tbody class=class id=id wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=attribs inlineAttribs=inlineAttribs><#nested /></@macrolib.tbody>
+    <@macrolib.tbody class=class id=id wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@macrolib.tbody>
 </#macro>
 
 <#macro tfoot class=true id="" wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
-    <@macrolib.tfoot class=class id=id wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=attribs inlineAttribs=inlineAttribs><#nested /></@macrolib.tfoot>
+    <@macrolib.tfoot class=class id=id wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@macrolib.tfoot>
 </#macro>
 
 <#macro tr type="" class=true id="" useAlt="" alt="" groupLast="" groupParent="" selected="" wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
     <@macrolib.tr type=type class=class id=id useAlt=useAlt alt=alt groupLast=groupLast groupParent=groupParent selected=selected wrapIf=wrapIf openOnly=openOnly 
-        closeOnly=closeOnly attribs=attribs inlineAttribs=inlineAttribs><#nested /></@macrolib.tr>
+        closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@macrolib.tr>
 </#macro>
 
 <#macro th class=true id="" wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
-    <@macrolib.th class=class id=id wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=attribs inlineAttribs=inlineAttribs><#nested /></@macrolib.th>
+    <@macrolib.th class=class id=id wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@macrolib.th>
 </#macro>
 
 <#macro td class=true id="" wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
-    <@macrolib.td class=class id=id wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=attribs inlineAttribs=inlineAttribs><#nested /></@macrolib.td>
+    <@macrolib.td class=class id=id wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@macrolib.td>
 </#macro>
 
 <#macro dataRowClassStr class=true alt="" selected="">
@@ -198,11 +198,11 @@
 </#macro>
 
 <#macro menu args={} inlineArgs...>
-    <@macrolib.menu args=args inlineArgs=inlineArgs><#nested /></@macrolib.menu>
+    <@macrolib.menu args=concatMaps(args, inlineArgs)><#nested /></@macrolib.menu>
 </#macro>
 
 <#macro menuitem args={} inlineArgs...>
-    <@macrolib.menuitem args=args inlineArgs=inlineArgs><#nested /></@macrolib.menuitem>
+    <@macrolib.menuitem args=concatMaps(args, inlineArgs)><#nested /></@macrolib.menuitem>
 </#macro>
 
 <#macro printVars var=context>
