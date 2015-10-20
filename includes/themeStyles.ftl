@@ -88,6 +88,7 @@
     "table_generic_rowtype" : "generic",    <#-- the default row type is normally "content", but generic tables need "generic" -->
     "table_data_list" : "basic-table",
     "table_data_list_cellspacing" : 0,
+    <#-- not enabled, but may be desirable: "table_data_list_autoaltrows" : true, -->
     "table_data_complex" : "basic-table",
     "table_data_complex_cellspacing" : 0,
     "table_summary" : "basic-table",
@@ -98,6 +99,7 @@
          in other words, it is the default style for table types that this theme does not recognize, or "all others". --> 
     "table_default" : "basic-table",
     "table_default_cellspacing" : "",
+    "table_default_autoaltrows" : false,
     "table_default_rowtype" : "content",
     
     "table_basic" : "basic-table",  <#-- this is not a table type, but simply the basic-table style -->
