@@ -45,10 +45,13 @@
     "icon_list" : "fa-list",
     
   <#-- Menus -->  
-    <#-- Generic menu types -->
     "menu_default" : "",  
     "menu_default_item" : "", 
     "menu_default_itemlink" : "", 
+    <#-- Generic menu types -->
+    "menu_generic" : "",  
+    "menu_generic_item" : "", 
+    "menu_generic_itemlink" : "", 
     "menu_button" : "btn-group",
     "menu_button_item" : "",
     "menu_button_itemlink" : "btn btn-xs btn-default",
@@ -83,6 +86,8 @@
      
     "table_default" : "basic-table",
     "table_default_cellspacing" : "",
+    "table_generic" : "basic-table",
+    "table_generic_cellspacing" : "",
     "table_data_list" : "basic-table",
     "table_data_list_cellspacing" : 0,
     "table_data_complex" : "basic-table",
