@@ -204,7 +204,7 @@
     "tile_image" : "tile-image",
 
   <#-- Breadcrumbs -->
-    "nav_breadcrumbs" : "breadcrumbs",
+    "nav_breadcrumbs" : "breadcrumb",
     "nav_breadcrumbs_disabled" : "disabled",
     "nav_breadcrumbs_active" : "active",
 
