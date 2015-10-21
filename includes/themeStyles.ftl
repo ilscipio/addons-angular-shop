@@ -86,18 +86,18 @@
     "table_generic" : "",
     "table_generic_cellspacing" : "",
     "table_generic_rowtype" : "generic",    <#-- the default row type is normally "content", but generic tables need "generic" -->
-    "table_data_list" : "basic-table",
+    "table_data_list" : "table table-striped",
     "table_data_list_cellspacing" : 0,
     <#-- not enabled, but may be desirable: "table_data_list_autoaltrows" : true, -->
-    "table_data_complex" : "basic-table",
+    "table_data_complex" : "table",
     "table_data_complex_cellspacing" : 0,
-    "table_summary" : "basic-table",
+    "table_summary" : "table",
     "table_summary_cellspacing" : 0,
-    "table_fields" : "basic-table",
+    "table_fields" : "table table-condensed",
     "table_fields_cellspacing" : 0,
     <#-- default entry is used by @table for any encountered table types that have no specific entries in this hash. 
          in other words, it is the default style for table types that this theme does not recognize, or "all others". --> 
-    "table_default" : "basic-table",
+    "table_default" : "table",
     "table_default_cellspacing" : "",
     "table_default_autoaltrows" : false,
     "table_default_rowtype" : "content",
