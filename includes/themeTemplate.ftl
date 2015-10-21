@@ -31,9 +31,9 @@
         largeOffset=largeOffset class=class id=id collapse=collapse nocells=nocells last=last><#nested /></@macrolib.cell>
 </#macro>
 
-<#macro section type="generic" id="" title="" class=true padded=false autoHeadingLevel=true headingLevel="" relHeadingLevel="" defaultHeadingLevel="" menuHtml="" menuClass="" menuLayout="" menuRole="nav-menu" requireMenu=false forceEmptyMenu=false hasContent=true titleClass="">
+<#macro section type="generic" id="" title="" class=true padded=false autoHeadingLevel=true headingLevel="" relHeadingLevel="" defaultHeadingLevel="" menuContent="" menuClass="" menuLayout="" menuRole="nav-menu" requireMenu=false forceEmptyMenu=false hasContent=true titleClass="">
     <@macrolib.section type=type id=id title=title class=class padded=padded autoHeadingLevel=autoHeadingLevel headingLevel=headingLevel relHeadingLevel=relHeadingLevel 
-        defaultHeadingLevel=defaultHeadingLevel menuHtml=menuHtml menuClass=menuClass menuLayout=menuLayout menuRole=menuRole requireMenu=requireMenu forceEmptyMenu=forceEmptyMenu 
+        defaultHeadingLevel=defaultHeadingLevel menuContent=menuContent menuClass=menuClass menuLayout=menuLayout menuRole=menuRole requireMenu=requireMenu forceEmptyMenu=forceEmptyMenu 
         hasContent=hasContent titleClass=titleClass><#nested /></@macrolib.section>
 </#macro>
 
