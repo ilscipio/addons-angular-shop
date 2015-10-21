@@ -18,6 +18,14 @@
 * ORIGINAL MACROS
 ************
  -->
+
+<#-- DEV NOTE: these are temporarily commented and replaced with following #include for dev purposes only;
+     final pattern T.B.D.
+     WARN: these may be out of date -->
+
+<#include "component://common/webcommon/includes/catoHtmlTemplateDefault.ftl"> 
+
+<#--
 <#macro htmlHeadOpen includeDocType=false>
   <@macrolib.htmlHeadOpen includeDocType=includeDocType/>
 </#macro>
@@ -50,7 +58,7 @@
     <#return macrolib.makeFields(type,labelType,labelLayout,labelArea,labelAreaExceptions,formName,formId)/>
 </#function>
 
-<#-- moved to override
+<#- moved to override
 <#macro field type="generic" label="" labelDetail="" name="" value="" valueType="generic" currentValue="" defaultValue="" class=true size=20 maxlength="" id="" onClick="" 
         disabled=false placeholder="" autoCompleteUrl="" mask=false alert="false" readonly=false rows="4" 
         cols="50" dateType="date" multiple="" checked=false collapse=false tooltip="" columns="" norows=false nocells=false nocontainer=""
@@ -65,7 +73,7 @@
         labelType=labelType labelLayout=labelLayout labelArea=labelArea description=description
         submitType=submitType text=text href=href src=src confirmMsg=confirmMsg><#nested /></@macrolib.field>            
 </#macro>
--->
+->
 
 <#macro fieldset id="" title="" class=true collapsed=false>
     <@macrolib.fieldset id=id title=title class=class collapsed=collapsed><#nested /></@macrolib.fieldset>
@@ -213,6 +221,7 @@
     <@macrolib.printVar key=key value=value><#nested /></@macrolib.printVar>
 </#macro>
 
+-->
 
 <#-- 
 *************
