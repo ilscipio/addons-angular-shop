@@ -228,6 +228,7 @@
 * OVERRIDES
 ************
  -->
+<#--
 <#macro field type="generic" label="" labelDetail="" name="" value="" valueType="generic" currentValue="" defaultValue="" class=true size=20 maxlength="" id="" onClick="" 
         disabled=false placeholder="" autoCompleteUrl="" mask=false alert="false" readonly=false rows="4" 
         cols="50" dateType="date" multiple="" checked=false collapse=false tooltip="" columns="" norows=false nocells=false nocontainer=""
@@ -241,4 +242,13 @@
         fieldFormName=fieldFormName formName=formName formId=formId postfix=postfix postfixSize=postfixSize required=required items=items autocomplete=autocomplete progressOptions=progressOptions 
         labelType=labelType labelLayout=labelLayout labelArea=labelArea description=description
         submitType=submitType text=text href=href src=src confirmMsg=confirmMsg><#nested /></@macrolib.field>         
+</#macro>
+-->
+
+<#macro menu args={} inlineArgs...>
+    <@macrolib.menu args=concatMaps(args, inlineArgs) htmlWrap="div"><#nested /></@macrolib.menu>
+</#macro>
+
+<#macro menuitem args={} inlineArgs...>
+    <@macrolib.menuitem args=concatMaps(args, inlineArgs) inlineItem=true><#nested /></@macrolib.menuitem>
 </#macro>

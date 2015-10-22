@@ -48,44 +48,54 @@
     <#-- Generic menu types -->
     "menu_generic" : "",  
     "menu_generic_item" : "", 
-    "menu_generic_itemlink" : "", 
+    "menu_generic_itemlink" : "",
+    "menu_generic_submit" : "", 
     "menu_button" : "btn-group",
     "menu_button_item" : "",
     "menu_button_itemlink" : "btn btn-xs btn-default",
+    "menu_button_submit" : "btn btn-xs btn-default",
     <#-- Main navigation menus -->
     "menu_main" : "dropdown-menu",
     "menu_main_wrap" : "dropdown",  
     "menu_main_item" : "dropdown-toggle",
     "menu_main_itemlink" : "javascript:;",
+    "menu_main_submit" : "",
     "menu_sidebar" : "nav navbar-nav side-nav", 
     "menu_sidebar_wrap" :"collapse navbar-collapse navbar-ex1-collapse",
     "menu_sidebar_item" : "",
     "menu_sidebar_itemlink" : "", 
+    "menu_sidebar_submit" : "",
     <#-- Tab and secondary navigation menus-->
     "menu_tab" : "btn-group", 
     "menu_tab_item" : "", 
-    "menu_tab_itemlink" : "btn btn-xs btn-default", 
+    "menu_tab_itemlink" : "btn btn-xs btn-default",
+    "menu_tab_submit" : "btn btn-xs btn-default", 
     "menu_subtab" : "btn-group",
     "menu_subtab_item" : "",
-    "menu_subtab_itemlink" : "btn btn-xs btn-default", 
+    "menu_subtab_itemlink" : "btn btn-xs btn-default",
+    "menu_subtab_submit" : "btn btn-xs btn-default", 
     <#-- Default section menu -->
     "menu_section" : "btn-group",
     "menu_section_item" : "",
-    "menu_section_itemlink" : "btn btn-xs btn-default", 
+    "menu_section_itemlink" : "btn btn-xs btn-default",
+    "menu_section_submit" : "btn btn-xs btn-default", 
     <#-- Default section menu inlined with title
         FIXME: looks too big/clumsy with these buttons (floats right of title) -->
     "menu_section_inline" : "btn-group",
     "menu_section_inline_item" : "",
-    "menu_section_inline_itemlink" : "btn btn-xs btn-default", 
+    "menu_section_inline_itemlink" : "btn btn-xs btn-default",
+    "menu_section_inline_submit" : "btn btn-xs btn-default", 
     <#-- default entry is used for any encountered menu types that have no specific entries in this hash -->    
     "menu_default" : "",  
     "menu_default_item" : "", 
-    "menu_default_itemlink" : "", 
+    "menu_default_itemlink" : "",
+    "menu_default_submit" : "", 
     
   <#-- Data and Tables -->
     "table_generic" : "",
     "table_generic_cellspacing" : "",
     "table_generic_rowtype" : "generic",    <#-- the default row type is normally "content", but generic tables need "generic" -->
+    "table_responsive_wrap" : "table-responsive", <#-- responsive table wrapping div element -->
     "table_data_list" : "table table-striped",
     "table_data_list_cellspacing" : 0,
     <#-- not enabled, but may be desirable: "table_data_list_autoaltrows" : true, -->
