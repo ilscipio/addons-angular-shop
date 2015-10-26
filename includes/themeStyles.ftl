@@ -38,6 +38,7 @@
     "postfix" : "postfix",
     "hidden" : "hide",
     "icon" : "fa fa-fw",
+    "icon_prefix" : "fa fa-",
     "icon_button" : "fa-widget",
     "icon_button_value" : "&#xf214;",
     "icon_calendar" : "fa-calendar",
