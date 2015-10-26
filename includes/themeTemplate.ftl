@@ -284,3 +284,31 @@ because in general we wish to override selectively, not include selectively.
         </div>
     </div>
 </#macro>
+
+<#macro nav type="inline">
+    <#switch type>
+        <#case "magellan">
+            <nav class="navbar navbar-default navbar-static-top"">
+              <div class="container">
+                <ul class="nav navbar-nav">
+                <#nested>
+                </ul>
+              </div>
+            </nav>
+        <#break>
+        <#case "breadcrumbs">
+            <ul class="${styles.nav_breadcrumbs!}">
+                <#nested>
+            </ul>
+        <#break>
+        <#default>
+            <ul class="${styles.list_inline!} ${styles.nav_subnav!}">
+              <#nested>
+            </ul>
+        <#break>
+    </#switch>
+</#macro>
+
+<#macro mli arrival="">
+    <li><#nested></li>
+</#macro>
