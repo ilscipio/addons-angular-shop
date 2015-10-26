@@ -258,6 +258,21 @@ because in general we wish to override selectively, not include selectively.
         <#local id = "field_id_${renderSeqNumber!}_${fieldIdNum!0}">
    </#if>
 
+    <#local classes = "${styles.grid_large!}12"/>
+    <#local columnspostfix = 0/>
+    <#if postfix>
+        <#local columnspostfix = postfixSize/>
+        <#local collapse = true/>
+        <#local classes = "${styles.grid_small!}${12-columnspostfix} ${styles.grid_large!}${12-columnspostfix}"/>
+    </#if>
+
+    <#local class = makeClassesArg(class, "")>  
+    <#if required && (!containsStyleName(class, "required"))>
+        <#local class = (class + " required")?trim>
+    </#if>
+    
+    <@row collapse=collapse!false norows=norows> 
+    <@cell nocells=(nocells)>
     <#if labelType?has_content>
       <#local effLabelType = labelType>
     <#else>
@@ -274,7 +289,8 @@ because in general we wish to override selectively, not include selectively.
         </#if> 
         <#if labelDetail?has_content>
             ${labelDetail}
-        </#if>    
+        </#if>
+            
         
         
    <div class="form-group input-group">
@@ -285,7 +301,9 @@ because in general we wish to override selectively, not include selectively.
             fieldFormName=fieldFormName formName=formName formId=formId postfix=postfix postfixSize=postfixSize required=required items=items autocomplete=autocomplete progressOptions=progressOptions 
             labelType=labelType labelLayout=labelLayout labelArea=labelArea description=description
             submitType=submitType text=text href=href src=src confirmMsg=confirmMsg><#nested /></@defaultlib.field>
-   </div>         
+   </div>
+   </@cell>
+   </@row>         
 </#macro>
 
 
