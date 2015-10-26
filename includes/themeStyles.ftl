@@ -113,7 +113,7 @@
     "table_default_autoaltrows" : false,
     "table_default_rowtype" : "content",
     
-    "table_basic" : "basic-table",  <#-- this is not a table type, but simply the basic-table style -->
+    "table_basic" : "table table-condensed",  <#-- this is not a table type, but simply the basic-table style -->
     "row_reg" : "even",
     "row_alt" : "odd",
     "row_selected" : "selected",
