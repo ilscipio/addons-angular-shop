@@ -242,22 +242,33 @@ because in general we wish to override selectively, not include selectively.
 * OVERRIDES
 ************
  -->
-<#--
+
 <#macro field type="generic" label="" labelDetail="" name="" value="" valueType="generic" currentValue="" defaultValue="" class=true size=20 maxlength="" id="" onClick="" 
         disabled=false placeholder="" autoCompleteUrl="" mask=false alert="false" readonly=false rows="4" 
         cols="50" dateType="date" multiple="" checked=false collapse=false tooltip="" columns="" norows=false nocells=false nocontainer=""
         fieldFormName="" formName="" formId="" postfix=false postfixSize=1 required=false items=[] autocomplete=true progressOptions={} 
         labelType="" labelLayout="" labelArea="" description=""
         submitType="input" text="" href="" src="" confirmMsg="">
-   
-   <@defaultlib.field type=type label=label labelDetail=labelDetail name=name value=value valueType=valueType currentValue=currentValue defaultValue=defaultValue class=class size=size maxlength=maxlength id=id onClick=onClick 
-        disabled=disabled placeholder=placeholder autoCompleteUrl=autoCompleteUrl mask=mask alert=alert readonly=readonly rows=rows 
-        cols=cols dateType=dateType multiple=multiple checked=checked collapse=collapse tooltip=tooltip columns=columns norows=norows nocells=nocells nocontainer=nocontainer
-        fieldFormName=fieldFormName formName=formName formId=formId postfix=postfix postfixSize=postfixSize required=required items=items autocomplete=autocomplete progressOptions=progressOptions 
-        labelType=labelType labelLayout=labelLayout labelArea=labelArea description=description
-        submitType=submitType text=text href=href src=src confirmMsg=confirmMsg><#nested /></@defaultlib.field>         
+   <#local fieldIdNum = getRequestVar("catoFieldIdNum")!0>
+   <#local fieldIdNum = fieldIdNum + 1 />
+   <#local dummy = setRequestVar("catoFieldIdNum", fieldIdNum)>
+   <#local class = makeClassesArg(class, "form-control")/>
+   <#if !id?has_content>
+        <#-- FIXME? renderSeqNumber usually empty... where come from? should be as request attribute also? -->
+        <#local id = "field_id_${renderSeqNumber!}_${fieldIdNum!0}">
+   </#if>     
+   <label class="control-label" <#if id?has_content> for="${id}"</#if>>Input group with success</label>     
+   <div class="form-group input-group">
+        <#if label?has_content><span class="input-group-addon">${label!}</span></#if>
+        <@defaultlib.field type=type label="" labelDetail=labelDetail name=name value=value valueType=valueType currentValue=currentValue defaultValue=defaultValue class=class size=size maxlength=maxlength id=id onClick=onClick 
+            disabled=disabled placeholder=placeholder autoCompleteUrl=autoCompleteUrl mask=mask alert=alert readonly=readonly rows=rows
+            cols=cols dateType=dateType multiple=multiple checked=checked collapse=collapse tooltip=tooltip columns=columns norows=norows nocells=nocells nocontainer="true"
+            fieldFormName=fieldFormName formName=formName formId=formId postfix=postfix postfixSize=postfixSize required=required items=items autocomplete=autocomplete progressOptions=progressOptions 
+            labelType=labelType labelLayout=labelLayout labelArea=labelArea description=description
+            submitType=submitType text=text href=href src=src confirmMsg=confirmMsg><#nested /></@defaultlib.field>
+   </div>         
 </#macro>
--->
+
 
 <#macro menu args={} inlineArgs...>
     <@defaultlib.menu args=concatMaps(args, inlineArgs) htmlWrap="div"><#nested /></@defaultlib.menu>
