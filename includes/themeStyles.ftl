@@ -28,7 +28,7 @@
     "tiny" : "btn-xs",
     "small" : "btn-sm",
     "medium" : "btn-md",
-    "large" : "btn-xl",
+    "large" : "btn-lg",
     "round" : "round",
     "radius" : "radius",
     "expand" : "expand",
