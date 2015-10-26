@@ -244,7 +244,7 @@
     "pricing_bullet" : "list-group-item",
 
   <#-- Modal -->
-    "modal_wrap" : "reveal-modal",
+    "modal_wrap" : "modal fade",
 
   <#-- Chart -->
     "chart_legend" : "chart-legend",

@@ -266,3 +266,21 @@ because in general we wish to override selectively, not include selectively.
 <#macro menuitem args={} inlineArgs...>
     <@defaultlib.menuitem args=concatMaps(args, inlineArgs) inlineItem=true><#nested /></@defaultlib.menuitem>
 </#macro>
+
+<#macro modal id label href="" icon="">
+    <a href="${href!"#"}" data-toggle="modal" data-target="#${id}_modal"><#if icon?has_content><i class="${icon!}"></i> </#if>${label}</a>
+    <div id="${id}_modal" class="${styles.modal_wrap!}" role="dialog">
+        <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <#nested>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</#macro>
