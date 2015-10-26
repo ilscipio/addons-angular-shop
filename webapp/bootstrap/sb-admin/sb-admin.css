@@ -243,16 +243,17 @@ ul.btn-group li{
 	float:left;
 }
 
+.btn-group > * {
+    display: inline-block;
+    float: left;
+}
+
 /*Tables*/
 .table th, .table td { 
      border-top: none !important; 
  } 
 
 /*Utility Classes*/
-.btn-group > * {
-	display: inline-block;
-    float: left;
-}
 
 .close-reveal-modal {display:none;}
 
