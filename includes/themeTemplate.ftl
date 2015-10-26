@@ -256,8 +256,27 @@ because in general we wish to override selectively, not include selectively.
    <#if !id?has_content>
         <#-- FIXME? renderSeqNumber usually empty... where come from? should be as request attribute also? -->
         <#local id = "field_id_${renderSeqNumber!}_${fieldIdNum!0}">
-   </#if>     
-   <label class="control-label" <#if id?has_content> for="${id}"</#if>>Input group with success</label>     
+   </#if>
+
+    <#if labelType?has_content>
+      <#local effLabelType = labelType>
+    <#else>
+      <#local effLabelType = (fieldsInfo.labelType)!"">
+    </#if>
+    <#if labelLayout?has_content>
+      <#local effLabelLayout = labelLayout>
+    <#else>
+      <#local effLabelLayout = (fieldsInfo.labelLayout)!"">
+    </#if>        
+        <#if label?has_content>
+            <label class="control-label"<#if id?has_content> for="${id}"</#if>>${label}</label>
+            <#if required>*</#if>
+        </#if> 
+        <#if labelDetail?has_content>
+            ${labelDetail}
+        </#if>    
+        
+        
    <div class="form-group input-group">
         <#if label?has_content><span class="input-group-addon">${label!}</span></#if>
         <@defaultlib.field type=type label="" labelDetail=labelDetail name=name value=value valueType=valueType currentValue=currentValue defaultValue=defaultValue class=class size=size maxlength=maxlength id=id onClick=onClick 
