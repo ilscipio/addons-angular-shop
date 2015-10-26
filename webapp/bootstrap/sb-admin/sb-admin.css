@@ -249,6 +249,11 @@ ul.btn-group li{
  } 
 
 /*Utility Classes*/
+.btn-group > * {
+	display: inline-block;
+    float: left;
+}
+
 .close-reveal-modal {display:none;}
 
 .row.display {
