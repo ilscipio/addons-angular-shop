@@ -69,11 +69,11 @@
     <#-- Tab and secondary navigation menus-->
     "menu_tab" : "nav nav-tabs", 
     "menu_tab_item" : "", 
-    "menu_tab_itemlink" : "",
+    "menu_tab_itemlink" : "btn btn-sm btn-default",
     "menu_tab_submit" : "", 
     "menu_subtab" : "nav nav-tabs",
     "menu_subtab_item" : "",
-    "menu_subtab_itemlink" : "",
+    "menu_subtab_itemlink" : "btn btn-sm btn-default",
     "menu_subtab_submit" : "", 
     <#-- Default section menu -->
     "menu_section" : "btn-group",

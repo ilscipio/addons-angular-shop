@@ -107,15 +107,10 @@
     <#-- Get surrounding menu information -->
     <#local menu = readRequestStack("renderMenuStack")>
     <#if menu.style?has_content>
-    <#switch menu.style>
-        <#case "menu-button">
-    <#if linkStr?has_content>${linkStr}</#if><#rt/>
-        <#break>
-        <#case "button-bar">
-    <#if linkStr?has_content>${linkStr}</#if><#rt/>
-        <#break>
-        <#default>
-    <li<#if style?has_content> class="${style}"</#if><#if toolTip?has_content> title="${toolTip}"</#if>><#if linkStr?has_content>${linkStr}</#if><#if containsNestedMenus><ul></#if><#rt/>
-    </#switch>
+        <#if menu.style?contains("menu-button") || menu.style?contains("button-bar")>
+            <#if linkStr?has_content>${linkStr}</#if><#rt/>
+        <#else>
+            <li<#if style?has_content> class="${style}"</#if><#if toolTip?has_content> title="${toolTip}"</#if>><#if linkStr?has_content>${linkStr}</#if><#if containsNestedMenus><ul></#if><#rt/>
+        </#if>
     </#if>    
 </#macro>
