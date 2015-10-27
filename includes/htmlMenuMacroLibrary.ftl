@@ -78,7 +78,7 @@
 
 <#macro renderMenuEnd boundaryComment="" style="" inlineEntries=false menuCtxRole="">
   <#local styleSet = splitStyleNamesToSet(style)>
-  <#local menu = readRequestStack("renderMenuStack")>
+  <#local menu = popRequestStack("renderMenuStack")>
   <#if !inlineEntries>
     <#if styleSet.contains("menu-main")>
             </ul>
