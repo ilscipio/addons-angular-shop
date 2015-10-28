@@ -308,7 +308,6 @@ because in general we wish to override selectively, not include selectively.
 
 
 <#macro menu args={} inlineArgs...>
-    <#-- DEV WARN: currently the htmlWrap does not apply to @section menus; fix is WIP (part of a bigger fix; please do not try to fix at the moment) -->
     <@defaultlib.menu args=concatMaps(args, inlineArgs) htmlWrap="div"><#nested /></@defaultlib.menu>
 </#macro>
 
