@@ -90,6 +90,12 @@
     <#-- default entry is used for any encountered menu types that have no specific entries in this hash -->    
     "menu_default" : "",  
     "menu_default_item" : "", 
+    "menu_default_itemdisabled" : "disabled", 
+    "menu_default_itemactive" : "active", 
+    "menu_default_itemselected" : "selected", 
+    "menu_default_item_contentdisabled" : "disabled", 
+    "menu_default_item_contentactive" : "active", 
+    "menu_default_item_contentselected" : "selected", 
     "menu_default_item_link" : "",
     "menu_default_item_text" : "text-entry",
     "menu_default_item_submit" : "", 
