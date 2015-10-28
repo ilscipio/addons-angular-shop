@@ -44,6 +44,7 @@
     "icon_calendar" : "fa-calendar",
     "icon_arrow" : "fa-arrow-right",
     "icon_list" : "fa-list",
+    "heading_level_prefix" : "heading-level-",     
     
   <#-- Menus -->  
     <#-- Generic menu types -->
