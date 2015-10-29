@@ -5,8 +5,8 @@
 * Intended to be swappable.
 *
 * Overrides the default CATO styles located in 
-* catoHtmlVariablesDefault.ftl - ofbiz_foundation/framework/common/webcommon/includes
-*
+* variablesHtml.ftl - ofbiz_foundation/framework/common/webcommon/includes/cato/lib/default/
+* 
 -->
 
 <#-- 

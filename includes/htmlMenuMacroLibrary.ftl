@@ -4,9 +4,6 @@
 * Automatically included at all times.
 * Intended to be swappable.
 *
-* Overrides the default CATO styles located in 
-* catoHtmlTemplateDefault.ftl - ofbiz_foundation/framework/common/webcommon/includes
-*
 -->
 
 <#-- Imports the default macros and allows overrides-->
