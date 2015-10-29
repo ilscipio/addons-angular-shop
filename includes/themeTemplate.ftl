@@ -262,7 +262,6 @@ because in general we wish to override selectively, not include selectively.
     <#local columnspostfix = 0/>
     <#if postfix>
         <#local columnspostfix = postfixSize/>
-        <#local collapse = true/>
         <#local classes = "${styles.grid_small!}${12-columnspostfix} ${styles.grid_large!}${12-columnspostfix}"/>
     </#if>
 
@@ -271,7 +270,7 @@ because in general we wish to override selectively, not include selectively.
         <#local class = (class + " required")?trim>
     </#if>
     
-    <@row collapse=collapse!false norows=norows> 
+    <@row collapse=false norows=norows> 
     <@cell nocells=(nocells)>
     <#if labelType?has_content>
       <#local effLabelType = labelType>
