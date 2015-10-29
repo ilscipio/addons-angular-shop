@@ -181,10 +181,10 @@
     "grid_columns_10" : "col-lg-10 col-md-9",
     "grid_columns_11" : "col-lg-11 col-md-10",
     "grid_columns_12" : "col-lg-12",
-    "grid_centered" : "centered",
-    "grid_small_centered" : "col-sm-centered",
-    "grid_medium_centered" : "col-md-centered",
-    "grid_large_centered" : "col-lg-centered",
+    "grid_centered" : "text-centered",
+    "grid_small_centered" : "text-centered",
+    "grid_medium_centered" : "text-centered",
+    "grid_large_centered" : "text-centered",
     "grid_sidebar_0_main" : "col-lg-12",
     "grid_sidebar_1_main" : "col-lg-12",
     "grid_sidebar_1_side" : "",
@@ -235,9 +235,9 @@
     "panel_head" : "panel-heading",
     "panel_title" : "panel-title",
     "panel_body" : "panel-body",
-    "login_wrap" : "",                  <#-- the login box is a special form of a panel in this case -->
-    "login_header": "",
-    "login_body" : "",
+    "login_wrap" : "modal-dialog modal-content",                  <#-- the login box is a special form of a panel in this case -->
+    "login_header": "modal-header",
+    "login_body" : "modal-body",
 
   <#-- Alert Box -->
     "alert_wrap" : "alert",    
@@ -246,8 +246,8 @@
     "alert_type_success" : "alert-success",
     "alert_type__warning" : "alert-warning",
     "alert_type_secondary" : "alert-secondary",  
-    "alert_type_alert" : "alert-danger",        
-    "alert_type_error" : "alert-danger",             
+    "alert_type_alert" : "",        
+    "alert_type_error" : "box",             
 
   <#-- Pricing Tables -->
     "pricing_wrap" : "panel panel-primary",
