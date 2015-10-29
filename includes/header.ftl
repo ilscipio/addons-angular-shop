@@ -320,6 +320,7 @@ so for now we have to split the screens in half and rely on the menu widget rend
                 </li>
             </ul>
             <ul class="nav navbar-left top-nav">
+                    <#if userLogin??>
                     <li class="dropdown">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-dashboard"></i> ${uiLabelMap["CommonPrimaryApps"]} <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="menuPrimary" class="dropdown-menu">
@@ -332,5 +333,5 @@ so for now we have to split the screens in half and rely on the menu widget rend
                             <@secondaryAppsMenu/>
                         </ul>
                     </li>
-            
+                    </#if>
  

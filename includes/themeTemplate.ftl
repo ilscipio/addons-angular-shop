@@ -282,14 +282,15 @@ because in general we wish to override selectively, not include selectively.
       <#local effLabelLayout = labelLayout>
     <#else>
       <#local effLabelLayout = (fieldsInfo.labelLayout)!"">
-    </#if>        
+    </#if>
+        <#--        
         <#if label?has_content>
             <label class="control-label"<#if id?has_content> for="${id}"</#if>>${label}</label>
             <#if required>*</#if>
         </#if> 
         <#if labelDetail?has_content>
             ${labelDetail}
-        </#if>
+        </#if>-->
             
         
         

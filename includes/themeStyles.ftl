@@ -44,6 +44,9 @@
     "icon_calendar" : "fa-calendar",
     "icon_arrow" : "fa-arrow-right",
     "icon_list" : "fa-list",
+    "icon_user" : "fa-user",
+    "icon_password" : "fa-lock",
+    "icon_tenant" : "fa-cloud",
     "heading_level_prefix" : "heading-level-",     
     
   <#-- Menus -->  
@@ -232,6 +235,9 @@
     "panel_head" : "panel-heading",
     "panel_title" : "panel-title",
     "panel_body" : "panel-body",
+    "login_wrap" : "",                  <#-- the login box is a special form of a panel in this case -->
+    "login_header": "",
+    "login_body" : "",
 
   <#-- Alert Box -->
     "alert_wrap" : "alert",    
