@@ -191,8 +191,8 @@ because in general we wish to override selectively, not include selectively.
     <@defaultlib.td class=class id=id wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.td>
 </#macro>
 
-<#macro dataRowClassStr class=true alt="" selected="">
-    <@defaultlib.dataRowClassStr class=class alt=alt selected=selected><#nested /></@defaultlib.dataRowClassStr>
+<#macro tableRowClassStr class=true alt="" selected="">
+    <@defaultlib.tableRowClassStr class=class alt=alt selected=selected><#nested /></@defaultlib.tableRowClassStr>
 </#macro>
 
 <#macro tile type="normal" title="" class=true id="" link="" color=0 icon="" image="">
