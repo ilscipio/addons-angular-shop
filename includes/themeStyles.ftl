@@ -236,9 +236,9 @@
     "panel_head" : "panel-heading",
     "panel_title" : "panel-title",
     "panel_body" : "panel-body",
-    "login_wrap" : "panel panel-default",                  <#-- the login box is a special form of a panel in this case -->
-    "login_header": "panel-heading",
-    "login_body" : "panel-body",
+    "login_wrap" : "modal-dialog modal-content",                  <#-- the login box is a special form of a panel in this case -->
+    "login_header": "modal-header",
+    "login_body" : "modal-body",
 
   <#-- Alert Box -->
     "alert_wrap" : "alert",    
