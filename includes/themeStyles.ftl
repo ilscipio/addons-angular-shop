@@ -47,6 +47,7 @@
     "icon_user" : "fa-user",
     "icon_password" : "fa-lock",
     "icon_tenant" : "fa-cloud",
+    "icon_error" : "fa-warning",
     "heading_level_prefix" : "heading-level-",     
     
   <#-- Menus -->  
