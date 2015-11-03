@@ -265,7 +265,7 @@ because in general we wish to override selectively, not include selectively.
         <#local classes = "${styles.grid_small!}${12-columnspostfix} ${styles.grid_large!}${12-columnspostfix}"/>
     </#if>
 
-    <#local class = compileClassArg(class, "")>  
+    <#local class = compileClassArg(class)>  
     <#if required && (!containsStyleName(class, "required"))>
         <#local class = (class + " required")?trim>
     </#if>
