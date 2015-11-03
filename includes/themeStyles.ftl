@@ -34,6 +34,7 @@
     "expand" : "expand",
     "collapse" : "",
     "collapsed" : "",
+    "required" : "required",
     "prefix" : "prefix",
     "postfix" : "postfix",
     "hidden" : "hide",
