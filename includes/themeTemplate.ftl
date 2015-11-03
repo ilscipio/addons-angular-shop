@@ -211,8 +211,8 @@ because in general we wish to override selectively, not include selectively.
     <@defaultlib.chartdata title=title value=value value2=value2><#nested /></@defaultlib.chartdata>
 </#macro>
 
-<#macro progress value=0 id="" type="" class=true showValue=false wrapperClass=true progressOptions={}>
-    <@defaultlib.progress value=value id=id type=type class=class showValue=showValue wrapperClass=wrapperClass progressOptions=progressOptions><#nested /></@defaultlib.progress>
+<#macro progress value=0 id="" type="" class=true showValue=false containerClass=true progressOptions={}>
+    <@defaultlib.progress value=value id=id type=type class=class showValue=showValue containerClass=containerClass progressOptions=progressOptions><#nested /></@defaultlib.progress>
 </#macro>
 
 <#macro progressScript options={} htmlwrap=false>
