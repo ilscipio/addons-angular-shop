@@ -252,7 +252,7 @@ because in general we wish to override selectively, not include selectively.
    <#local fieldIdNum = getRequestVar("catoFieldIdNum")!0>
    <#local fieldIdNum = fieldIdNum + 1 />
    <#local dummy = setRequestVar("catoFieldIdNum", fieldIdNum)>
-   <#local class = makeClassesArg(class, "form-control")/>
+   <#local class = compileClassArg(class, "form-control")/>
    <#if !id?has_content>
         <#-- FIXME? renderSeqNumber usually empty... where come from? should be as request attribute also? -->
         <#local id = "field_id_${renderSeqNumber!}_${fieldIdNum!0}">
@@ -265,7 +265,7 @@ because in general we wish to override selectively, not include selectively.
         <#local classes = "${styles.grid_small!}${12-columnspostfix} ${styles.grid_large!}${12-columnspostfix}"/>
     </#if>
 
-    <#local class = makeClassesArg(class, "")>  
+    <#local class = compileClassArg(class, "")>  
     <#if required && (!containsStyleName(class, "required"))>
         <#local class = (class + " required")?trim>
     </#if>
