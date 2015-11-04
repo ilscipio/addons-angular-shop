@@ -160,6 +160,7 @@
   <#-- Grid -->
     "grid_row" : "row",
     "grid_cell" : "columns",
+    "grid_cell_default" : "col-lg-12",
     "grid_display" : "display",      <#-- display grid -->
     "grid_end" : "end",
     "grid_small" : "col-sm-",   
