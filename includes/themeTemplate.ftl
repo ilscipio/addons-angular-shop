@@ -245,7 +245,7 @@ because in general we wish to override selectively, not include selectively.
 
 <#macro field type="generic" label="" labelDetail="" name="" value="" valueType="generic" currentValue="" defaultValue="" class="" size=20 maxlength="" id="" onClick="" 
         disabled=false placeholder="" autoCompleteUrl="" mask=false alert="false" readonly=false rows="4" 
-        cols="50" dateType="date" multiple="" checked=false collapse=false tooltip="" columns="" norows=false nocells=false nocontainer=""
+        cols="50" dateType="date" multiple="" checked=false collapse=false tooltip="" columns="" norows=false nocells=false container=""
         fieldFormName="" formName="" formId="" postfix=false postfixSize=1 required=false items=[] autocomplete=true progressOptions={} 
         labelType="" labelLayout="" labelArea="" description=""
         submitType="input" text="" href="" src="" confirmMsg="">
@@ -297,7 +297,7 @@ because in general we wish to override selectively, not include selectively.
         <#if label?has_content><span class="input-group-addon">${label!}</span></#if>
         <@defaultlib.field type=type label="" labelDetail=labelDetail name=name value=value valueType=valueType currentValue=currentValue defaultValue=defaultValue class=class size=size maxlength=maxlength id=id onClick=onClick 
             disabled=disabled placeholder=placeholder autoCompleteUrl=autoCompleteUrl mask=mask alert=alert readonly=readonly rows=rows
-            cols=cols dateType=dateType multiple=multiple checked=checked collapse=collapse tooltip=tooltip columns=columns norows=norows nocells=nocells nocontainer="true"
+            cols=cols dateType=dateType multiple=multiple checked=checked collapse=collapse tooltip=tooltip columns=columns norows=norows nocells=nocells container="false"
             fieldFormName=fieldFormName formName=formName formId=formId postfix=postfix postfixSize=postfixSize required=required items=items autocomplete=autocomplete progressOptions=progressOptions 
             labelType=labelType labelLayout=labelLayout labelArea=labelArea description=description
             submitType=submitType text=text href=href src=src confirmMsg=confirmMsg><#nested /></@defaultlib.field>
