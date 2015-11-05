@@ -44,22 +44,22 @@ because in general we wish to override selectively, not include selectively.
   <@defaultlib.htmlHeadOpen includeDocType=includeDocType/>
 </#macro>
 
-<#macro row class=true id="" collapse=false norows=false alt="" selected="">
+<#macro row class="" id="" collapse=false norows=false alt="" selected="">
     <@defaultlib.row class=class id=id collapse=collapse norows=norows alt=alt selected=selected><#nested /></@defaultlib.row>
 </#macro>
 
-<#macro cell columns=-1 small=-1 medium=-1 large=-1 offset=-1 smallOffset=-1 mediumOffset=-1 largeOffset=-1 class=true id="" collapse=false nocells=false last=false>
+<#macro cell columns=-1 small=-1 medium=-1 large=-1 offset=-1 smallOffset=-1 mediumOffset=-1 largeOffset=-1 class="" id="" collapse=false nocells=false last=false>
     <@defaultlib.cell columns=columns small=small medium=medium large=large offset=offset smallOffset=smallOffset mediumOffset=mediumOffset 
         largeOffset=largeOffset class=class id=id collapse=collapse nocells=nocells last=last><#nested /></@defaultlib.cell>
 </#macro>
 
-<#macro section type="generic" id="" title="" class=true padded=false autoHeadingLevel=true headingLevel="" relHeadingLevel="" defaultHeadingLevel="" menuContent="" menuClass="" menuLayout="" menuRole="nav-menu" requireMenu=false forceEmptyMenu=false hasContent=true titleClass="">
+<#macro section type="generic" id="" title="" class="" padded=false autoHeadingLevel=true headingLevel="" relHeadingLevel="" defaultHeadingLevel="" menuContent="" menuClass="" menuLayout="" menuRole="nav-menu" requireMenu=false forceEmptyMenu=false hasContent=true titleClass="">
     <@defaultlib.section type=type id=id title=title class=class padded=padded autoHeadingLevel=autoHeadingLevel headingLevel=headingLevel relHeadingLevel=relHeadingLevel 
         defaultHeadingLevel=defaultHeadingLevel menuContent=menuContent menuClass=menuClass menuLayout=menuLayout menuRole=menuRole requireMenu=requireMenu forceEmptyMenu=forceEmptyMenu 
         hasContent=hasContent titleClass=titleClass><#nested /></@defaultlib.section>
 </#macro>
 
-<#macro heading elemType=true level="" relLevel="" class=true id="" levelClassPrefix="heading-level-" consumeLevel="" containerElemType=false containerClass=true attribs={} inlineAttribs...>
+<#macro heading elemType=true level="" relLevel="" class="" id="" levelClassPrefix="heading-level-" consumeLevel="" containerElemType=false containerClass="" attribs={} inlineAttribs...>
     <@defaultlib.heading elemType=elemType level=level relLevel=relLevel class=class id=id levelClassPrefix=levelClassPrefix consumeLevel=consumeLevel 
         containerElemType=containerElemType containerClass=containerClass attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.heading>
 </#macro>
@@ -73,7 +73,7 @@ because in general we wish to override selectively, not include selectively.
 </#function>
 
 <#- moved to override
-<#macro field type="generic" label="" labelDetail="" name="" value="" valueType="generic" currentValue="" defaultValue="" class=true size=20 maxlength="" id="" onClick="" 
+<#macro field type="generic" label="" labelDetail="" name="" value="" valueType="generic" currentValue="" defaultValue="" class="" size=20 maxlength="" id="" onClick="" 
         disabled=false placeholder="" autoCompleteUrl="" mask=false alert="false" readonly=false rows="4" 
         cols="50" dateType="date" multiple="" checked=false collapse=false tooltip="" columns="" norows=false nocells=false nocontainer=""
         fieldFormName="" formName="" formId="" postfix=false postfixSize=1 required=false items=[] autocomplete=true progressOptions={} 
@@ -89,11 +89,11 @@ because in general we wish to override selectively, not include selectively.
 </#macro>
 ->
 
-<#macro fieldset id="" title="" class=true collapsed=false>
+<#macro fieldset id="" title="" class="" collapsed=false>
     <@defaultlib.fieldset id=id title=title class=class collapsed=collapsed><#nested /></@defaultlib.fieldset>
 </#macro>
 
-<#macro form type="input" name="" id="" class=true attribs={} inlineAttribs...>
+<#macro form type="input" name="" id="" class="" attribs={} inlineAttribs...>
     <@defaultlib.form type=type name=name id=id class=class attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.form>
 </#macro>
 
@@ -101,7 +101,7 @@ because in general we wish to override selectively, not include selectively.
     <@defaultlib.modal id=id label=label href=href icon=icon><#nested /></@defaultlib.modal>
 </#macro>
 
-<#macro paginate mode="single" type="default" layout="default" noResultsMode="default" paginateOn=true url="" class=true viewIndex=0 listSize=0 viewSize=1 altParam=false 
+<#macro paginate mode="single" type="default" layout="default" noResultsMode="default" paginateOn=true url="" class="" viewIndex=0 listSize=0 viewSize=1 altParam=false 
     forcePost=false paramStr="" viewIndexFirst=0 showCount=true countMsg=""
     paginateToggle=false paginateToggleString="" paginateToggleOnValue="Y" paginateToggleOffValue="N">
     <@defaultlib.paginate mode=mode type=type layout=layout noResultsMode=noResultsMode paginateOn=paginateOn url=url class=class viewIndex=viewIndex listSize=listSize viewSize=viewSize
@@ -113,15 +113,15 @@ because in general we wish to override selectively, not include selectively.
     <@defaultlib.script type=type language=language src=src ofbizContentSrc=ofbizContentSrc forceInline=forceInline><#nested /></@defaultlib.script>
 </#macro>
 
-<#macro alert type="info" class=true id="">
+<#macro alert type="info" class="" id="">
     <@defaultlib.alert type=type class=class id=id><#nested /></@defaultlib.alert>
 </#macro>
 
-<#macro resultMsg class=true id="">
+<#macro resultMsg class="" id="">
     <@defaultlib.resultMsg class=class id=id><#nested /></@defaultlib.resultMsg>
 </#macro>
 
-<#macro errorMsg type="error" class=true id="">
+<#macro errorMsg type="error" class="" id="">
     <@defaultlib.errorMsg type=type class=class id=id><#nested /></@defaultlib.errorMsg>
 </#macro>
 
@@ -137,7 +137,7 @@ because in general we wish to override selectively, not include selectively.
     <@defaultlib.pli type=type><#nested /></@defaultlib.pli>
 </#macro>
 
-<#macro grid type="" class=true columns=4>
+<#macro grid type="" class="" columns=4>
     <@defaultlib.grid type=type class=class columns=columns><#nested /></@defaultlib.grid>
 </#macro>
 
@@ -161,41 +161,41 @@ because in general we wish to override selectively, not include selectively.
     <@defaultlib.code type=type><#nested /></@defaultlib.code>
 </#macro>
 
-<#macro table type="generic" class=true id="" cellspacing=true scrollable=false autoAltRows="" firstRowAlt="" inheritAltRows=false useFootAltRows=false wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
+<#macro table type="generic" class="" id="" cellspacing=true scrollable=false autoAltRows="" firstRowAlt="" inheritAltRows=false useFootAltRows=false wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
     <@defaultlib.table type=type class=class id=id cellspacing=cellspacing scrollable=scrollable scrollable=scrollable firstRowAlt=firstRowAlt 
         inheritAltRows=inheritAltRows useFootAltRows=useFootAltRows wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.table>
 </#macro>
 
-<#macro thead class=true id="" wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
+<#macro thead class="" id="" wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
     <@defaultlib.thead class=class id=id wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.thead>
 </#macro>
 
-<#macro tbody class=true id="" wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
+<#macro tbody class="" id="" wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
     <@defaultlib.tbody class=class id=id wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.tbody>
 </#macro>
 
-<#macro tfoot class=true id="" wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
+<#macro tfoot class="" id="" wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
     <@defaultlib.tfoot class=class id=id wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.tfoot>
 </#macro>
 
-<#macro tr type="" class=true id="" useAlt="" alt="" groupLast="" groupParent="" selected="" wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
+<#macro tr type="" class="" id="" useAlt="" alt="" groupLast="" groupParent="" selected="" wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
     <@defaultlib.tr type=type class=class id=id useAlt=useAlt alt=alt groupLast=groupLast groupParent=groupParent selected=selected wrapIf=wrapIf openOnly=openOnly 
         closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.tr>
 </#macro>
 
-<#macro th class=true id="" wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
+<#macro th class="" id="" wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
     <@defaultlib.th class=class id=id wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.th>
 </#macro>
 
-<#macro td class=true id="" wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
+<#macro td class="" id="" wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
     <@defaultlib.td class=class id=id wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.td>
 </#macro>
 
-<#macro tableRowClassStr class=true alt="" selected="">
+<#macro tableRowClassStr class="" alt="" selected="">
     <@defaultlib.tableRowClassStr class=class alt=alt selected=selected><#nested /></@defaultlib.tableRowClassStr>
 </#macro>
 
-<#macro tile type="normal" title="" class=true id="" link="" color=0 icon="" image="">
+<#macro tile type="normal" title="" class="" id="" link="" color=0 icon="" image="">
     <@defaultlib.tile type=type title=title class=class id=id link=link color=color icon=icon image=image><#nested /></@defaultlib.tile>
 </#macro>
 
@@ -211,7 +211,7 @@ because in general we wish to override selectively, not include selectively.
     <@defaultlib.chartdata title=title value=value value2=value2><#nested /></@defaultlib.chartdata>
 </#macro>
 
-<#macro progress value=0 id="" type="" class=true showValue=false containerClass=true progressOptions={}>
+<#macro progress value=0 id="" type="" class="" showValue=false containerClass="" progressOptions={}>
     <@defaultlib.progress value=value id=id type=type class=class showValue=showValue containerClass=containerClass progressOptions=progressOptions><#nested /></@defaultlib.progress>
 </#macro>
 
@@ -243,7 +243,7 @@ because in general we wish to override selectively, not include selectively.
 ************
  -->
 
-<#macro field type="generic" label="" labelDetail="" name="" value="" valueType="generic" currentValue="" defaultValue="" class=true size=20 maxlength="" id="" onClick="" 
+<#macro field type="generic" label="" labelDetail="" name="" value="" valueType="generic" currentValue="" defaultValue="" class="" size=20 maxlength="" id="" onClick="" 
         disabled=false placeholder="" autoCompleteUrl="" mask=false alert="false" readonly=false rows="4" 
         cols="50" dateType="date" multiple="" checked=false collapse=false tooltip="" columns="" norows=false nocells=false nocontainer=""
         fieldFormName="" formName="" formId="" postfix=false postfixSize=1 required=false items=[] autocomplete=true progressOptions={} 
