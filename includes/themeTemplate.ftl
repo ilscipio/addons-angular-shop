@@ -306,6 +306,11 @@ because in general we wish to override selectively, not include selectively.
    </@row>         
 </#macro>
 
+<#-- DEV NOTE: instead of overriding @field above, you should be able to simply override the markup. 
+     however interface of markup is subject to change...
+<#macro field_markup_container extraArgs...>
+</#macro>
+ -->
 
 <#macro menu args={} inlineArgs...>
     <@defaultlib.menu args=concatMaps(args, inlineArgs) htmlWrap="div"><#nested /></@defaultlib.menu>
