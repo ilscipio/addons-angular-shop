@@ -8,7 +8,7 @@
 
 <#-- Imports the default macros and allows overrides-->
 <#include "component://widget/templates/htmlMenuMacroLibrary.ftl"> 
-
+<#assign defaultmenulib = copyObject(.namespace)>
 
 <#-- 
 *************
