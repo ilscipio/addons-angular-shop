@@ -365,3 +365,8 @@ because in general we wish to override selectively, not include selectively.
 <#macro mli arrival="">
     <li><#nested></li>
 </#macro>
+
+<#-- TODO: since bootstrap doesn't use <li>, this check must be adjusted to something else! -->
+<#function isMenuMarkupItemsInline menuContent>
+  <#return menuContent?matches(r'(\s*<!--((?!<!--).)*?-->\s*)*\s*<li(\s|>).*', 'rs')>
+</#function>
