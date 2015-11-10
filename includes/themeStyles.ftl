@@ -194,6 +194,12 @@
     "grid_sidebar_2_main" : "col-lg-12",
     "grid_sidebar_2_side" : "navbar-inverse",
 
+  <#-- Text align -->
+    "text_left" : "text-left",
+    "text_right" : "text-right",
+    "text_center" : "text-center",
+    "text_justify" : "text-justify",
+
   <#-- Floats -->
     "float_left" : "left",
     "float_right" : "right",
