@@ -324,6 +324,19 @@
         "default": "other"
     },
 
+  <#-- Field select element multiple-select classes (jQuery asmselect) -->
+    "field_select_asmselect" : {
+      "containerClass" : "asmContainer",
+      "selectClass" : "asmSelect",
+      "optionDisabledClass" : "asmOptionDisabled",
+      "listClass" : "asmList",
+      "listSortableClass" : "asmListSortable",
+      "listItemClass" : "asmListItem",
+      "listItemLabelClass" : "asmListItemLabel",
+      "removeClass" : "asmListItemRemove btn btn-sm btn-default",
+      "highlightClass" : "asmHighlight"
+    },
+
   <#-- Always declare last -->
     "dummy" : ""
 }>
