@@ -127,7 +127,7 @@
     "table_default_rowtype" : "content",
     "table_default_scrollable" : false,
     
-    <#-- free-form and other table-related styles -->
+    <#-- other table-related styles -->
     "table_basic" : "table table-condensed",  <#-- this is not a table type, but simply the basic-table style -->
     "table_responsive_wrap" : "table-responsive", <#-- responsive table wrapping div element -->
 
