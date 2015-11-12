@@ -106,10 +106,10 @@
     "menu_default_item_submit" : "", 
     
   <#-- Data and Tables -->
+    <#-- table type-based styles -->
     "table_generic" : "",
     "table_generic_cellspacing" : "",
     "table_generic_rowtype" : "generic",    <#-- the default row type is normally "content", but generic tables need "generic" -->
-    "table_responsive_wrap" : "table-responsive", <#-- responsive table wrapping div element -->
     "table_data_list" : "table table-striped",
     "table_data_list_cellspacing" : 0,
     <#-- not enabled, but may be desirable: "table_data_list_autoaltrows" : true, -->
@@ -127,7 +127,10 @@
     "table_default_rowtype" : "content",
     "table_default_scrollable" : false,
     
+    <#-- free-form and other table-related styles -->
     "table_basic" : "table table-condensed",  <#-- this is not a table type, but simply the basic-table style -->
+    "table_responsive_wrap" : "table-responsive", <#-- responsive table wrapping div element -->
+
     "row_reg" : "even",
     "row_alt" : "odd",
     "row_selected" : "selected",
