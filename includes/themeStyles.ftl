@@ -125,6 +125,7 @@
     "table_default_cellspacing" : "",
     "table_default_autoaltrows" : false,
     "table_default_rowtype" : "content",
+    "table_default_scrollable" : false,
     
     "table_basic" : "table table-condensed",  <#-- this is not a table type, but simply the basic-table style -->
     "row_reg" : "even",
