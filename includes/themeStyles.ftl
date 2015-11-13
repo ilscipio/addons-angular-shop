@@ -332,7 +332,7 @@
         "default": "other"
     },
 
-  <#-- Form type to table type maps -->
+  <#-- Form type to @table type maps -->
     "form_type_tabletypes_ofbiz" : {
         "list": "data-list",
         "multi": "data-list-multiform",
