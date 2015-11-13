@@ -113,7 +113,10 @@
     "table_data_list" : "table table-striped",
     "table_data_list_cellspacing" : 0,
     "table_data_list_scrollable" : true,
-    <#-- not enabled, but may be desirable: "table_data_list_autoaltrows" : true, -->
+    <#-- "table_data_list_autoaltrows" : true, -->
+    "table_data_list_multiform" : "table table-striped",
+    "table_data_list_multiform_cellspacing" : 0,
+    "table_data_list_multiform_scrollable" : false,  
     "table_data_complex" : "table",
     "table_data_complex_cellspacing" : 0,
     "table_summary" : "table",
