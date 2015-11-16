@@ -161,8 +161,8 @@ because in general we wish to override selectively, not include selectively.
     <@defaultlib.code type=type><#nested /></@defaultlib.code>
 </#macro>
 
-<#macro table type="generic" class="" id="" cellspacing=true scrollable=false autoAltRows="" firstRowAlt="" inheritAltRows=false useFootAltRows=false wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
-    <@defaultlib.table type=type class=class id=id cellspacing=cellspacing scrollable=scrollable scrollable=scrollable firstRowAlt=firstRowAlt 
+<#macro table type="generic" class="" id="" cellspacing=true responsive="" scrollable="" autoAltRows="" firstRowAlt="" inheritAltRows=false useFootAltRows=false wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
+    <@defaultlib.table type=type class=class id=id cellspacing=cellspacing responsive=responsive scrollable=scrollable firstRowAlt=firstRowAlt 
         inheritAltRows=inheritAltRows useFootAltRows=useFootAltRows wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.table>
 </#macro>
 

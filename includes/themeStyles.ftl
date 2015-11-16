@@ -112,11 +112,11 @@
     "table_generic_rowtype" : "generic",    <#-- the default row type is normally "content", but generic tables need "generic" -->
     "table_data_list" : "table table-striped",
     "table_data_list_cellspacing" : 0,
-    "table_data_list_scrollable" : true,
+    "table_data_list_responsive" : true,
     <#-- "table_data_list_autoaltrows" : true, -->
     "table_data_list_multiform" : "table table-striped",
     "table_data_list_multiform_cellspacing" : 0,
-    "table_data_list_multiform_scrollable" : false,  
+    "table_data_list_multiform_responsive" : false,  
     "table_data_complex" : "table",
     "table_data_complex_cellspacing" : 0,
     "table_summary" : "table",
@@ -129,7 +129,7 @@
     "table_default_cellspacing" : "",
     "table_default_autoaltrows" : false,
     "table_default_rowtype" : "content",
-    "table_default_scrollable" : false,
+    "table_default_responsive" : false,
     
     <#-- other table-related styles -->
     "table_basic" : "table table-condensed",  <#-- this is not a table type, but simply the basic-table style -->
