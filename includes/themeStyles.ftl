@@ -1,21 +1,21 @@
 <#--
 * 
-* A set of global variables that define common styling classes, part of standard Cato Freemarker API.
-* Automatically included at all times.
-* Intended to be swappable.
+* Master HTML templating variables include, Bootstrap theme/framework.
 *
 * Overrides the default CATO styles located in 
 * htmlVariables.ftl - ofbiz_foundation/framework/common/webcommon/includes/cato/lib/default/
 * 
+* NOTE: variables must now be defined using #assign, not #global.
+*
 -->
 
 <#-- 
 *************************************
-* TEMPLATING VARIABLES FOR BOOTSTRAP *
+* MAIN STYLES FOR BOOTSTRAP *
 *************************************
 -->
 
-<#global styles = {
+<#assign styles = {
   <#-- Misc -->
     "framework" : "bootstrap",
     "disabled" : "disabled",
