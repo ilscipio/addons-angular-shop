@@ -129,11 +129,28 @@
     "table_default_cellspacing" : "",
     "table_default_autoaltrows" : false,
     "table_default_rowtype" : "content",
-    "table_default_responsive" : false,
+    "table_default_responsive" : "",  <#-- boolean with support for empty value (ternary) -->
+    "table_default_responsive_wrap" : "table-responsive", <#-- responsive table wrapping div element (TODO?) -->
+    "table_default_scrollable" : "", <#-- boolean with support for empty value (ternary) -->
+    "table_default_responsive_options" : {
+        "fixedHeader" : true,
+        "scrollX" : true,
+        "info" : false,
+        "paging" : false,
+        "searching" : false,
+        "ordering" : true
+    },
+    "table_default_scrollable_options" : {
+        "fixedHeader" : false,
+        "scrollX" : true,
+        "info" : false,
+        "paging" : false,
+        "searching" : false,
+        "ordering" : false
+    },
     
     <#-- other table-related styles -->
     "table_basic" : "table table-condensed",  <#-- this is not a table type, but simply the basic-table style -->
-    "table_responsive_wrap" : "table-responsive", <#-- responsive table wrapping div element -->
 
     "row_reg" : "even",
     "row_alt" : "odd",
