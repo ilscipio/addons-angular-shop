@@ -243,12 +243,14 @@ because in general we wish to override selectively, not include selectively.
 ************
  -->
 
-<#macro field type="generic" label="" labelDetail="" name="" value="" valueType="generic" currentValue="" defaultValue="" class="" size=20 maxlength="" id="" onClick="" 
+<#macro field type="" label="" labelDetail="" name="" value="" valueType="" currentValue="" defaultValue="" class="" size=20 maxlength="" id="" onClick="" 
         disabled=false placeholder="" autoCompleteUrl="" mask=false alert="false" readonly=false rows="4" 
-        cols="50" dateType="date" multiple="" checked=false collapse=false tooltip="" columns="" norows=false nocells=false container=""
-        fieldFormName="" formName="" formId="" postfix=false postfixSize=1 required=false items=[] autocomplete=true progressOptions={} 
+        cols="50" dateType="date" multiple="" checked=false collapse="" tooltip="" columns="" norows=false nocells=false container=""
+        fieldFormName="" formName="" formId="" postfix=false postfixSize=1 required=false items=false autocomplete=true progressOptions={} 
         labelType="" labelLayout="" labelArea="" description=""
-        submitType="input" text="" href="" src="" confirmMsg="">
+        submitType="input" text="" href="" src="" confirmMsg="" inlineItems="" 
+        selected=false allowEmpty=false currentFirst=false currentDescription="" noCurrentSelectedKey=""
+        manualItems="" manualItemsOnly="">
    <#local fieldIdNum = getRequestVar("catoFieldIdNum")!0>
    <#local fieldIdNum = fieldIdNum + 1 />
    <#local dummy = setRequestVar("catoFieldIdNum", fieldIdNum)>
@@ -300,7 +302,10 @@ because in general we wish to override selectively, not include selectively.
             cols=cols dateType=dateType multiple=multiple checked=checked collapse=collapse tooltip=tooltip columns=columns norows=norows nocells=nocells container="false"
             fieldFormName=fieldFormName formName=formName formId=formId postfix=postfix postfixSize=postfixSize required=required items=items autocomplete=autocomplete progressOptions=progressOptions 
             labelType=labelType labelLayout=labelLayout labelArea=labelArea description=description
-            submitType=submitType text=text href=href src=src confirmMsg=confirmMsg><#nested /></@defaultlib.field>
+            submitType=submitType text=text href=href src=src confirmMsg=confirmMsg
+            inlineItems=inlineItems
+            selected=selected allowEmpty=allowEmpty currentFirst=currentFirst currentDescription=currentDescription noCurrentSelectedKey=noCurrentSelectedKey
+            manualItems=manualItems manualItemsOnly=manualItemsOnly><#nested /></@defaultlib.field>
    </div>
    </@cell>
    </@row>         
