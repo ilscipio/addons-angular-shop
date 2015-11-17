@@ -48,7 +48,7 @@ under the License.
         <#list layoutSettings.javaScriptsFooter as javaScript>
             <#if javaScriptsSet.contains(javaScript)>
                 <#assign nothing = javaScriptsSet.remove(javaScript)/>
-                <@script src=makeOfbizContentUrl("${StringUtil.wrapString(javaScript)}") />
+                <@script src=makeOfbizContentUrl(javaScript) />
             </#if>
         </#list>
     </#if>
@@ -61,7 +61,7 @@ under the License.
         <#list layoutSettings.VT_FTR_JAVASCRIPT as javaScript>
             <#if javaScriptsSet.contains(javaScript)>
                 <#assign nothing = javaScriptsSet.remove(javaScript)/>
-                <@script src=makeOfbizContentUrl("${StringUtil.wrapString(javaScript)}") />
+                <@script src=makeOfbizContentUrl(javaScript) />
             </#if>
         </#list>
     </#if>
