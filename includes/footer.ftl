@@ -41,14 +41,14 @@ under the License.
         </footer>
 
 
-
+  <@scripts output=true> <#-- ensure @script elems here will always output -->
     <#-- New in cato; for app scripts that aren't (exclusively) styling but must go at end of page -->
     <#if layoutSettings.javaScriptsFooter?has_content>
         <#assign javaScriptsSet = Static["org.ofbiz.base.util.UtilMisc"].toSet(layoutSettings.javaScriptsFooter)/>
         <#list layoutSettings.javaScriptsFooter as javaScript>
             <#if javaScriptsSet.contains(javaScript)>
                 <#assign nothing = javaScriptsSet.remove(javaScript)/>
-                <@script src=makeOfbizContentUrl("${StringUtil.wrapString(javaScript)}") output=true />
+                <@script src=makeOfbizContentUrl("${StringUtil.wrapString(javaScript)}") />
             </#if>
         </#list>
     </#if>
@@ -61,9 +61,10 @@ under the License.
         <#list layoutSettings.VT_FTR_JAVASCRIPT as javaScript>
             <#if javaScriptsSet.contains(javaScript)>
                 <#assign nothing = javaScriptsSet.remove(javaScript)/>
-                <@script src=makeOfbizContentUrl("${StringUtil.wrapString(javaScript)}") output=true />
+                <@script src=makeOfbizContentUrl("${StringUtil.wrapString(javaScript)}") />
             </#if>
         </#list>
     </#if>
+  </@scripts>
 </body>
 </html>
