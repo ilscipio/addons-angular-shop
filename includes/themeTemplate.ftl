@@ -109,8 +109,8 @@ because in general we wish to override selectively, not include selectively.
         paginateToggleString=paginateToggleString paginateToggleOnValue=paginateToggleOnValue paginateToggleOffValue=paginateToggleOffValue><#nested /></@defaultlib.paginate>
 </#macro>
 
-<#macro script type="text/javascript" language="" src="" ofbizContentSrc="" forceInline=false>
-    <@defaultlib.script type=type language=language src=src ofbizContentSrc=ofbizContentSrc forceInline=forceInline><#nested /></@defaultlib.script>
+<#macro script type="text/javascript" language="" src="" ofbizContentSrc="" inline=false>
+    <@defaultlib.script type=type language=language src=src ofbizContentSrc=ofbizContentSrc inline=inline><#nested /></@defaultlib.script>
 </#macro>
 
 <#macro alert type="info" class="" id="">
