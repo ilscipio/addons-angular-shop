@@ -161,34 +161,34 @@ because in general we wish to override selectively, not include selectively.
     <@defaultlib.code type=type><#nested /></@defaultlib.code>
 </#macro>
 
-<#macro table type="generic" class="" id="" cellspacing=true responsive="" scrollable="" autoAltRows="" firstRowAlt="" inheritAltRows=false useFootAltRows=false wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
+<#macro table type="generic" class="" id="" cellspacing=true responsive="" scrollable="" autoAltRows="" firstRowAlt="" inheritAltRows=false useFootAltRows=false nestedOnly=false openOnly=false closeOnly=false attribs={} inlineAttribs...>
     <@defaultlib.table type=type class=class id=id cellspacing=cellspacing responsive=responsive scrollable=scrollable firstRowAlt=firstRowAlt 
-        inheritAltRows=inheritAltRows useFootAltRows=useFootAltRows wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.table>
+        inheritAltRows=inheritAltRows useFootAltRows=useFootAltRows nestedOnly=nestedOnly openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.table>
 </#macro>
 
-<#macro thead class="" id="" wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
-    <@defaultlib.thead class=class id=id wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.thead>
+<#macro thead class="" id="" nestedOnly=false openOnly=false closeOnly=false attribs={} inlineAttribs...>
+    <@defaultlib.thead class=class id=id nestedOnly=nestedOnly openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.thead>
 </#macro>
 
-<#macro tbody class="" id="" wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
-    <@defaultlib.tbody class=class id=id wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.tbody>
+<#macro tbody class="" id="" nestedOnly=false openOnly=false closeOnly=false attribs={} inlineAttribs...>
+    <@defaultlib.tbody class=class id=id nestedOnly=nestedOnly openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.tbody>
 </#macro>
 
-<#macro tfoot class="" id="" wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
-    <@defaultlib.tfoot class=class id=id wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.tfoot>
+<#macro tfoot class="" id="" nestedOnly=false openOnly=false closeOnly=false attribs={} inlineAttribs...>
+    <@defaultlib.tfoot class=class id=id nestedOnly=nestedOnly openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.tfoot>
 </#macro>
 
-<#macro tr type="" class="" id="" useAlt="" alt="" groupLast="" groupParent="" selected="" wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
-    <@defaultlib.tr type=type class=class id=id useAlt=useAlt alt=alt groupLast=groupLast groupParent=groupParent selected=selected wrapIf=wrapIf openOnly=openOnly 
+<#macro tr type="" class="" id="" useAlt="" alt="" groupLast="" groupParent="" selected="" nestedOnly=false openOnly=false closeOnly=false attribs={} inlineAttribs...>
+    <@defaultlib.tr type=type class=class id=id useAlt=useAlt alt=alt groupLast=groupLast groupParent=groupParent selected=selected nestedOnly=nestedOnly openOnly=openOnly 
         closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.tr>
 </#macro>
 
-<#macro th class="" id="" wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
-    <@defaultlib.th class=class id=id wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.th>
+<#macro th class="" id="" nestedOnly=false openOnly=false closeOnly=false attribs={} inlineAttribs...>
+    <@defaultlib.th class=class id=id nestedOnly=nestedOnly openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.th>
 </#macro>
 
-<#macro td class="" id="" wrapIf=true openOnly=false closeOnly=false attribs={} inlineAttribs...>
-    <@defaultlib.td class=class id=id wrapIf=wrapIf openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.td>
+<#macro td class="" id="" nestedOnly=false openOnly=false closeOnly=false attribs={} inlineAttribs...>
+    <@defaultlib.td class=class id=id nestedOnly=nestedOnly openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.td>
 </#macro>
 
 <#macro tableRowClassAttribStr class="" alt="" selected="">
