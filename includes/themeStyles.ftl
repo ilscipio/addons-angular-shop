@@ -50,6 +50,7 @@
     "icon_tenant" : "fa-cloud",
     "icon_error" : "fa-warning",
     "heading_level_prefix" : "heading-level-",     
+    "switch" : "switch",
     
   <#-- Menus -->  
     <#-- Generic menu types -->
