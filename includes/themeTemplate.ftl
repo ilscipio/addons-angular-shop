@@ -220,11 +220,11 @@ because in general we wish to override selectively, not include selectively.
 </#macro>
 
 <#macro menu args={} inlineArgs...>
-    <@defaultlib.menu args=concatMaps(args, inlineArgs)><#nested /></@defaultlib.menu>
+    <@defaultlib.menu args=mergeArgMaps(args, inlineArgs)><#nested /></@defaultlib.menu>
 </#macro>
 
 <#macro menuitem args={} inlineArgs...>
-    <@defaultlib.menuitem args=concatMaps(args, inlineArgs)><#nested /></@defaultlib.menuitem>
+    <@defaultlib.menuitem args=mergeArgMaps(args, inlineArgs)><#nested /></@defaultlib.menuitem>
 </#macro>
 
 <#macro printVars var=context>
@@ -318,11 +318,11 @@ because in general we wish to override selectively, not include selectively.
  -->
 
 <#macro menu args={} inlineArgs...>
-    <@defaultlib.menu args=concatMaps(args, inlineArgs) htmlWrap="div"><#nested /></@defaultlib.menu>
+    <@defaultlib.menu args=mergeArgMaps(args, inlineArgs) htmlWrap="div"><#nested /></@defaultlib.menu>
 </#macro>
 
 <#macro menuitem args={} inlineArgs...>
-    <@defaultlib.menuitem args=concatMaps(args, inlineArgs) htmlWrap=false><#nested /></@defaultlib.menuitem>
+    <@defaultlib.menuitem args=mergeArgMaps(args, inlineArgs) htmlWrap=false><#nested /></@defaultlib.menuitem>
 </#macro>
 
 <#macro modal id label href="" icon="">
