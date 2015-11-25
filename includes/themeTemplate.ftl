@@ -61,7 +61,7 @@ because in general we wish to override selectively, not include selectively.
 
 <#macro heading elemType=true level="" relLevel="" class="" id="" levelClassPrefix="heading-level-" consumeLevel="" containerElemType=false containerClass="" attribs={} inlineAttribs...>
     <@defaultlib.heading elemType=elemType level=level relLevel=relLevel class=class id=id levelClassPrefix=levelClassPrefix consumeLevel=consumeLevel 
-        containerElemType=containerElemType containerClass=containerClass attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.heading>
+        containerElemType=containerElemType containerClass=containerClass attribs=mergeAttribMaps(attribs, inlineAttribs)><#nested /></@defaultlib.heading>
 </#macro>
 
 <#macro fields type="default" labelType="" labelLayout="" labelArea="" labelAreaExceptions=true formName="" formId="">
@@ -94,7 +94,7 @@ because in general we wish to override selectively, not include selectively.
 </#macro>
 
 <#macro form type="input" name="" id="" class="" attribs={} inlineAttribs...>
-    <@defaultlib.form type=type name=name id=id class=class attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.form>
+    <@defaultlib.form type=type name=name id=id class=class attribs=mergeAttribMaps(attribs, inlineAttribs)><#nested /></@defaultlib.form>
 </#macro>
 
 <#macro modal id label href="" icon="">
@@ -163,32 +163,32 @@ because in general we wish to override selectively, not include selectively.
 
 <#macro table type="generic" class="" id="" cellspacing=true responsive="" scrollable="" autoAltRows="" firstRowAlt="" inheritAltRows=false useFootAltRows=false nestedOnly=false openOnly=false closeOnly=false attribs={} inlineAttribs...>
     <@defaultlib.table type=type class=class id=id cellspacing=cellspacing responsive=responsive scrollable=scrollable firstRowAlt=firstRowAlt 
-        inheritAltRows=inheritAltRows useFootAltRows=useFootAltRows nestedOnly=nestedOnly openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.table>
+        inheritAltRows=inheritAltRows useFootAltRows=useFootAltRows nestedOnly=nestedOnly openOnly=openOnly closeOnly=closeOnly attribs=mergeAttribMaps(attribs, inlineAttribs)><#nested /></@defaultlib.table>
 </#macro>
 
 <#macro thead class="" id="" nestedOnly=false openOnly=false closeOnly=false attribs={} inlineAttribs...>
-    <@defaultlib.thead class=class id=id nestedOnly=nestedOnly openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.thead>
+    <@defaultlib.thead class=class id=id nestedOnly=nestedOnly openOnly=openOnly closeOnly=closeOnly attribs=mergeAttribMaps(attribs, inlineAttribs)><#nested /></@defaultlib.thead>
 </#macro>
 
 <#macro tbody class="" id="" nestedOnly=false openOnly=false closeOnly=false attribs={} inlineAttribs...>
-    <@defaultlib.tbody class=class id=id nestedOnly=nestedOnly openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.tbody>
+    <@defaultlib.tbody class=class id=id nestedOnly=nestedOnly openOnly=openOnly closeOnly=closeOnly attribs=mergeAttribMaps(attribs, inlineAttribs)><#nested /></@defaultlib.tbody>
 </#macro>
 
 <#macro tfoot class="" id="" nestedOnly=false openOnly=false closeOnly=false attribs={} inlineAttribs...>
-    <@defaultlib.tfoot class=class id=id nestedOnly=nestedOnly openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.tfoot>
+    <@defaultlib.tfoot class=class id=id nestedOnly=nestedOnly openOnly=openOnly closeOnly=closeOnly attribs=mergeAttribMaps(attribs, inlineAttribs)><#nested /></@defaultlib.tfoot>
 </#macro>
 
 <#macro tr type="" class="" id="" useAlt="" alt="" groupLast="" groupParent="" selected="" nestedOnly=false openOnly=false closeOnly=false attribs={} inlineAttribs...>
     <@defaultlib.tr type=type class=class id=id useAlt=useAlt alt=alt groupLast=groupLast groupParent=groupParent selected=selected nestedOnly=nestedOnly openOnly=openOnly 
-        closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.tr>
+        closeOnly=closeOnly attribs=mergeAttribMaps(attribs, inlineAttribs)><#nested /></@defaultlib.tr>
 </#macro>
 
 <#macro th class="" id="" nestedOnly=false openOnly=false closeOnly=false attribs={} inlineAttribs...>
-    <@defaultlib.th class=class id=id nestedOnly=nestedOnly openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.th>
+    <@defaultlib.th class=class id=id nestedOnly=nestedOnly openOnly=openOnly closeOnly=closeOnly attribs=mergeAttribMaps(attribs, inlineAttribs)><#nested /></@defaultlib.th>
 </#macro>
 
 <#macro td class="" id="" nestedOnly=false openOnly=false closeOnly=false attribs={} inlineAttribs...>
-    <@defaultlib.td class=class id=id nestedOnly=nestedOnly openOnly=openOnly closeOnly=closeOnly attribs=concatMaps(attribs, inlineAttribs)><#nested /></@defaultlib.td>
+    <@defaultlib.td class=class id=id nestedOnly=nestedOnly openOnly=openOnly closeOnly=closeOnly attribs=mergeAttribMaps(attribs, inlineAttribs)><#nested /></@defaultlib.td>
 </#macro>
 
 <#macro tableRowClassAttribStr class="" alt="" selected="">
