@@ -3,7 +3,7 @@
 * Master HTML templating variables include, Bootstrap theme/framework.
 *
 * Overrides the default CATO styles located in 
-* htmlVariables.ftl - ofbiz_foundation/framework/common/webcommon/includes/cato/lib/default/
+* htmlVariables.ftl - ofbiz_foundation/framework/common/webcommon/includes/cato/lib/standard/
 * 
 * NOTE: variables must now be defined using #assign, not #global.
 *

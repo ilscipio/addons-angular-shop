@@ -5,19 +5,19 @@
 * Intended to be swappable.
 *
 * Overrides the default CATO styles located in 
-* htmlTemplate.ftl - ofbiz_foundation/framework/common/webcommon/cato/lib/default/
+* htmlTemplate.ftl - ofbiz_foundation/framework/common/webcommon/cato/lib/standard/
 * 
 -->
 
 <#-- Master include: Includes the default macros and allows overrides -->
-<#include "component://common/webcommon/includes/cato/lib/default/htmlTemplate.ftl"> 
+<#include "component://common/webcommon/includes/cato/lib/standard/htmlTemplate.ftl"> 
 <#-- save the existing macro def references so we can delegate to them easily -->
 <#assign defaultlib = copyObject(.namespace)>
 
 <#--
 Other patterns:
 
-<#import "component://common/webcommon/includes/cato/lib/default/htmlTemplate.ftl" as defaultlib> 
+<#import "component://common/webcommon/includes/cato/lib/standard/htmlTemplate.ftl" as defaultlib> 
 
 it turns out, using #import statement here as-is is too problematic. within the import calls, local macro definitions will always
 shadow the global macro definitions, which means they won't automatically use the overridden macros defined in this parent file, 
