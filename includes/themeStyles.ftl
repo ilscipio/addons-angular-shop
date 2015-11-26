@@ -159,14 +159,18 @@
     
   <#-- Text-content-based link styles -->
     "link_action" : "btn btn-sm btn-default", 
+    "link_longaction" : "",
     "link_id" : "btn btn-sm btn-default", 
     "link_longid" : "btn btn-sm btn-default",   
     "link_name" : "btn btn-sm btn-default", 
     "link_desc" : "",
-    "link_url" : "", 
-    "link_text" : "",
-    "link_image" : "",
-    "link_default" : "",
+    "link_url" : "",               
+    "link_date" : "btn btn-sm btn-default",  
+    "link_number" : "",           
+    "link_value" : "",            
+    "link_text" : "",            
+    "link_image" : "",             
+    "link_default" : "",       
     
   <#-- Colors -->
     "color_green" : "success",
