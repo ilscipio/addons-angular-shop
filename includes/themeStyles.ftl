@@ -159,6 +159,7 @@
     
   <#-- Text-content-based link styles -->
     "link_nav" : "btn btn-sm btn-default", 
+    "link_longnav" : "",
     "link_action" : "btn btn-sm btn-default", 
     "link_longaction" : "",
     "link_id" : "btn btn-sm btn-default", 
