@@ -165,6 +165,7 @@
     "link_id" : "btn btn-sm btn-default", 
     "link_longid" : "btn btn-sm btn-default",   
     "link_name" : "btn btn-sm btn-default", 
+    "link_idname" : "btn btn-sm btn-default", 
     "link_desc" : "",
     "link_url" : "",               
     "link_date" : "btn btn-sm btn-default",  
