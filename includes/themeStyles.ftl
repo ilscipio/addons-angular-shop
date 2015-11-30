@@ -163,7 +163,7 @@
     "link_action" : "btn btn-sm btn-default", 
     "link_longaction" : "",
     "link_id" : "btn btn-sm btn-default", 
-    "link_longid" : "",   
+    "link_longid" : "btn btn-sm btn-default",   
     "link_name" : "btn btn-sm btn-default", 
     "link_longname" : "", 
     "link_idname" : "btn btn-sm btn-default", 
