@@ -51,6 +51,7 @@
     "icon_error" : "fa-warning",
     "heading_level_prefix" : "heading-level-",     
     "switch" : "switch",
+    "dropdown" : "dropdown-menu",
     
   <#-- Menus -->  
     <#-- Generic menu types -->
@@ -157,11 +158,11 @@
     "row_alt" : "odd",
     "row_selected" : "selected",
     
-  <#-- Text-content-based link styles -->
-    "link_nav" : "btn btn-sm btn-default", 
-    "link_longnav" : "",
+  <#-- Standalone link styles (includes links in tables) -->
     "link_action" : "btn btn-sm btn-default", 
     "link_longaction" : "",
+    "link_nav" : "btn btn-sm btn-default", 
+    "link_longnav" : "",
     "link_id" : "btn btn-sm btn-default", 
     "link_longid" : "btn btn-sm btn-default",   
     "link_name" : "btn btn-sm btn-default", 
