@@ -175,7 +175,7 @@
     "link_value" : "",      
     "link_longvalue" : "",      
     "link_text" : "",            
-    "link_image" : "",             
+    "link_image" : "",     
     "link_default" : "",       
     
   <#-- Colors -->
@@ -276,8 +276,10 @@
 
   <#-- Breadcrumbs -->
     "nav_breadcrumbs" : "breadcrumb",
-    "nav_breadcrumbs_disabled" : "disabled",
-    "nav_breadcrumbs_active" : "active",
+    "nav_breadcrumb" : "",
+    "nav_breadcrumb_disabled" : "disabled",
+    "nav_breadcrumb_active" : "active",
+    "nav_breadcrumb_link" : "",
 
   <#-- Panels -->
     "panel_wrap" : "panel panel-default",
