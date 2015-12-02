@@ -50,7 +50,7 @@ because in general we wish to override selectively, not include selectively.
    <#local fieldIdNum = getRequestVar("catoFieldIdNum")!0>
    <#local fieldIdNum = fieldIdNum + 1 />
    <#local dummy = setRequestVar("catoFieldIdNum", fieldIdNum)>
-   <#local class = compileClassArg(class, "form-control")/>
+   <#local class = addClassArg(class, "form-control")/>
    <#if !id?has_content>
         <#-- FIXME? renderSeqNumber usually empty... where come from? should be as request attribute also? -->
         <#local id = "field_id_${renderSeqNumber!}_${fieldIdNum!0}">
@@ -88,9 +88,7 @@ because in general we wish to override selectively, not include selectively.
         <#if labelDetail?has_content>
             ${labelDetail}
         </#if>-->
-            
-        
-        
+
    <div class="form-group input-group">
         <#if label?has_content><span class="input-group-addon">${label!}</span></#if>
         <@defaultlib.field type=type label="" labelDetail=labelDetail name=name value=value valueType=valueType currentValue=currentValue defaultValue=defaultValue class=class size=size maxlength=maxlength id=id onClick=onClick 
