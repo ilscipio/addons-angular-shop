@@ -45,8 +45,8 @@ because in general we wish to override selectively, not include selectively.
         fieldFormName="" formName="" formId="" postfix=false postfixSize=1 required=false items=false autocomplete=true progressOptions={} 
         labelType="" labelLayout="" labelArea="" description=""
         submitType="input" text="" href="" src="" confirmMsg="" inlineItems="" 
-        selected=false allowEmpty=false currentFirst=false currentDescription="" noCurrentSelectedKey=""
-        manualItems="" manualItemsOnly="">
+        selected=false allowEmpty=false currentFirst=false currentDescription="" events={}
+        manualItems="" manualItemsOnly="" postfixContent="" asmSelectArgs={} title="">
    <#local fieldIdNum = getRequestVar("catoFieldIdNum")!0>
    <#local fieldIdNum = fieldIdNum + 1 />
    <#local dummy = setRequestVar("catoFieldIdNum", fieldIdNum)>
@@ -99,19 +99,79 @@ because in general we wish to override selectively, not include selectively.
             fieldFormName=fieldFormName formName=formName formId=formId postfix=postfix postfixSize=postfixSize required=required items=items autocomplete=autocomplete progressOptions=progressOptions 
             labelType=labelType labelLayout=labelLayout labelArea=labelArea description=description
             submitType=submitType text=text href=href src=src confirmMsg=confirmMsg
-            inlineItems=inlineItems
-            selected=selected allowEmpty=allowEmpty currentFirst=currentFirst currentDescription=currentDescription noCurrentSelectedKey=noCurrentSelectedKey
-            manualItems=manualItems manualItemsOnly=manualItemsOnly><#nested /></@defaultlib.field>
+            inlineItems=inlineItems events=events postfixContent=postfixContent
+            selected=selected allowEmpty=allowEmpty currentFirst=currentFirst currentDescription=currentDescription 
+            manualItems=manualItems manualItemsOnly=manualItemsOnly asmSelectArgs=asmSelectArgs title=title><#nested /></@defaultlib.field>
    </div>
    </@cell>
    </@row>         
 </#macro>
 
-<#-- DEV NOTE: instead of overriding @field above, you should be able to simply override the markup. 
-     however interface of markup is subject to change...
-<#macro field_markup_container extraArgs...>
+<#-- @field container markup - theme override - TODO -->
+<#macro field_markup_container type="" class="" columns="" postfix=false postfixSize=0 postfixContent=true labelArea=true labelType="" labelLayout="" labelAreaContent="" collapse="" norows=false nocells=false container=true extraArgs...>
+  <#local rowClass = "">
+  <#local labelAreaClass = "">  
+  <#local postfixClass = "">
+  
+  <#if postfix>
+      <#if !collapse?has_content>
+          <#local collapse = true/> <#-- explicit collapse param overrides postfix setting, but collapse by default -->
+      </#if>
+  </#if>
+  <#if !collapse?has_content>
+      <#local collapse = false/>
+  </#if>
+
+  <#local defaultGridStyles = getDefaultFieldGridStyles({"columns":columns, "labelArea":labelArea, "postfix":postfix, "postfixSize":postfixSize })>
+
+  <#local fieldEntryTypeClass = "field-entry-type-" + mapCatoFieldTypeToStyleName(type)>
+  
+  <#local rowClass = addClassArg(rowClass, "form-field-entry " + fieldEntryTypeClass)>
+  <@row class=rowClass collapse=collapse!false norows=(norows || !container)>
+    <#-- TODO: support more label configurations (besides gridarea left) -->
+    <#if labelArea && labelType == "gridarea" && labelLayout == "left">
+        <#local labelAreaClass = addClassArg(labelAreaClass, "field-entry-title " + fieldEntryTypeClass)>
+        <@cell class=compileClassArg(labelAreaClass, defaultGridStyles.labelArea) nocells=(nocells || !container)>
+            ${labelAreaContent}
+        </@cell>
+    </#if>
+    <#local class = addClassArg(class, "field-entry-widget " + fieldEntryTypeClass)>
+    <#-- NOTE: here this is the same as doing 
+           class=("=" + compileClassArg(class, defaultGridStyles.widgetArea))
+         as we know the compiled class will never be empty. -->
+    <@cell class=compileClassArg(class, defaultGridStyles.widgetArea) nocells=(nocells || !container)>
+        <#nested>
+    </@cell>
+    <#if postfix && !nocells && container>
+        <#local postfixClass = addClassArg(postfixClass, "field-entry-postfix " + fieldEntryTypeClass)>
+        <@cell class=compileClassArg(postfixClass, defaultGridStyles.postfixArea)>
+          <#if (postfixContent?is_boolean && postfixContent == true) || !postfixContent?has_content>
+            <span class="postfix"><input type="submit" class="${styles.icon!} ${styles.icon_button!}" value="${styles.icon_button_value!}"/></span>
+          <#elseif !postfixContent?is_boolean> <#-- boolean false means prevent markup -->
+            ${postfixContent}
+          </#if>
+        </@cell>
+    </#if>
+  </@row>
 </#macro>
- -->
+
+<#-- @field label area markup - theme override - TODO -->
+<#macro field_markup_labelarea labelType="" labelLayout="" label="" labelDetail="" fieldType="" fieldId="" collapse="" required=false extraArgs...>
+  <#if !collapse?has_content>
+      <#local collapse = false/>
+  </#if>
+  <#if label?has_content>
+    <#if fieldType=="checkbox" || collapse==false>
+        <label class="form-field-label"<#if fieldId?has_content> for="${fieldId}"</#if>>${label}<#if required> *</#if></label>
+    <#else>
+        <span class="${styles.prefix!} form-field-label">${label}<#if required> *</#if></span>
+    </#if>  
+  </#if> 
+  <#if labelDetail?has_content>
+    ${labelDetail}
+  </#if>  
+</#macro>
+
 
 <#macro menu args={} inlineArgs...>
     <@defaultlib.menu args=mergeArgMaps(args, inlineArgs) htmlWrap="div"><#nested /></@defaultlib.menu>
@@ -125,7 +185,7 @@ because in general we wish to override selectively, not include selectively.
     <a href="${href!"#"}" data-toggle="modal" data-target="#${id}_modal"><#if icon?has_content><i class="${icon!}"></i> </#if>${label}</a>
     <div id="${id}_modal" class="${styles.modal_wrap!}" role="dialog">
         <div class="modal-dialog">
-        <!-- Modal content-->
+        <#-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
