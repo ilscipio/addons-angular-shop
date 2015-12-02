@@ -12,22 +12,22 @@
 <#-- Master include: Includes the default macros and allows overrides -->
 <#include "component://common/webcommon/includes/cato/lib/standard/htmlTemplate.ftl"> 
 <#-- save the existing macro def references so we can delegate to them easily -->
-<#assign defaultlib = copyObject(.namespace)>
+<#assign catoStdTmplLib = copyObject(.namespace)>
 
 <#--
 Other patterns:
 
-<#import "component://common/webcommon/includes/cato/lib/standard/htmlTemplate.ftl" as defaultlib> 
+<#import "component://common/webcommon/includes/cato/lib/standard/htmlTemplate.ftl" as catoStdTmplLib> 
 
 it turns out, using #import statement here as-is is too problematic. within the import calls, local macro definitions will always
 shadow the global macro definitions, which means they won't automatically use the overridden macros defined in this parent file, 
 so reuse of high-level macros (that call others) becomes confusing.
 whether automatic overriding is wanted or not is case-specific, but in general, here yes.
 the only way around this would be to modify the namespace using:
-<#import ... as defaultlib>
+<#import ... as catoStdTmplLib>
 <#macro row>
 </#macro>
-<#assign row = row in defaultlib>
+<#assign row = row in catoStdTmplLib>
 for every major macro (which could be approximated with looped assignments again, but ugly).
 note this pattern is acceptable in some other cases because it can be very fine-grained, but here will probably cause only headaches
 because in general we wish to override selectively, not include selectively.
@@ -39,70 +39,29 @@ because in general we wish to override selectively, not include selectively.
 ************
  -->
 
-<#macro field type="" label="" labelDetail="" name="" value="" valueType="" currentValue="" defaultValue="" class="" size=20 maxlength="" id="" onClick="" 
-        disabled=false placeholder="" autoCompleteUrl="" mask=false alert="false" readonly=false rows="4" 
-        cols="50" dateType="date" multiple="" checked=false collapse="" tooltip="" columns="" norows=false nocells=false container=""
-        fieldFormName="" formName="" formId="" postfix=false postfixSize=1 required=false items=false autocomplete=true progressOptions={} 
-        labelType="" labelLayout="" labelArea="" description=""
-        submitType="input" text="" href="" src="" confirmMsg="" inlineItems="" 
-        selected=false allowEmpty=false currentFirst=false currentDescription="" events={}
-        manualItems="" manualItemsOnly="" postfixContent="" asmSelectArgs={} title="">
-   <#local fieldIdNum = getRequestVar("catoFieldIdNum")!0>
-   <#local fieldIdNum = fieldIdNum + 1 />
-   <#local dummy = setRequestVar("catoFieldIdNum", fieldIdNum)>
-   <#local class = addClassArg(class, "form-control")/>
-   <#if !id?has_content>
-        <#-- FIXME? renderSeqNumber usually empty... where come from? should be as request attribute also? -->
-        <#local id = "field_id_${renderSeqNumber!}_${fieldIdNum!0}">
-   </#if>
+<#-- min only lists the minimal params we need defaults for; @field has too many args, will be faster this way -->
+<#assign fieldArgDefaultsCatoBsMin = {"class":"", "norows":false, "nocells":false, "label":""}>
+<#assign fieldArgDefaultsCatoBs = fieldArgDefaultsCatoStd + fieldArgDefaultsCatoBsMin>
+<#macro field args={} inlineArgs...>
+    <#-- NOTE: we don't need to use fieldArgDefaultsCatoBs here for the time being, but if this was
+        a heavier mod, may want it here instead of fieldArgDefaultsCatoBsMin.
+        this is simply an optimization.
+        WARN: you have to make sure to include the defaults you need in fieldArgDefaultsCatoBsMin.
+    <#local args = mergeArgMaps(args, inlineArgs, fieldArgDefaultsCatoBs)>-->
+    <#local args = mergeArgMaps(args, inlineArgs, fieldArgDefaultsCatoBsMin)>
+    <#local dummy = localsPutAll(args)>
 
-    <#local classes = "${styles.grid_large!}12"/>
-    <#local columnspostfix = 0/>
-    <#if postfix>
-        <#local columnspostfix = postfixSize/>
-        <#local classes = "${styles.grid_small!}${12-columnspostfix} ${styles.grid_large!}${12-columnspostfix}"/>
-    </#if>
-
-    <#local class = compileClassArg(class)>  
-    <#if required && (!containsStyleName(class, "required"))>
-        <#local class = (class + " required")?trim>
-    </#if>
+    <#local class = addClassArg(class, "form-control")/>
     
     <@row collapse=false norows=norows> 
-    <@cell nocells=(nocells)>
-    <#if labelType?has_content>
-      <#local effLabelType = labelType>
-    <#else>
-      <#local effLabelType = (fieldsInfo.labelType)!"">
-    </#if>
-    <#if labelLayout?has_content>
-      <#local effLabelLayout = labelLayout>
-    <#else>
-      <#local effLabelLayout = (fieldsInfo.labelLayout)!"">
-    </#if>
-        <#--        
-        <#if label?has_content>
-            <label class="control-label"<#if id?has_content> for="${id}"</#if>>${label}</label>
-            <#if required>*</#if>
-        </#if> 
-        <#if labelDetail?has_content>
-            ${labelDetail}
-        </#if>-->
-
-   <div class="form-group input-group">
-        <#if label?has_content><span class="input-group-addon">${label!}</span></#if>
-        <@defaultlib.field type=type label="" labelDetail=labelDetail name=name value=value valueType=valueType currentValue=currentValue defaultValue=defaultValue class=class size=size maxlength=maxlength id=id onClick=onClick 
-            disabled=disabled placeholder=placeholder autoCompleteUrl=autoCompleteUrl mask=mask alert=alert readonly=readonly rows=rows
-            cols=cols dateType=dateType multiple=multiple checked=checked collapse=collapse tooltip=tooltip columns=columns norows=norows nocells=nocells container="false"
-            fieldFormName=fieldFormName formName=formName formId=formId postfix=postfix postfixSize=postfixSize required=required items=items autocomplete=autocomplete progressOptions=progressOptions 
-            labelType=labelType labelLayout=labelLayout labelArea=labelArea description=description
-            submitType=submitType text=text href=href src=src confirmMsg=confirmMsg
-            inlineItems=inlineItems events=events postfixContent=postfixContent
-            selected=selected allowEmpty=allowEmpty currentFirst=currentFirst currentDescription=currentDescription 
-            manualItems=manualItems manualItemsOnly=manualItemsOnly asmSelectArgs=asmSelectArgs title=title><#nested /></@defaultlib.field>
-   </div>
-   </@cell>
-   </@row>         
+      <@cell nocells=nocells>
+      <div class="form-group input-group">
+          <#if label?has_content><span class="input-group-addon">${label!}</span></#if>
+          <#-- NOTE: the inlineArgs always override the args map, so can exploit this to avoid making an extra map -->
+          <@catoStdTmplLib.field args=args class=class container=false label="" labelArea=false><#nested /></@catoStdTmplLib.field>
+      </div>
+      </@cell>
+    </@row>         
 </#macro>
 
 <#-- @field container markup - theme override - TODO -->
@@ -172,11 +131,11 @@ because in general we wish to override selectively, not include selectively.
 
 
 <#macro menu args={} inlineArgs...>
-    <@defaultlib.menu args=mergeArgMaps(args, inlineArgs) htmlWrap="div"><#nested /></@defaultlib.menu>
+    <@catoStdTmplLib.menu args=mergeArgMaps(args, inlineArgs) htmlWrap="div"><#nested /></@catoStdTmplLib.menu>
 </#macro>
 
 <#macro menuitem args={} inlineArgs...>
-    <@defaultlib.menuitem args=mergeArgMaps(args, inlineArgs) htmlWrap=false><#nested /></@defaultlib.menuitem>
+    <@catoStdTmplLib.menuitem args=mergeArgMaps(args, inlineArgs) htmlWrap=false><#nested /></@catoStdTmplLib.menuitem>
 </#macro>
 
 <#macro modal id label href="" icon="">
