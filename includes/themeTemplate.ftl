@@ -142,13 +142,18 @@ because in general we wish to override selectively, not include selectively.
   </#if>  
 </#macro>
 
-
+<#-- NOTE: the more "proper" way to modify these is now to override the @menu_markup and @menuitem_markup macros, but
+    these are acceptable as well (because of args/inlineArgs pattern) and provides more examples of ways to override. -->
+<#assign menuArgDefaultsCatoBsMin = {"htmlWrap":"div"}> <#-- change the default value, but still possible for client to override -->
+<#assign menuArgDefaultsCatoBs = menuArgDefaultsCatoStd + menuArgDefaultsCatoBsMin>
 <#macro menu args={} inlineArgs...>
-    <@catoStdTmplLib.menu args=mergeArgMaps(args, inlineArgs) htmlWrap="div"><#nested /></@catoStdTmplLib.menu>
+    <@catoStdTmplLib.menu args=mergeArgMaps(args, inlineArgs, menuArgDefaultsCatoBsMin)><#nested /></@catoStdTmplLib.menu>
 </#macro>
 
+<#assign menuitemArgDefaultsCatoBsMin = {"htmlWrap":false}> <#-- no html wrapper by default -->
+<#assign menuitemArgDefaultsCatoBs = menuitemArgDefaultsCatoStd + menuitemArgDefaultsCatoBsMin>
 <#macro menuitem args={} inlineArgs...>
-    <@catoStdTmplLib.menuitem args=mergeArgMaps(args, inlineArgs) htmlWrap=false><#nested /></@catoStdTmplLib.menuitem>
+    <@catoStdTmplLib.menuitem args=mergeArgMaps(args, inlineArgs, menuitemArgDefaultsCatoBsMin)><#nested /></@catoStdTmplLib.menuitem>
 </#macro>
 
 <#macro modal id label href="" icon="">
