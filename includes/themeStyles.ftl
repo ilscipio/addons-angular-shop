@@ -321,24 +321,32 @@
     "progress_bar" : "sr-only",       
 
   <#-- Fields -->
-    "fields_wrap" : "input-group",
-    "fields_label" : "input-group-addon",
-    "fields_default_labeltype" : "gridarea",
-    "fields_default_labellayout" : "left",
+    <#-- fields type-based styles -->
+    "fields_default_labeltype" : "horizontal",
+    "fields_default_labelposition" : "left",
     "fields_default_labelarea" : true,
     "fields_default_labelareaexceptions" : "submit submitarea",
 
     "fields_default_nolabels_labeltype" : "none",
-    "fields_default_nolabels_labellayout" : "none",
+    "fields_default_nolabels_labelposition" : "none",
     "fields_default_nolabels_labelarea" : false,
     "fields_default_nolabels_labelareaexceptions" : "", 
 
-    "fields_generic_labeltype" : "gridarea",
-    "fields_generic_labellayout" : "left",
+    "fields_default_compact_labeltype" : "vertical",
+    "fields_default_compact_labelposition" : "top",
+    "fields_default_compact_labelarea" : true,
+    "fields_default_compact_labelareaexceptions" : "", 
+
+    "fields_generic_labeltype" : "horizontal",
+    "fields_generic_labelposition" : "left",
     "fields_generic_labelarea" : false,
     "fields_generic_labelareaexceptions" : "", 
 
-  <#-- Field type style name maps -->
+    <#-- misc field styles -->
+    "fields_wrap" : "input-group",
+    "fields_label" : "input-group-addon",
+
+    <#-- Field type style name maps -->
     "field_type_stylenames_cato" : {
         "default": true
     },
@@ -367,14 +375,14 @@
         "default": "other"
     },
 
-  <#-- Form type to @table type maps -->
+    <#-- Form type to @table type maps -->
     "form_type_tabletypes_ofbiz" : {
         "list": "data-list",
         "multi": "data-list-multiform",
         "default": "generic"
     },
 
-  <#-- Field select element multiple-select classes (jQuery asmselect) -->
+    <#-- Field select element multiple-select classes (jQuery asmselect) -->
     "field_select_asmselect" : {
       "containerClass" : "asmContainer",
       "selectClass" : "asmSelect",
