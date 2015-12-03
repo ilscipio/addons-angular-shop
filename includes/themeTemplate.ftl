@@ -40,15 +40,15 @@ because in general we wish to override selectively, not include selectively.
  -->
 
 <#-- min only lists the minimal params we need defaults for; @field has too many args, will be faster this way -->
-<#assign fieldArgDefaultsCatoBsMin = {"type":"", "class":""}>
-<#assign fieldArgDefaultsCatoBs = fieldArgDefaultsCatoStd + fieldArgDefaultsCatoBsMin>
+<#assign fieldDefaultArgsCatoBsMin = {"type":"", "class":""}>
+<#assign fieldDefaultArgsCatoBs = fieldDefaultArgsCatoStd + fieldDefaultArgsCatoBsMin>
 <#macro field args={} inlineArgs...>
-    <#-- NOTE: we don't need to use fieldArgDefaultsCatoBs here for the time being, but if this was
-        a heavier mod, may want it here instead of fieldArgDefaultsCatoBsMin.
+    <#-- NOTE: we don't need to use fieldDefaultArgsCatoBs here for the time being, but if this was
+        a heavier mod, may want it here instead of fieldDefaultArgsCatoBsMin.
         this is simply an optimization.
-        WARN: you have to make sure to include the defaults you need in fieldArgDefaultsCatoBsMin.
-    <#local args = mergeArgMaps(args, inlineArgs, fieldArgDefaultsCatoBs)>-->
-    <#local args = mergeArgMaps(args, inlineArgs, fieldArgDefaultsCatoBsMin)>
+        WARN: you have to make sure to include the defaults you need in fieldDefaultArgsCatoBsMin.
+    <#local args = mergeArgMaps(args, inlineArgs, fieldDefaultArgsCatoBs)>-->
+    <#local args = mergeArgMaps(args, inlineArgs, fieldDefaultArgsCatoBsMin)>
     <#local dummy = localsPutAll(args)>
     
     <#if !type?has_content>
@@ -144,16 +144,16 @@ because in general we wish to override selectively, not include selectively.
 
 <#-- NOTE: the more "proper" way to modify these is now to override the @menu_markup and @menuitem_markup macros, but
     these are acceptable as well (because of args/inlineArgs pattern) and provides more examples of ways to override. -->
-<#assign menuArgDefaultsCatoBsMin = {"htmlWrap":"div"}> <#-- change the default value, but still possible for client to override -->
-<#assign menuArgDefaultsCatoBs = menuArgDefaultsCatoStd + menuArgDefaultsCatoBsMin>
+<#assign menuDefaultArgsCatoBsMin = {"htmlWrap":"div"}> <#-- change the default value, but still possible for client to override -->
+<#assign menuDefaultArgsCatoBs = menuDefaultArgsCatoStd + menuDefaultArgsCatoBsMin>
 <#macro menu args={} inlineArgs...>
-    <@catoStdTmplLib.menu args=mergeArgMaps(args, inlineArgs, menuArgDefaultsCatoBsMin)><#nested /></@catoStdTmplLib.menu>
+    <@catoStdTmplLib.menu args=mergeArgMaps(args, inlineArgs, menuDefaultArgsCatoBsMin)><#nested /></@catoStdTmplLib.menu>
 </#macro>
 
-<#assign menuitemArgDefaultsCatoBsMin = {"htmlWrap":false}> <#-- no html wrapper by default -->
-<#assign menuitemArgDefaultsCatoBs = menuitemArgDefaultsCatoStd + menuitemArgDefaultsCatoBsMin>
+<#assign menuitemDefaultArgsCatoBsMin = {"htmlWrap":false}> <#-- no html wrapper by default -->
+<#assign menuitemDefaultArgsCatoBs = menuitemDefaultArgsCatoStd + menuitemDefaultArgsCatoBsMin>
 <#macro menuitem args={} inlineArgs...>
-    <@catoStdTmplLib.menuitem args=mergeArgMaps(args, inlineArgs, menuitemArgDefaultsCatoBsMin)><#nested /></@catoStdTmplLib.menuitem>
+    <@catoStdTmplLib.menuitem args=mergeArgMaps(args, inlineArgs, menuitemDefaultArgsCatoBsMin)><#nested /></@catoStdTmplLib.menuitem>
 </#macro>
 
 <#macro modal id label href="" icon="">
