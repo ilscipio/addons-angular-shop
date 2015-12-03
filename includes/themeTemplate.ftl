@@ -92,9 +92,46 @@ because in general we wish to override selectively, not include selectively.
   
   <#local rowClass = addClassArg(rowClass, "form-field-entry " + fieldEntryTypeClass)>
   <@row class=rowClass collapse=collapse!false norows=(norows || !container)>
+    <#if labelType == "vertical">
+      <#-- FIXME: vertical was mostly copy-pasted quickly so it can be seen visually, needs work -->
+      <@cell>
+        <#if labelArea && labelPosition == "top">
+          <@row>
+            <@cell>
+              <#-- FIXME: give label area min width instead of silly &nbsp; -->
+              <span class="input-group-addon field-entry-title ${fieldEntryTypeClass}">${labelAreaContent}</span>
+            </@cell>
+          </@row>
+        </#if>
+        <@row>
+          <@cell>
+              <#-- FIXME: currently can't add wrapper without breaking style, so moved these classes to @field override
+              <span class="field-entry-widget ${fieldEntryTypeClass}"><#nested></span>
+              -->
+              <#-- quick hack to add container to things that don't naturally have any (shouldn't
+                  be needed, see last FIXME -->
+              <#if type == "display">
+                <span class="form-control"><#nested></span>
+              <#else>
+                <#nested>
+              </#if>
+            <#-- FIXME: CSS not working with postfix (form-control goes to width 100% and pushes this to next line) 
+              <#if postfix>
+                  <span class="field-entry-postfix ${fieldEntryTypeClass}">
+                    <#if (postfixContent?is_boolean && postfixContent == true) || !postfixContent?has_content>
+                      <span class="postfix"><input type="submit" class="${styles.icon!} ${styles.icon_button!}" value="${styles.icon_button_value!}"/></span>
+                    <#elseif !postfixContent?is_boolean>
+                      ${postfixContent}
+                    </#if>
+                  </span>
+              </#if>
+            -->
+          </@cell>
+        </@row>
+      </@cell>
+    <#else> <#-- elseif labelType == "horizontal" -->
       <@cell class="" nocells=(nocells || !container)>
           <div class="form-group input-group">
-              <#-- TODO: handle labelType == "vertical" -->
               <#if labelArea  && labelType == "horizontal" && labelPosition == "left">
                   <#-- FIXME: give label area min width instead of silly &nbsp; -->
                   <span class="input-group-addon field-entry-title ${fieldEntryTypeClass}"><#if labelAreaContent?has_content>${labelAreaContent}<#else><#list 1..12 as num>&nbsp;</#list></#if></span>
@@ -122,6 +159,7 @@ because in general we wish to override selectively, not include selectively.
             -->
           </div>
       </@cell>
+    </#if>
   </@row>
 </#macro>
 
