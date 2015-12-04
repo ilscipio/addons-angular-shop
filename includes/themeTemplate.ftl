@@ -83,6 +83,9 @@ because in general we wish to override selectively, not include selectively.
   <#if !collapse?has_content>
       <#local collapse = false/>
   </#if>
+  <#if !collapsePostfix?has_content>
+    <#local collapsePostfix = postfix/>
+  </#if>
 
   <#-- not using grid here...
       NOTE: the spans below don't support extra classes at all right now
@@ -173,7 +176,7 @@ because in general we wish to override selectively, not include selectively.
       <#local collapse = false/>
   </#if>
   <#if label?has_content>
-    <#if fieldType=="checkbox" || collapse==false>
+    <#if !collapse>
         <span class="form-field-label">${label}<#if required> *</#if></span>
     <#else>
         <span class="form-field-label">${label}<#if required> *</#if></span>
