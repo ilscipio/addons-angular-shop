@@ -327,6 +327,8 @@
     "fields_default_labelarea" : true,
     "fields_default_labelareaexceptions" : "submit submitarea",
     "fields_default_labelarearequirecontent" : false,
+    "fields_default_collapse" : false,
+    "fields_default_autocollapsedinlinelabel" : "datetime", 
 
     "fields_default_nolabels_labeltype" : "none",
     "fields_default_nolabels_labelposition" : "none",
