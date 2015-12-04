@@ -328,7 +328,8 @@
     "fields_default_labelareaexceptions" : "submit submitarea",
     "fields_default_labelarearequirecontent" : false,
     "fields_default_collapse" : false,
-    "fields_default_autocollapsedinlinelabel" : "datetime", 
+    "fields_default_collapsepostfix" : true,
+    "fields_default_collapsedinlinelabel" : "datetime",
 
     "fields_default_nolabels_labeltype" : "none",
     "fields_default_nolabels_labelposition" : "none",
@@ -347,6 +348,9 @@
     "fields_generic_labelarea" : false,
     "fields_generic_labelareaexceptions" : "", 
     "fields_generic_labelarearequirecontent" : false, 
+    "fields_generic_collapse" : false,
+    "fields_generic_collapsepostfix" : true,
+    "fields_generic_collapsedinlinelabel" : "",
 
     <#-- misc field styles -->
     "fields_wrap" : "input-group",
