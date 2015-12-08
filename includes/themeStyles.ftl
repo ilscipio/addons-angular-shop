@@ -281,6 +281,11 @@
     "tile_overlay_slide_up" : "tile-overlay-slide-up",
     "tile_image" : "tile-image",
 
+  <#-- Image galleries -->
+    "gallery_overlay_color": "gallery-overlay",         <#-- must be valid tile color name -->
+    "gallery_share_view_width" : 500,
+    "gallery_share_view_height" : 500,
+
   <#-- Breadcrumbs -->
     "nav_breadcrumbs" : "breadcrumb",
     "nav_breadcrumb" : "",
