@@ -53,6 +53,9 @@
     "switch" : "switch",
     "dropdown" : "dropdown-menu",
     
+  <#-- Lists -->
+    "list_inline" : "",
+    
   <#-- Menus -->  
     <#-- Generic menu types -->
     "menu_generic" : "",  
