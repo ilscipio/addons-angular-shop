@@ -110,6 +110,10 @@
     "menu_default_item_text" : "text-entry",
     "menu_default_item_submit" : "", 
     
+    <#-- Misc menu styles -->
+    "menu_subappitem" : "subappitem",
+    "menu_subappitem_link" : "subapplink",
+    
   <#-- Data and Tables -->
     <#-- table type-based styles -->
     "table_generic" : "",
