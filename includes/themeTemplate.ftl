@@ -37,6 +37,18 @@ because in general we wish to override selectively, not include selectively.
 *************
 * MACRO OVERRIDES
 ************
+NOTES:
+  * It's important that any overrides for template-facing macros (like @field or other) be enabled with and
+    use the advanced args pattern (args={} inlineArgs...). Without this, standard cato macro interface
+    changes - almost always adding an attribute - will break compatibility for any themes not controlled by Ilscipio.
+    Using this pattern, any extra attributes added in standard interfaces will either be gracefully ignored by the 
+    overriding macros (if total new substitute implementation) or automatically pass along the new attributes 
+    to the delegated macro (if is a delegating override).
+  * The markup macros are not subject to the previous point because they are not template-facing; however
+    they all MUST accept an "extraArgs..." (varargs) so they are not subject to compatibility breaking.
+  * Unfortunately these patterns make the use of the other (unrelated) (attribs={} inlineAttribs...) pattern
+    impossible, so for macros that rely on it, the (args={} inlineArgs...) pattern has to be adapted
+    to support it (TODO: this is WIP, should be possible but not yet proven; affects @table, @tr, etc.).
  -->
 
 <#-- min only lists the minimal params we need defaults for; @field has too many args, will be faster this way -->
