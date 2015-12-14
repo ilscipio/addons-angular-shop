@@ -54,7 +54,7 @@ NOTES:
  -->
 
 <#-- min only lists the minimal params we need defaults for; @field has too many args, will be faster this way -->
-<#assign field_defaultArgs_min = {"type":"", "class":"", "test":"rrrrrrr", "rrrr":"eeeee"}>
+<#assign field_defaultArgs_min = {"type":"", "class":""}>
 <#assign field_defaultArgs = getCatoMacroDefaultArgs("field", catoStdTmplLib) + field_defaultArgs_min>
 <#macro field args={} inlineArgs...>
     <#-- NOTE: we don't need to use field_defaultArgs here for the time being, but if this was
