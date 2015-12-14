@@ -57,30 +57,30 @@ NOTES:
 <#assign field_defaultArgs_min = {"type":"", "class":""}>
 <#assign field_defaultArgs = getCatoMacroDefaultArgs("field", catoStdTmplLib) + field_defaultArgs_min>
 <#macro field args={} inlineArgs...>
-    <#-- NOTE: we don't need to use field_defaultArgs here for the time being, but if this was
-        a heavier mod, may want it here instead of field_defaultArgs_min.
-        this is simply an optimization.
-        WARN: you have to make sure to include the defaults you need in field_defaultArgs_min.
-    <#local args = mergeArgMaps(args, inlineArgs, catoBsTmplLib.field_defaultArgs)>-->
-    <#local args = mergeArgMaps(args, inlineArgs, catoBsTmplLib.field_defaultArgs_min)>
-    <#local dummy = localsPutAll(args)>
-    
-    <#if !type?has_content>
-      <#local type = "generic">
-    </#if>
+  <#-- NOTE: we don't need to use field_defaultArgs here for the time being, but if this was
+      a heavier mod, may want it here instead of field_defaultArgs_min.
+      this is simply an optimization.
+      WARN: you have to make sure to include the defaults you need in field_defaultArgs_min.
+  <#local args = mergeArgMaps(args, inlineArgs, catoBsTmplLib.field_defaultArgs)>-->
+  <#local args = mergeArgMaps(args, inlineArgs, catoBsTmplLib.field_defaultArgs_min)>
+  <#local dummy = localsPutAll(args)>
+  
+  <#if !type?has_content>
+    <#local type = "generic">
+  </#if>
 
-    <#-- FIXME? this works to add form-control to inputs, but probably complicates if need to add containers
-        (see other FIXMEs) -->
-    <#local class = addClassArg(class, "form-control")/>
-    
-    <#-- FIXME: the following classes don't belong here at all (shouldn't be on <input> elems but only on wrappers), 
-        but currently can't add wrappers in markup macro... -->
-    <#local fieldEntryTypeClass = "field-entry-type-" + mapCatoFieldTypeToStyleName(type)>
-    <#local class = addClassArg(class, "field-entry-widget")/>
-    <#local class = addClassArg(class, fieldEntryTypeClass)/>
-    
-    <#-- NOTE: the inlineArgs always override the args map, so can exploit this to avoid making an extra map -->
-    <@catoStdTmplLib.field args=args class=class><#nested /></@catoStdTmplLib.field>
+  <#-- FIXME? this works to add form-control to inputs, but probably complicates if need to add containers
+      (see other FIXMEs) -->
+  <#local class = addClassArg(class, "form-control")/>
+  
+  <#-- FIXME: the following classes don't belong here at all (shouldn't be on <input> elems but only on wrappers), 
+      but currently can't add wrappers in markup macro... -->
+  <#local fieldEntryTypeClass = "field-entry-type-" + mapCatoFieldTypeToStyleName(type)>
+  <#local class = addClassArg(class, "field-entry-widget")/>
+  <#local class = addClassArg(class, fieldEntryTypeClass)/>
+  
+  <#-- NOTE: the inlineArgs always override the args map, so can exploit this to avoid making an extra map -->
+  <@catoStdTmplLib.field args=args class=class><#nested /></@catoStdTmplLib.field>
 </#macro>
 
 <#-- @field container markup - theme override 
@@ -118,39 +118,6 @@ NOTES:
         </#if>
           <@row>
             <@cell>
-                <#-- FIXME: currently can't add wrapper without breaking style, so moved these classes to @field override
-                <span class="field-entry-widget ${fieldEntryTypeClass}"><#nested></span>
-                -->
-                <#-- quick hack to add container to things that don't naturally have any (shouldn't
-                    be needed, see last FIXME -->
-                <#if type == "display">
-                  <span class="form-control"><#nested></span>
-                <#else>
-                  <#nested>
-                </#if>
-              <#-- FIXME: CSS not working with postfix (form-control goes to width 100% and pushes this to next line) 
-                <#if postfix>
-                    <span class="field-entry-postfix ${fieldEntryTypeClass}">
-                      <#if (postfixContent?is_boolean && postfixContent == true) || !postfixContent?has_content>
-                        <span class="postfix"><input type="submit" class="${styles.icon!} ${styles.icon_button!}" value="${styles.icon_button_value!}"/></span>
-                      <#elseif !postfixContent?is_boolean>
-                        ${postfixContent}
-                      </#if>
-                    </span>
-                </#if>
-              -->
-              
-            </@cell>
-          </@row>
-        </div>
-      </@cell>
-    <#else> <#-- elseif labelType == "horizontal" -->
-      <@cell class="" nocells=(nocells || !container)>
-          <div class="form-group input-group">
-              <#if labelArea  && labelType == "horizontal" && labelPosition == "left">
-                  <#-- FIXME: give label area min width instead of silly &nbsp; -->
-                  <span class="input-group-addon field-entry-title ${fieldEntryTypeClass}"><#if labelAreaContent?has_content>${labelAreaContent}<#else><#list 1..12 as num>&nbsp;</#list></#if></span>
-              </#if>
               <#-- FIXME: currently can't add wrapper without breaking style, so moved these classes to @field override
               <span class="field-entry-widget ${fieldEntryTypeClass}"><#nested></span>
               -->
@@ -161,18 +128,50 @@ NOTES:
               <#else>
                 <#nested>
               </#if>
-            <#-- FIXME: CSS not working with postfix (form-control goes to width 100% and pushes this to next line) 
+              <#-- FIXME: CSS not working with postfix (form-control goes to width 100% and pushes this to next line) 
               <#if postfix>
-                  <span class="field-entry-postfix ${fieldEntryTypeClass}">
-                    <#if (postfixContent?is_boolean && postfixContent == true) || !postfixContent?has_content>
-                      <span class="postfix"><input type="submit" class="${styles.icon!} ${styles.icon_button!}" value="${styles.icon_button_value!}"/></span>
-                    <#elseif !postfixContent?is_boolean>
-                      ${postfixContent}
-                    </#if>
-                  </span>
+                <span class="field-entry-postfix ${fieldEntryTypeClass}">
+                  <#if (postfixContent?is_boolean && postfixContent == true) || !postfixContent?has_content>
+                    <span class="postfix"><input type="submit" class="${styles.icon!} ${styles.icon_button!}" value="${styles.icon_button_value!}"/></span>
+                  <#elseif !postfixContent?is_boolean>
+                    ${postfixContent}
+                  </#if>
+                </span>
               </#if>
-            -->
-          </div>
+              -->
+            </@cell>
+          </@row>
+        </div>
+      </@cell>
+    <#else> <#-- elseif labelType == "horizontal" -->
+      <@cell class="" nocells=(nocells || !container)>
+        <div class="form-group input-group">
+          <#if labelArea  && labelType == "horizontal" && labelPosition == "left">
+            <#-- FIXME: give label area min width instead of silly &nbsp; -->
+            <span class="input-group-addon field-entry-title ${fieldEntryTypeClass}"><#if labelAreaContent?has_content>${labelAreaContent}<#else><#list 1..12 as num>&nbsp;</#list></#if></span>
+          </#if>
+          <#-- FIXME: currently can't add wrapper without breaking style, so moved these classes to @field override
+          <span class="field-entry-widget ${fieldEntryTypeClass}"><#nested></span>
+          -->
+          <#-- quick hack to add container to things that don't naturally have any (shouldn't
+              be needed, see last FIXME -->
+          <#if type == "display">
+            <span class="form-control"><#nested></span>
+          <#else>
+            <#nested>
+          </#if>
+          <#-- FIXME: CSS not working with postfix (form-control goes to width 100% and pushes this to next line) 
+          <#if postfix>
+            <span class="field-entry-postfix ${fieldEntryTypeClass}">
+              <#if (postfixContent?is_boolean && postfixContent == true) || !postfixContent?has_content>
+                <span class="postfix"><input type="submit" class="${styles.icon!} ${styles.icon_button!}" value="${styles.icon_button_value!}"/></span>
+              <#elseif !postfixContent?is_boolean>
+                ${postfixContent}
+              </#if>
+            </span>
+          </#if>
+          -->
+        </div>
       </@cell>
     </#if>
   </@row>
@@ -184,9 +183,9 @@ NOTES:
   <#local label = label?trim>
   <#if label?has_content>
     <#if collapse>
-        <span class="form-field-label">${label}<#if required> *</#if></span>
+      <span class="form-field-label">${label}<#if required> *</#if></span>
     <#else>
-        <span class="form-field-label">${label}<#if required> *</#if></span>
+      <span class="form-field-label">${label}<#if required> *</#if></span>
     </#if>  
   <#else>
     <#if required>*</#if>
@@ -206,59 +205,59 @@ NOTES:
 <#assign menu_defaultArgs_min = {"htmlWrap":"div"}> <#-- change the default value, but still possible for client to override -->
 <#assign menu_defaultArgs = getCatoMacroDefaultArgs("menu", catoStdTmplLib) + menu_defaultArgs_min>
 <#macro menu args={} inlineArgs...>
-    <@catoStdTmplLib.menu args=mergeArgMaps(args, inlineArgs, catoBsTmplLib.menu_defaultArgs_min)><#nested /></@catoStdTmplLib.menu>
+  <@catoStdTmplLib.menu args=mergeArgMaps(args, inlineArgs, catoBsTmplLib.menu_defaultArgs_min)><#nested /></@catoStdTmplLib.menu>
 </#macro>
 
 <#assign menuitem_defaultArgs_min = {"htmlWrap":false}> <#-- no html wrapper by default -->
 <#assign menuitem_defaultArgs = getCatoMacroDefaultArgs("menuitem", catoStdTmplLib) + menuitem_defaultArgs_min>
 <#macro menuitem args={} inlineArgs...>
-    <@catoStdTmplLib.menuitem args=mergeArgMaps(args, inlineArgs, catoBsTmplLib.menuitem_defaultArgs_min)><#nested /></@catoStdTmplLib.menuitem>
+  <@catoStdTmplLib.menuitem args=mergeArgMaps(args, inlineArgs, catoBsTmplLib.menuitem_defaultArgs_min)><#nested /></@catoStdTmplLib.menuitem>
 </#macro>
 
 <#macro modal id label href="" icon="">
-    <a href="${href!"#"}" data-toggle="modal" data-target="#${id}_modal"><#if icon?has_content><i class="${icon!}"></i> </#if>${label}</a>
-    <div id="${id}_modal" class="${styles.modal_wrap!}" role="dialog">
-        <div class="modal-dialog">
-        <#-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <#nested>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
+  <a href="${href!"#"}" data-toggle="modal" data-target="#${id}_modal"><#if icon?has_content><i class="${icon!}"></i> </#if>${label}</a>
+  <div id="${id}_modal" class="${styles.modal_wrap!}" role="dialog">
+    <div class="modal-dialog">
+    <#-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <#nested>
+      </div>
+      <div class="modal-footer">
+      </div>
     </div>
+  </div>
 </#macro>
 
 <#macro nav type="inline">
-    <#switch type>
-        <#case "magellan">
-            <nav class="navbar navbar-default navbar-static-top"">
-              <div class="container">
-                <ul class="nav navbar-nav">
-                <#nested>
-                </ul>
-              </div>
-            </nav>
-        <#break>
-        <#case "breadcrumbs">
-            <ul class="${styles.nav_breadcrumbs!}">
-                <#nested>
-            </ul>
-        <#break>
-        <#default>
-            <ul class="${styles.list_inline!} ${styles.nav_subnav!}">
-              <#nested>
-            </ul>
-        <#break>
-    </#switch>
+  <#switch type>
+    <#case "magellan">
+      <nav class="navbar navbar-default navbar-static-top"">
+        <div class="container">
+          <ul class="nav navbar-nav">
+            <#nested>
+          </ul>
+        </div>
+      </nav>
+    <#break>
+    <#case "breadcrumbs">
+      <ul class="${styles.nav_breadcrumbs!}">
+        <#nested>
+      </ul>
+    <#break>
+    <#default>
+      <ul class="${styles.list_inline!} ${styles.nav_subnav!}">
+        <#nested>
+      </ul>
+    <#break>
+  </#switch>
 </#macro>
 
 <#macro mli arrival="">
-    <li><#nested></li>
+  <li><#nested></li>
 </#macro>
 
 <#-- since bootstrap doesn't use <li>, this check must be adjusted to something else... -->
