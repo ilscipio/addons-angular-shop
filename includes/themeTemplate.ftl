@@ -11,8 +11,10 @@
 
 <#-- Master include: Includes the default macros and allows overrides -->
 <#include "component://common/webcommon/includes/cato/lib/standard/htmlTemplate.ftl"> 
-<#-- save the existing macro def references so we can delegate to them easily -->
-<#assign catoStdTmplLib = copyObject(.namespace)>
+<#-- This is now done in the include above instead, because the standard macros need it as well 
+    This template will create a copy of its own namespace as well (see EOF)
+save the existing macro def references so we can delegate to them easily
+<#assign catoStdTmplLib = copyObject(.namespace)> -->
 
 <#--
 Other patterns:
@@ -52,7 +54,7 @@ NOTES:
  -->
 
 <#-- min only lists the minimal params we need defaults for; @field has too many args, will be faster this way -->
-<#assign field_defaultArgs_min = {"type":"", "class":""}>
+<#assign field_defaultArgs_min = {"type":"", "class":"", "test":"rrrrrrr", "rrrr":"eeeee"}>
 <#assign field_defaultArgs = getCatoMacroDefaultArgs("field", catoStdTmplLib) + field_defaultArgs_min>
 <#macro field args={} inlineArgs...>
     <#-- NOTE: we don't need to use field_defaultArgs here for the time being, but if this was
@@ -263,3 +265,7 @@ NOTES:
 <#function isMenuMarkupItemsInline menuContent>
   <#return menuContent?matches(r'(\s*<!--((?!<!--).)*?-->\s*)*\s*<(li|a|span|button|input)(\s|>).*', 'rs')>
 </#function>
+
+
+<#-- save copy of this template lib so that our macros are able to access non-overridden things (sometimes needed) -->
+<#assign catoBsTmplLib = copyObject(.namespace)>
