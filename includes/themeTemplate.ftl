@@ -61,8 +61,8 @@ NOTES:
         a heavier mod, may want it here instead of field_defaultArgs_min.
         this is simply an optimization.
         WARN: you have to make sure to include the defaults you need in field_defaultArgs_min.
-    <#local args = mergeArgMaps(args, inlineArgs, field_defaultArgs)>-->
-    <#local args = mergeArgMaps(args, inlineArgs, field_defaultArgs_min)>
+    <#local args = mergeArgMaps(args, inlineArgs, catoBsTmplLib.field_defaultArgs)>-->
+    <#local args = mergeArgMaps(args, inlineArgs, catoBsTmplLib.field_defaultArgs_min)>
     <#local dummy = localsPutAll(args)>
     
     <#if !type?has_content>
@@ -206,13 +206,13 @@ NOTES:
 <#assign menu_defaultArgs_min = {"htmlWrap":"div"}> <#-- change the default value, but still possible for client to override -->
 <#assign menu_defaultArgs = getCatoMacroDefaultArgs("menu", catoStdTmplLib) + menu_defaultArgs_min>
 <#macro menu args={} inlineArgs...>
-    <@catoStdTmplLib.menu args=mergeArgMaps(args, inlineArgs, menu_defaultArgs_min)><#nested /></@catoStdTmplLib.menu>
+    <@catoStdTmplLib.menu args=mergeArgMaps(args, inlineArgs, catoBsTmplLib.menu_defaultArgs_min)><#nested /></@catoStdTmplLib.menu>
 </#macro>
 
 <#assign menuitem_defaultArgs_min = {"htmlWrap":false}> <#-- no html wrapper by default -->
 <#assign menuitem_defaultArgs = getCatoMacroDefaultArgs("menuitem", catoStdTmplLib) + menuitem_defaultArgs_min>
 <#macro menuitem args={} inlineArgs...>
-    <@catoStdTmplLib.menuitem args=mergeArgMaps(args, inlineArgs, menuitem_defaultArgs_min)><#nested /></@catoStdTmplLib.menuitem>
+    <@catoStdTmplLib.menuitem args=mergeArgMaps(args, inlineArgs, catoBsTmplLib.menuitem_defaultArgs_min)><#nested /></@catoStdTmplLib.menuitem>
 </#macro>
 
 <#macro modal id label href="" icon="">
@@ -267,5 +267,5 @@ NOTES:
 </#function>
 
 
-<#-- save copy of this template lib so that our macros are able to access non-overridden things (sometimes needed) -->
+<#-- save copy of this namespace so that our macros are able to access its own definitions without overrides (sometimes needed) -->
 <#assign catoBsTmplLib = copyObject(.namespace)>
