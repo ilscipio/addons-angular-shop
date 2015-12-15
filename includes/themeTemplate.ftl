@@ -53,7 +53,9 @@ NOTES:
     to support it (TODO: this is WIP, should be possible but not yet proven; affects @table, @tr, etc.).
  -->
 
-<#-- min only lists the minimal params we need defaults for; @field has too many args, will be faster this way -->
+<#-- min only lists the minimal params we need defaults for; 
+    @field has too many args, will be faster this way; note this is an optimization, only worth doing
+    on macros with a ton of parameters (others can skip _defaultArgs_min variable and use _defaultArgs only) -->
 <#assign field_defaultArgs_min = {"type":"", "class":""}>
 <#assign field_defaultArgs = getCatoMacroDefaultArgs("field", catoStdTmplLib) + field_defaultArgs_min>
 <#macro field args={} inlineArgs...>
@@ -111,7 +113,6 @@ NOTES:
         <#if labelArea && labelPosition == "top">
           <@row>
             <@cell>
-              <#-- FIXME: give label area min width instead of silly &nbsp; -->
               <span class="input-group-addon field-entry-title ${fieldEntryTypeClass}">${labelAreaContent}</span>
             </@cell>
           </@row>
@@ -147,8 +148,8 @@ NOTES:
       <@cell class="" nocells=(nocells || !container)>
         <div class="form-group input-group">
           <#if labelArea  && labelType == "horizontal" && labelPosition == "left">
-            <#-- FIXME: give label area min width instead of silly &nbsp; -->
-            <span class="input-group-addon field-entry-title ${fieldEntryTypeClass}"><#if labelAreaContent?has_content>${labelAreaContent}<#else><#list 1..12 as num>&nbsp;</#list></#if></span>
+            <#-- FIXME: give label area min width -->
+            <span class="input-group-addon field-entry-title ${fieldEntryTypeClass}">${labelAreaContent}</span>
           </#if>
           <#-- FIXME: currently can't add wrapper without breaking style, so moved these classes to @field override
           <span class="field-entry-widget ${fieldEntryTypeClass}"><#nested></span>
@@ -214,7 +215,12 @@ NOTES:
   <@catoStdTmplLib.menuitem args=mergeArgMaps(args, inlineArgs, catoBsTmplLib.menuitem_defaultArgs_min)><#nested /></@catoStdTmplLib.menuitem>
 </#macro>
 
-<#macro modal id label href="" icon="">
+<#assign modal_defaultArgs = getCatoMacroDefaultArgs("modal", catoStdTmplLib) + {
+  <#--"id":"", "label":"", "href":"", "icon":""-->
+}>
+<#macro modal args={} inlineArgs...>
+  <#local args = mergeArgMaps(args, inlineArgs, catoBsTmplLib.modal_defaultArgs)>
+  <#local dummy = localsPutAll(args)>
   <a href="${href!"#"}" data-toggle="modal" data-target="#${id}_modal"><#if icon?has_content><i class="${icon!}"></i> </#if>${label}</a>
   <div id="${id}_modal" class="${styles.modal_wrap!}" role="dialog">
     <div class="modal-dialog">
@@ -232,7 +238,12 @@ NOTES:
   </div>
 </#macro>
 
-<#macro nav type="inline">
+<#assign nav_defaultArgs = getCatoMacroDefaultArgs("nav", catoStdTmplLib) + {
+  <#--"type":"inline"-->
+}>
+<#macro nav args={} inlineArgs...>
+  <#local args = mergeArgMaps(args, inlineArgs, catoBsTmplLib.nav_defaultArgs)>
+  <#local dummy = localsPutAll(args)>
   <#switch type>
     <#case "magellan">
       <nav class="navbar navbar-default navbar-static-top"">
@@ -256,7 +267,12 @@ NOTES:
   </#switch>
 </#macro>
 
-<#macro mli arrival="">
+<#assign mli_defaultArgs = getCatoMacroDefaultArgs("mli", catoStdTmplLib) + {
+  <#--"arrival":""-->
+}>
+<#macro mli args={} inlineArgs...>
+  <#local args = mergeArgMaps(args, inlineArgs, catoBsTmplLib.mli_defaultArgs)>
+  <#local dummy = localsPutAll(args)>
   <li><#nested></li>
 </#macro>
 
