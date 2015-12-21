@@ -13,6 +13,7 @@
 <#include "component://common/webcommon/includes/cato/lib/standard/htmlTemplate.ftl"> 
 <#-- The following is now done by the include above instead, because the standard macros need it as well.
     It creates a map of references to the original macros so we can delegate to them, essentially a namespace.
+    NOTE: this overriding file creates a namespace for itself as well - catoBsTmplLib (see end of this file).
 <#assign catoStdTmplLib = copyObject(.namespace)> -->
 
 <#--
@@ -39,7 +40,7 @@ because in general we wish to override selectively, not include selectively.
 * MACRO OVERRIDES
 ************
 See component://common/webcommon/includes/cato/lib/standard/htmlTemplate.ftl for documentation about
-the macro interfaces used in this file.
+the macro interfaces used in the standard macros and these overrides.
 
 NOTES:
   * It's important that any overrides for template-facing macros (like @field or other) be enabled with and
@@ -223,12 +224,8 @@ NOTES:
   <@catoStdTmplLib.menuitem args=mergeArgMaps(args, inlineArgs, catoBsTmplLib.menuitem_defaultArgs_min)><#nested /></@catoStdTmplLib.menuitem>
 </#macro>
 
-<#assign modal_defaultArgs = getCatoMacroDefaultArgs("modal", catoStdTmplLib) + {
-  <#--"id":"", "label":"", "href":"", "icon":"", "passArgs":{}-->
-}>
-<#macro modal args={} inlineArgs...>
-  <#local args = mergeArgMaps(args, inlineArgs, catoBsTmplLib.modal_defaultArgs)>
-  <#local dummy = localsPutAll(args)>
+<#-- @modal main markup - theme override -->
+<#macro modal_markup id="" label="" href="" icon="" origArgs={} passArgs={} catchArgs...>
   <a href="${href!"#"}" data-toggle="modal" data-target="#${id}_modal"><#if icon?has_content><i class="${icon!}"></i> </#if>${label}</a>
   <div id="${id}_modal" class="${styles.modal_wrap!}" role="dialog">
     <div class="modal-dialog">
@@ -246,12 +243,8 @@ NOTES:
   </div>
 </#macro>
 
-<#assign nav_defaultArgs = getCatoMacroDefaultArgs("nav", catoStdTmplLib) + {
-  <#--"type":"inline", "passArgs":{}-->
-}>
-<#macro nav args={} inlineArgs...>
-  <#local args = mergeArgMaps(args, inlineArgs, catoBsTmplLib.nav_defaultArgs)>
-  <#local dummy = localsPutAll(args)>
+<#-- @nav main markup - theme override -->
+<#macro nav_markup type="" origArgs={} passArgs={} catchArgs...>
   <#switch type>
     <#case "magellan">
       <nav class="navbar navbar-default navbar-static-top"">
@@ -275,12 +268,8 @@ NOTES:
   </#switch>
 </#macro>
 
-<#assign mli_defaultArgs = getCatoMacroDefaultArgs("mli", catoStdTmplLib) + {
-  <#--"arrival":"", "passArgs":{}-->
-}>
-<#macro mli args={} inlineArgs...>
-  <#local args = mergeArgMaps(args, inlineArgs, catoBsTmplLib.mli_defaultArgs)>
-  <#local dummy = localsPutAll(args)>
+<#-- @mli main markup - theme override -->
+<#macro mli_markup arrival="" origArgs={} passArgs={} catchArgs...>
   <li><#nested></li>
 </#macro>
 
