@@ -11,17 +11,16 @@
 
 <#-- Master include: Includes the default macros and allows overrides -->
 <#include "component://common/webcommon/includes/cato/lib/standard/htmlTemplate.ftl"> 
-<#-- This is now done in the include above instead, because the standard macros need it as well 
-    This template will create a copy of its own namespace as well (see EOF)
-save the existing macro def references so we can delegate to them easily
+<#-- The following is now done by the include above instead, because the standard macros need it as well.
+    It creates a map of references to the original macros so we can delegate to them, essentially a namespace.
 <#assign catoStdTmplLib = copyObject(.namespace)> -->
 
 <#--
-Other patterns:
+Other possible patterns:
 
 <#import "component://common/webcommon/includes/cato/lib/standard/htmlTemplate.ftl" as catoStdTmplLib> 
 
-it turns out, using #import statement here as-is is too problematic. within the import calls, local macro definitions will always
+DEV NOTE: it turns out, using #import statement here as-is is too problematic. within the import calls, local macro definitions will always
 shadow the global macro definitions, which means they won't automatically use the overridden macros defined in this parent file, 
 so reuse of high-level macros (that call others) becomes confusing.
 whether automatic overriding is wanted or not is case-specific, but in general, here yes.
@@ -39,6 +38,9 @@ because in general we wish to override selectively, not include selectively.
 *************
 * MACRO OVERRIDES
 ************
+See component://common/webcommon/includes/cato/lib/standard/htmlTemplate.ftl for documentation about
+the macro interfaces used in this file.
+
 NOTES:
   * It's important that any overrides for template-facing macros (like @field or other) be enabled with and
     use the advanced args pattern (args={} inlineArgs...). Without this, standard cato macro interface
@@ -48,21 +50,19 @@ NOTES:
     to the delegated macro (if is a delegating override).
   * The markup macros are not subject to the previous point because they are not template-facing; however
     they all MUST accept an "catchArgs..." (varargs) so they are not subject to compatibility breaking.
-  * Unfortunately these patterns make the use of the other (unrelated) (attribs={} inlineAttribs...) pattern
-    impossible, so for macros that rely on it, the (args={} inlineArgs...) pattern has to be adapted
-    to support it (TODO: this is WIP, should be possible but not yet proven; affects @table, @tr, etc.).
  -->
 
-<#-- min only lists the minimal params we need defaults for; 
-    @field has too many args, will be faster this way; note this is an optimization, only worth doing
-    on macros with a ton of parameters (others can skip _defaultArgs_min variable and use _defaultArgs only) -->
+<#-- @field template-facing macro - theme override 
+    currently we only need this override because of some markup limitations that can't be addressed
+    in the _markup macros alone. ideally would have only the _markup macros. but this provides extra examples. -->
+<#-- field_defaultArgs_min only lists the min params we need access to in our immediate overriding code.
+    the _min separatation here is not necessary in general, it's only an optimization used because @field has a million
+    parameters. having field_defaultArgs only would work fine as well (and less error prone). -->
 <#assign field_defaultArgs_min = {"type":"", "class":"", "passArgs":{}}>
 <#assign field_defaultArgs = getCatoMacroDefaultArgs("field", catoStdTmplLib) + field_defaultArgs_min>
 <#macro field args={} inlineArgs...>
-  <#-- NOTE: we don't need to use field_defaultArgs here for the time being, but if this was
-      a heavier mod, may want it here instead of field_defaultArgs_min.
-      this is simply an optimization.
-      WARN: you have to make sure to include the defaults you need in field_defaultArgs_min.
+  <#-- WARN: usage of field_defaultArgs_min here means any arguments that need to be accessed 
+      from this override code must be declared in field_defaultArgs_min.
   <#local args = mergeArgMaps(args, inlineArgs, catoBsTmplLib.field_defaultArgs)>-->
   <#local args = mergeArgMaps(args, inlineArgs, catoBsTmplLib.field_defaultArgs_min)>
   <#local dummy = localsPutAll(args)>
@@ -81,19 +81,24 @@ NOTES:
   <#local class = addClassArg(class, "field-entry-widget")/>
   <#local class = addClassArg(class, fieldEntryTypeClass)/>
   
-  <#-- NOTE: the inlineArgs always override the args map, so can exploit this to avoid making an extra map -->
-  <@catoStdTmplLib.field args=args class=class><#nested /></@catoStdTmplLib.field>
+  <#-- any extra args we need to communicate to our macro implementation can go in this map -->
+  <#local extraPassArgs = {}>
+  
+  <#-- NOTE: the inlineArgs always override the args map, so can exploit this to avoid making an extra map 
+      NOTE: passArgs should always concatenate, so a caller can still pass args through us -->
+  <@catoStdTmplLib.field args=args class=class passArgs=(passArgs+extraPassArgs)><#nested /></@catoStdTmplLib.field>
 </#macro>
 
 <#-- @field container markup - theme override 
     labelContent is generated by field_markup_labelarea.
     #nested is the actual field widget (<input>, <select>, etc.). -->
-<#macro field_markup_container type="" class="" columns="" postfix=false postfixSize=0 postfixContent=true labelArea=true labelType="" labelPosition="" labelAreaContent="" collapse="" collapsePostfix="" norows=false nocells=false container=true origArgs={} passArgs={} catchArgs...>
+<#macro field_markup_container type="" class="" columns="" postfix=false postfixSize=0 postfixContent=true 
+  labelArea=true labelType="" labelPosition="" labelAreaContent="" collapse="" collapsePostfix="" norows=false 
+  nocells=false container=true origArgs={} passArgs={} catchArgs...>
   <#-- FIXME: the current non-grid arrangement does not properly support parent/child fields which cato macros
       should support (see layoutdemo - "Default form fields (with label area) with parent/child fields") 
       this especially affects submit buttons but others too
        FIXME: collapse, collapsePostfix are not handled -->
-  
   <#local rowClass = "">
   <#--<#local labelAreaClass = "">  
   <#local postfixClass = "">-->
@@ -180,7 +185,8 @@ NOTES:
 
 <#-- @field label area markup - theme override
     This generates labelContent passed to @field_markup_container. -->
-<#macro field_markup_labelarea labelType="" labelPosition="" label="" labelDetail="" fieldType="" fieldId="" collapse="" required=false origArgs={} passArgs={} catchArgs...>
+<#macro field_markup_labelarea labelType="" labelPosition="" label="" labelDetail="" fieldType="" fieldId="" 
+  collapse="" required=false origArgs={} passArgs={} catchArgs...>
   <#local label = label?trim>
   <#if label?has_content>
     <#if collapse>
@@ -201,14 +207,16 @@ NOTES:
   </#if>
 </#macro>
 
-<#-- NOTE: the more "proper" way to modify these is now to override the @menu_markup and @menuitem_markup macros, but
-    these are acceptable as well (because of args/inlineArgs pattern) and provides more examples of ways to override. -->
+<#-- @menu template-facing macro - theme override
+    NOTE: the more "proper" way to modify these is now to override the @menu_markup and @menuitem_markup macros, but
+        these are acceptable as well (because of args/inlineArgs pattern) and provides more examples of ways to override. -->
 <#assign menu_defaultArgs_min = {"htmlWrap":"div", "passArgs":{}}> <#-- change the default value, but still possible for client to override -->
 <#assign menu_defaultArgs = getCatoMacroDefaultArgs("menu", catoStdTmplLib) + menu_defaultArgs_min>
 <#macro menu args={} inlineArgs...>
   <@catoStdTmplLib.menu args=mergeArgMaps(args, inlineArgs, catoBsTmplLib.menu_defaultArgs_min)><#nested /></@catoStdTmplLib.menu>
 </#macro>
 
+<#-- @menuitem template-facing macro - theme override -->
 <#assign menuitem_defaultArgs_min = {"htmlWrap":false, "passArgs":{}}> <#-- no html wrapper by default -->
 <#assign menuitem_defaultArgs = getCatoMacroDefaultArgs("menuitem", catoStdTmplLib) + menuitem_defaultArgs_min>
 <#macro menuitem args={} inlineArgs...>
