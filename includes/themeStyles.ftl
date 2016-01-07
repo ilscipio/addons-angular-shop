@@ -162,16 +162,17 @@
     "row_alt" : "odd",
     "row_selected" : "selected",
     
-  <#-- Generic action styles (that could be applied to any UI element - list item, button, etc.) -->  
+  <#-- Generic action styles (that could be applied to any UI element - list item, button, etc. - 
+      and regardless of whether a navigation link toward action or a final submit action link) -->  
     "action_generic" : "action-generic",
-    "action_new" : "action-new",           <#-- new item action link: "Create", "New", etc. -->
-    "action_edit" : "action-edit",         <#-- edit item action link: "Update", "Edit", "Modify", etc. -->
+    "action_create" : "action-create",     <#-- create item action link: "Create", "New", etc. -->
+    "action_modify" : "action-modify",     <#-- modify item action link: "Update", "Edit", "Modify", etc. -->
     "action_remove" : "action-remove",     <#-- remove item action link: "Delete", "Remove", "Kill", "Stop", etc. -->
     "action_find" : "action-find",         <#-- find action link: "Find", "Search", "Lookup", etc. -->
     "action_select" : "action-select",     <#-- select action link: "Select", "Choose", "Pick", etc. -->
     "action_view" : "action-view",         <#-- view item action link: "Delete", "Remove", etc. -->
     "action_download" : "action-download", <#-- download action link: "Download", "Stream", "Export", etc. -->
-    "action_upload" : "action-upload",     <#-- upload action link (often this could be "apply" type instead): "Upload", "Send", etc. -->
+    "action_upload" : "action-upload",     <#-- upload action link (often this can also fall under "apply"): "Upload", "Send", etc. -->
     "action_apply" : "action-apply",       <#-- apply action link: "Apply", "Save", "Run", "Submit", "Set", "Start", etc. -->
     "action_cancel" : "action-cancel",     <#-- cancel action link: "Cancel", "Close", "Stop", etc. -->
     "action_clear" : "action-clear",       <#-- clear action link: "Clear", "Reset", "Restart", etc. -->
@@ -179,10 +180,10 @@
   <#-- Standalone link styles (includes links in tables) -->
     "link_action" : "btn btn-sm btn-default action-generic",
     "link_action_long" : "action-generic link-long",
-    "link_action_new" : "btn btn-sm btn-default action-new",
-    "link_action_new_long" : "action-new link-long",
-    "link_action_edit" : "btn btn-sm btn-default action-edit",
-    "link_action_edit_long" : "action-edit link-long",
+    "link_action_create" : "btn btn-sm btn-default action-create",
+    "link_action_create_long" : "action-create link-long",
+    "link_action_modify" : "btn btn-sm btn-default action-modify",
+    "link_action_modify_long" : "action-modify link-long",
     "link_action_remove" : "btn btn-sm btn-default action-remove",
     "link_action_remove_long" : "action-remove link-long",
     "link_action_find" : "btn btn-sm btn-default action-find",
