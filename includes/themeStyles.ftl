@@ -162,26 +162,57 @@
     "row_alt" : "odd",
     "row_selected" : "selected",
     
+  <#-- Generic action styles (that could be applied to any UI element - list item, button, etc.) -->  
+    "action_generic" : "action-generic",
+    "action_new" : "action-new",           <#-- new item action link: "Create", "New", etc. -->
+    "action_edit" : "action-edit",         <#-- edit item action link: "Update", "Edit", "Modify", etc. -->
+    "action_remove" : "action-remove",     <#-- remove item action link: "Delete", "Remove", etc. -->
+    "action_find" : "action-find",         <#-- find action link: "Find", "Search", "Lookup", etc. -->
+    "action_select" : "action-select",     <#-- select action link: "Select", "Choose", "Pick", etc. -->
+    "action_view" : "action-view",         <#-- view item action link: "Delete", "Remove", etc. -->
+    "action_download" : "action-download", <#-- download action link: "Download", "Stream", "Export", etc. -->
+    "action_apply" : "action-apply",       <#-- apply action link: "Apply", "Save", "Run", "Submit", "Set", "Send", "Start", etc. -->
+    "action_cancel" : "action-cancel",     <#-- cancel action link: "Cancel", "Close", "Stop", etc. -->
+    
   <#-- Standalone link styles (includes links in tables) -->
-    "link_action" : "btn btn-sm btn-default", 
-    "link_action_long" : "",
+    "link_action" : "btn btn-sm btn-default action-generic",
+    "link_action_long" : "action-generic link-long",
+    "link_action_new" : "btn btn-sm btn-default action-new",
+    "link_action_new_long" : "action-new link-long",
+    "link_action_edit" : "btn btn-sm btn-default action-edit",
+    "link_action_edit_long" : "action-edit link-long",
+    "link_action_remove" : "btn btn-sm btn-default action-remove",
+    "link_action_remove_long" : "action-remove link-long",
+    "link_action_find" : "btn btn-sm btn-default action-find",
+    "link_action_find_long" : "action-find link-long",
+    "link_action_select" : "btn btn-sm btn-default action-select",
+    "link_action_select_long" : "action-select link-long",
+    "link_action_view" : "btn btn-sm btn-default action-view",
+    "link_action_view_long" : "action-view link-long",
+    "link_action_download" : "btn btn-sm btn-default action-download",
+    "link_action_download_long" : "action-download link-long",
+    "link_action_apply" : "btn btn-sm btn-default action-apply",
+    "link_action_apply_long" : "action-apply link-long",
+    "link_action_cancel" : "btn btn-sm btn-default action-cancel",
+    "link_action_cancel_long" : "action-cancel link-long",    
     "link_nav" : "btn btn-sm btn-default", 
-    "link_nav_long" : "",
+    "link_nav_long" : "link-long",
     "link_record_id" : "", 
-    "link_record_id_long" : "",   
+    "link_record_id_long" : "link-long",   
     "link_record_name" : "", 
-    "link_record_name_long" : "", 
+    "link_record_name_long" : "link-long", 
     "link_record_idname" : "", 
-    "link_record_idname_long" : "", 
+    "link_record_idname_long" : "link-long", 
     "link_record_desc" : "",             
     "link_record_date" : "",  
     "link_record_number" : "",           
     "link_record_value" : "",      
-    "link_record_value_long" : "",  
+    "link_record_value_long" : "link-long",  
     "link_url" : "",   
     "link_text" : "",            
     "link_image" : "",     
-    "link_default" : "",       
+    "link_default" : "",    
+    "link_long" : "link-long",  
     
   <#-- Colors -->
     "color_green" : "success",
