@@ -166,15 +166,16 @@
     "action_generic" : "action-generic",
     "action_new" : "action-new",           <#-- new item action link: "Create", "New", etc. -->
     "action_edit" : "action-edit",         <#-- edit item action link: "Update", "Edit", "Modify", etc. -->
-    "action_remove" : "action-remove",     <#-- remove item action link: "Delete", "Remove", etc. -->
+    "action_remove" : "action-remove",     <#-- remove item action link: "Delete", "Remove", "Kill", "Stop", etc. -->
     "action_find" : "action-find",         <#-- find action link: "Find", "Search", "Lookup", etc. -->
     "action_select" : "action-select",     <#-- select action link: "Select", "Choose", "Pick", etc. -->
     "action_view" : "action-view",         <#-- view item action link: "Delete", "Remove", etc. -->
     "action_download" : "action-download", <#-- download action link: "Download", "Stream", "Export", etc. -->
-    "action_apply" : "action-apply",       <#-- apply action link: "Apply", "Save", "Run", "Submit", "Set", "Send", "Start", etc. -->
+    "action_upload" : "action-upload",     <#-- upload action link (often this could be "apply" type instead): "Upload", "Send", etc. -->
+    "action_apply" : "action-apply",       <#-- apply action link: "Apply", "Save", "Run", "Submit", "Set", "Start", etc. -->
     "action_cancel" : "action-cancel",     <#-- cancel action link: "Cancel", "Close", "Stop", etc. -->
     "action_clear" : "action-clear",       <#-- clear action link: "Clear", "Reset", "Restart", etc. -->
-    
+
   <#-- Standalone link styles (includes links in tables) -->
     "link_action" : "btn btn-sm btn-default action-generic",
     "link_action_long" : "action-generic link-long",
@@ -192,6 +193,8 @@
     "link_action_view_long" : "action-view link-long",
     "link_action_download" : "btn btn-sm btn-default action-download",
     "link_action_download_long" : "action-download link-long",
+    "link_action_upload" : "btn btn-sm btn-default action-upload",
+    "link_action_upload_long" : "action-upload link-long",
     "link_action_apply" : "btn btn-sm btn-default action-apply",
     "link_action_apply_long" : "action-apply link-long",
     "link_action_cancel" : "btn btn-sm btn-default action-cancel",
