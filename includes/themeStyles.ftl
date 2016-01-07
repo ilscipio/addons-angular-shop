@@ -173,6 +173,7 @@
     "action_download" : "action-download", <#-- download action link: "Download", "Stream", "Export", etc. -->
     "action_apply" : "action-apply",       <#-- apply action link: "Apply", "Save", "Run", "Submit", "Set", "Send", "Start", etc. -->
     "action_cancel" : "action-cancel",     <#-- cancel action link: "Cancel", "Close", "Stop", etc. -->
+    "action_clear" : "action-clear",       <#-- clear action link: "Clear", "Reset", "Restart", etc. -->
     
   <#-- Standalone link styles (includes links in tables) -->
     "link_action" : "btn btn-sm btn-default action-generic",
@@ -194,7 +195,9 @@
     "link_action_apply" : "btn btn-sm btn-default action-apply",
     "link_action_apply_long" : "action-apply link-long",
     "link_action_cancel" : "btn btn-sm btn-default action-cancel",
-    "link_action_cancel_long" : "action-cancel link-long",    
+    "link_action_cancel_long" : "action-cancel link-long",  
+    "link_action_clear" : "btn btn-sm btn-default action-clear",
+    "link_action_clear_long" : "action-clear link-long",      
     "link_nav" : "btn btn-sm btn-default", 
     "link_nav_long" : "link-long",
     "link_record_id" : "", 
