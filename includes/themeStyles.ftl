@@ -162,59 +162,67 @@
     "row_alt" : "odd",
     "row_selected" : "selected",
     
-  <#-- Generic action styles (that could be applied to any UI element - list item, button, etc. - 
-      and regardless of whether a navigation link toward action or a final submit action link) -->  
+  <#-- Generic action styles 
+      action_xxx styles are meant to apply to any interactive UI element (link, menu item, onclick, etc.) and
+      for any element that directly or indirectly triggers or encourages an action (nav item, submit button, etc.).-->
+    
+  <#-- Basic action flags -->
+    "action_nav" : "action-nav",                          <#-- basically, identifies a navigation link -->
+    "action_run" : "action-run",                          <#-- identifies a link or item that actually runs an action, such as a form submit button, or download PDF button, or intermediate action like clearing a form. nav links should never have this. -->
+    
+  <#-- Action state scope styles -->
+    "action_scope_system" : "action-scope-system",
+    "action_scope_session" : "action-scope-session",
+    "action_scope_page" : "action-scope-page",
+    
+  <#-- Action type styles -->
     "action_generic" : "action-generic",
-    "action_create" : "action-create",     <#-- create item action link: "Create", "New", etc. -->
-    "action_modify" : "action-modify",     <#-- modify item action link: "Update", "Edit", "Modify", etc. -->
-    "action_remove" : "action-remove",     <#-- remove item action link: "Delete", "Remove", "Kill", "Stop", etc. -->
-    "action_find" : "action-find",         <#-- find action link: "Find", "Search", "Lookup", etc. -->
-    "action_select" : "action-select",     <#-- select action link: "Select", "Choose", "Pick", etc. -->
-    "action_view" : "action-view",         <#-- view item action link: "Delete", "Remove", etc. -->
-    "action_download" : "action-download", <#-- download action link: "Download", "Stream", "Export", etc. -->
-    "action_upload" : "action-upload",     <#-- upload action link (often this can also fall under "apply"): "Upload", "Send", etc. -->
-    "action_apply" : "action-apply",       <#-- apply action link: "Apply", "Save", "Run", "Submit", "Set", "Start", etc. -->
-    "action_cancel" : "action-cancel",     <#-- cancel action link: "Cancel", "Close", "Stop", etc. -->
-    "action_clear" : "action-clear",       <#-- clear action link: "Clear", "Reset", "Restart", etc. -->
+    "action_cancel" : "action-cancel",
+    
+    <#-- state-changing actions -->
+    "action_modify" : "action-modify",
+    "action_create" : "action-modify action-create",
+    "action_update" : "action-modify action-update",
+    "action_remove" : "action-modify action-remove",
+    "action_upload" : "action-modify action-upload",
+    "action_clear" : "action-modify action-clear",
+
+    <#-- read-only actions -->
+    "action_read" : "action-read",
+    "action_find" : "action-read action-find",
+    "action_select" : "action-read action-select",
+    "action_view" : "action-read action-view",
+    "action_download" : "action-read action-download", 
 
   <#-- Standalone link styles (includes links in tables) -->
-    "link_action" : "btn btn-sm btn-default action-generic",
-    "link_action_long" : "action-generic link-long",
-    "link_action_create" : "btn btn-sm btn-default action-create",
-    "link_action_create_long" : "action-create link-long",
-    "link_action_modify" : "btn btn-sm btn-default action-modify",
-    "link_action_modify_long" : "action-modify link-long",
-    "link_action_remove" : "btn btn-sm btn-default action-remove",
-    "link_action_remove_long" : "action-remove link-long",
-    "link_action_find" : "btn btn-sm btn-default action-find",
-    "link_action_find_long" : "action-find link-long",
-    "link_action_select" : "btn btn-sm btn-default action-select",
-    "link_action_select_long" : "action-select link-long",
-    "link_action_view" : "btn btn-sm btn-default action-view",
-    "link_action_view_long" : "action-view link-long",
-    "link_action_download" : "btn btn-sm btn-default action-download",
-    "link_action_download_long" : "action-download link-long",
-    "link_action_upload" : "btn btn-sm btn-default action-upload",
-    "link_action_upload_long" : "action-upload link-long",
-    "link_action_apply" : "btn btn-sm btn-default action-apply",
-    "link_action_apply_long" : "action-apply link-long",
-    "link_action_cancel" : "btn btn-sm btn-default action-cancel",
-    "link_action_cancel_long" : "action-cancel link-long",  
-    "link_action_clear" : "btn btn-sm btn-default action-clear",
-    "link_action_clear_long" : "action-clear link-long",      
-    "link_nav" : "btn btn-sm btn-default", 
-    "link_nav_long" : "link-long",
-    "link_record_id" : "", 
-    "link_record_id_long" : "link-long",   
-    "link_record_name" : "", 
-    "link_record_name_long" : "link-long", 
-    "link_record_idname" : "", 
-    "link_record_idname_long" : "link-long", 
-    "link_record_desc" : "",             
-    "link_record_date" : "",  
-    "link_record_number" : "",           
-    "link_record_value" : "",      
-    "link_record_value_long" : "link-long",  
+    "link_nav" : "btn btn-sm btn-default action-nav",
+    "link_nav_long" : "action-nav link-long",
+    "link_nav_cancel" : "btn btn-sm btn-default action-nav action-cancel",
+    "link_nav_cancel_long" : "action-nav action-cancel link-long",
+    
+    "link_action_run" : "btn btn-sm btn-default action-run",
+    "link_action_run_long" : "action-run link-long",
+    "link_action_run_cancel" : "btn btn-sm btn-default action-run action-cancel",
+    "link_action_run_cancel_long" : "action-run action-cancel link-long",
+    "link_action_prepare" : "btn btn-sm btn-default action-run action-scope-page",
+    "link_action_prepare_long" : "action-run action-scope-page link-long",
+    "link_action_prepare_cancel" : "btn btn-sm btn-default action-run action-scope-page action-cancel",
+    "link_action_prepare_cancel_long" : "action-run action-scope-page action-cancel link-long",
+    
+    "link_action" : "btn btn-sm btn-default action-generic",  <#-- DEPRECATED, TO BE REMOVED -->
+    "link_action_long" : "action-generic link-long",          <#-- DEPRECATED, TO BE REMOVED -->
+    
+    "link_record_id" : "action-nav", 
+    "link_record_id_long" : "action-nav link-long",   
+    "link_record_name" : "action-nav", 
+    "link_record_name_long" : "action-nav link-long", 
+    "link_record_idname" : "action-nav", 
+    "link_record_idname_long" : "action-nav link-long", 
+    "link_record_desc" : "action-nav",             
+    "link_record_date" : "action-nav",  
+    "link_record_number" : "action-nav",           
+    "link_record_value" : "action-nav",      
+    "link_record_value_long" : "action-nav link-long",  
     "link_url" : "",   
     "link_text" : "",            
     "link_image" : "",     
@@ -232,6 +240,7 @@
     "color_success" : "success",  
     "color_alert" : "danger",        
     "color_error" : "danger",
+    
     "button_color_default" : "btn-default",
     "button_color_primary" : "btn-primary",
     "button_color_secondary" : "btn-secondary",
@@ -291,6 +300,13 @@
   <#-- Navigation -->
     "nav_subnav" : "sub-nav",
     "nav_sidenav" : "navbar-inverse collapse navbar-collapse navbar-ex1-collapse ",
+
+    <#-- Breadcrumbs -->
+    "nav_breadcrumbs" : "breadcrumb",
+    "nav_breadcrumb" : "",
+    "nav_breadcrumb_disabled" : "disabled",
+    "nav_breadcrumb_active" : "active",
+    "nav_breadcrumb_link" : "",
 
   <#-- Pagination -->
     "pagination_wrap" : "text-center",
@@ -365,13 +381,6 @@
   <#-- Image galleries -->
     "gallery_share_view_width" : 500,
     "gallery_share_view_height" : 500,
-
-  <#-- Breadcrumbs -->
-    "nav_breadcrumbs" : "breadcrumb",
-    "nav_breadcrumb" : "",
-    "nav_breadcrumb_disabled" : "disabled",
-    "nav_breadcrumb_active" : "active",
-    "nav_breadcrumb_link" : "",
 
   <#-- Panels -->
     "panel_wrap" : "panel panel-default",
