@@ -185,8 +185,10 @@
     "action_update" : "action-modify action-update",
     "action_remove" : "action-modify action-remove",
     "action_upload" : "action-modify action-upload",
-    "action_send" : "action-modify action-send",
     "action_clear" : "action-modify action-clear",
+    "action_start" : "action-modify action-start",
+    "action_stop" : "action-modify action-stop",
+    "action_send" : "action-modify action-send",
 
     <#-- read-only actions -->
     "action_read" : "action-read",
