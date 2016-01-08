@@ -186,19 +186,20 @@
     "action_remove" : "action-modify action-remove",
     "action_clear" : "action-modify action-clear",
     "action_copy" : "action-modify action-copy",
+    "action_configure" : "action-modify action-configure",
     "action_begin" : "action-modify action-begin",
     "action_terminate" : "action-modify action-terminate",
     "action_complete" : "action-modify action-complete",
-    "action_upload" : "action-modify action-upload",
-    "action_send" : "action-modify action-send",
-
+    "action_import" : "action-modify action-import",
+    "action_transfer" : "action-modify action-transfer",
 
     <#-- read-only actions -->
     "action_read" : "action-read",
     "action_find" : "action-read action-find",
     "action_select" : "action-read action-select",
     "action_view" : "action-read action-view",
-    "action_download" : "action-read action-download", 
+    "action_export" : "action-read action-export",
+
 
   <#-- Standalone link styles (includes links in tables) -->
     "link_nav" : "btn btn-sm btn-default action-nav",
