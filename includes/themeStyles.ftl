@@ -166,7 +166,7 @@
       action_xxx styles are meant to apply to any interactive UI element (link, menu item, onclick, etc.) and
       for any element that directly or indirectly triggers or encourages an action (nav item, submit button, etc.).-->
     
-  <#-- Basic action flags -->
+  <#-- General UI functionality action types -->
     "action_nav" : "action-nav",                          <#-- basically, identifies a navigation link -->
     "action_run" : "action-run",                          <#-- identifies a link or item that actually runs an action, such as a form submit button, or download PDF button, or intermediate action like clearing a form. nav links should never have this. -->
     
@@ -175,7 +175,7 @@
     "action_scope_session" : "action-scope-session",
     "action_scope_page" : "action-scope-page",
     
-  <#-- Action type styles -->
+  <#-- Specific action types -->
     "action_generic" : "action-generic",
     "action_cancel" : "action-cancel",
     
@@ -184,10 +184,11 @@
     "action_create" : "action-modify action-create",
     "action_update" : "action-modify action-update",
     "action_remove" : "action-modify action-remove",
-    "action_upload" : "action-modify action-upload",
     "action_clear" : "action-modify action-clear",
-    "action_start" : "action-modify action-start",
-    "action_stop" : "action-modify action-stop",
+    "action_begin" : "action-modify action-begin",
+    "action_terminate" : "action-modify action-terminate",
+    "action_complete" : "action-modify action-complete",
+    "action_upload" : "action-modify action-upload",
     "action_send" : "action-modify action-send",
 
     <#-- read-only actions -->
