@@ -199,7 +199,8 @@
     "action_select" : "action-read action-select",
     "action_view" : "action-read action-view",
     "action_export" : "action-read action-export",
-
+    "action_reload" : "action-read action-reload",
+    
 
   <#-- Standalone link styles (includes links in tables) -->
     "link_nav" : "btn btn-sm btn-default action-nav",
