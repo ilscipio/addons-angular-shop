@@ -212,10 +212,14 @@
     "link_action_run_long" : "action-run link-long",
     "link_action_run_cancel" : "btn btn-sm btn-default action-run action-cancel",
     "link_action_run_cancel_long" : "action-run action-cancel link-long",
-    "link_action_prepare" : "btn btn-sm btn-default action-run action-scope-page",
-    "link_action_prepare_long" : "action-run action-scope-page link-long",
-    "link_action_prepare_cancel" : "btn btn-sm btn-default action-run action-scope-page action-cancel",
-    "link_action_prepare_cancel_long" : "action-run action-scope-page action-cancel link-long",
+    "link_action_session" : "btn btn-sm btn-default action-run action-scope-session",
+    "link_action_session_long" : "action-run action-scope-session link-long",
+    "link_action_session_cancel" : "btn btn-sm btn-default action-run action-scope-session action-cancel",
+    "link_action_session_cancel_long" : "action-run action-scope-session action-cancel link-long",
+    "link_action_page" : "btn btn-sm btn-default action-run action-scope-page",
+    "link_action_page_long" : "action-run action-scope-page link-long",
+    "link_action_page_cancel" : "btn btn-sm btn-default action-run action-scope-page action-cancel",
+    "link_action_page_cancel_long" : "action-run action-scope-page action-cancel link-long",
     
     "link_action" : "btn btn-sm btn-default action-generic",  <#-- DEPRECATED, TO BE REMOVED -->
     "link_action_long" : "action-generic link-long",          <#-- DEPRECATED, TO BE REMOVED -->
