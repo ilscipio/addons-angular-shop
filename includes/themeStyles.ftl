@@ -331,6 +331,8 @@
     "pagination_item_next" : "",
     "pagination_item_active" : "active",
     "pagination_item_disabled" : "disabled",
+    "pagination_layout" : "bottom",
+    "pagination_noresultsmode" : "hide",
 
   <#-- Lists -->
     "list_inline" : "inline-list",
