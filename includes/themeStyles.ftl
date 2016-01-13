@@ -333,7 +333,11 @@
     "pagination_item_disabled" : "disabled",
     "pagination_layout" : "bottom",
     "pagination_noresultsmode" : "hide",
-
+    "pagination_showcount" : true,
+    "pagination_alwaysshowcount" : true,
+    "pagination_countmsglabel" : "CommonDisplayingShort",
+    "pagination_lowcountmsglabel" : "CommonDisplayingShort",
+    
   <#-- Lists -->
     "list_inline" : "inline-list",
 
