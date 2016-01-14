@@ -173,7 +173,7 @@
   <#-- Action state scope styles -->
     "action_scope_system" : "action-scope-system",
     "action_scope_session" : "action-scope-session",
-    "action_scope_page" : "action-scope-page",
+    "action_scope_local" : "action-scope-local",
     
   <#-- Specific action types -->
     "action_generic" : "action-generic",
@@ -181,7 +181,7 @@
     
     <#-- state-changing actions -->
     "action_modify" : "action-modify",
-    "action_create" : "action-modify action-create",
+    "action_add" : "action-modify action-add",
     "action_update" : "action-modify action-update",
     "action_remove" : "action-modify action-remove",
     "action_clear" : "action-modify action-clear",
@@ -192,22 +192,27 @@
     "action_complete" : "action-modify action-complete",
     "action_import" : "action-modify action-import",
     "action_transfer" : "action-modify action-transfer",
-
-    <#-- read-only actions -->
-    "action_read" : "action-read",
-    "action_find" : "action-read action-find",
-    "action_select" : "action-read action-select",
-    "action_view" : "action-read action-view",
-    "action_export" : "action-read action-export",
-    "action_reload" : "action-read action-reload",
+    "action_register" : "action-modify action-login action-scope-system",
+    "action_login" : "action-modify action-login action-scope-session",
+    "action_logout" : "action-modify action-logout action-scope-session",
     
+    <#-- read-only actions (may or retrieve or submit data for analysis without changing state meaningfully) -->
+    "action_readonly" : "action-readonly",
+    "action_read" : "action-readonly action-read",
+    "action_find" : "action-readonly action-read action-find",
+    "action_view" : "action-readonly action-read action-view",
+    "action_export" : "action-readonly action-read action-export",
+    
+    "action_select" : "action-readonly action-select",
+    "action_reload" : "action-readonly action-reload",
+    "action_verify" : "action-readonly action-verify",
+    "action_close" : "action-readonly action-close",
+
+  <#-- other action flags -->
+    "action_external" : "action-external",
 
   <#-- Standalone link styles (includes links in tables) -->
-    "link_nav" : "btn btn-sm btn-default action-nav",
-    "link_nav_long" : "action-nav link-long",
-    "link_nav_cancel" : "btn btn-sm btn-default action-nav action-cancel",
-    "link_nav_cancel_long" : "action-nav action-cancel link-long",
-    
+    <#-- Action links (trigger an actual action in the system) - NOT for use for opening pages toward actions! -->
     "link_action_sys" : "btn btn-sm btn-default action-run",
     "link_action_sys_long" : "action-run link-long",
     "link_action_sys_cancel" : "btn btn-sm btn-default action-run action-cancel",
@@ -216,29 +221,36 @@
     "link_action_session_long" : "action-run action-scope-session link-long",
     "link_action_session_cancel" : "btn btn-sm btn-default action-run action-scope-session action-cancel",
     "link_action_session_cancel_long" : "action-run action-scope-session action-cancel link-long",
-    "link_action_page" : "btn btn-sm btn-default action-run action-scope-page",
-    "link_action_page_long" : "action-run action-scope-page link-long",
-    "link_action_page_cancel" : "btn btn-sm btn-default action-run action-scope-page action-cancel",
-    "link_action_page_cancel_long" : "action-run action-scope-page action-cancel link-long",
+    "link_action_local" : "btn btn-sm btn-default action-run action-scope-local",
+    "link_action_local_long" : "action-run action-scope-local link-long",
+    "link_action_local_cancel" : "btn btn-sm btn-default action-run action-scope-local action-cancel",
+    "link_action_local_cancel_long" : "action-run action-scope-local action-cancel link-long",
     
     "link_action" : "btn btn-sm btn-default action-generic",  <#-- DEPRECATED, TO BE REMOVED -->
     "link_action_long" : "action-generic link-long",          <#-- DEPRECATED, TO BE REMOVED -->
     
-    "link_record_id" : "action-nav", 
-    "link_record_id_long" : "action-nav link-long",   
-    "link_record_name" : "action-nav", 
-    "link_record_name_long" : "action-nav link-long", 
-    "link_record_idname" : "action-nav", 
-    "link_record_idname_long" : "action-nav link-long", 
-    "link_record_desc" : "action-nav",             
-    "link_record_date" : "action-nav",  
-    "link_record_number" : "action-nav",           
-    "link_record_value" : "action-nav",      
-    "link_record_value_long" : "action-nav link-long",  
-    "link_url" : "",   
-    "link_text" : "",            
-    "link_image" : "",     
-    "link_default" : "",    
+    <#-- General navigation links (basic navigation and navigation toward actions) -->
+    "link_nav" : "btn btn-sm btn-default action-nav",
+    "link_nav_long" : "action-nav link-long",
+    "link_nav_cancel" : "btn btn-sm btn-default action-nav action-cancel",
+    "link_nav_cancel_long" : "action-nav action-cancel link-long",
+    
+    <#-- Navigation links with specific label text -->
+    "link_nav_record_id" : "action-nav", 
+    "link_nav_record_id_long" : "action-nav link-long",   
+    "link_nav_record_name" : "action-nav", 
+    "link_nav_record_name_long" : "action-nav link-long", 
+    "link_nav_record_idname" : "action-nav", 
+    "link_nav_record_idname_long" : "action-nav link-long", 
+    "link_nav_record_desc" : "action-nav",             
+    "link_nav_record_date" : "action-nav",  
+    "link_nav_record_number" : "action-nav",           
+    "link_nav_record_value" : "action-nav",      
+    "link_nav_record_value_long" : "action-nav link-long",  
+    "link_nav_uri" : "action-nav",   
+    "link_nav_text" : "action-nav",            
+    "link_nav_image" : "action-nav",     
+      
     "link_long" : "link-long",  
     
   <#-- Colors -->
