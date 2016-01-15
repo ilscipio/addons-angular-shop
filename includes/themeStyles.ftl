@@ -185,16 +185,23 @@
     "action_update" : "action-modify action-update",
     "action_remove" : "action-modify action-remove",
     "action_clear" : "action-modify action-clear",
+    "action_move" : "action-modify action-move",
     "action_copy" : "action-modify action-copy",
     "action_configure" : "action-modify action-configure",
     "action_begin" : "action-modify action-begin",
+    "action_reset" : "action-modify action-reset",
+    "action_hold" : "action-modify action-hold",
     "action_terminate" : "action-modify action-terminate",
     "action_complete" : "action-modify action-complete",
+    "action_updatestatus" : "action-modify action-updatestatus",
     "action_import" : "action-modify action-import",
     "action_transfer" : "action-modify action-transfer",
-    "action_register" : "action-modify action-login action-scope-system",
-    "action_login" : "action-modify action-login action-scope-session",
-    "action_logout" : "action-modify action-logout action-scope-session",
+    "action_send" : "action-modify action-send",
+    "action_receive" : "action-modify action-receive",
+    "action_sync" : "action-modify action-sync",
+    "action_register" : "action-modify action-login",
+    "action_login" : "action-modify action-login",
+    "action_logout" : "action-modify action-logout",
     
     <#-- read-only actions (may or retrieve or submit data for analysis without changing state meaningfully) -->
     "action_readonly" : "action-readonly",
@@ -225,9 +232,6 @@
     "link_action_local_long" : "action-run action-scope-local link-long",
     "link_action_local_cancel" : "btn btn-sm btn-default action-run action-scope-local action-cancel",
     "link_action_local_cancel_long" : "action-run action-scope-local action-cancel link-long",
-    
-    "link_action" : "btn btn-sm btn-default action-generic",  <#-- DEPRECATED, TO BE REMOVED -->
-    "link_action_long" : "action-generic link-long",          <#-- DEPRECATED, TO BE REMOVED -->
     
     <#-- General navigation links (basic navigation and navigation toward actions) -->
     "link_nav" : "btn btn-sm btn-default action-nav",
