@@ -171,7 +171,7 @@
     "action_run" : "action-run",                          <#-- identifies a link or item that actually runs an action, such as a form submit button, or download PDF button, or intermediate action like clearing a form. nav links should never have this. -->
     
   <#-- Action state scope styles -->
-    "action_scope_system" : "action-scope-system",
+    "action_scope_sys" : "action-scope-sys",
     "action_scope_session" : "action-scope-session",
     "action_scope_local" : "action-scope-local",
     
@@ -220,10 +220,10 @@
 
   <#-- Standalone link styles (includes links in tables) -->
     <#-- Action links (trigger an actual action in the system) - NOT for use for opening pages toward actions! -->
-    "link_action_sys" : "btn btn-sm btn-default action-run",
-    "link_action_sys_long" : "action-run link-long",
-    "link_action_sys_cancel" : "btn btn-sm btn-default action-run action-cancel",
-    "link_action_sys_cancel_long" : "action-run action-cancel link-long",
+    "link_action_sys" : "btn btn-sm btn-default action-run action-scope-sys",
+    "link_action_sys_long" : "action-run action-scope-sys link-long",
+    "link_action_sys_cancel" : "btn btn-sm btn-default action-run action-scope-sys action-cancel",
+    "link_action_sys_cancel_long" : "action-run action-scope-sys action-cancel link-long",
     "link_action_session" : "btn btn-sm btn-default action-run action-scope-session",
     "link_action_session_long" : "action-run action-scope-session link-long",
     "link_action_session_cancel" : "btn btn-sm btn-default action-run action-scope-session action-cancel",
