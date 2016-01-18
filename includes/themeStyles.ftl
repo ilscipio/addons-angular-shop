@@ -175,6 +175,14 @@
     "action_scope_session" : "action-scope-session",
     "action_scope_local" : "action-scope-local",
     
+  <#-- Convenience combinations of the above, useful on menu items -->
+    "action_nav_sys" : "action-nav action-scope-sys",
+    "action_nav_session" : "action-nav action-scope-session",
+    "action_nav_local" : "action-nav action-scope-local",
+    "action_run_sys" : "action-run action-scope-sys",
+    "action_run_session" : "action-run action-scope-session",
+    "action_run_local" : "action-run action-scope-local",
+    
   <#-- Specific action types -->
     "action_generic" : "action-generic",
     "action_cancel" : "action-cancel",
