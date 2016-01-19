@@ -228,10 +228,12 @@
     "link_long" : "link-long",                                  <#-- style to identify long links -->
     
     <#-- classes to identify content type of links -->
-    "link_type_text" : "link-type-text",  
+    "link_type_text" : "link-type-text",
+    "link_type_textspecial" : "link-type-textspecial",
     "link_type_image" : "link-type-image",
 
   <#-- Link styles (standalone/full) -->
+    <#-- TODO: delegate "btn btn-sm btn-default" to CSS for bootstrap -->
     <#-- Action links (trigger an actual action in the system) - NOT for use for opening pages toward actions! -->
     "link_run_sys" : "link-type-text btn btn-sm btn-default action-run action-scope-sys",
     "link_run_sys_long" : "link-type-text action-run action-scope-sys link-long",
@@ -253,19 +255,19 @@
     "link_nav_cancel_long" : "link-type-text action-nav action-cancel link-long",
     
     <#-- Navigation text links with specific label text -->
-    "link_nav_record_id" : "link-type-text action-nav", 
-    "link_nav_record_id_long" : "link-type-text action-nav link-long",   
-    "link_nav_record_name" : "link-type-text action-nav", 
-    "link_nav_record_name_long" : "link-type-text action-nav link-long", 
-    "link_nav_record_idname" : "link-type-text action-nav", 
-    "link_nav_record_idname_long" : "link-type-text action-nav link-long", 
-    "link_nav_record_desc" : "link-type-text action-nav",             
-    "link_nav_record_date" : "link-type-text action-nav",  
-    "link_nav_record_number" : "link-type-text action-nav",           
-    "link_nav_record_value" : "link-type-text action-nav",      
-    "link_nav_record_value_long" : "link-type-text action-nav link-long",  
-    "link_nav_uri" : "link-type-text action-nav",   
-    "link_nav_text" : "link-type-text action-nav",            
+    "link_nav_record_id" : "link-type-textspecial action-nav", 
+    "link_nav_record_id_long" : "link-type-textspecial action-nav link-long",   
+    "link_nav_record_name" : "link-type-textspecial action-nav", 
+    "link_nav_record_name_long" : "link-type-textspecial action-nav link-long", 
+    "link_nav_record_idname" : "link-type-textspecial action-nav", 
+    "link_nav_record_idname_long" : "link-type-textspecial action-nav link-long", 
+    "link_nav_record_desc" : "link-type-textspecial action-nav",             
+    "link_nav_record_date" : "link-type-textspecial action-nav",  
+    "link_nav_record_number" : "link-type-textspecial action-nav",           
+    "link_nav_record_value" : "link-type-textspecial action-nav",      
+    "link_nav_record_value_long" : "link-type-textspecial action-nav link-long",  
+    "link_nav_uri" : "link-type-textspecial action-nav",   
+    "link_nav_text" : "link-type-textspecial action-nav",            
     
   <#-- Colors -->
     "color_green" : "success",
