@@ -162,20 +162,17 @@
     "row_alt" : "odd",
     "row_selected" : "selected",
     
-  <#-- Generic action styles 
-      action_xxx styles are meant to apply to any interactive UI element (link, menu item, onclick, etc.) and
-      for any element that directly or indirectly triggers or encourages an action (nav item, submit button, etc.).-->
-    
-  <#-- General UI functionality action types -->
+  <#-- Generic action styles -->
+    <#-- Generic UI functionality action types -->
     "action_nav" : "action-nav",                          <#-- basically, identifies a navigation link -->
     "action_run" : "action-run",                          <#-- identifies a link or item that actually runs an action, such as a form submit button, or download PDF button, or intermediate action like clearing a form. nav links should never have this. -->
     
-  <#-- Action state scope styles -->
+    <#-- Action state scope styles -->
     "action_scope_sys" : "action-scope-sys",
     "action_scope_session" : "action-scope-session",
     "action_scope_local" : "action-scope-local",
     
-  <#-- Convenience combinations of the above, useful on menu items -->
+    <#-- Convenience combinations of generic functionality + scope, useful on menu items, image links, and any non-text-link elements that identify or perform actions -->
     "action_nav_sys" : "action-nav action-scope-sys",
     "action_nav_session" : "action-nav action-scope-session",
     "action_nav_local" : "action-nav action-scope-local",
@@ -183,11 +180,11 @@
     "action_run_session" : "action-run action-scope-session",
     "action_run_local" : "action-run action-scope-local",
     
-  <#-- Specific action types -->
+    <#-- Specific action types -->
     "action_generic" : "action-generic",
     "action_cancel" : "action-cancel",
     
-    <#-- state-changing actions -->
+    <#-- Specific state-changing actions -->
     "action_modify" : "action-modify",
     "action_add" : "action-modify action-add",
     "action_update" : "action-modify action-update",
@@ -211,7 +208,7 @@
     "action_login" : "action-modify action-login",
     "action_logout" : "action-modify action-logout",
     
-    <#-- read-only actions (may or retrieve or submit data for analysis without changing state meaningfully) -->
+    <#-- Specific read-only actions (may or retrieve or submit data for analysis without changing state meaningfully) -->
     "action_readonly" : "action-readonly",
     "action_read" : "action-readonly action-read",
     "action_find" : "action-readonly action-read action-find",
@@ -223,47 +220,52 @@
     "action_verify" : "action-readonly action-verify",
     "action_close" : "action-readonly action-close",
 
-  <#-- other action flags -->
+    <#-- Misc action flags (fragments) -->
     "action_external" : "action-external",
 
-  <#-- Standalone link styles (includes links in tables) -->
+  <#-- Link styles (fragments) -->
+    <#-- misc/short link styles -->
+    "link_long" : "link-long",                                  <#-- style to identify long links -->
+    
+    <#-- classes to identify content type of links -->
+    "link_type_text" : "link-type-text",  
+    "link_type_image" : "link-type-image",
+
+  <#-- Link styles (standalone/full) -->
     <#-- Action links (trigger an actual action in the system) - NOT for use for opening pages toward actions! -->
-    "link_run_sys" : "btn btn-sm btn-default action-run action-scope-sys",
-    "link_run_sys_long" : "action-run action-scope-sys link-long",
-    "link_run_sys_cancel" : "btn btn-sm btn-default action-run action-scope-sys action-cancel",
-    "link_run_sys_cancel_long" : "action-run action-scope-sys action-cancel link-long",
-    "link_run_session" : "btn btn-sm btn-default action-run action-scope-session",
-    "link_run_session_long" : "action-run action-scope-session link-long",
-    "link_run_session_cancel" : "btn btn-sm btn-default action-run action-scope-session action-cancel",
-    "link_run_session_cancel_long" : "action-run action-scope-session action-cancel link-long",
-    "link_run_local" : "btn btn-sm btn-default action-run action-scope-local",
-    "link_run_local_long" : "action-run action-scope-local link-long",
-    "link_run_local_cancel" : "btn btn-sm btn-default action-run action-scope-local action-cancel",
-    "link_run_local_cancel_long" : "action-run action-scope-local action-cancel link-long",
+    "link_run_sys" : "link-type-text btn btn-sm btn-default action-run action-scope-sys",
+    "link_run_sys_long" : "link-type-text action-run action-scope-sys link-long",
+    "link_run_sys_cancel" : "link-type-text btn btn-sm btn-default action-run action-scope-sys action-cancel",
+    "link_run_sys_cancel_long" : "link-type-text action-run action-scope-sys action-cancel link-long",
+    "link_run_session" : "link-type-text btn btn-sm btn-default action-run action-scope-session",
+    "link_run_session_long" : "link-type-text action-run action-scope-session link-long",
+    "link_run_session_cancel" : "link-type-text btn btn-sm btn-default action-run action-scope-session action-cancel",
+    "link_run_session_cancel_long" : "link-type-text action-run action-scope-session action-cancel link-long",
+    "link_run_local" : "link-type-text btn btn-sm btn-default action-run action-scope-local",
+    "link_run_local_long" : "link-type-text action-run action-scope-local link-long",
+    "link_run_local_cancel" : "link-type-text btn btn-sm btn-default action-run action-scope-local action-cancel",
+    "link_run_local_cancel_long" : "link-type-text action-run action-scope-local action-cancel link-long",
     
-    <#-- General navigation links (basic navigation and navigation toward actions) -->
-    "link_nav" : "btn btn-sm btn-default action-nav",
-    "link_nav_long" : "action-nav link-long",
-    "link_nav_cancel" : "btn btn-sm btn-default action-nav action-cancel",
-    "link_nav_cancel_long" : "action-nav action-cancel link-long",
+    <#-- General navigation text links (basic navigation and navigation toward actions) -->
+    "link_nav" : "link-type-text btn btn-sm btn-default action-nav",
+    "link_nav_long" : "link-type-text action-nav link-long",
+    "link_nav_cancel" : "link-type-text btn btn-sm btn-default action-nav action-cancel",
+    "link_nav_cancel_long" : "link-type-text action-nav action-cancel link-long",
     
-    <#-- Navigation links with specific label text -->
-    "link_nav_record_id" : "action-nav", 
-    "link_nav_record_id_long" : "action-nav link-long",   
-    "link_nav_record_name" : "action-nav", 
-    "link_nav_record_name_long" : "action-nav link-long", 
-    "link_nav_record_idname" : "action-nav", 
-    "link_nav_record_idname_long" : "action-nav link-long", 
-    "link_nav_record_desc" : "action-nav",             
-    "link_nav_record_date" : "action-nav",  
-    "link_nav_record_number" : "action-nav",           
-    "link_nav_record_value" : "action-nav",      
-    "link_nav_record_value_long" : "action-nav link-long",  
-    "link_nav_uri" : "action-nav",   
-    "link_nav_text" : "action-nav",            
-    "link_nav_image" : "action-nav",     
-      
-    "link_long" : "link-long",  
+    <#-- Navigation text links with specific label text -->
+    "link_nav_record_id" : "link-type-text action-nav", 
+    "link_nav_record_id_long" : "link-type-text action-nav link-long",   
+    "link_nav_record_name" : "link-type-text action-nav", 
+    "link_nav_record_name_long" : "link-type-text action-nav link-long", 
+    "link_nav_record_idname" : "link-type-text action-nav", 
+    "link_nav_record_idname_long" : "link-type-text action-nav link-long", 
+    "link_nav_record_desc" : "link-type-text action-nav",             
+    "link_nav_record_date" : "link-type-text action-nav",  
+    "link_nav_record_number" : "link-type-text action-nav",           
+    "link_nav_record_value" : "link-type-text action-nav",      
+    "link_nav_record_value_long" : "link-type-text action-nav link-long",  
+    "link_nav_uri" : "link-type-text action-nav",   
+    "link_nav_text" : "link-type-text action-nav",            
     
   <#-- Colors -->
     "color_green" : "success",
