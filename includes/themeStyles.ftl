@@ -228,18 +228,18 @@
 
   <#-- Standalone link styles (includes links in tables) -->
     <#-- Action links (trigger an actual action in the system) - NOT for use for opening pages toward actions! -->
-    "link_action_sys" : "btn btn-sm btn-default action-run action-scope-sys",
-    "link_action_sys_long" : "action-run action-scope-sys link-long",
-    "link_action_sys_cancel" : "btn btn-sm btn-default action-run action-scope-sys action-cancel",
-    "link_action_sys_cancel_long" : "action-run action-scope-sys action-cancel link-long",
-    "link_action_session" : "btn btn-sm btn-default action-run action-scope-session",
-    "link_action_session_long" : "action-run action-scope-session link-long",
-    "link_action_session_cancel" : "btn btn-sm btn-default action-run action-scope-session action-cancel",
-    "link_action_session_cancel_long" : "action-run action-scope-session action-cancel link-long",
-    "link_action_local" : "btn btn-sm btn-default action-run action-scope-local",
-    "link_action_local_long" : "action-run action-scope-local link-long",
-    "link_action_local_cancel" : "btn btn-sm btn-default action-run action-scope-local action-cancel",
-    "link_action_local_cancel_long" : "action-run action-scope-local action-cancel link-long",
+    "link_run_sys" : "btn btn-sm btn-default action-run action-scope-sys",
+    "link_run_sys_long" : "action-run action-scope-sys link-long",
+    "link_run_sys_cancel" : "btn btn-sm btn-default action-run action-scope-sys action-cancel",
+    "link_run_sys_cancel_long" : "action-run action-scope-sys action-cancel link-long",
+    "link_run_session" : "btn btn-sm btn-default action-run action-scope-session",
+    "link_run_session_long" : "action-run action-scope-session link-long",
+    "link_run_session_cancel" : "btn btn-sm btn-default action-run action-scope-session action-cancel",
+    "link_run_session_cancel_long" : "action-run action-scope-session action-cancel link-long",
+    "link_run_local" : "btn btn-sm btn-default action-run action-scope-local",
+    "link_run_local_long" : "action-run action-scope-local link-long",
+    "link_run_local_cancel" : "btn btn-sm btn-default action-run action-scope-local action-cancel",
+    "link_run_local_cancel_long" : "action-run action-scope-local action-cancel link-long",
     
     <#-- General navigation links (basic navigation and navigation toward actions) -->
     "link_nav" : "btn btn-sm btn-default action-nav",
