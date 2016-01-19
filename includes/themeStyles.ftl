@@ -223,51 +223,55 @@
     <#-- Misc action flags (fragments) -->
     "action_external" : "action-external",
 
+    "action_primary" : "action-primary",
+    "action_secondary" : "action-secondary",
+
   <#-- Link styles (fragments) -->
     <#-- misc/short link styles -->
     "link_long" : "link-long",                                  <#-- style to identify long links -->
     
     <#-- classes to identify content type of links -->
     "link_type_text" : "link-type-text",
-    "link_type_textspecial" : "link-type-textspecial",
     "link_type_image" : "link-type-image",
 
   <#-- Link styles (standalone/full) -->
     <#-- TODO: delegate "btn btn-sm btn-default" to CSS for bootstrap -->
     <#-- Action links (trigger an actual action in the system) - NOT for use for opening pages toward actions! -->
-    "link_run_sys" : "link-type-text btn btn-sm btn-default action-run action-scope-sys",
-    "link_run_sys_long" : "link-type-text action-run action-scope-sys link-long",
-    "link_run_sys_cancel" : "link-type-text btn btn-sm btn-default action-run action-scope-sys action-cancel",
-    "link_run_sys_cancel_long" : "link-type-text action-run action-scope-sys action-cancel link-long",
-    "link_run_session" : "link-type-text btn btn-sm btn-default action-run action-scope-session",
-    "link_run_session_long" : "link-type-text action-run action-scope-session link-long",
-    "link_run_session_cancel" : "link-type-text btn btn-sm btn-default action-run action-scope-session action-cancel",
-    "link_run_session_cancel_long" : "link-type-text action-run action-scope-session action-cancel link-long",
-    "link_run_local" : "link-type-text btn btn-sm btn-default action-run action-scope-local",
-    "link_run_local_long" : "link-type-text action-run action-scope-local link-long",
-    "link_run_local_cancel" : "link-type-text btn btn-sm btn-default action-run action-scope-local action-cancel",
-    "link_run_local_cancel_long" : "link-type-text action-run action-scope-local action-cancel link-long",
+    "link_run_sys" : "link-type-text btn btn-sm btn-default action-run action-primary action-scope-sys",
+    "link_run_sys_long" : "link-type-text action-run action-primary action-scope-sys link-long",
+    "link_run_sys_cancel" : "link-type-text btn btn-sm btn-default action-run action-primary action-scope-sys action-cancel",
+    "link_run_sys_cancel_long" : "link-type-text action-run action-primary action-scope-sys action-cancel link-long",
+    "link_run_session" : "link-type-text btn btn-sm btn-default action-run action-primary action-scope-session",
+    "link_run_session_long" : "link-type-text action-run action-primary action-scope-session link-long",
+    "link_run_session_cancel" : "link-type-text btn btn-sm btn-default action-run action-primary action-scope-session action-cancel",
+    "link_run_session_cancel_long" : "link-type-text action-run action-primary action-scope-session action-cancel link-long",
+    "link_run_local" : "link-type-text btn btn-sm btn-default action-run action-primary action-scope-local",
+    "link_run_local_long" : "link-type-text action-run action-primary action-scope-local link-long",
+    "link_run_local_cancel" : "link-type-text btn btn-sm btn-default action-run action-primary action-scope-local action-cancel",
+    "link_run_local_cancel_long" : "link-type-text action-run action-primary action-scope-local action-cancel link-long",
     
-    <#-- General navigation text links (basic navigation and navigation toward actions) -->
-    "link_nav" : "link-type-text btn btn-sm btn-default action-nav",
-    "link_nav_long" : "link-type-text action-nav link-long",
-    "link_nav_cancel" : "link-type-text btn btn-sm btn-default action-nav action-cancel",
-    "link_nav_cancel_long" : "link-type-text action-nav action-cancel link-long",
+    <#-- General primary navigation text links (basic navigation and navigation toward actions) -->
+    "link_nav" : "link-type-text btn btn-sm btn-default action-nav action-primary",
+    "link_nav_long" : "link-type-text action-nav action-primary link-long",
+    "link_nav_cancel" : "link-type-text btn btn-sm btn-default action-nav action-primary action-cancel",
+    "link_nav_cancel_long" : "link-type-text action-nav action-primary action-cancel link-long",
     
-    <#-- Navigation text links with specific label text -->
-    "link_nav_record_id" : "link-type-textspecial action-nav", 
-    "link_nav_record_id_long" : "link-type-textspecial action-nav link-long",   
-    "link_nav_record_name" : "link-type-textspecial action-nav", 
-    "link_nav_record_name_long" : "link-type-textspecial action-nav link-long", 
-    "link_nav_record_idname" : "link-type-textspecial action-nav", 
-    "link_nav_record_idname_long" : "link-type-textspecial action-nav link-long", 
-    "link_nav_record_desc" : "link-type-textspecial action-nav",             
-    "link_nav_record_date" : "link-type-textspecial action-nav",  
-    "link_nav_record_number" : "link-type-textspecial action-nav",           
-    "link_nav_record_value" : "link-type-textspecial action-nav",      
-    "link_nav_record_value_long" : "link-type-textspecial action-nav link-long",  
-    "link_nav_uri" : "link-type-textspecial action-nav",   
-    "link_nav_text" : "link-type-textspecial action-nav",            
+    <#-- Informational navigation text links -->
+    "link_nav_info" : "link-type-text action-nav action-secondary",
+    "link_nav_info_long" : "link-type-text action-nav action-secondary link-long",
+    "link_nav_info_id" : "link-type-text action-nav action-secondary", 
+    "link_nav_info_id_long" : "link-type-text action-nav action-secondary link-long",   
+    "link_nav_info_name" : "link-type-text action-nav action-secondary", 
+    "link_nav_info_name_long" : "link-type-text action-nav action-secondary link-long", 
+    "link_nav_info_idname" : "link-type-text action-nav action-secondary", 
+    "link_nav_info_idname_long" : "link-type-text action-nav action-secondary link-long", 
+    "link_nav_info_desc" : "link-type-text action-nav action-secondary",             
+    "link_nav_info_date" : "link-type-text action-nav action-secondary",  
+    "link_nav_info_number" : "link-type-text action-nav action-secondary",           
+    "link_nav_info_value" : "link-type-text action-nav action-secondary",      
+    "link_nav_info_value_long" : "link-type-text action-nav action-secondary link-long",  
+    "link_nav_info_uri" : "link-type-text action-nav action-secondary",   
+    "link_nav_info_text" : "link-type-text action-nav action-secondary",            
     
   <#-- Colors -->
     "color_green" : "success",
