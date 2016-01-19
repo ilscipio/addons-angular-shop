@@ -235,25 +235,24 @@
     "link_type_image" : "link-type-image",
 
   <#-- Link styles (standalone/full) -->
-    <#-- TODO: delegate "btn btn-sm btn-default" to CSS for bootstrap -->
     <#-- Action links (trigger an actual action in the system) - NOT for use for opening pages toward actions! -->
-    "link_run_sys" : "link-type-text btn btn-sm btn-default action-run action-primary action-scope-sys",
+    "link_run_sys" : "link-type-text action-run action-primary action-scope-sys btn btn-sm btn-default",
     "link_run_sys_long" : "link-type-text action-run action-primary action-scope-sys link-long",
-    "link_run_sys_cancel" : "link-type-text btn btn-sm btn-default action-run action-primary action-scope-sys action-cancel",
+    "link_run_sys_cancel" : "link-type-text action-run action-primary action-scope-sys action-cancel btn btn-sm btn-default",
     "link_run_sys_cancel_long" : "link-type-text action-run action-primary action-scope-sys action-cancel link-long",
-    "link_run_session" : "link-type-text btn btn-sm btn-default action-run action-primary action-scope-session",
+    "link_run_session" : "link-type-text action-run action-primary action-scope-session btn btn-sm btn-default",
     "link_run_session_long" : "link-type-text action-run action-primary action-scope-session link-long",
-    "link_run_session_cancel" : "link-type-text btn btn-sm btn-default action-run action-primary action-scope-session action-cancel",
+    "link_run_session_cancel" : "link-type-text action-run action-primary action-scope-session action-cancel btn btn-sm btn-default",
     "link_run_session_cancel_long" : "link-type-text action-run action-primary action-scope-session action-cancel link-long",
-    "link_run_local" : "link-type-text btn btn-sm btn-default action-run action-primary action-scope-local",
+    "link_run_local" : "link-type-text action-run action-primary action-scope-local btn btn-sm btn-default",
     "link_run_local_long" : "link-type-text action-run action-primary action-scope-local link-long",
-    "link_run_local_cancel" : "link-type-text btn btn-sm btn-default action-run action-primary action-scope-local action-cancel",
+    "link_run_local_cancel" : "link-type-text action-run action-primary action-scope-local action-cancel btn btn-sm btn-default",
     "link_run_local_cancel_long" : "link-type-text action-run action-primary action-scope-local action-cancel link-long",
     
-    <#-- General primary navigation text links (basic navigation and navigation toward actions) -->
-    "link_nav" : "link-type-text btn btn-sm btn-default action-nav action-primary",
+    <#-- Primary navigation text links (basic navigation and navigation toward actions) -->
+    "link_nav" : "link-type-text action-nav action-primary btn btn-sm btn-default",
     "link_nav_long" : "link-type-text action-nav action-primary link-long",
-    "link_nav_cancel" : "link-type-text btn btn-sm btn-default action-nav action-primary action-cancel",
+    "link_nav_cancel" : "link-type-text action-nav action-primary action-cancel btn btn-sm btn-default",
     "link_nav_cancel_long" : "link-type-text action-nav action-primary action-cancel link-long",
     
     <#-- Informational navigation text links -->
