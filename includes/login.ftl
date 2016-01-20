@@ -59,7 +59,7 @@ under the License.
           </#if>
        
                 <input type="hidden" name="JavaScriptEnabled" value="N"/>
-                <input type="submit" value="${uiLabelMap.CommonLogin}" class="button"/>
+                <input type="submit" value="${uiLabelMap.CommonLogin}" class="${styles.link_run_session!} ${styles.action_login!}"/>
 
       </form>
     </div>
