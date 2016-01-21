@@ -247,7 +247,7 @@ NOTES:
 <#macro nav_markup type="" origArgs={} passArgs={} catchArgs...>
   <#switch type>
     <#case "magellan">
-      <nav class="navbar navbar-default navbar-static-top"">
+      <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
           <ul class="nav navbar-nav">
             <#nested>
