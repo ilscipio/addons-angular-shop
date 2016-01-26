@@ -265,6 +265,7 @@
     "action_register" : "action-modify action-login",
     "action_login" : "action-modify action-login",
     "action_logout" : "action-modify action-logout",
+    "action_continue" : "action-modify action-continue",
     
     <#-- Specific read-only actions (may or retrieve or submit data for analysis without changing state meaningfully) -->
     "action_readonly" : "action-readonly",
