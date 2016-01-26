@@ -277,7 +277,6 @@
     "action_show" : "action-readonly action-read action-visibility action-show",
     "action_hide" : "action-readonly action-read action-visibility action-hide",
     
-    
     "action_select" : "action-readonly action-select",
     "action_reload" : "action-readonly action-reload",
     "action_verify" : "action-readonly action-verify",
