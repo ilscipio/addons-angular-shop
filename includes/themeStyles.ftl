@@ -33,6 +33,7 @@
     "round" : "round",
     "radius" : "radius",
     "expand" : "expand",
+    "expanded" : "expanded",
     "collapse" : "",
     "collapsed" : "",
     "required" : "required",
@@ -271,6 +272,10 @@
     "action_find" : "action-readonly action-read action-find",
     "action_view" : "action-readonly action-read action-view",
     "action_export" : "action-readonly action-read action-export",
+    "action_visibility" : "action-readonly action-read action-visibility",
+    "action_show" : "action-readonly action-read action-visibility action-show",
+    "action_hide" : "action-readonly action-read action-visibility action-hide",
+    
     
     "action_select" : "action-readonly action-select",
     "action_reload" : "action-readonly action-reload",
