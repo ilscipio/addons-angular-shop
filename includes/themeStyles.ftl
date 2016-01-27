@@ -273,14 +273,14 @@
     "action_find" : "action-readonly action-read action-find",
     "action_view" : "action-readonly action-read action-view",
     "action_export" : "action-readonly action-read action-export",
-    "action_visibility" : "action-readonly action-read action-visibility",
-    "action_show" : "action-readonly action-read action-visibility action-show",
-    "action_hide" : "action-readonly action-read action-visibility action-hide",
     
+    "action_visibility" : "action-readonly action-visibility",
+    "action_show" : "action-readonly action-visibility action-show",
+    "action_hide" : "action-readonly action-visibility action-hide",
+    "action_close" : "action-readonly action-close",
     "action_select" : "action-readonly action-select",
     "action_reload" : "action-readonly action-reload",
     "action_verify" : "action-readonly action-verify",
-    "action_close" : "action-readonly action-close",
 
     <#-- Misc action flags (fragments) -->
     "action_external" : "action-external",
