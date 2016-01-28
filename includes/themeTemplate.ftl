@@ -95,12 +95,12 @@ NOTES:
     #nested is the actual field widget (<input>, <select>, etc.). -->
 <#macro field_markup_container type="" class="" columns="" postfix=false postfixSize=0 postfixContent=true 
   labelArea=true labelType="" labelPosition="" labelAreaContent="" collapse="" collapsePostfix="" norows=false 
-  nocells=false container=true origArgs={} passArgs={} catchArgs...>
+  nocells=false container=true containerId="" containerClass="" origArgs={} passArgs={} catchArgs...>
   <#-- FIXME: the current non-grid arrangement does not properly support parent/child fields which cato macros
       should support (see layoutdemo - "Default form fields (with label area) with parent/child fields") 
       this especially affects submit buttons but others too
        FIXME: collapse, collapsePostfix are not handled -->
-  <#local rowClass = "">
+  <#local rowClass = containerClass>
   <#--<#local labelAreaClass = "">  
   <#local postfixClass = "">-->
 
@@ -111,7 +111,7 @@ NOTES:
   <#local fieldEntryTypeClass = "field-entry-type-" + mapCatoFieldTypeToStyleName(type)>
   
   <#local rowClass = addClassArg(rowClass, "form-field-entry " + fieldEntryTypeClass)>
-  <@row class=rowClass collapse=collapse!false norows=(norows || !container)>
+  <@row class=rowClass collapse=collapse!false norows=(norows || !container) id=containerId>
     <#if labelType == "vertical">
       <#-- FIXME: vertical was mostly copy-pasted quickly so it can be seen visually, needs work -->
       <@cell>
