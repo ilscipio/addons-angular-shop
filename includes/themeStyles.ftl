@@ -525,7 +525,7 @@
     "alert_prefix_type" : "alert-",     <#-- Bootstrap: "alert-"; Note: This may be removed -->
     "alert_type_info" : "alert-info",
     "alert_type_success" : "alert-success",
-    "alert_type__warning" : "alert-warning",
+    "alert_type_warning" : "alert-warning",
     "alert_type_secondary" : "alert-secondary",  
     "alert_type_alert" : "",        
     "alert_type_error" : "box",             
