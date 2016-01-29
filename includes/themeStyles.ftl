@@ -340,7 +340,7 @@
     
   <#-- Colors -->
     "color_green" : "success",
-    "color_red" : "alert",
+    "color_red" : "danger",
     "color_grey" : "secondary",
     "color_primary" : "primary",
     "color_secondary" : "secondary",
@@ -548,6 +548,10 @@
     "progress_container" : "progress",   
     "progress_wrap" : "progress-bar",           
     "progress_bar" : "sr-only",       
+
+    "progress_state_alert" : "danger",
+    "progress_state_info" : "info",
+    "progress_state_success" : "success",
 
   <#-- Fields -->
     <#-- fields type-based styles -->
