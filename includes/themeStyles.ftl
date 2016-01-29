@@ -362,6 +362,22 @@
     "button_color_alert" : "btn-danger",
     "button_color_error" : "btn-danger",
     
+    "text_color_primary" : "colored-text primary",
+    "text_color_secondary" : "colored-text secondary",
+    "text_color_info" : "colored-text info",
+    "text_color_warning" : "colored-text warning",
+    "text_color_success" : "colored-text success",  
+    "text_color_alert" : "colored-text danger",
+    "text_color_error" : "colored-text danger",
+    
+    "elem_color_primary" : "colored-elem primary",
+    "elem_color_secondary" : "colored-elem secondary",
+    "elem_color_info" : "colored-elem info",
+    "elem_color_warning" : "colored-elem warning",
+    "elem_color_success" : "colored-elem success",  
+    "elem_color_alert" : "colored-elem danger",
+    "elem_color_error" : "colored-elem danger",
+    
   <#-- Grid -->
     "grid_row" : "row",
     "grid_cell" : "columns",
