@@ -351,12 +351,16 @@
     "color_error" : "danger",
     
     "button_color_default" : "btn-default",
+    "button_color_green" : "btn-success",
+    "button_color_red" : "btn-danger",
+    "button_color_grey" : "btn-secondary",    
     "button_color_primary" : "btn-primary",
     "button_color_secondary" : "btn-secondary",
     "button_color_success" : "btn-success",
     "button_color_info" : "btn-info",
     "button_color_warning" : "btn-warning",
     "button_color_alert" : "btn-danger",
+    "button_color_error" : "btn-danger",
     
   <#-- Grid -->
     "grid_row" : "row",
