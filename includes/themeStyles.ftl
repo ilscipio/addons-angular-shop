@@ -55,6 +55,15 @@
     "switch" : "switch",
     "dropdown" : "dropdown-menu",
     
+  <#-- Common message (default message type container styles) -->
+    "commonmsg_result" : "result-msg",
+    "commonmsg_fail" : "fail-msg",
+    "commonmsg_error" : "error-msg",
+    "commonmsg_error_permission" : "error-msg error-permission",
+    "commonmsg_error_security" : "error-msg error-security",
+    "commonmsg_generic" : "",
+    "commonmsg_default" : "",
+    
   <#-- Menus -->  
     <#-- Generic menu types -->
     "menu_generic" : "",  
