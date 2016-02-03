@@ -43,7 +43,7 @@
     <#elseif styleSet.contains("menu-sidebar")>
       <#local remStyle = removeStyleNames(style, "menu-sidebar")>
         <nav class="${styles.nav_sidenav!""}">
-            <h2>${navigation!}</h2>
+            <#if navigation?has_content><h2>${navigation!}</h2></#if>
       <#local classes = joinStyleNames(styles.menu_sidebar!, remStyle)>
     <#elseif styleSet.contains("menu-button")>
       <#local remStyle = removeStyleNames(style, "menu-button")>
