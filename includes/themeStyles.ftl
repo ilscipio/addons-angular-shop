@@ -55,14 +55,17 @@
     "switch" : "switch",
     "dropdown" : "dropdown-menu",
     
-  <#-- Common message (default message type container styles) -->
+  <#-- Common messages (default message type container styles) -->
     "commonmsg_result" : "result-msg",
+    "commonmsg_info" : "info-msg",
+    "commonmsg_info_important" : "info-msg info-important",
+    "commonmsg_warning" : "warning-msg",
     "commonmsg_fail" : "fail-msg",
     "commonmsg_error" : "error-msg",
     "commonmsg_error_perm" : "error-msg error-perm",
     "commonmsg_error_security" : "error-msg error-security",
-    "commonmsg_generic" : "",
-    "commonmsg_default" : "",
+    "commonmsg_generic" : "generic-msg",
+    "commonmsg_default" : "generic-msg",
     
   <#-- Menus -->  
     <#-- Generic menu types -->
