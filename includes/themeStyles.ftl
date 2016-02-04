@@ -69,7 +69,8 @@
     
   <#-- Menus -->  
     <#-- Generic menu types -->
-    "menu_generic" : "",  
+    "menu_generic" : "menu-type-generic",
+    "menu_generic_type" : "menu-type-generic",
     "menu_generic_item" : "", 
     "menu_generic_itemdisabled" : "disabled", 
     "menu_generic_itemactive" : "active", 
@@ -80,7 +81,8 @@
     "menu_generic_item_link" : "",
     "menu_generic_item_text" : "text-entry",
     "menu_generic_item_submit" : "", 
-    "menu_button" : "btn-group",
+    "menu_button" : "btn-group menu-type-button",
+    "menu_button_type" : "menu-type-button",
     "menu_button_item" : "",
     "menu_button_itemdisabled" : "disabled", 
     "menu_button_itemactive" : "active", 
@@ -92,7 +94,8 @@
     "menu_button_item_text" : "text-entry",
     "menu_button_item_submit" : "btn btn-sm btn-default",
     <#-- Main navigation menus -->
-    "menu_main" : "dropdown-menu",
+    "menu_main" : "dropdown-menu menu-type-main",
+    "menu_main_type" : "menu-type-main",
     "menu_main_wrap" : "dropdown",  
     "menu_main_item" : "dropdown-toggle",
     "menu_main_itemdisabled" : "disabled", 
@@ -104,7 +107,8 @@
     "menu_main_item_link" : "javascript:;",
     "menu_main_item_text" : "text-entry",
     "menu_main_item_submit" : "",
-    "menu_sidebar" : "nav navbar-nav side-nav", 
+    "menu_sidebar" : "nav navbar-nav side-nav menu-type-sidebar",
+    "menu_sidebar_type" : "menu-type-sidebar",
     "menu_sidebar_wrap" :"collapse navbar-collapse navbar-ex1-collapse",
     "menu_sidebar_item" : "",
     "menu_sidebar_itemdisabled" : "disabled", 
@@ -117,7 +121,8 @@
     "menu_sidebar_item_text" : "text-entry",
     "menu_sidebar_item_submit" : "",
     <#-- Tab and secondary navigation menus-->
-    "menu_tab" : "nav nav-tabs", 
+    "menu_tab" : "nav nav-tabs menu-type-tab",
+    "menu_tab_type" : "menu-type-tab", 
     "menu_tab_item" : "", 
     "menu_tab_itemdisabled" : "disabled", 
     "menu_tab_itemactive" : "active", 
@@ -128,7 +133,8 @@
     "menu_tab_item_link" : "btn btn-sm btn-default",
     "menu_tab_item_text" : "text-entry",
     "menu_tab_item_submit" : "", 
-    "menu_subtab" : "nav nav-tabs",
+    "menu_subtab" : "nav nav-tabs menu-type-subtab",
+    "menu_subtab_type" : "menu-type-subtab",
     "menu_subtab_item" : "",
     "menu_subtab_itemdisabled" : "disabled", 
     "menu_subtab_itemactive" : "active", 
@@ -140,7 +146,8 @@
     "menu_subtab_item_text" : "text-entry",
     "menu_subtab_item_submit" : "", 
     <#-- Default section menu -->
-    "menu_section" : "btn-group",
+    "menu_section" : "btn-group menu-type-section",
+    "menu_section_type" : "menu-type-section",
     "menu_section_item" : "",
     "menu_section_itemdisabled" : "disabled", 
     "menu_section_itemactive" : "active", 
@@ -153,7 +160,8 @@
     "menu_section_item_submit" : "btn btn-sm btn-default", 
     <#-- Default section menu inlined with title
         FIXME: looks too big/clumsy with these buttons (floats right of title) -->
-    "menu_section_inline" : "btn-group",
+    "menu_section_inline" : "btn-group menu-type-section-inline",
+    "menu_section_inline_type" : "menu-type-section-inline",
     "menu_section_inline_item" : "",
     "menu_section_inline_itemdisabled" : "disabled", 
     "menu_section_inline_itemactive" : "active", 
@@ -165,7 +173,8 @@
     "menu_section_inline_item_text" : "text-entry",
     "menu_section_inline_item_submit" : "btn btn-sm btn-default", 
     <#-- default entry is used for any encountered menu types that have no specific entries in this hash -->    
-    "menu_default" : "",  
+    "menu_default" : "menu-type-default",
+    "menu_default_type" : "menu-type-default", 
     "menu_default_item" : "", 
     "menu_default_itemdisabled" : "disabled", 
     "menu_default_itemactive" : "active", 
@@ -183,32 +192,32 @@
     
   <#-- Data and Tables -->
     <#-- table type-based styles -->
-    "table_generic" : "table-generic",
-    "table_generic_spec" : "table-generic",
+    "table_generic" : "table-type-generic",
+    "table_generic_type" : "table-type-generic",
     "table_generic_cellspacing" : "",
     "table_generic_rowtype" : "generic",    <#-- the default row type is normally "content", but generic tables need "generic" -->
-    "table_data_list" : "table table-striped table-data-common table-data-list",
-    "table_data_list_spec" : "table-data-common table-data-list",
+    "table_data_list" : "table table-striped table-type-data table-type-data-list",
+    "table_data_list_type" : "table-type-data table-type-data-list",
     "table_data_list_cellspacing" : 0,
     "table_data_list_responsive" : true,
     <#-- "table_data_list_autoaltrows" : true, -->
-    "table_data_list_multiform" : "table table-striped table-data-common table-data-list-multiform",
-    "table_data_list_multiform_spec" : "table-data-common table-data-list-multiform",
+    "table_data_list_multiform" : "table table-striped table-type-data table-type-data-list-multiform",
+    "table_data_list_multiform_type" : "table-type-data table-type-data-list-multiform",
     "table_data_list_multiform_cellspacing" : 0,
     "table_data_list_multiform_responsive" : false,  
-    "table_data_complex" : "table table-data-common table-data-complex",
-    "table_data_complex_spec" : "table-data-common table-data-complex",
+    "table_data_complex" : "table table-type-data table-type-data-complex",
+    "table_data_complex_type" : "table-type-data table-type-data-complex",
     "table_data_complex_cellspacing" : 0,
-    "table_summary" : "table table-summary",
-    "table_summary_spec" : "table-summary",
+    "table_summary" : "table table-type-summary",
+    "table_summary_type" : "table-type-summary",
     "table_summary_cellspacing" : 0,
-    "table_fields" : "table table-condensed table-fields",
-    "table_fields_spec" : "table-fields",
+    "table_fields" : "table table-condensed table-type-fields",
+    "table_fields_type" : "table-type-fields",
     "table_fields_cellspacing" : 0,
     <#-- default entry is used by @table for any encountered table types that have no specific entries in this hash. 
          in other words, it is the default style for table types that this theme does not recognize, or "all others". --> 
-    "table_default" : "table table-default",
-    "table_default_spec" : "table-default",
+    "table_default" : "table table-type-default",
+    "table_default_type" : "table-type-default",
     "table_default_cellspacing" : "",
     "table_default_autoaltrows" : false,
     "table_default_rowtype" : "content",
@@ -232,8 +241,8 @@
         "ordering" : false
     },
     
-    "table_formwidget" : "dark-grid",               <#-- default class for form widget tables (does NOT include _spec because _spec always added) -->
-    "table_formwidget_spec" : "table-formwidget",   <#-- specific identifier for form widget tables. NOTE: this is ALWAYS added so doesn't need to be part of table_formwidget -->
+    "table_formwidget" : "dark-grid",                   <#-- default class for form widget tables (does NOT include _type because _type always added) -->
+    "table_formwidget_type" : "table-type-formwidget",  <#-- specific identifier for form widget tables. NOTE: this is ALWAYS added so doesn't need to be part of table_formwidget -->
     
     <#-- other table-related styles -->
     "table_basic" : "table table-condensed",  <#-- this is not a table type, but simply the basic-table style -->
