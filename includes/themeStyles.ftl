@@ -594,7 +594,7 @@
     "fields_default_collapsedinlinelabel" : "datetime",
     "fields_default_checkboxtype" : "",
     
-    "fields_default_alt1_labelareaconsumeexceptions" : "checkbox radio",
+    "fields_default_alt1_labelareaconsumeexceptions" : "checkbox-single radio-single",
     "fields_default_alt1_checkboxtype" : "simple",
 
     "fields_default_nolabels_labeltype" : "none",
@@ -606,7 +606,7 @@
     "fields_default_compact_labeltype" : "vertical",
     "fields_default_compact_labelposition" : "top",
     "fields_default_compact_labelarea" : true, 
-    "fields_default_compact_labelareaexceptions" : "radio checkbox", 
+    "fields_default_compact_labelareaexceptions" : "checkbox-single radio-single", 
     "fields_default_compact_labelarearequirecontent" : true,
 
     "fields_generic_labeltype" : "horizontal",
