@@ -183,25 +183,32 @@
     
   <#-- Data and Tables -->
     <#-- table type-based styles -->
-    "table_generic" : "",
+    "table_generic" : "table-generic",
+    "table_generic_spec" : "table-generic",
     "table_generic_cellspacing" : "",
     "table_generic_rowtype" : "generic",    <#-- the default row type is normally "content", but generic tables need "generic" -->
-    "table_data_list" : "table table-striped",
+    "table_data_list" : "table table-striped table-data-list",
+    "table_data_list_spec" : "table-data-list",
     "table_data_list_cellspacing" : 0,
     "table_data_list_responsive" : true,
     <#-- "table_data_list_autoaltrows" : true, -->
-    "table_data_list_multiform" : "table table-striped",
+    "table_data_list_multiform" : "table table-striped table-data-list-multiform",
+    "table_data_list_multiform_spec" : "table-data-list-multiform",
     "table_data_list_multiform_cellspacing" : 0,
     "table_data_list_multiform_responsive" : false,  
-    "table_data_complex" : "table",
+    "table_data_complex" : "table table-data-complex",
+    "table_data_complex_spec" : "table-data-complex",
     "table_data_complex_cellspacing" : 0,
-    "table_summary" : "table",
+    "table_summary" : "table table-summary",
+    "table_summary_spec" : "table-summary",
     "table_summary_cellspacing" : 0,
-    "table_fields" : "table table-condensed",
+    "table_fields" : "table table-condensed table-fields",
+    "table_fields_spec" : "table-fields",
     "table_fields_cellspacing" : 0,
     <#-- default entry is used by @table for any encountered table types that have no specific entries in this hash. 
          in other words, it is the default style for table types that this theme does not recognize, or "all others". --> 
-    "table_default" : "table",
+    "table_default" : "table table-default",
+    "table_default_spec" : "table-default",
     "table_default_cellspacing" : "",
     "table_default_autoaltrows" : false,
     "table_default_rowtype" : "content",
@@ -225,9 +232,11 @@
         "ordering" : false
     },
     
+    "table_formwidget" : "table-formwidget dark-grid", <#-- default class for form widget tables (in addition to underlying @table macro defaults) -->
+    "table_formwidget_spec" : "table-formwidget",   <#-- specific identifier for form widget tables-->
+    
     <#-- other table-related styles -->
     "table_basic" : "table table-condensed",  <#-- this is not a table type, but simply the basic-table style -->
-    "table_formwidget" : "form-widget-table", <#-- identifies widget tables for specific needs -->
 
     "row_reg" : "even",
     "row_alt" : "odd",
