@@ -1,0 +1,28 @@
+{
+  "name": "bootstrap",
+  "homepage": "https://github.com/catocommerce/cato",
+  "authors": [
+    "Paul Piper <pp@ilscipio.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Chart.js": "~2",
+    "jquery-migrate": "~1.2.1",
+    "moment": "~2.11.1",
+    "jQuery": "~2.1",
+    "sass-to-js": "~1.1.0"
+  }
+}
