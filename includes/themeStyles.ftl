@@ -246,7 +246,9 @@
     
     <#-- other table-related styles -->
     "table_basic" : "table table-condensed",  <#-- this is not a table type, but simply the basic-table style -->
-
+    "table_require_spacing_small" : "table-require-spacing-small",
+    "table_hint_spacing_small" : "table-hint-spacing-small",
+    
     "row_reg" : "even",
     "row_alt" : "odd",
     "row_selected" : "selected",
