@@ -246,15 +246,18 @@
     
     <#-- other table-related styles -->
     "table_basic" : "table table-condensed",                            <#-- This is not a table type, but simply the basic-table style -->
-    "table_spacing_tiny" : "table-spacing-tiny",                        <#-- Extra style to indicate a table that normally needs a bit of spacing such as cellspacing. If the spacing is more optional, use table_hint_spacing_tiny instead. -->
+
+    "table_spacing_tiny_hint" : "table-spacing-tiny-hint",              <#-- Extra style to indicate a table that might look better with a little cellspacing or more spacing in general, but may be ignored depending on theme. --> 
+    "table_spacing_small_hint" : "table-spacing-small-hint",            <#-- Hint for small spacing (2-4px?) -->
+    "table_spacing_medium_hint" : "table-spacing-medium-hint",          <#-- Hint for medium spacing (6-10px?) -->
+    "table_spacing_large_hint" : "table-spacing-large-hint",
+    "table_spacing_tiny" : "table-spacing-tiny",                        <#-- Extra style to indicate a table that normally needs a bit of spacing such as cellspacing. If the spacing is more a secondary concern, use table_spacing_tiny_hint instead. -->
     "table_spacing_small" : "table-spacing-small",      
     "table_spacing_medium" : "table-spacing-medium",    
     "table_spacing_large" : "table-spacing-large",
-    "table_hint_spacing_tiny" : "table-hint-spacing-tiny",              <#-- Extra style to indicate a table that might look better with a little cellspacing or more spacing in general, but may be ignored depending on theme.
-                                                                            NOTE: At time of creation, this was mostly used to identify stock Ofbiz tables that used cellspacing="" resets (effective non-zero cellspacing, about 1-2px?). --> 
-    "table_hint_spacing_small" : "table-hint-spacing-small",            <#-- Hint for small spacing (2-4px?) -->
-    "table_hint_spacing_medium" : "table-hint-spacing-medium",          <#-- Hint for medium spacing (6-10px?) -->
-    "table_hint_spacing_large" : "table-hint-spacing-large",
+    
+    "table_nocellspacing_hint" : "table-nocellspacing-hint",            <#-- Hint that table will look better without cellspacing. -->
+    "table_nocellspacing" : "table-nocellspacing",                      <#-- Request for table to always have zero cellspacing (collapse). Meant to be used for rare things like calendars. This combines logically with table_spacing_xxx and usually will mean intra-cell padding should be used instead of inter-cell spacing. -->
     
     "row_reg" : "even",
     "row_alt" : "odd",
