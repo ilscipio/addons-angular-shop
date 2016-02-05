@@ -258,6 +258,11 @@
     
     "table_nocellspacing_hint" : "table-nocellspacing-hint",            <#-- Hint that table will look better without cellspacing. -->
     "table_nocellspacing" : "table-nocellspacing",                      <#-- Request for table to always have zero cellspacing (collapse). Meant to be used for rare things like calendars. This combines logically with table_spacing_xxx and usually will mean intra-cell padding should be used instead of inter-cell spacing. -->
+
+    "table_border_on_hint" : "table-border-on-hint",
+    "table_border_on" : "table-border-on",
+    "table_noborder_hint" : "table-noborder-hint",
+    "table_noborder" : "table-noborder",
     
     "row_reg" : "even",
     "row_alt" : "odd",
