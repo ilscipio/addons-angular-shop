@@ -54,6 +54,7 @@
     "heading_level_prefix" : "heading-level-",     
     "switch" : "switch",
     "dropdown" : "dropdown-menu",
+    "fullwidth" : "elem-fullwidth",
     
   <#-- Common messages (default message type container styles) -->
     "commonmsg_result" : "result-msg",
