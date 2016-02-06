@@ -630,6 +630,7 @@
     "fields_default_collapsepostfix" : true,
     "fields_default_collapsedinlinelabel" : "datetime",
     "fields_default_checkboxtype" : "",
+    "fields_default_radiotype" : "",
     
     "fields_default_alt1_labelareaconsumeexceptions" : "checkbox-single radio-single",
     "fields_default_alt1_checkboxtype" : "simple",
@@ -660,6 +661,19 @@
     <#-- misc field styles -->
     "fields_wrap" : "input-group",
     "fields_label" : "input-group-addon",
+
+    <#-- checkbox type styles -->
+    "field_checkbox_default" : "switch btn-sm",
+    "field_checkbox_default_labeltype" : "extralabel",
+    "field_checkbox_default_labelposition" : "after",
+    "field_checkbox_simple" : "",
+    "field_checkbox_simple_labeltype" : "spanonly",
+    "field_checkbox_simple_labelposition" : "after",
+    
+    <#-- radio type styles -->
+    "field_radio_default" : "",
+    "field_radio_default_labeltype" : "standard",
+    "field_radio_default_labelposition" : "after",
 
     <#-- Field type style name maps -->
     "field_type_stylenames_cato" : {
