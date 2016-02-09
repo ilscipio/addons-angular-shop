@@ -191,6 +191,7 @@
     <#-- Misc menu styles -->
     "menu_subappitem" : "subappitem",
     "menu_subappitem_link" : "subapplink",
+    "menu_noclear" : "menu-no-clear",
     
   <#-- Data and Tables -->
     <#-- table type-based styles -->
