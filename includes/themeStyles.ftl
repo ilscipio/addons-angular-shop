@@ -191,6 +191,8 @@
     <#-- Misc menu styles -->
     "menu_subappitem" : "subappitem",
     "menu_subappitem_link" : "subapplink",
+    "menu_buttonstyle_alt1" : "button-style-1",
+    "menu_buttonstyle_alt2" : "button-style-2",
     "menu_noclear" : "menu-no-clear",
     
   <#-- Data and Tables -->
