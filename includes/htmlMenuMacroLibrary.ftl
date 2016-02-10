@@ -52,7 +52,7 @@
       <#local remStyle = removeStyleNames(style, "menu-tab")>
       <#local classes = joinStyleNames(styles.menu_tab!, remStyle)>
     <#elseif styleSet.contains("button-bar")>
-      <#local remStyle = removeStyleNames(style, ["button-bar", "no-clear"])>
+      <#local remStyle = removeStyleNames(style, ["button-bar"])> <#-- ["button-bar", "no-clear"] -->
       <#-- right now translating button-bar menu-container-style here to avoid modifying all menu styles
            note: in stock, button-bar usually accompanied by one of: button-style-2, tab-bar; also found: no-clear (removed above) -->
       <#-- WARN: stock ofbiz usually applied styles to a containing div, 
@@ -113,10 +113,23 @@
     <#-- Get surrounding menu information -->
     <#local menu = readRequestStack("renderMenuStack")>
     <#if menu.style?has_content>
-        <#if menu.style?contains("menu-button") || menu.style?contains("button-bar")>
-            <#if linkStr?has_content>${linkStr}</#if><#rt/>
+        <#if menu.style?contains("menu-button") || menu.style?contains("button-bar")>\
+            <#-- FIXME: the nested menus thing is probably not appropriate for bootstrap, but leaving in otherwise comes out even worse
+                The nested element would probably go inside the <a> but not possible with current menus; refactor may address later -->
+            <#if linkStr?has_content>${linkStr}</#if><#rt/><#if containsNestedMenus><div></#if><#rt/>
         <#else>
             <li<#if style?has_content> class="${style}"</#if><#if toolTip?has_content> title="${toolTip}"</#if>><#if linkStr?has_content>${linkStr}</#if><#if containsNestedMenus><ul></#if><#rt/>
         </#if>
     </#if>    
+</#macro>
+
+<#macro renderMenuItemEnd containsNestedMenus=false menuCtxRole="">
+    <#local menu = readRequestStack("renderMenuStack")>
+    <#if menu.style?has_content>
+        <#if menu.style?contains("menu-button") || menu.style?contains("button-bar")>
+            <#if containsNestedMenus></div></#if>
+        <#else>
+            <#if containsNestedMenus></ul></#if></li>
+        </#if>
+    </#if>
 </#macro>
