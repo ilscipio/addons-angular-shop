@@ -651,6 +651,17 @@
     "fields_default_compact_labelareaexceptions" : "checkbox-single radio-single", 
     "fields_default_compact_labelarearequirecontent" : true,
 
+    "fields_default_manual_labeltype" : "horizontal",
+    "fields_default_manual_labelposition" : "left",
+    "fields_default_manual_labelarea" : false,
+    "fields_default_manual_labelareaexceptions" : "", 
+    "fields_default_manual_labelarearequirecontent" : false, 
+    "fields_default_manual_labelareaconsumeexceptions" : "",
+    "fields_default_manual_collapse" : false,
+    "fields_default_manual_collapsepostfix" : true,
+    "fields_default_manual_collapsedinlinelabel" : "",
+    "fields_default_manual_checkboxtype" : "",
+
     "fields_generic_labeltype" : "horizontal",
     "fields_generic_labelposition" : "left",
     "fields_generic_labelarea" : false,
