@@ -673,7 +673,7 @@
     "fields_generic_collapsedinlinelabel" : "",
     "fields_generic_checkboxtype" : "",
 
-    <#-- misc field styles -->
+    <#-- misc fields styles -->
     "fields_wrap" : "input-group",
     "fields_label" : "input-group-addon",
 
@@ -692,6 +692,9 @@
     
     <#-- datetime type styles -->    
     "field_datetime_default_title" : "LABEL+FORMAT",
+
+    <#-- misc single field styles -->
+    "field_inline" : "field-inline",
 
     <#-- Field type style name maps -->
     "field_type_stylenames_cato" : {
