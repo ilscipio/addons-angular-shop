@@ -678,6 +678,9 @@
     "field_radio_default" : "",
     "field_radio_default_labeltype" : "standard",
     "field_radio_default_labelposition" : "after",
+    
+    <#-- datetime type styles -->    
+    "field_datetime_default_title" : "#PROP:CommonUiLabels#CommonDateInfoLabelAndFormat",
 
     <#-- Field type style name maps -->
     "field_type_stylenames_cato" : {
