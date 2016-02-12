@@ -635,6 +635,7 @@
     "fields_default_collapsedinlinelabel" : "datetime",
     "fields_default_checkboxtype" : "",
     "fields_default_radiotype" : "",
+    "fields_default_fieldargs" : {},
     
     "fields_default_alt1_labelareaconsumeexceptions" : "checkbox-single radio-single",
     "fields_default_alt1_checkboxtype" : "simple",
