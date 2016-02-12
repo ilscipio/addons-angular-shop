@@ -25,7 +25,14 @@ Until this is tested and sorted out, please apply changes to both copies.
 <#if boundaryComment?has_content>
 <!-- ${boundaryComment} -->
 </#if>
+  <#local menuIdNum = getRequestVar("catoMenuIdNum")!0>
+  <#local menuIdNum = menuIdNum + 1 />
+  <#local dummy = setRequestVar("catoMenuIdNum", menuIdNum)>
+  <#if !id?has_content>
+    <#local id = "menu_" + menuIdNum>
+  </#if>
   <#if !inlineEntries>
+    <#local extraMenuAttribs = {}>
     <#if styleSet.contains("menu-main")>
       <#local remStyle = removeStyleNames(style, "menu-main")>
         <li class="${styles.menu_main_wrap!}"><a href="#" class="${styles.menu_main_item_link!}"
@@ -39,6 +46,11 @@ Until this is tested and sorted out, please apply changes to both copies.
     <#elseif styleSet.contains("menu-button")>
       <#local remStyle = removeStyleNames(style, "menu-button")>
       <#local classes = joinStyleNames(styles.menu_button!, remStyle)>
+    <#elseif styleSet.contains("menu-button-dropdown")>
+      <#local remStyle = removeStyleNames(style, "menu-button-dropdown")>
+      <#local classes = joinStyleNames(styles.menu_button_dropdown!, remStyle)>
+      <button href="#" data-dropdown="${id}" aria-controls="${id}" aria-expanded="false" class="${styles.menu_button_dropdown_mainbutton!}">${title}</button><br>
+      <#local extraMenuAttribs = extraMenuAttribs + {"data-dropdown-content":"true", "aria-hidden":"true"}>
     <#elseif styleSet.contains("menu-tab")>    
       <#local remStyle = removeStyleNames(style, "menu-tab")>
       <#local classes = joinStyleNames(styles.menu_tab!, remStyle)>
@@ -56,9 +68,9 @@ Until this is tested and sorted out, please apply changes to both copies.
       <#local classes = joinStyleNames(styles.menu_default!, style)>
     </#if>
     <#if styleSet.contains("menu-button") || styleSet.contains("button-bar")>
-        <div<#if classes?has_content> id="${id!"test"}" class="${classes}"</#if>>
+        <div<#if classes?has_content> id="${id!"test"}" class="${classes}"</#if><@elemAttribStr attribs=extraMenuAttribs />>
     <#else>
-        <ul<#if classes?has_content> id="${id!"test"}" class="${classes}"</#if>>
+        <ul<#if classes?has_content> id="${id!"test"}" class="${classes}"</#if><@elemAttribStr attribs=extraMenuAttribs />>
     </#if>
   </#if>
   <#local dummy = pushRequestStack("renderMenuStack", {"style":style,"remStyle":remStyle,"id":id,"inlineEntires":inlineEntries})> <#-- pushing info to stack, so that this can be used by subsequently -->
@@ -157,7 +169,14 @@ Until this is tested and sorted out, please apply changes to both copies.
 <#if boundaryComment?has_content>
 <!-- ${boundaryComment} -->
 </#if>
+  <#local menuIdNum = getRequestVar("catoMenuIdNum")!0>
+  <#local menuIdNum = menuIdNum + 1 />
+  <#local dummy = setRequestVar("catoMenuIdNum", menuIdNum)>
+  <#if !id?has_content>
+    <#local id = "menu_" + menuIdNum>
+  </#if>
   <#if !inlineEntries>
+    <#local extraMenuAttribs = {}>
     <#if styleSet.contains("menu-main")>
       <#local remStyle = removeStyleNames(style, "menu-main")>
         <li class="${styles.menu_main_wrap!}"><a href="#" class="${styles.menu_main_item_link!}"
@@ -171,6 +190,11 @@ Until this is tested and sorted out, please apply changes to both copies.
     <#elseif styleSet.contains("menu-button")>
       <#local remStyle = removeStyleNames(style, "menu-button")>
       <#local classes = joinStyleNames(styles.menu_button!, remStyle)>
+    <#elseif styleSet.contains("menu-button-dropdown")>
+      <#local remStyle = removeStyleNames(style, "menu-button-dropdown")>
+      <#local classes = joinStyleNames(styles.menu_button_dropdown!, remStyle)>
+      <button href="#" data-dropdown="${id}" aria-controls="${id}" aria-expanded="false" class="${styles.menu_button_dropdown_mainbutton!}">${title}</button><br>
+      <#local extraMenuAttribs = extraMenuAttribs + {"data-dropdown-content":"true", "aria-hidden":"true"}>
     <#elseif styleSet.contains("menu-tab")>    
       <#local remStyle = removeStyleNames(style, "menu-tab")>
       <#local classes = joinStyleNames(styles.menu_tab!, remStyle)>
@@ -188,9 +212,9 @@ Until this is tested and sorted out, please apply changes to both copies.
       <#local classes = joinStyleNames(styles.menu_default!, style)>
     </#if>
     <#if styleSet.contains("menu-button") || styleSet.contains("button-bar")>
-        <div<#if classes?has_content> id="${id!"test"}" class="${classes}"</#if>>
+        <div<#if classes?has_content> id="${id!"test"}" class="${classes}"</#if><@elemAttribStr attribs=extraMenuAttribs />>
     <#else>
-        <ul<#if classes?has_content> id="${id!"test"}" class="${classes}"</#if>>
+        <ul<#if classes?has_content> id="${id!"test"}" class="${classes}"</#if><@elemAttribStr attribs=extraMenuAttribs />>
     </#if>
   </#if>
   <#local dummy = pushRequestStack("renderMenuStack", {"style":style,"remStyle":remStyle,"id":id,"inlineEntires":inlineEntries})> <#-- pushing info to stack, so that this can be used by subsequently -->
