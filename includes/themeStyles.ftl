@@ -290,9 +290,11 @@
     "row_selected" : "selected",
     
   <#-- Generic action styles -->
+    "action_prefix" : "action-",
+
     <#-- Generic UI functionality action types -->
-    "action_nav" : "action-nav",                          <#-- basically, identifies a navigation link -->
-    "action_run" : "action-run",                          <#-- identifies a link or item that actually runs an action, such as a form submit button, or download PDF button, or intermediate action like clearing a form. nav links should never have this. -->
+    "action_nav" : "action-nav",
+    "action_run" : "action-run",
     
     <#-- Action state scope styles -->
     "action_scope_sys" : "action-scope-sys",
