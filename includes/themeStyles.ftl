@@ -703,11 +703,17 @@
     "field_checkbox_simple" : "",
     "field_checkbox_simple_labeltype" : "spanonly",
     "field_checkbox_simple_labelposition" : "after",
+    "field_checkbox_simple_standard" : "",
+    "field_checkbox_simple_standard_labeltype" : "standard",
+    "field_checkbox_simple_standard_labelposition" : "after",
     
     <#-- radio type styles -->
     "field_radio_default" : "",
     "field_radio_default_labeltype" : "standard",
     "field_radio_default_labelposition" : "after",
+    "field_radio_simple_standard" : "",
+    "field_radio_simple_standard_labeltype" : "standard",
+    "field_radio_simple_standard_labelposition" : "after",
     
     <#-- datetime type styles -->    
     "field_datetime_default_title" : "LABEL+FORMAT",
