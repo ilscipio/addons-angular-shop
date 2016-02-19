@@ -683,6 +683,20 @@
     "fields_default_manual_collapsepostfix" : true,
     "fields_default_manual_collapsedinlinelabel" : "",
     "fields_default_manual_checkboxtype" : "",
+    
+    "fields_default_manual_widgetonly_labeltype" : "horizontal",
+    "fields_default_manual_widgetonly_labelposition" : "left",
+    "fields_default_manual_widgetonly_labelarea" : false,
+    "fields_default_manual_widgetonly_labelareaexceptions" : "", 
+    "fields_default_manual_widgetonly_labelarearequirecontent" : false, 
+    "fields_default_manual_widgetonly_labelareaconsumeexceptions" : "",
+    "fields_default_manual_widgetonly_collapse" : false,
+    "fields_default_manual_widgetonly_collapsepostfix" : true,
+    "fields_default_manual_widgetonly_collapsedinlinelabel" : "",
+    "fields_default_manual_widgetonly_checkboxtype" : "",
+    "fields_default_manual_widgetonly_fieldargs" : {
+        "container" : "false"
+    }, 
 
     "fields_generic_labeltype" : "horizontal",
     "fields_generic_labelposition" : "left",
