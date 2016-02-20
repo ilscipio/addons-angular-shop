@@ -737,6 +737,7 @@
 
     <#-- misc single field styles -->
     "field_inline" : "field-inline",
+    "field_tooltip_wrapper" : "has-tip field-tooltip-wrapper",
 
     <#-- Field type style name maps -->
     "field_type_stylenames_cato" : {
