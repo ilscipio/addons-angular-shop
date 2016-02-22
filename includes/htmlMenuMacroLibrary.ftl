@@ -14,10 +14,6 @@
 *************************************
 * CATO: NEW MENU MACROS (ONE-SHOT) *
 *************************************
-Must be enabled in catoWebapp.properties.
-
-WARN: this is currently DUPLICATED from the traditional macros further below.
-Until this is tested and sorted out, please apply changes to both copies.
 -->
 
 <#macro renderMenuFull boundaryComment="" id="" style="" title="" inlineEntries=false menuCtxRole="" items=[]>
@@ -152,22 +148,17 @@ Until this is tested and sorted out, please apply changes to both copies.
 </#macro>
 
 
-
 <#-- 
 *************************************
 * CATO: TRADITIONAL MENU MACROS *
 *************************************
 -->
 
-<#-- 
-*   FIXME: 
-*   The following macros override the ofbiz standards, so that we can change the html. 
-*   Ideally the html generation of these and the cato macros should be based on a common library 
--->
+<#-- Cato: DEPRECATED/unmaintained/obsolete, replaced by one-shot macros, kept for reference only
 <#macro renderMenuBegin boundaryComment="" id="" style="" title="" inlineEntries=false menuCtxRole="">
   <#local styleSet = splitStyleNamesToSet(style)>
 <#if boundaryComment?has_content>
-<!-- ${boundaryComment} -->
+<!- ${boundaryComment} ->
 </#if>
   <#local menuIdNum = getRequestVar("catoMenuIdNum")!0>
   <#local menuIdNum = menuIdNum + 1 />
@@ -199,16 +190,16 @@ Until this is tested and sorted out, please apply changes to both copies.
       <#local remStyle = removeStyleNames(style, "menu-tab")>
       <#local classes = joinStyleNames(styles.menu_tab!, remStyle)>
     <#elseif styleSet.contains("button-bar")>
-      <#local remStyle = removeStyleNames(style, ["button-bar"])> <#-- ["button-bar", "no-clear"] -->
-      <#-- right now translating button-bar menu-container-style here to avoid modifying all menu styles
-           note: in stock, button-bar usually accompanied by one of: button-style-2, tab-bar; also found: no-clear (removed above) -->
-      <#-- WARN: stock ofbiz usually applied styles to a containing div, 
-           not sure should keep that behavior or not, but might not consistent with foundation styles? -->
+      <#local remStyle = removeStyleNames(style, ["button-bar"])> <#- ["button-bar", "no-clear"] ->
+      <#- right now translating button-bar menu-container-style here to avoid modifying all menu styles
+           note: in stock, button-bar usually accompanied by one of: button-style-2, tab-bar; also found: no-clear (removed above) ->
+      <#- WARN: stock ofbiz usually applied styles to a containing div, 
+           not sure should keep that behavior or not, but might not consistent with foundation styles? ->
       <#local classes = joinStyleNames(styles.menu_button!, remStyle)>
     <#else>
-      <#-- all other cases -->
-      <#-- WARN: stock ofbiz usually applied styles to a containing div, 
-           not sure should keep that behavior or not, but might not consistent with foundation styles? -->
+      <#- all other cases ->
+      <#- WARN: stock ofbiz usually applied styles to a containing div, 
+           not sure should keep that behavior or not, but might not consistent with foundation styles? ->
       <#local classes = joinStyleNames(styles.menu_default!, style)>
     </#if>
     <#if styleSet.contains("menu-button") || styleSet.contains("button-bar")>
@@ -217,9 +208,11 @@ Until this is tested and sorted out, please apply changes to both copies.
         <ul<#if classes?has_content> id="${id!"test"}" class="${classes}"</#if><@elemAttribStr attribs=extraMenuAttribs />>
     </#if>
   </#if>
-  <#local dummy = pushRequestStack("renderMenuStack", {"style":style,"remStyle":remStyle,"id":id,"inlineEntires":inlineEntries})> <#-- pushing info to stack, so that this can be used by subsequently -->
+  <#local dummy = pushRequestStack("renderMenuStack", {"style":style,"remStyle":remStyle,"id":id,"inlineEntires":inlineEntries})> <#- pushing info to stack, so that this can be used by subsequently ->
 </#macro>
+-->
 
+<#-- Cato: DEPRECATED/unmaintained/obsolete, replaced by one-shot macros, kept for reference only
 <#macro renderMenuEnd boundaryComment="" style="" inlineEntries=false menuCtxRole="">
   <#local styleSet = splitStyleNamesToSet(style)>
   <#local menu = popRequestStack("renderMenuStack")>
@@ -242,34 +235,37 @@ Until this is tested and sorted out, please apply changes to both copies.
         </ul>
     </#if>
   </#if>
-  <#if !readRequestStack("renderMenuStack")??> <#-- if top-level menu -->
+  <#if !readRequestStack("renderMenuStack")??> <#- if top-level menu ->
     <#local renderMenuHiddenFormContent = getRequestVar("renderMenuHiddenFormContent")!"">
     <#if renderMenuHiddenFormContent?has_content>
       ${renderMenuHiddenFormContent}
-      <#-- note: we don't have to worry about recursion here; will accumulate all forms from sub-menus as well;
-           note: for simplicity, don't use xxxRequestStack for now, probably not needed -->
+      <#- note: we don't have to worry about recursion here; will accumulate all forms from sub-menus as well;
+           note: for simplicity, don't use xxxRequestStack for now, probably not needed ->
       <#local dummy = setRequestVar("renderMenuHiddenFormContent", "")>
     </#if>
   </#if>
 <#if boundaryComment?has_content>
-<!-- ${boundaryComment} -->
+<!- ${boundaryComment} ->
 </#if>
 </#macro>
+-->
 
+<#-- Cato: DEPRECATED/unmaintained/obsolete, replaced by one-shot macros, kept for reference only
 <#macro renderMenuItemBegin style toolTip linkStr containsNestedMenus menuCtxRole="">
-    <#-- Get surrounding menu information -->
+    <#- Get surrounding menu information ->
     <#local menu = readRequestStack("renderMenuStack")>
     <#if menu.style?has_content>
         <#if menu.style?contains("menu-button") || menu.style?contains("button-bar")>\
-            <#-- FIXME: the nested menus thing is probably not appropriate for bootstrap, but leaving in otherwise comes out even worse
-                The nested element would probably go inside the <a> but not possible with current menus; refactor may address later -->
+            <#- FIXME: the nested menus thing is probably not appropriate for bootstrap, but leaving in otherwise comes out even worse
+                The nested element would probably go inside the <a> but not possible with current menus; refactor may address later ->
             <#if linkStr?has_content>${linkStr}</#if><#rt/><#if containsNestedMenus><div></#if><#rt/>
         <#else>
             <li<#if style?has_content> class="${style}"</#if><#if toolTip?has_content> title="${toolTip}"</#if>><#if linkStr?has_content>${linkStr}</#if><#if containsNestedMenus><ul></#if><#rt/>
         </#if>
     </#if>    
-</#macro>
+</#macro>-->
 
+<#-- Cato: DEPRECATED/unmaintained/obsolete, replaced by one-shot macros, kept for reference only
 <#macro renderMenuItemEnd containsNestedMenus=false menuCtxRole="">
     <#local menu = readRequestStack("renderMenuStack")>
     <#if menu.style?has_content>
@@ -279,4 +275,4 @@ Until this is tested and sorted out, please apply changes to both copies.
             <#if containsNestedMenus></ul></#if></li>
         </#if>
     </#if>
-</#macro>
+</#macro>-->
