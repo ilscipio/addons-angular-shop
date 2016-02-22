@@ -195,9 +195,9 @@
     <#-- default entry is used for any encountered menu types that have no specific entries in this hash -->    
     "menu_default" : "menu-type-default",
     "menu_default_type" : "menu-type-default", 
-    "menu_default_htmlwrap" : "",
+    "menu_default_htmlwrap" : true,
     "menu_default_item" : "", 
-    "menu_default_item_htmlwrap" : "",
+    "menu_default_item_htmlwrap" : true,
     "menu_default_itemdisabled" : "disabled", 
     "menu_default_itemactive" : "active", 
     "menu_default_itemselected" : "selected", 
