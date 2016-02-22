@@ -29,26 +29,26 @@
   </#if>
   <#if !inlineEntries>
     <#local extraMenuAttribs = {}>
-    <#if styleSet.contains("menu-main")>
-      <#local remStyle = removeStyleNames(style, "menu-main")>
+    <#if styleSet.contains("menu-type-main")>
+      <#local remStyle = removeStyleNames(style, "menu-type-main")>
         <li class="${styles.menu_main_wrap!}"><a href="#" class="${styles.menu_main_item_link!}"
             <#if styles.framework?has_content && styles.framework =="bootstrap"> data-toggle="dropdown"</#if>>${title!}<#if styles.framework?has_content && styles.framework =="bootstrap"> <i class="fa fa-fw fa-caret-down"></i></#if></a>
       <#local classes = joinStyleNames(styles.menu_main!, remStyle)>
-    <#elseif styleSet.contains("menu-sidebar")>
-      <#local remStyle = removeStyleNames(style, "menu-sidebar")>
+    <#elseif styleSet.contains("menu-type-sidebar")>
+      <#local remStyle = removeStyleNames(style, "menu-type-sidebar")>
         <nav class="${styles.nav_sidenav!""}">
             <#if navigation?has_content><h2>${navigation!}</h2></#if>
       <#local classes = joinStyleNames(styles.menu_sidebar!, remStyle)>
-    <#elseif styleSet.contains("menu-button")>
-      <#local remStyle = removeStyleNames(style, "menu-button")>
+    <#elseif styleSet.contains("menu-type-button")>
+      <#local remStyle = removeStyleNames(style, "menu-type-button")>
       <#local classes = joinStyleNames(styles.menu_button!, remStyle)>
-    <#elseif styleSet.contains("menu-button-dropdown")>
-      <#local remStyle = removeStyleNames(style, "menu-button-dropdown")>
+    <#elseif styleSet.contains("menu-type-button-dropdown")>
+      <#local remStyle = removeStyleNames(style, "menu-type-button-dropdown")>
       <#local classes = joinStyleNames(styles.menu_button_dropdown!, remStyle)>
       <button href="#" data-dropdown="${id}" aria-controls="${id}" aria-expanded="false" class="${styles.menu_button_dropdown_mainbutton!}">${title}</button><br>
       <#local extraMenuAttribs = extraMenuAttribs + {"data-dropdown-content":"true", "aria-hidden":"true"}>
-    <#elseif styleSet.contains("menu-tab")>    
-      <#local remStyle = removeStyleNames(style, "menu-tab")>
+    <#elseif styleSet.contains("menu-type-tab")>    
+      <#local remStyle = removeStyleNames(style, "menu-type-tab")>
       <#local classes = joinStyleNames(styles.menu_tab!, remStyle)>
     <#elseif styleSet.contains("button-bar")>
       <#local remStyle = removeStyleNames(style, ["button-bar"])> <#-- ["button-bar", "no-clear"] -->
@@ -63,7 +63,7 @@
            not sure should keep that behavior or not, but might not consistent with foundation styles? -->
       <#local classes = joinStyleNames(styles.menu_default!, style)>
     </#if>
-    <#if styleSet.contains("menu-button") || styleSet.contains("button-bar")>
+    <#if styleSet.contains("menu-type-button") || styleSet.contains("button-bar")>
         <div<#if classes?has_content> id="${id!"test"}" class="${classes}"</#if><@elemAttribStr attribs=extraMenuAttribs />>
     <#else>
         <ul<#if classes?has_content> id="${id!"test"}" class="${classes}"</#if><@elemAttribStr attribs=extraMenuAttribs />>
@@ -78,16 +78,16 @@
   <#local styleSet = splitStyleNamesToSet(style)>
   <#local menu = popRequestStack("renderMenuStack")>
   <#if !inlineEntries>
-    <#if styleSet.contains("menu-main")>
+    <#if styleSet.contains("menu-type-main")>
             </ul>
         </li>
-    <#elseif styleSet.contains("menu-sidebar")>
+    <#elseif styleSet.contains("menu-type-sidebar")>
             </ul>
         </nav>
-    <#elseif styleSet.contains("menu-button")>
+    <#elseif styleSet.contains("menu-type-button")>
         <#global isButtonMenu=true/>
         </div>
-    <#elseif styleSet.contains("menu-tab")>
+    <#elseif styleSet.contains("menu-type-tab")>
         </ul>
     <#elseif styleSet.contains("button-bar")>
         <#global isButtonMenu=true/>
@@ -124,7 +124,7 @@
   <#-- Get surrounding menu information -->
   <#local menu = readRequestStack("renderMenuStack")>
   <#if menu.style?has_content>
-      <#if menu.style?contains("menu-button") || menu.style?contains("button-bar")>
+      <#if menu.style?contains("menu-type-button") || menu.style?contains("button-bar")>
           <#-- FIXME: the nested menus thing is probably not appropriate for bootstrap, but leaving in otherwise comes out even worse
               The nested element would probably go inside the <a> but not possible with current menus; refactor may address later -->
           <#if linkStr?has_content>${linkStr}</#if><#rt/><#if containsNestedMenus><div></#if><#rt/>
@@ -139,7 +139,7 @@
     </#if>
   <#local menu = readRequestStack("renderMenuStack")>
   <#if menu.style?has_content>
-      <#if menu.style?contains("menu-button") || menu.style?contains("button-bar")>
+      <#if menu.style?contains("menu-type-button") || menu.style?contains("button-bar")>
           <#if containsNestedMenus></div></#if>
       <#else>
           <#if containsNestedMenus></ul></#if></li>
