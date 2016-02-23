@@ -212,14 +212,14 @@ NOTES:
     NOTE: the more "proper" way to modify these is now to override the @menu_markup and @menuitem_markup macros, but
         these are acceptable as well (because of args/inlineArgs pattern) and provides more examples of ways to override. 
     2016-02-22: Comment this completely because the htmlwraps are now set in styles hash, per-menu-type
-<#assign menu_defaultArgs_min = {"htmlWrap":"div", "passArgs":{}}> <#- change the default value, but still possible for client to override ->
+<#assign menu_defaultArgs_min = {"htmlwrap":"div", "passArgs":{}}> <#- change the default value, but still possible for client to override ->
 <#assign menu_defaultArgs = getCatoMacroDefaultArgs("menu", catoStdTmplLib) + menu_defaultArgs_min>
 <#macro menu args={} inlineArgs...>
   <@catoStdTmplLib.menu args=mergeArgMaps(args, inlineArgs, catoBsTmplLib.menu_defaultArgs_min)><#nested /></@catoStdTmplLib.menu>
 </#macro>-->
 
 <#-- @menuitem template-facing macro - theme override
-<#assign menuitem_defaultArgs_min = {"htmlWrap":false, "passArgs":{}}> <#- no html wrapper by default ->
+<#assign menuitem_defaultArgs_min = {"htmlwrap":false, "passArgs":{}}> <#- no html wrapper by default ->
 <#assign menuitem_defaultArgs = getCatoMacroDefaultArgs("menuitem", catoStdTmplLib) + menuitem_defaultArgs_min>
 <#macro menuitem args={} inlineArgs...>
   <@catoStdTmplLib.menuitem args=mergeArgMaps(args, inlineArgs, catoBsTmplLib.menuitem_defaultArgs_min)><#nested /></@catoStdTmplLib.menuitem>

@@ -16,12 +16,12 @@
 *************************************
 -->
 
-<#-- Cato: Override not currently needed; htmlWraps are set in style hash menu_ entries instead
+<#-- Cato: Override not currently needed; htmlwraps are set in style hash menu_ entries instead
     DEV NOTE: prefer not using because this is hard to maintain...
 <#macro renderMenuFull>
 </#macro>-->
 
-<#-- Cato: Override not currently needed; htmlWraps are set in style hash menu_ entries instead
+<#-- Cato: Override not currently needed; htmlwraps are set in style hash menu_ entries instead
     DEV NOTE: prefer not using because this is hard to maintain...
 <#macro renderMenuItemFull>
 </#macro>-->
