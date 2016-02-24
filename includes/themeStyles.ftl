@@ -749,9 +749,23 @@
     <#-- datetime type styles -->    
     "field_datetime_default_title" : "LABEL+FORMAT",
 
+    <#-- display type styles -->
+    "field_display_tooltip" : "has-tip field-tooltip-wrapper",
+    
+    <#-- generic type styles -->
+    "field_generic_tooltip" : "has-tip field-tooltip-wrapper",
+
+    <#-- default, for all fields -->
+    "field_default_tooltip" : "has-tip tip-right",
+    "field_default_tooltip_attribs" : {
+      "data-tooltip" : "_NO_VALUE_",
+      "aria-haspopup" : "true",
+      "data-options" : "disable_for_touch:true"
+    },
+
     <#-- misc single field styles -->
     "field_inline" : "field-inline",
-    "field_tooltip_wrapper" : "has-tip field-tooltip-wrapper",
+    "field_tooltip_wrapper" : "field-tooltip-wrapper",
 
     <#-- Field type style name maps -->
     "field_type_stylenames_cato" : {
