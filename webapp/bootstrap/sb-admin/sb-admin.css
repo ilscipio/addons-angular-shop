@@ -99,6 +99,7 @@ ul.alert-dropdown {
     top: 80px;
     left: 225px;
     width: 225px;
+    height:100%;
     margin-left: -205px;
     border: none;
     border-radius: 0;
