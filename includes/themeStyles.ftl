@@ -5,7 +5,8 @@
 * Overrides the default CATO styles located in 
 * htmlVariables.ftl - ofbiz_foundation/framework/common/webcommon/includes/cato/lib/standard/
 * 
-* NOTE: variables must now be defined using #assign, not #global.
+* NOTES: 
+* * Variables must now be defined using #assign, not #global.
 *
 -->
 
