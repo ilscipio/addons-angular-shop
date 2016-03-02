@@ -36,6 +36,5 @@
   },
   "_source": "git://github.com/malyw/sass-to-js.git",
   "_target": "~1.1.0",
-  "_originalSource": "sass-to-js",
-  "_direct": true
+  "_originalSource": "sass-to-js"
 }

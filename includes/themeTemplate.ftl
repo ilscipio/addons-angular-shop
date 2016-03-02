@@ -208,6 +208,65 @@ NOTES:
   </#if>
 </#macro>
 
+<#-- Override of @field_datetime_markup_script since fdatetime is foundation specific -->
+<#macro field_datetime_markup_script inputId="" inputName="" displayInputId="" displayInputName="" dateType="" dateDisplayType="" htmlwrap=true origArgs={} passArgs={} catchArgs...>
+  <#local datepickerOptions>{format:"yyyy-mm-dd", shortTime:false}</#local>
+  <@script htmlwrap=htmlwrap>
+    $(function() {
+
+        var dateI18nToNorm = function(date) {
+            <#-- TODO: WARN: this needs to be implemented if the displayed date is ever different from the 
+                    internal format (timestamp-like) 
+                NOTE: this will vary based on date type and format -->
+            return date;
+        };
+        
+        var dateNormToI18n = function(date) {
+            <#-- TODO: WARN: this needs to be implemented if the displayed date is ever different from the 
+                    internal format (timestamp-like) 
+                NOTE: this will vary based on date type and format -->
+            return date;
+        };
+    
+        jQuery("#${displayInputId}").change(function() {
+          <#if dateType == "timestamp">
+            jQuery("#${inputId}").val(convertToDateTimeNorm(dateI18nToNorm(this.value)));
+          <#elseif dateType == "date">
+            jQuery("#${inputId}").val(convertToDateNorm(dateI18nToNorm(this.value)));
+          <#elseif dateType == "time">
+            jQuery("#${inputId}").val(convertToTimeNorm(dateI18nToNorm(this.value)));
+          </#if>
+        });
+        
+      <#if dateType == "time">
+      
+        <#-- do nothing for now; user inputs into box manually and change() should adjust -->
+
+      <#else>
+      
+        var oldDate = "";
+        var onDatePopup = function(ev) {
+            oldDate = dateI18nToNorm(jQuery("#${displayInputId}").val());
+        };
+        var onDateChange = function(ev) {
+          <#if dateDisplayType == "timestamp">
+            jQuery("#${displayInputId}").val(dateNormToI18n(convertToDateTimeNorm(dateI18nToNorm(jQuery("#${displayInputId}").val()), oldDate)));
+          <#elseif dateDisplayType == "date">
+            jQuery("#${displayInputId}").val(dateNormToI18n(convertToDateNorm(dateI18nToNorm(jQuery("#${displayInputId}").val()), oldDate)));
+          </#if>
+        };
+        
+        <#-- Cato: How this works: the datepicker will put a yyyy-MM-dd value into the id_i18n field. 
+            This triggers onDateChange which may transform the date and put it back in id_i18n.
+            This triggers then another change() which copies it into the hidden id field (with another conversion if necessary). -->
+        $("#${displayInputId}").bootstrapMaterialDatePicker(${datepickerOptions!}).on('changeDate', onDateChange).on('show', onDatePopup);
+        <#-- Cannot use name, must use ID, this is invalid (will break multiple forms per page): $("input[name='${displayInputName}']")-->
+
+      </#if>
+    });
+  </@script>
+</#macro>
+
 <#-- @menu template-facing macro - theme override
     NOTE: the more "proper" way to modify these is now to override the @menu_markup and @menuitem_markup macros, but
         these are acceptable as well (because of args/inlineArgs pattern) and provides more examples of ways to override. 

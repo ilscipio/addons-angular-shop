@@ -21,11 +21,11 @@
     "disabled" : "disabled",
     "active" : "active",
     "selected" : "selected",
-    "button" : "btn",
+    "button" : "btn btn-raised",
     "button_prefix" : "btn-",
     "button_group" : "btn-group",
     "button_force" : "force-button",
-    "button_default" : "btn btn-sm btn-default",
+    "button_default" : "btn btn-raised btn-sm btn-default",
     "tiny" : "btn-xs",
     "small" : "btn-sm",
     "medium" : "btn-md",
@@ -95,13 +95,13 @@
     "menu_button_item_contentdisabled" : "disabled", 
     "menu_button_item_contentactive" : "active", 
     "menu_button_item_contentselected" : "selected", 
-    "menu_button_item_link" : "btn btn-sm btn-default",
+    "menu_button_item_link" : "btn btn-raised btn-sm btn-default",
     "menu_button_item_text" : "text-entry",
-    "menu_button_item_submit" : "btn btn-sm btn-default",
+    "menu_button_item_submit" : "btn btn-raised btn-sm btn-default",
     "menu_button_dropdown" : "f-dropdown menu-type-button-dropdown",
     "menu_button_dropdown_type" : "menu-type-button-dropdown",
     "menu_button_dropdown_specialtype" : "button-dropdown",
-    "menu_button_dropdown_mainbutton" : "btn btn-sm dropdown",
+    "menu_button_dropdown_mainbutton" : "btn btn-raised btn-sm dropdown",
     "menu_button_dropdown_item" : "",
     "menu_button_dropdown_itemdisabled" : "disabled", 
     "menu_button_dropdown_itemactive" : "active", 
@@ -154,7 +154,7 @@
     "menu_tab_item_contentdisabled" : "disabled", 
     "menu_tab_item_contentactive" : "active", 
     "menu_tab_item_contentselected" : "selected", 
-    "menu_tab_item_link" : "btn btn-sm btn-default",
+    "menu_tab_item_link" : "btn btn-raised btn-sm btn-default",
     "menu_tab_item_text" : "text-entry",
     "menu_tab_item_submit" : "", 
     "menu_subtab" : "nav nav-tabs menu-type-subtab",
@@ -168,7 +168,7 @@
     "menu_subtab_item_contentdisabled" : "disabled", 
     "menu_subtab_item_contentactive" : "active", 
     "menu_subtab_item_contentselected" : "selected", 
-    "menu_subtab_item_link" : "btn btn-sm btn-default",
+    "menu_subtab_item_link" : "btn btn-raised btn-sm btn-default",
     "menu_subtab_item_text" : "text-entry",
     "menu_subtab_item_submit" : "", 
     <#-- Default section menu -->
@@ -183,9 +183,9 @@
     "menu_section_item_contentdisabled" : "disabled", 
     "menu_section_item_contentactive" : "active", 
     "menu_section_item_contentselected" : "selected", 
-    "menu_section_item_link" : "btn btn-sm btn-default",
+    "menu_section_item_link" : "btn btn-raised btn-sm btn-default",
     "menu_section_item_text" : "text-entry",
-    "menu_section_item_submit" : "btn btn-sm btn-default", 
+    "menu_section_item_submit" : "btn btn-raised btn-sm btn-default", 
     <#-- Default section menu inlined with title
         FIXME: looks too big/clumsy with these buttons (floats right of title) -->
     "menu_section_inline" : "btn-group menu-type-section-inline",
@@ -199,9 +199,9 @@
     "menu_section_inline_item_contentdisabled" : "disabled", 
     "menu_section_inline_item_contentactive" : "active", 
     "menu_section_inline_item_contentselected" : "selected", 
-    "menu_section_inline_item_link" : "btn btn-sm btn-default",
+    "menu_section_inline_item_link" : "btn btn-raised btn-sm btn-default",
     "menu_section_inline_item_text" : "text-entry",
-    "menu_section_inline_item_submit" : "btn btn-sm btn-default", 
+    "menu_section_inline_item_submit" : "btn btn-raised btn-sm btn-default", 
     <#-- default entry is used for any encountered menu types that have no specific entries in this hash -->    
     "menu_default" : "menu-type-default",
     "menu_default_type" : "menu-type-default", 
@@ -383,29 +383,29 @@
 
   <#-- Link styles (standalone/full) -->
     <#-- Action links (trigger an actual action in the system) - NOT for use for opening pages toward actions! -->
-    "link_run_sys" :                "link-type-text action-run action-scope-sys action-primary btn btn-sm btn-default",
+    "link_run_sys" :                "link-type-text action-run action-scope-sys action-primary btn btn-raised btn-sm btn-default",
     "link_run_sys_long" :           "link-type-text action-run action-scope-sys action-primary link-long",
-    "link_run_sys_cancel" :         "link-type-text action-run action-scope-sys action-primary action-cancel btn btn-sm btn-default",
+    "link_run_sys_cancel" :         "link-type-text action-run action-scope-sys action-primary action-cancel btn btn-raised btn-sm btn-default",
     "link_run_sys_cancel_long" :    "link-type-text action-run action-scope-sys action-primary action-cancel link-long",
     "link_run_sys_info" :           "link-type-text action-run action-scope-sys action-secondary",
     "link_run_sys_info_long" :      "link-type-text action-run action-scope-sys action-secondary link-long",
-    "link_run_session" :            "link-type-text action-run action-scope-session action-primary btn btn-sm btn-default",
+    "link_run_session" :            "link-type-text action-run action-scope-session action-primary btn btn-raised btn-sm btn-default",
     "link_run_session_long" :       "link-type-text action-run action-scope-session action-primary link-long",
-    "link_run_session_cancel" :     "link-type-text action-run action-scope-session action-primary action-cancel btn btn-sm btn-default",
+    "link_run_session_cancel" :     "link-type-text action-run action-scope-session action-primary action-cancel btn btn-raised btn-sm btn-default",
     "link_run_session_cancel_long" :"link-type-text action-run action-scope-session action-primary action-cancel link-long",
     "link_run_session_info" :       "link-type-text action-run action-scope-session action-secondary",
     "link_run_session_info_long" :  "link-type-text action-run action-scope-session action-secondary link-long",
-    "link_run_local" :              "link-type-text action-run action-scope-local action-primary btn btn-sm btn-default",
+    "link_run_local" :              "link-type-text action-run action-scope-local action-primary btn btn-raised btn-sm btn-default",
     "link_run_local_long" :         "link-type-text action-run action-scope-local action-primary link-long",
-    "link_run_local_cancel" :       "link-type-text action-run action-scope-local action-primary action-cancel btn btn-sm btn-default",
+    "link_run_local_cancel" :       "link-type-text action-run action-scope-local action-primary action-cancel btn btn-raised btn-sm btn-default",
     "link_run_local_cancel_long" :  "link-type-text action-run action-scope-local action-primary action-cancel link-long",
     "link_run_local_info" :         "link-type-text action-run action-scope-local action-secondary",
     "link_run_local_info_long" :    "link-type-text action-run action-scope-local action-secondary link-long",
     
     <#-- Primary navigation text links (basic navigation and navigation toward actions) -->
-    "link_nav" :                    "link-type-text action-nav action-primary btn btn-sm btn-default",
+    "link_nav" :                    "link-type-text action-nav action-primary btn btn-raised btn-sm btn-default",
     "link_nav_long" :               "link-type-text action-nav action-primary link-long",
-    "link_nav_cancel" :             "link-type-text action-nav action-primary action-cancel btn btn-sm btn-default",
+    "link_nav_cancel" :             "link-type-text action-nav action-primary action-cancel btn btn-raised btn-sm btn-default",
     "link_nav_cancel_long" :        "link-type-text action-nav action-primary action-cancel link-long",
     "link_nav_info" :               "link-type-text action-nav action-secondary",
     "link_nav_info_long" :          "link-type-text action-nav action-secondary link-long",
@@ -432,7 +432,7 @@
     "color_info" : "info",
     "color_warning" : "warning",
     "color_success" : "success",  
-    "color_alert" : "danger",        
+    "color_alert" : "warning",        
     "color_error" : "danger",
     
     "button_color_default" : "btn-default",
@@ -513,7 +513,7 @@
     
   <#-- Navigation -->
     "nav_subnav" : "sub-nav",
-    "nav_sidenav" : "navbar-inverse collapse navbar-collapse navbar-ex1-collapse ",
+    "nav_sidenav" : "navbar navbar-collapse",
 
     <#-- Breadcrumbs -->
     "nav_breadcrumbs" : "breadcrumb",
@@ -628,7 +628,7 @@
     "alert_type_success" : "alert-success",
     "alert_type_warning" : "alert-warning",
     "alert_type_secondary" : "alert-secondary",  
-    "alert_type_alert" : "",        
+    "alert_type_alert" : "alert-danger",        
     "alert_type_error" : "box",             
 
   <#-- Pricing Tables -->
@@ -826,7 +826,7 @@
       "listSortableClass" : "asmListSortable",
       "listItemClass" : "asmListItem",
       "listItemLabelClass" : "asmListItemLabel",
-      "removeClass" : "asmListItemRemove btn btn-sm btn-default",
+      "removeClass" : "asmListItemRemove btn btn-raised btn-sm btn-default",
       "highlightClass" : "asmHighlight"
     },
 

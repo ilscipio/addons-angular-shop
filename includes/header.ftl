@@ -246,7 +246,7 @@ so for now we have to split the screens in half and rely on the menu widget rend
 <body class="<#if page?has_content && page.activeApp?has_content>app-${page.activeApp!}</#if><#if parameters._CURRENT_VIEW_?has_content> page-${parameters._CURRENT_VIEW_!}</#if> <#if userLogin??>page-auth<#else>page-noauth</#if>">
 <div id="wrapper">
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-fixed-top" role="navigation">
     
         <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -259,7 +259,7 @@ so for now we have to split the screens in half and rely on the menu widget rend
                 <@logoMenu/>
             </div>
             <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
+            <ul class="nav navbar-nav navbar-right top-nav">
                 <#-- Messages
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
@@ -323,7 +323,7 @@ so for now we have to split the screens in half and rely on the menu widget rend
                     </ul>
                 </li>
             </ul>
-            <ul class="nav navbar-left top-nav">
+            <ul class="nav navbar-nav navbar-left top-nav">
                     <#if userLogin??>
                     <li class="dropdown">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-dashboard"></i> ${uiLabelMap["CommonPrimaryApps"]} <i class="fa fa-fw fa-caret-down"></i></a>

@@ -51,7 +51,7 @@ under the License.
     <!-- THEME SPECIFIC -->
     <!-- Styles -->
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/bower_components/bootstrap/dist/css/bootstrap.min.css" sequenceId="01"/>
-    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" sequenceId="02"/>
+    <!--<VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" sequenceId="02"/>-->
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/sb-admin/sb-admin.css" sequenceId="03"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/sb-admin/font-awesome/css/font-awesome.css" sequenceId="04"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/sb-admin/block-grid.css" sequenceId="05"/>
@@ -59,12 +59,28 @@ under the License.
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/bower_components/datatables/datatables.min.css" sequenceId="07"/>
     <!-- <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="//fonts.googleapis.com/css?family=Open+Sans:400,600,300" sequenceId="03"/>-->
     
+    <!-- Bootstrap Material design -->
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css" sequenceId="08"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/bower_components/bootstrap-material-design/dist/css/ripples.min.css" sequenceId="09"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" sequenceId="10"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="//fonts.googleapis.com/icon?family=Material+Icons" sequenceId="11"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/bower_components/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" sequenceId="12"/>
+    
+    
     <!-- Scripts -->
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/bootstrap/dist/js/bootstrap.min.js" sequenceId="01"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/datatables/datatables.min.js" sequenceId="02"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/Chart.js/Chart.min.js" sequenceId="03"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/sass-to-js/js/dist/sass-to-js.min.js" sequenceId="04"/>
-    
+ 
+ 
+     <!-- Bootstrap Material design -->
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/bootstrap-material-design/dist/js/material.min.js" sequenceId="05"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/bootstrap-material-design/dist/js/ripples.min.js" sequenceId="06"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/bootstrap-theme/js/freetile.min.js" sequenceId="07"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/bootstrap-theme/js/app.js" sequenceId="08"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/momentjs/min/moment-with-locales.min.js" sequenceId="09"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js" sequenceId="10"/>
     
    
 </entity-engine-xml>
