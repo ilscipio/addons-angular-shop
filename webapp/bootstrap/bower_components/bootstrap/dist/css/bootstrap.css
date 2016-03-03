@@ -6756,10 +6756,6 @@ button.close {
     display: none !important;
   }
 }
-.navbar-brand > img {
-  width: auto;
-  height: 22px;
-}
 /*This is actually the compiled version of the one we use in foundation. Just to be compatible here.*/
 .chart-data {
   width: 100% !important;
