@@ -136,8 +136,8 @@ so for now we have to split the screens in half and rely on the menu widget rend
     </#if>
     <#if headerImageUrl??>
         <#if organizationLogoLinkURL?has_content>
-            <#if hasLink><a href="<@ofbizUrl>${logoLinkURL}</@ofbizUrl>"></#if><img alt="${layoutSettings.companyName}" src="<@ofbizContentUrl>${StringUtil.wrapString(organizationLogoLinkURL)}</@ofbizContentUrl>"/><#if hasLink></a></#if>
-            <#else><#if hasLink><a href="<@ofbizUrl>${logoLinkURL}</@ofbizUrl>"></#if><img alt="${layoutSettings.companyName}" src="<@ofbizContentUrl>${StringUtil.wrapString(headerImageUrl)}</@ofbizContentUrl>"/><#if hasLink></a></#if>
+            <#if hasLink><a href="<@ofbizUrl>${logoLinkURL}</@ofbizUrl>" class="navbar-brand"></#if><img alt="${layoutSettings.companyName}" src="<@ofbizContentUrl>${StringUtil.wrapString(organizationLogoLinkURL)}</@ofbizContentUrl>"/><#if hasLink></a></#if>
+            <#else><#if hasLink><a href="<@ofbizUrl>${logoLinkURL}</@ofbizUrl>" class="navbar-brand"></#if><img alt="${layoutSettings.companyName}" src="<@ofbizContentUrl>${StringUtil.wrapString(headerImageUrl)}</@ofbizContentUrl>"/><#if hasLink></a></#if>
         </#if>
         <#else>
         <a href="<@ofbizUrl>${logoLinkURL!""}</@ofbizUrl>" class="navbar-brand"><img alt="${layoutSettings.companyName}" src="<@ofbizContentUrl>/images/cato/<#if isSmall>cato-logo-small.png<#else>cato-logo.png</#if></@ofbizContentUrl>"/></a>

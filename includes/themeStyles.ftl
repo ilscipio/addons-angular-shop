@@ -155,7 +155,7 @@
     "menu_tab_item_contentdisabled" : "disabled", 
     "menu_tab_item_contentactive" : "active", 
     "menu_tab_item_contentselected" : "selected", 
-    "menu_tab_item_link" : "btn btn-raised btn-sm btn-default",
+    "menu_tab_item_link" : "btn btn-sm btn-default",
     "menu_tab_item_text" : "text-entry",
     "menu_tab_item_submit" : "", 
     "menu_subtab" : "nav nav-tabs menu-type-subtab",
