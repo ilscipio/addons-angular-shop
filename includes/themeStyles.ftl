@@ -643,6 +643,13 @@
   <#-- Modal -->
     "modal_wrap" : "modal fade",
 
+  <#-- Slider -->
+    "slider_container" : "carousel slide",   <#-- Bootstrap: "carousel slide" -->
+    "slide_container" : "",
+    "slide_image" : "",        
+    "slide_content" : "carousel-caption",         <#-- Bootstrap: "carousel-caption" -->
+    "slide_linktarget" : "_blank",
+
   <#-- Chart -->
     "chart_legend" : "chart-legend",
 
