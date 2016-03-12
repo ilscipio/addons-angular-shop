@@ -644,8 +644,9 @@
     "modal_wrap" : "modal fade",
 
   <#-- Slider -->
-    "slider_container" : "carousel slide",   <#-- Bootstrap: "carousel slide" -->
-    "slide_container" : "",
+    "slider_container" : "carousel slide",        <#-- Bootstrap: "carousel slide" -->
+    "slider_wrap" : "carousel-inner",             <#-- Bootstrap: "carousel-inner" -->
+    "slide_container" : "item",
     "slide_image" : "",        
     "slide_content" : "carousel-caption",         <#-- Bootstrap: "carousel-caption" -->
     "slide_linktarget" : "_blank",

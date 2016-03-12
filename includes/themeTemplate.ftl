@@ -304,6 +304,58 @@ NOTES:
   </div>
 </#macro>
 
+<#-- @slider main markup - theme override -->
+<#macro slider_markup title="" sliderId="" sliderIdNum=0 class="" controls=true indicator=true origArgs={} passArgs={} catchArgs...>
+    <#local sliderIdNum = getRequestVar("catoSliderIdNum")!0>
+    <#if !sliderId?has_content><#local sliderId = "cato_slider_${sliderIdNum}"/></#if>
+    <#local dummy = setRequestVar("catoSliderLength", 0)>  
+    <#if title?has_content><@heading>${title!}</@heading></#if>
+    <div class="${styles.slider_container!""}" data-ride="carousel" id="${sliderId!""}">
+      <div class="${styles.slider_wrap!""}">
+        <#nested/>
+      </div>
+        <#local sliderLength = getRequestVar("catoSliderLength")!0>
+        <#if controls>
+            <a class="carousel-control left" href="#${sliderId!""}" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="carousel-control right" href="#${sliderId!""}" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </#if>
+        <#if indicator>
+            <ol class="carousel-indicators">
+                <#list 1..sliderLength as x>
+                    <li data-target="#${sliderId!""}" data-slide-to="${x}" class="<#if x==1>active</#if>"></li>
+                </#list>
+            </ol> 
+        </#if>
+    </div>
+</#macro>
+
+<#-- @slide markup - theme override -->
+<#macro slide_markup class="" image="" link="" linkTarget="" title="" origArgs={} passArgs={} catchArgs...>
+    <#local slideIdNum = getRequestVar("catoSlideIdNum")!0>
+    <#local slideIdNum = slideIdNum + 1 />
+    <#local dummy = setRequestVar("catoSlideIdNum", slideIdNum)>
+    <#local sliderLength = getRequestVar("catoSliderLength")!0>
+    <#local sliderLength = sliderLength + 1 />
+    <#local dummy = setRequestVar("catoSliderLength", sliderLength)> <#-- Slider counter -->
+    <#local slideId = "slide_${renderSeqNumber!}_${slideIdNum!}"/>
+    <div id="${slideId!}" class="${styles.slide_container!} <#if sliderLength==1>active</#if>">
+        <#if link?has_content><a href="${link}"<#if linkTarget?has_content> target="${linkTarget}"</#if>></#if>
+        <div>
+        <#if title?has_content><h2>${title!}</h2></#if>
+        <#if image?has_content>
+        <img src="${image!}"/>
+        </#if>
+              <#local nestedContent><#nested></#local>
+              <#if nestedContent?has_content><div class="${styles.slide_content!}">${nestedContent}</div></#if>
+        </div>
+        <#if link?has_content></a></#if>
+    </div>
+</#macro>
+
 <#-- @nav main markup - theme override -->
 <#macro nav_markup type="" origArgs={} passArgs={} catchArgs...>
   <#switch type>
