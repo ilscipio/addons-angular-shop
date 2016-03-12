@@ -345,12 +345,11 @@ NOTES:
     <div id="${slideId!}" class="${styles.slide_container!} <#if sliderLength==1>active</#if>">
         <#if link?has_content><a href="${link}"<#if linkTarget?has_content> target="${linkTarget}"</#if>></#if>
         <div>
-        <#if title?has_content><h2>${title!}</h2></#if>
         <#if image?has_content>
         <img src="${image!}"/>
         </#if>
               <#local nestedContent><#nested></#local>
-              <#if nestedContent?has_content><div class="${styles.slide_content!}">${nestedContent}</div></#if>
+              <#if nestedContent?has_content || title?has_content><div class="${styles.slide_content!}"><#if title?has_content><h2>${title!}</h2></#if>${nestedContent}</div></#if>
         </div>
         <#if link?has_content></a></#if>
     </div>
