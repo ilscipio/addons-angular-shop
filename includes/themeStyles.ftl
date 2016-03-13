@@ -46,6 +46,7 @@
     "icon_button" : "fa-widget",
     "icon_button_value" : "&#xf214;",
     "icon_calendar" : "fa-calendar",
+    "icon_shopping_cart" : "fa-shopping-cart",
     "icon_arrow" : "fa-arrow-right",
     "icon_list" : "fa-list",
     "icon_user" : "fa-user",
