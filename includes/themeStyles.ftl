@@ -75,6 +75,7 @@
   <#-- Menus -->  
     <#-- Generic menu types -->
     "menu_generic" : "menu-type-generic",
+    "menu_generic_altnested" : "menu-type-generic",
     "menu_generic_type" : "menu-type-generic",
     "menu_generic_item" : "", 
     "menu_generic_itemdisabled" : "disabled", 
@@ -87,6 +88,7 @@
     "menu_generic_item_text" : "text-entry",
     "menu_generic_item_submit" : "", 
     "menu_button" : "btn-group menu-type-button",
+    "menu_button_altnested" : "menu-type-button",
     "menu_button_type" : "menu-type-button",
     "menu_button_htmlwrap" : "div",
     "menu_button_item" : "",
@@ -101,6 +103,7 @@
     "menu_button_item_text" : "text-entry",
     "menu_button_item_submit" : "btn btn-raised btn-sm btn-default",
     "menu_button_dropdown" : "f-dropdown menu-type-button-dropdown",
+    "menu_button_dropdown_altnested" : "menu-type-button-dropdown",
     "menu_button_dropdown_type" : "menu-type-button-dropdown",
     "menu_button_dropdown_specialtype" : "button-dropdown",
     "menu_button_dropdown_mainbutton" : "btn btn-raised btn-sm dropdown",
@@ -116,6 +119,7 @@
     "menu_button_dropdown_item_submit" : "",
     <#-- Main navigation menus -->
     "menu_main" : "dropdown-menu menu-type-main",
+    "menu_main_altnested" : "menu-type-main",
     "menu_main_type" : "menu-type-main",
     "menu_main_specialtype" : "main",
     "menu_main_wrap" : "dropdown",  
@@ -130,6 +134,7 @@
     "menu_main_item_text" : "text-entry",
     "menu_main_item_submit" : "",
     "menu_sidebar" : "nav navbar-nav side-nav menu-type-sidebar",
+    "menu_sidebar_altnested" : "menu-type-sidebar",
     "menu_sidebar_type" : "menu-type-sidebar",
     "menu_sidebar_specialtype" : "sidebar",
     "menu_sidebar_wrap" :"collapse navbar-collapse navbar-ex1-collapse",
@@ -146,6 +151,7 @@
     "menu_sidebar_item_submit" : "",
     <#-- Tab and secondary navigation menus-->
     "menu_tab" : "nav nav-tabs menu-type-tab",
+    "menu_tab_altnested" : "menu-type-tab",
     "menu_tab_type" : "menu-type-tab", 
     "menu_tab_htmlwrap" : "div",
     "menu_tab_item" : "", 
@@ -160,6 +166,7 @@
     "menu_tab_item_text" : "text-entry",
     "menu_tab_item_submit" : "", 
     "menu_subtab" : "nav nav-tabs menu-type-subtab",
+    "menu_subtab_altnested" : "menu-type-subtab",
     "menu_subtab_type" : "menu-type-subtab",
     "menu_subtab_htmlwrap" : "div",
     "menu_subtab_item" : "",
@@ -175,6 +182,7 @@
     "menu_subtab_item_submit" : "", 
     <#-- Default section menu -->
     "menu_section" : "btn-group menu-type-section",
+    "menu_section_altnested" : "menu-type-section",
     "menu_section_type" : "menu-type-section",
     "menu_section_htmlwrap" : "div",
     "menu_section_item" : "",
@@ -191,6 +199,7 @@
     <#-- Default section menu inlined with title
         FIXME: looks too big/clumsy with these buttons (floats right of title) -->
     "menu_section_inline" : "btn-group menu-type-section-inline",
+    "menu_section_inline_altnested" : "menu-type-section-inline",
     "menu_section_inline_type" : "menu-type-section-inline",
     "menu_section_inline_htmlwrap" : "div",
     "menu_section_inline_item" : "",
@@ -206,9 +215,11 @@
     "menu_section_inline_item_submit" : "btn btn-raised btn-sm btn-default", 
     <#-- default entry is used for any encountered menu types that have no specific entries in this hash -->    
     "menu_default" : "menu-type-default",
-    "menu_default_altnested" : "nested-sametype",
+    "menu_default_altnested" : "menu-type-default",
     "menu_default_type" : "menu-type-default",
+    "menu_default_toplevel" : "toplevel",
     "menu_default_nested" : "nested",
+    "menu_default_nestedsame" : "nested-sametype",
     "menu_default_htmlwrap" : true,
     "menu_default_item" : "", 
     "menu_default_item_htmlwrap" : true,
