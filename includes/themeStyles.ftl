@@ -206,7 +206,9 @@
     "menu_section_inline_item_submit" : "btn btn-raised btn-sm btn-default", 
     <#-- default entry is used for any encountered menu types that have no specific entries in this hash -->    
     "menu_default" : "menu-type-default",
-    "menu_default_type" : "menu-type-default", 
+    "menu_default_altnested" : "nested-sametype",
+    "menu_default_type" : "menu-type-default",
+    "menu_default_nested" : "nested",
     "menu_default_htmlwrap" : true,
     "menu_default_item" : "", 
     "menu_default_item_htmlwrap" : true,
@@ -226,6 +228,7 @@
     "menu_buttonstyle_alt1" : "button-style-1",
     "menu_buttonstyle_alt2" : "button-style-2",
     "menu_noclear" : "menu-no-clear",
+    "menu_link_href_default" : "javascript:void(0);",
     
   <#-- Data and Tables -->
     <#-- table type-based styles -->
