@@ -484,6 +484,7 @@
     "grid_cell" : "columns",
     "grid_cell_default" : "col-lg-12",
     "grid_display" : "display",      <#-- display grid -->
+    "grid_theme" : "fullWidth",
     "grid_end" : "end",
     "grid_small" : "col-sm-",   
     "grid_medium" : "col-md-",
