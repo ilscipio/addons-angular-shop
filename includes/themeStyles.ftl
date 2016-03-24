@@ -281,7 +281,8 @@
         "info" : false,
         "paging" : false,
         "searching" : false,
-        "ordering" : true
+        "ordering" : true,
+        "order": []
     },
     "table_default_scrollable_options" : {
         "fixedHeader" : false,
