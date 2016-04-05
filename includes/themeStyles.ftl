@@ -57,6 +57,7 @@
     "switch" : "switch",
     "dropdown" : "dropdown-menu",
     "fullwidth" : "elem-fullwidth",
+    "large_container_factor" : 6,
     
   <#-- Common messages (default message type container styles) -->
     "commonmsg_result" : "result-msg",
@@ -700,6 +701,13 @@
         "requiredClass" : "required",
         "requiredTooltip" : "#LABEL:CommonRequired"
     },
+    "fields_default_totalcolumns" : 12,
+    "fields_default_widgetpostfixcolumnsdiff" : 2,
+    "fields_default_widgetpostfixcolumns" : "",
+    "fields_default_postfixsize" : 1,
+    "fields_default_labelsmallcoldiff" : 1,
+    
+    "fields_formwidget_totalcolumns" : 11,
     
     "fields_default_alt1_labelareaconsumeexceptions" : "checkbox-single radio-single",
     "fields_default_alt1_checkboxtype" : "simple",
