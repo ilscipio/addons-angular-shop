@@ -706,6 +706,7 @@
     "fields_default_widgetpostfixcolumns" : "",
     "fields_default_postfixsize" : 1,
     "fields_default_labelsmallcoldiff" : 1,
+    "fields_default_widgetpostfixcombined" : false,
     
     "fields_formwidget_totalcolumns" : 11,
     

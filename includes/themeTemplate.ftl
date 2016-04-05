@@ -103,6 +103,8 @@ NOTES:
   <#local rowClass = containerClass>
   <#--<#local labelAreaClass = "">  
   <#local postfixClass = "">-->
+  
+  <#-- NOTE: currently we assume widgetPostfixCombined==false in general -->
 
   <#-- not using grid here...
       NOTE: the spans below don't support extra classes at all right now
