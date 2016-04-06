@@ -374,6 +374,12 @@ NOTES:
         <#nested>
       </ul>
     <#break>
+    <#case "steps">
+      <#local class = addClassArg(class, styles.nav_steps!)>
+      <ul<@compiledClassAttribStr class=class />>
+        <#nested>
+      </ul>
+    <#break>
     <#default>
       <ul class="${styles.list_inline!} ${styles.nav_subnav!}">
         <#nested>
