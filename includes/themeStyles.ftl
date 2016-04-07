@@ -707,6 +707,7 @@
     "fields_default_collapsedinlinelabel" : "datetime",
     "fields_default_checkboxtype" : "",
     "fields_default_radiotype" : "",
+    <#--"fields_default_inlineitems" : false,-->
     "fields_default_fieldargs" : {
         "requiredClass" : "required",
         "requiredTooltip" : "#LABEL:CommonRequired"
