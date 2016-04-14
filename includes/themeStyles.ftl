@@ -724,11 +724,11 @@
     "fields_default_alt1_labelareaconsumeexceptions" : "checkbox-single radio-single",
     "fields_default_alt1_checkboxtype" : "simple",
 
-    "fields_default_nolabels_labeltype" : "none",
-    "fields_default_nolabels_labelposition" : "none",
-    "fields_default_nolabels_labelarea" : false,
-    "fields_default_nolabels_labelareaexceptions" : "", 
-    "fields_default_nolabels_labelarearequirecontent" : false,
+    "fields_default_nolabelarea_labeltype" : "none",
+    "fields_default_nolabelarea_labelposition" : "none",
+    "fields_default_nolabelarea_labelarea" : false,
+    "fields_default_nolabelarea_labelareaexceptions" : "", 
+    "fields_default_nolabelarea_labelarearequirecontent" : false,
 
     "fields_default_compact_labeltype" : "vertical",
     "fields_default_compact_labelposition" : "top",
