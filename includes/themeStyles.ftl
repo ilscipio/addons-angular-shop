@@ -394,6 +394,15 @@
     "action_primary" : "action-primary",
     "action_secondary" : "action-secondary",
 
+    <#-- Convenience shorthands -->
+    "action_nav_cancel" : "action-nav action-cancel",
+    "action_nav_sys_cancel" : "action-nav action-scope-sys action-cancel",
+    "action_nav_session_cancel" : "action-nav action-scope-session action-cancel",
+    "action_nav_local_cancel" : "action-nav action-scope-local action-cancel",
+    "action_run_sys_cancel" : "action-run action-scope-sys action-cancel",
+    "action_run_session_cancel" : "action-run action-scope-session action-cancel",
+    "action_run_local_cancel" : "action-run action-scope-local action-cancel",
+
   <#-- Link styles (fragments) -->
     <#-- misc/short link styles -->
     "link_long" : "link-long",                                  <#-- style to identify long links -->
