@@ -670,7 +670,10 @@
     "alert_type_warning" : "alert-warning",
     "alert_type_secondary" : "alert-secondary",  
     "alert_type_alert" : "alert-danger",        
-    "alert_type_error" : "box",             
+    "alert_type_error" : "box",  
+    
+    <#-- Alert options by type -->
+    "alert_default_closable" : true,       
 
   <#-- Pricing Tables -->
     "pricing_wrap" : "panel panel-primary",
