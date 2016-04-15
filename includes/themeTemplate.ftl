@@ -94,7 +94,7 @@ NOTES:
     #nested is the actual field widget (<input>, <select>, etc.). -->
 <#macro field_markup_container type="" class="" totalColumns="" widgetPostfixColumns="" widgetPostfixCombined="" postfix=false postfixSize=0 postfixContent=true 
   labelArea=true labelType="" labelPosition="" labelAreaContent="" collapse="" collapsePostfix="" norows=false 
-  nocells=false container=true containerId="" containerClass="" 
+  nocells=false container=true containerId="" containerClass="" containerStyle=""
   preWidgetContent=false postWidgetContent=false preLabelContent=false postLabelContent=false prePostfixContent=false postPostfixContent=false
   labelAreaContentArgs={} postfixContentArgs={} prePostContentArgs={}
   origArgs={} passArgs={} catchArgs...>
@@ -116,7 +116,7 @@ NOTES:
   <#local fieldEntryTypeClass = "field-entry-type-" + mapCatoFieldTypeToStyleName(type)>
   
   <#local rowClass = addClassArg(rowClass, "form-field-entry " + fieldEntryTypeClass)>
-  <@row class=rowClass collapse=collapse!false norows=(norows || !container) id=containerId>
+  <@row class=rowClass collapse=collapse!false norows=(norows || !container) id=containerId style=containerStyle>
     <#if labelType == "vertical">
       <#-- FIXME: vertical was mostly copy-pasted quickly so it can be seen visually, needs work -->
       <@cell>
