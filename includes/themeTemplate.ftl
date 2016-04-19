@@ -97,6 +97,7 @@ NOTES:
   nocells=false container=true containerId="" containerClass="" containerStyle=""
   preWidgetContent=false postWidgetContent=false preLabelContent=false postLabelContent=false prePostfixContent=false postPostfixContent=false
   labelAreaContentArgs={} postfixContentArgs={} prePostContentArgs={}
+  widgetAreaClass="" labelAreaClass="" postfixAreaClass="" widgetPostfixAreaClass="" inverted=false
   origArgs={} passArgs={} catchArgs...>
   <#-- FIXME: the current non-grid arrangement does not properly support parent/child fields which cato macros
       should support (see layoutdemo - "Default form fields (with label area) with parent/child fields") 
@@ -105,6 +106,8 @@ NOTES:
   <#local rowClass = containerClass>
   <#--<#local labelAreaClass = "">  
   <#local postfixClass = "">-->
+  
+  <#-- FIXME: The *Class args above are largely non-implementable with current markup -->
   
   <#-- NOTE: currently we assume widgetPostfixCombined==false in general -->
 
@@ -116,34 +119,52 @@ NOTES:
   <#local fieldEntryTypeClass = "field-entry-type-" + mapCatoFieldTypeToStyleName(type)>
   
   <#local rowClass = addClassArg(rowClass, "form-field-entry " + fieldEntryTypeClass)>
-  <@row class=rowClass collapse=collapse!false norows=(norows || !container) id=containerId style=containerStyle>
+  <@row class=compileClassArg(rowClass) collapse=collapse!false norows=(norows || !container) id=containerId style=containerStyle>
     <#if labelType == "vertical">
       <#-- FIXME: vertical was mostly copy-pasted quickly so it can be seen visually, needs work -->
       <@cell>
         <div class="form-group input-group">
         <#if labelArea && labelPosition == "top">
           <@row>
-            <@cell>
-              <#if !preLabelContent?is_boolean><@contentArgRender content=preLabelContent args=prePostContentArgs /></#if>
-              <#-- FIXME?: This span should be in @field_markup_labelarea? -->
-              <span class="input-group-addon field-entry-title ${fieldEntryTypeClass}"><#if !labelAreaContent?is_boolean><@contentArgRender content=labelAreaContent args=labelAreaContentArgs /></#if></span>
-              <#if !postLabelContent?is_boolean><@contentArgRender content=postLabelContent args=prePostContentArgs /></#if>
+            <@cell class=compileClassArg(inverted?string(widgetAreaClass, labelAreaClass))>
+              <#if inverted>
+                <#if type == "display">
+                  <span class="form-control"><#nested></span>
+                <#else>
+                  <#if !preWidgetContent?is_boolean><@contentArgRender content=preWidgetContent args=prePostContentArgs /></#if>
+                  <#nested>
+                  <#if !postWidgetContent?is_boolean><@contentArgRender content=postWidgetContent args=prePostContentArgs /></#if>
+                </#if>
+              <#else>
+                <#if !preLabelContent?is_boolean><@contentArgRender content=preLabelContent args=prePostContentArgs /></#if>
+                <#-- FIXME?: This span should be in @field_markup_labelarea? -->
+                <span class="input-group-addon field-entry-title ${fieldEntryTypeClass}"><#if !labelAreaContent?is_boolean><@contentArgRender content=labelAreaContent args=labelAreaContentArgs /></#if></span>
+                <#if !postLabelContent?is_boolean><@contentArgRender content=postLabelContent args=prePostContentArgs /></#if>
+              </#if>
             </@cell>
           </@row>
         </#if>
           <@row>
-            <@cell>
+            <#-- WARN: widgetAreaClass is probably not quite proper here -->
+            <@cell class=compileClassArg(inverted?string(labelAreaClass, widgetAreaClass))>
               <#-- FIXME: currently can't add wrapper without breaking style, so moved these classes to @field override
               <span class="field-entry-widget ${fieldEntryTypeClass}"><#nested></span>
               -->
-              <#-- quick hack to add container to things that don't naturally have any (shouldn't
-                  be needed, see last FIXME -->
-              <#if type == "display">
-                <span class="form-control"><#nested></span>
+              <#if inverted>
+                <#if !preLabelContent?is_boolean><@contentArgRender content=preLabelContent args=prePostContentArgs /></#if>
+                <#-- FIXME?: This span should be in @field_markup_labelarea? -->
+                <span class="input-group-addon field-entry-title ${fieldEntryTypeClass}"><#if !labelAreaContent?is_boolean><@contentArgRender content=labelAreaContent args=labelAreaContentArgs /></#if></span>
+                <#if !postLabelContent?is_boolean><@contentArgRender content=postLabelContent args=prePostContentArgs /></#if>
               <#else>
-                <#if !preWidgetContent?is_boolean><@contentArgRender content=preWidgetContent args=prePostContentArgs /></#if>
-                <#nested>
-                <#if !postWidgetContent?is_boolean><@contentArgRender content=postWidgetContent args=prePostContentArgs /></#if>
+                <#-- quick hack to add container to things that don't naturally have any (shouldn't
+                    be needed, see last FIXME -->
+                <#if type == "display">
+                  <span class="form-control"><#nested></span>
+                <#else>
+                  <#if !preWidgetContent?is_boolean><@contentArgRender content=preWidgetContent args=prePostContentArgs /></#if>
+                  <#nested>
+                  <#if !postWidgetContent?is_boolean><@contentArgRender content=postWidgetContent args=prePostContentArgs /></#if>
+                </#if>
               </#if>
               <#-- FIXME: CSS not working with postfix (form-control goes to width 100% and pushes this to next line) 
               <#if postfix>
@@ -166,22 +187,39 @@ NOTES:
       <@cell class="" nocells=(nocells || !container)>
         <div class="form-group input-group">
           <#if labelArea  && labelType == "horizontal" && labelPosition == "left">
-            <#if !preLabelContent?is_boolean><@contentArgRender content=preLabelContent args=prePostContentArgs /></#if>
-            <#-- FIXME: give label area min width -->
-            <span class="input-group-addon field-entry-title ${fieldEntryTypeClass}"><#if !labelAreaContent?is_boolean><@contentArgRender content=labelAreaContent args=labelAreaContentArgs /></#if></span>
-            <#if !postLabelContent?is_boolean><@contentArgRender content=postLabelContent args=prePostContentArgs /></#if>
+            <#if inverted>
+              <#if type == "display">
+                <span class="form-control"><#nested></span>
+              <#else>
+                <#if !preWidgetContent?is_boolean><@contentArgRender content=preWidgetContent args=prePostContentArgs /></#if>
+                <#nested>
+                <#if !postWidgetContent?is_boolean><@contentArgRender content=postWidgetContent args=prePostContentArgs /></#if>
+              </#if>
+            <#else>
+              <#if !preLabelContent?is_boolean><@contentArgRender content=preLabelContent args=prePostContentArgs /></#if>
+              <#-- FIXME: give label area min width -->
+              <span class="input-group-addon field-entry-title ${fieldEntryTypeClass}"><#if !labelAreaContent?is_boolean><@contentArgRender content=labelAreaContent args=labelAreaContentArgs /></#if></span>
+              <#if !postLabelContent?is_boolean><@contentArgRender content=postLabelContent args=prePostContentArgs /></#if>
+            </#if>
           </#if>
           <#-- FIXME: currently can't add wrapper without breaking style, so moved these classes to @field override
           <span class="field-entry-widget ${fieldEntryTypeClass}"><#nested></span>
           -->
           <#-- quick hack to add container to things that don't naturally have any (shouldn't
               be needed, see last FIXME -->
-          <#if type == "display">
-            <span class="form-control"><#nested></span>
+          <#if inverted>
+            <#if !preLabelContent?is_boolean><@contentArgRender content=preLabelContent args=prePostContentArgs /></#if>
+            <#-- FIXME?: This span should be in @field_markup_labelarea? -->
+            <span class="input-group-addon field-entry-title ${fieldEntryTypeClass}"><#if !labelAreaContent?is_boolean><@contentArgRender content=labelAreaContent args=labelAreaContentArgs /></#if></span>
+            <#if !postLabelContent?is_boolean><@contentArgRender content=postLabelContent args=prePostContentArgs /></#if>
           <#else>
-            <#if !preWidgetContent?is_boolean><@contentArgRender content=preWidgetContent args=prePostContentArgs /></#if>
-            <#nested>
-            <#if !postWidgetContent?is_boolean><@contentArgRender content=postWidgetContent args=prePostContentArgs /></#if>
+            <#if type == "display">
+              <span class="form-control"><#nested></span>
+            <#else>
+              <#if !preWidgetContent?is_boolean><@contentArgRender content=preWidgetContent args=prePostContentArgs /></#if>
+              <#nested>
+              <#if !postWidgetContent?is_boolean><@contentArgRender content=postWidgetContent args=prePostContentArgs /></#if>
+            </#if>
           </#if>
           <#-- FIXME: CSS not working with postfix (form-control goes to width 100% and pushes this to next line) 
           <#if postfix>

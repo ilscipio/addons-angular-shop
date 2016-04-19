@@ -722,7 +722,8 @@
     "fields_default_inlineitems" : "",
     "fields_default_fieldargs" : {
         "requiredClass" : "required",
-        "requiredTooltip" : "#LABEL:CommonRequired"
+        "requiredTooltip" : "#LABEL:CommonRequired",
+        "invertedClass" : "field-inverted"
     },
     "fields_default_totalcolumns" : 12,
     "fields_default_widgetpostfixcolumnsdiff" : 2,
@@ -811,10 +812,10 @@
     "field_datetime_default_title" : "LABEL+FORMAT",
 
     <#-- display type styles -->
-    "field_display_tooltip" : "has-tip field-tooltip-wrapper",
+    "field_display_tooltip" : "has-tip field-tooltip-wrap",
     
     <#-- generic type styles -->
-    "field_generic_tooltip" : "has-tip field-tooltip-wrapper",
+    "field_generic_tooltip" : "has-tip field-tooltip-wrap",
 
     <#-- default, for all fields -->
     "field_default_tooltip" : "has-tip tip-right",
@@ -826,7 +827,8 @@
 
     <#-- misc single field styles -->
     "field_inline" : "field-inline",
-    "field_tooltip_wrapper" : "field-tooltip-wrapper",
+    "field_tooltip_wrap" : "field-tooltip-wrap",
+    "field_inverted" : "field-inverted",
 
     <#-- Field type style name maps -->
     "field_type_stylenames_cato" : {
