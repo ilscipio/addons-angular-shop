@@ -242,7 +242,7 @@ NOTES:
 
 <#-- @field label area markup - theme override -->
 <#macro field_markup_labelarea labelType="" labelPosition="" label="" labelContent=false labelDetail=false fieldType="" fieldId="" 
-  collapse="" required=false labelContentArgs={} origArgs={} passArgs={} catchArgs...>
+  collapse="" required=false labelContentArgs={} norows=false nocells=false container=true origArgs={} passArgs={} catchArgs...>
   <#local label = label?trim>
   <#if !labelContent?is_boolean>
     <@contentArgRender content=labelContent args=labelContentArgs doTrim=true />
@@ -252,13 +252,16 @@ NOTES:
     <#else>
       <span class="form-field-label">${label}<#if required> *</#if></span>
     </#if>  
+  <#-- don't show this if no label
   <#else>
-    <#if required>*</#if>
+    <#if required>*</#if>-->
   </#if> 
   <#if !labelDetail?is_boolean><@contentArgRender content=labelDetail args=labelContentArgs doTrim=true /></#if>
-  <#-- FIXME?: nbsp workaround is to prevent a foundation "bug" where empty cells sometimes go to zero width -->
-  <#if !label?has_content && labelDetail?is_boolean && labelContent?is_boolean>
-    &nbsp;
+  <#if container && !nocells>
+    <#-- FIXME?: nbsp workaround is to prevent a foundation "bug" where empty cells sometimes go to zero width -->
+    <#if !label?has_content && labelDetail?is_boolean && labelContent?is_boolean>
+      &nbsp;
+    </#if>
   </#if>
 </#macro>
 
