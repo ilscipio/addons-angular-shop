@@ -219,7 +219,7 @@ NOTES:
   </#if> 
   <#if !labelDetail?is_boolean><@contentArgRender content=labelDetail args=labelContentArgs doTrim=true /></#if>
   <#-- FIXME?: nbsp workaround is to prevent a foundation "bug" where empty cells sometimes go to zero width -->
-  <#if !label?has_content && !labelDetail?has_content>
+  <#if !label?has_content && labelDetail?is_boolean && labelContent?is_boolean>
     &nbsp;
   </#if>
 </#macro>
