@@ -723,7 +723,8 @@
     "fields_default_fieldargs" : {
         "requiredClass" : "required",
         "requiredTooltip" : "#LABEL:CommonRequired",
-        "invertedClass" : "field-inverted"
+        "invertedClass" : "field-inverted",
+        "standardClass" : "field-standard"
     },
     "fields_default_totalcolumns" : 12,
     "fields_default_widgetpostfixcolumnsdiff" : 2,
@@ -829,6 +830,7 @@
     "field_inline" : "field-inline",
     "field_tooltip_wrap" : "field-tooltip-wrap",
     "field_inverted" : "field-inverted",
+    "field_standard" : "field-standard",
 
     <#-- Field type style name maps -->
     "field_type_stylenames_cato" : {
