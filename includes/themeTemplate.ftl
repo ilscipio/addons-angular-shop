@@ -257,12 +257,12 @@ NOTES:
     <#if required>*</#if>-->
   </#if> 
   <#if !labelDetail?is_boolean><@contentArgRender content=labelDetail args=labelContentArgs doTrim=true /></#if>
+  <#-- This was nbsp to prevent collapsing empty divs, now replaced by a CSS hack (see _base.scss)
   <#if container && !nocells>
-    <#-- FIXME?: nbsp workaround is to prevent a foundation "bug" where empty cells sometimes go to zero width -->
     <#if !label?has_content && labelDetail?is_boolean && labelContent?is_boolean>
       &nbsp;
     </#if>
-  </#if>
+  </#if>-->
 </#macro>
 
 <#-- Override of @field_datetime_markup_script since fdatetime is foundation specific -->
