@@ -772,7 +772,7 @@
     "fields_default_manual_widgetonly_collapsedinlinelabel" : "",
     "fields_default_manual_widgetonly_checkboxtype" : "",
     "fields_default_manual_widgetonly_fieldargs" : {
-        "container" : "false"
+        "widgetOnly" : "true"
     }, 
 
     "fields_generic_labeltype" : "horizontal",
