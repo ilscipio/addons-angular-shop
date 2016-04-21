@@ -242,6 +242,13 @@
     "menu_noclear" : "menu-no-clear",
     "menu_link_href_default" : "javascript:void(0);",
     
+  <#-- Sections -->
+    <#-- type-based styles -->
+    "section_generic_menulayouttitle" : "post-title",  
+    "section_generic_menulayoutgeneral" : "top", 
+    "section_default_menulayouttitle" : "post-title",  
+    "section_default_menulayoutgeneral" : "top",  
+    
   <#-- Data and Tables -->
     <#-- table type-based styles -->
     "table_generic" : "table-type-generic",
