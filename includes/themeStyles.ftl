@@ -59,6 +59,13 @@
     "fullwidth" : "elem-fullwidth",
     "large_container_factor" : 6,
     
+  <#-- basic tooltip -->
+    "tooltip" : "has-tip",
+    "tooltip_left" : "has-tip tip-left",
+    "tooltip_top" : "has-tip tip-top",
+    "tooltip_right" : "has-tip tip-right",
+    "tooltip_bottom" : "has-tip tip-bottom",
+    
   <#-- Common messages (default message type container styles) -->
     "commonmsg_result" : "result-msg",
     "commonmsg_result_norecord" : "result-msg result-no-record-msg",
