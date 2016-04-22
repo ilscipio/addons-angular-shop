@@ -65,6 +65,7 @@
     "tooltip_top" : "has-tip tip-top",
     "tooltip_right" : "has-tip tip-right",
     "tooltip_bottom" : "has-tip tip-bottom",
+    "tooltip_delim" : " - ",
     
   <#-- Common messages (default message type container styles) -->
     "commonmsg_result" : "result-msg",
