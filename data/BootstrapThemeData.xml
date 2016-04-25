@@ -71,19 +71,19 @@ under the License.
     
     
     <!-- Scripts -->
-    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/bootstrap/dist/js/bootstrap.min.js" sequenceId="01"/>
-    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/datatables/datatables.min.js" sequenceId="02"/>
-    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/Chart.js/Chart.min.js" sequenceId="03"/>
-    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/sass-to-js/js/dist/sass-to-js.min.js" sequenceId="04"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/bootstrap/dist/js/bootstrap.min.js" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/datatables/datatables.min.js" sequenceId="02"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/Chart.js/Chart.min.js" sequenceId="03"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/sass-to-js/js/dist/sass-to-js.min.js" sequenceId="04"/>
  
  
      <!-- Bootstrap Material design -->
-    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/bootstrap-material-design/dist/js/material.min.js" sequenceId="05"/>
-    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/bootstrap-material-design/dist/js/ripples.min.js" sequenceId="06"/>
-    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/bootstrap-theme/js/freetile.min.js" sequenceId="07"/>
-    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/bootstrap-theme/js/app.js" sequenceId="08"/>
-    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/momentjs/min/moment-with-locales.min.js" sequenceId="09"/>
-    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js" sequenceId="10"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/bootstrap-material-design/dist/js/material.min.js" sequenceId="05"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/bootstrap-material-design/dist/js/ripples.min.js" sequenceId="06"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/bootstrap-theme/js/freetile.min.js" sequenceId="07"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/bootstrap-theme/js/app.js" sequenceId="08"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/momentjs/min/moment-with-locales.min.js" sequenceId="09"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js" sequenceId="10"/>
     
    
 </entity-engine-xml>
