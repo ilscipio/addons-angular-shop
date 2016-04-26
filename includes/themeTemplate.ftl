@@ -92,7 +92,7 @@ NOTES:
 
 <#-- @field container markup - theme override 
     #nested is the actual field widget (<input>, <select>, etc.). -->
-<#macro field_markup_container type="" class="" totalColumns="" widgetPostfixColumns="" widgetPostfixCombined="" postfix=false postfixSize=0 postfixContent=true 
+<#macro field_markup_container type="" class="" totalColumns="" widgetPostfixColumns="" widgetPostfixCombined="" postfix=false postfixColumns=0 postfixContent=true 
   labelArea=true labelType="" labelPosition="" labelAreaContent="" collapse="" collapsePostfix="" norows=false 
   nocells=false container=true containerId="" containerClass="" containerStyle=""
   preWidgetContent=false postWidgetContent=false preLabelContent=false postLabelContent=false prePostfixContent=false postPostfixContent=false
@@ -114,7 +114,7 @@ NOTES:
   <#-- not using grid here...
       NOTE: the spans below don't support extra classes at all right now
   <#local defaultGridStyles = getDefaultFieldGridStyles({"totalColumns":totalColumns, "widgetPostfixColumns":widgetPostfixColumns, 
-    "widgetPostfixCombined":widgetPostfixCombined, "labelArea":labelArea, "postfix":postfix, "postfixSize":postfixSize })>-->
+    "widgetPostfixCombined":widgetPostfixCombined, "labelArea":labelArea, "postfix":postfix, "postfixColumns":postfixColumns })>-->
 
   <#local fieldEntryTypeClass = "field-entry-type-" + mapCatoFieldTypeToStyleName(type)>
   
