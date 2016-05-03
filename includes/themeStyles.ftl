@@ -619,7 +619,7 @@
   <#-- Tile -->
     <#-- tiles-type-based args and styles -->
     "tile_default_containerclass" : "tile-container-default", 
-    "tile_default_class" : "tile-default",  
+    "tile_default_class" : "tile-default tile-common",  
     "tile_default_size" : "normal",
     "tile_default_color" : "0",
     "tile_default_titletype" : "default",
@@ -637,7 +637,7 @@
     "tile_generic_color" : "none",
     "tile_generic_titletype" : "default",
     "tile_generic_titlebgcolor" : "none",
-    "tile_generic_overlaytype" : "contain",
+    "tile_generic_overlaytype" : "static",
     "tile_generic_overlaybgcolor" : "none",
     "tile_generic_imagetype" : "cover",
     "tile_generic_imagebgcolor" : "none",
@@ -645,7 +645,7 @@
     "tile_generic_linktarget" : "",
     
     "tile_gallery1_containerclass" : "tile-container-gallery1", 
-    "tile_gallery1_class" : "tile-gallery1",  
+    "tile_gallery1_class" : "tile-gallery1 tile-common",  
     "tile_gallery1_size" : "normal",
     "tile_gallery1_color" : "0",
     "tile_gallery1_titletype" : "default",
@@ -673,6 +673,7 @@
     "tile_overlay_default" : "tile-overlay-slide-up",    
     <#-- styles for specific overlay types (extensible by theme) (looked up based on overlay type) -->
     "tile_overlay_slide_up" : "tile-overlay-slide-up",
+    "tile_overlay_static" : "tile-overlay-static",
     <#-- image styles -->
     "tile_image" : "tile-image",
     <#-- default image styles (looked up based on image type) -->
