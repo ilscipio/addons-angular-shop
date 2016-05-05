@@ -4,15 +4,13 @@
  * Overrides the default CATO styles located in 
  * htmlVariables.groovy - ofbiz_foundation/framework/common/webcommon/includes/cato/lib/standard/
  * 
- * NOTES: 
- * * Variables must now be defined using #assign, not #global.
  */
 
- /*
- *************************************
- * MAIN STYLES FOR BOOTSTRAP *
- *************************************
- */
+/*
+*************************************
+* MAIN STYLES FOR BOOTSTRAP *
+*************************************
+*/
  
 context.styles = [
     
