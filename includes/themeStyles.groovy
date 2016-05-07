@@ -863,6 +863,7 @@ context.styles = [
     "field_tooltip_wrap" : "field-tooltip-wrap",
     "field_inverted" : "field-inverted",
     "field_standard" : "field-standard",
+    "field_extra" : "field-extra",
 
     /* Field type style name maps */
     "field_type_stylenames_cato" : [
