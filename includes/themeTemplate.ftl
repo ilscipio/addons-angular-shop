@@ -97,7 +97,7 @@ NOTES:
   nocells=false container=true containerId="" containerClass="" containerStyle=""
   preWidgetContent=false postWidgetContent=false preLabelContent=false postLabelContent=false prePostfixContent=false postPostfixContent=false
   labelAreaContentArgs={} postfixContentArgs={} prePostContentArgs={}
-  widgetAreaClass="" labelAreaClass="" postfixAreaClass="" widgetPostfixAreaClass="" inverted=false
+  widgetAreaClass="" labelAreaClass="" postfixAreaClass="" widgetPostfixAreaClass="" inverted=false labelSmallDiffColumns=""
   origArgs={} passArgs={} catchArgs...>
   <#-- FIXME: the current non-grid arrangement does not properly support parent/child fields which cato macros
       should support (see layoutdemo - "Default form fields (with label area) with parent/child fields") 
@@ -114,7 +114,7 @@ NOTES:
   <#-- not using grid here...
       NOTE: the spans below don't support extra classes at all right now
   <#local defaultGridStyles = getDefaultFieldGridStyles({"totalColumns":totalColumns, "widgetPostfixColumns":widgetPostfixColumns, 
-    "widgetPostfixCombined":widgetPostfixCombined, "labelArea":labelArea, "postfix":postfix, "postfixColumns":postfixColumns })>-->
+    "widgetPostfixCombined":widgetPostfixCombined, "labelArea":labelArea, "postfix":postfix, "postfixColumns":postfixColumns, "labelSmallDiffColumns":labelSmallDiffColumns})>-->
 
   <#local fieldEntryTypeClass = "field-entry-type-" + mapCatoFieldTypeToStyleName(type)>
   
