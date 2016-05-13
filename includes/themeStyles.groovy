@@ -759,13 +759,12 @@ context.styles = [
         "standardClass" : "field-standard"
     ],
     "fields_default_totalcolumns" : 12,
-    "fields_default_widgetpostfixcolumnsdiff" : 2,
-    "fields_default_widgetpostfixcolumns" : "",
-    "fields_default_postfixsize" : 1,
+    "fields_default_labelcolumns" : 2,
+    "fields_default_postfixcolumns" : 1,
     "fields_default_labelsmallcoldiff" : 1,
     "fields_default_widgetpostfixcombined" : false,
     
-    "fields_formwidget_totalcolumns" : 11,
+    "fields_formwidget_totalcolumns" : 11,              
     
     "fields_default_alt1_labelareaconsumeexceptions" : "checkbox-single radio-single",
     "fields_default_alt1_checkboxtype" : "simple",
