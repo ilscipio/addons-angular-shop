@@ -92,11 +92,11 @@ NOTES:
 
 <#-- @field container markup - theme override 
     #nested is the actual field widget (<input>, <select>, etc.). -->
-<#macro field_markup_container type="" class="" totalColumns="" widgetPostfixColumns="" widgetPostfixCombined="" postfix=false postfixColumns=0 postfixContent=true 
+<#macro field_markup_container type="" class="" postfix=false postfixContent=true 
   labelArea=true labelType="" labelPosition="" labelAreaContent="" collapse="" collapsePostfix="" norows=false 
   nocells=false container=true containerId="" containerClass="" containerStyle=""
   preWidgetContent=false postWidgetContent=false preLabelContent=false postLabelContent=false prePostfixContent=false postPostfixContent=false
-  labelAreaContentArgs={} postfixContentArgs={} prePostContentArgs={}
+  labelAreaContentArgs={} postfixContentArgs={} prePostContentArgs={} defaultGridArgs={} gridArgs={}
   widgetAreaClass="" labelAreaClass="" postfixAreaClass="" widgetPostfixAreaClass="" inverted=false labelSmallDiffColumns=""
   origArgs={} passArgs={} catchArgs...>
   <#-- FIXME: the current non-grid arrangement does not properly support parent/child fields which cato macros
@@ -113,8 +113,7 @@ NOTES:
 
   <#-- not using grid here...
       NOTE: the spans below don't support extra classes at all right now
-  <#local defaultGridStyles = getDefaultFieldGridStyles({"totalColumns":totalColumns, "widgetPostfixColumns":widgetPostfixColumns, 
-    "widgetPostfixCombined":widgetPostfixCombined, "labelArea":labelArea, "postfix":postfix, "postfixColumns":postfixColumns, "labelSmallDiffColumns":labelSmallDiffColumns})>-->
+  <#local defaultGridStyles = getDefaultFieldGridStyles(defaultGridArgs + {"labelInRow": labelInRow} + gridArgs)>-->
 
   <#local fieldEntryTypeClass = "field-entry-type-" + mapCatoFieldTypeToStyleName(type)>
   
