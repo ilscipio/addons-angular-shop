@@ -16,6 +16,7 @@ context.styles = [
     
   /* Generic */
     "framework" : "bootstrap",
+	"customSideBar" : false,
     "disabled" : "disabled",
     "active" : "active",
     "selected" : "selected",
