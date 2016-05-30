@@ -264,7 +264,7 @@ so for now we have to split the screens in half and rely on the menu widget rend
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <@logoMenu/>
+                <@logoMenu isSmall=true/>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-nav navbar-right top-nav">
