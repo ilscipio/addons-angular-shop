@@ -35,10 +35,10 @@ under the License.
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_MENU_MACRO_LIB" resourceValue="component://bootstrap-theme/includes/htmlMenuMacroLibrary.ftl" sequenceId="01"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_SHORTCUT_ICON" resourceValue="/bootstrap-theme/images/favicon.ico" sequenceId="01"/>
 
-    <!-- Cato: Set custom logo -->
+    <!-- Scipio: Set custom logo -->
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_HDR_IMAGE_URL" resourceValue="/bootstrap-theme/images/logo_bw.png" sequenceId="01"/>
 
-    <!-- Cato: The following includes can be used to override specific default pages
+    <!-- Scipio: The following includes can be used to override specific default pages
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_ERROR_TMPLT_LOC" resourceValue="component://bootstrap-theme/includes/error.ftl" sequenceId="01"/> // Custom Error Page
      -->    
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_LOGIN_TMPLT_LOC" resourceValue="component://bootstrap-theme/includes/login.ftl" sequenceId="01"/> 

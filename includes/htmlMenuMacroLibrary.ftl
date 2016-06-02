@@ -1,6 +1,6 @@
 <#--
 * 
-* A set of HTML templating macros, part of standard Cato Freemarker API.
+* A set of HTML templating macros, part of standard Scipio Freemarker API.
 * Automatically included at all times.
 * Intended to be swappable.
 *
@@ -12,16 +12,16 @@
 
 <#-- 
 *************************************
-* CATO: NEW MENU MACROS (ONE-SHOT) *
+* SCIPIO: NEW MENU MACROS (ONE-SHOT) *
 *************************************
 -->
 
-<#-- Cato: Override not currently needed; htmlwraps are set in style hash menu_ entries instead
+<#-- Scipio: Override not currently needed; htmlwraps are set in style hash menu_ entries instead
     DEV NOTE: prefer not using because this is hard to maintain...
 <#macro renderMenuFull>
 </#macro>-->
 
-<#-- Cato: Override not currently needed; htmlwraps are set in style hash menu_ entries instead
+<#-- Scipio: Override not currently needed; htmlwraps are set in style hash menu_ entries instead
     DEV NOTE: prefer not using because this is hard to maintain...
 <#macro renderMenuItemFull>
 </#macro>-->
@@ -29,19 +29,19 @@
 
 <#-- 
 *************************************
-* CATO: TRADITIONAL MENU MACROS *
+* SCIPIO: TRADITIONAL MENU MACROS *
 *************************************
 -->
 
-<#-- Cato: DEPRECATED/unmaintained/obsolete, replaced by one-shot macros, kept for reference only
+<#-- Scipio: DEPRECATED/unmaintained/obsolete, replaced by one-shot macros, kept for reference only
 <#macro renderMenuBegin boundaryComment="" id="" style="" title="" inlineEntries=false menuCtxRole="">
   <#local styleSet = splitStyleNamesToSet(style)>
 <#if boundaryComment?has_content>
 <!- ${boundaryComment} ->
 </#if>
-  <#local menuIdNum = getRequestVar("catoMenuIdNum")!0>
+  <#local menuIdNum = getRequestVar("scipioMenuIdNum")!0>
   <#local menuIdNum = menuIdNum + 1 />
-  <#local dummy = setRequestVar("catoMenuIdNum", menuIdNum)>
+  <#local dummy = setRequestVar("scipioMenuIdNum", menuIdNum)>
   <#if !id?has_content>
     <#local id = "menu_" + menuIdNum>
   </#if>
@@ -91,7 +91,7 @@
 </#macro>
 -->
 
-<#-- Cato: DEPRECATED/unmaintained/obsolete, replaced by one-shot macros, kept for reference only
+<#-- Scipio: DEPRECATED/unmaintained/obsolete, replaced by one-shot macros, kept for reference only
 <#macro renderMenuEnd boundaryComment="" style="" inlineEntries=false menuCtxRole="">
   <#local styleSet = splitStyleNamesToSet(style)>
   <#local menu = popRequestStack("renderMenuStack")>
@@ -129,7 +129,7 @@
 </#macro>
 -->
 
-<#-- Cato: DEPRECATED/unmaintained/obsolete, replaced by one-shot macros, kept for reference only
+<#-- Scipio: DEPRECATED/unmaintained/obsolete, replaced by one-shot macros, kept for reference only
 <#macro renderMenuItemBegin style toolTip linkStr containsNestedMenus menuCtxRole="">
     <#- Get surrounding menu information ->
     <#local menu = readRequestStack("renderMenuStack")>
@@ -144,7 +144,7 @@
     </#if>    
 </#macro>-->
 
-<#-- Cato: DEPRECATED/unmaintained/obsolete, replaced by one-shot macros, kept for reference only
+<#-- Scipio: DEPRECATED/unmaintained/obsolete, replaced by one-shot macros, kept for reference only
 <#macro renderMenuItemEnd containsNestedMenus=false menuCtxRole="">
     <#local menu = readRequestStack("renderMenuStack")>
     <#if menu.style?has_content>

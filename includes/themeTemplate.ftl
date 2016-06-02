@@ -1,35 +1,35 @@
 <#--
 * 
-* A set of HTML templating macros, part of standard Cato Freemarker API.
+* A set of HTML templating macros, part of standard Scipio Freemarker API.
 * Automatically included at all times.
 * Intended to be swappable.
 *
-* Overrides the default CATO styles located in 
-* htmlTemplate.ftl - ofbiz_foundation/framework/common/webcommon/cato/lib/standard/
+* Overrides the default SCIPIO styles located in 
+* htmlTemplate.ftl - ofbiz_foundation/framework/common/webcommon/scipio/lib/standard/
 * 
 -->
 
 <#-- Master include: Includes the default macros and allows overrides -->
-<#include "component://common/webcommon/includes/cato/lib/standard/htmlTemplate.ftl"> 
+<#include "component://common/webcommon/includes/scipio/lib/standard/htmlTemplate.ftl"> 
 <#-- The following is now done by the include above instead, because the standard macros need it as well.
     It creates a map of references to the original macros so we can delegate to them, essentially a namespace.
-    NOTE: this overriding file creates a namespace for itself as well - catoBsTmplLib (see end of this file).
-<#assign catoStdTmplLib = copyObject(.namespace)> -->
+    NOTE: this overriding file creates a namespace for itself as well - scipioBsTmplLib (see end of this file).
+<#assign scipioStdTmplLib = copyObject(.namespace)> -->
 
 <#--
 Other possible patterns:
 
-<#import "component://common/webcommon/includes/cato/lib/standard/htmlTemplate.ftl" as catoStdTmplLib> 
+<#import "component://common/webcommon/includes/scipio/lib/standard/htmlTemplate.ftl" as scipioStdTmplLib> 
 
 DEV NOTE: it turns out, using #import statement here as-is is too problematic. within the import calls, local macro definitions will always
 shadow the global macro definitions, which means they won't automatically use the overridden macros defined in this parent file, 
 so reuse of high-level macros (that call others) becomes confusing.
 whether automatic overriding is wanted or not is case-specific, but in general, here yes.
 the only way around this would be to modify the namespace using:
-<#import ... as catoStdTmplLib>
+<#import ... as scipioStdTmplLib>
 <#macro row>
 </#macro>
-<#assign row = row in catoStdTmplLib>
+<#assign row = row in scipioStdTmplLib>
 for every major macro (which could be approximated with looped assignments again, but ugly).
 note this pattern is acceptable in some other cases because it can be very fine-grained, but here will probably cause only headaches
 because in general we wish to override selectively, not include selectively.
@@ -39,12 +39,12 @@ because in general we wish to override selectively, not include selectively.
 *************
 * MACRO OVERRIDES
 ************
-See component://common/webcommon/includes/cato/lib/standard/htmlTemplate.ftl for documentation about
+See component://common/webcommon/includes/scipio/lib/standard/htmlTemplate.ftl for documentation about
 the macro interfaces used in the standard macros and these overrides.
 
 NOTES:
   * It's important that any overrides for template-facing macros (like @field or other) be enabled with and
-    use the advanced args pattern (args={} inlineArgs...). Without this, standard cato macro interface
+    use the advanced args pattern (args={} inlineArgs...). Without this, standard scipio macro interface
     changes - almost always adding an attribute - will break compatibility for any themes not controlled by Ilscipio.
     Using this pattern, any extra attributes added in standard interfaces will either be gracefully ignored by the 
     overriding macros (if total new substitute implementation) or automatically pass along the new attributes 
@@ -60,12 +60,12 @@ NOTES:
     the _min separatation here is not necessary in general, it's only an optimization used because @field has a million
     parameters. having field_defaultArgs only would work fine as well (and less error prone). -->
 <#assign field_defaultArgs_min = {"type":"", "class":"", "passArgs":{}}>
-<#assign field_defaultArgs = getCatoMacroDefaultArgs("field", catoStdTmplLib) + field_defaultArgs_min>
+<#assign field_defaultArgs = getScipioMacroDefaultArgs("field", scipioStdTmplLib) + field_defaultArgs_min>
 <#macro field args={} inlineArgs...>
   <#-- WARN: usage of field_defaultArgs_min here means any arguments that need to be accessed 
       from this override code must be declared in field_defaultArgs_min.
-  <#local args = mergeArgMaps(args, inlineArgs, catoBsTmplLib.field_defaultArgs)>-->
-  <#local args = mergeArgMaps(args, inlineArgs, catoBsTmplLib.field_defaultArgs_min)>
+  <#local args = mergeArgMaps(args, inlineArgs, scipioBsTmplLib.field_defaultArgs)>-->
+  <#local args = mergeArgMaps(args, inlineArgs, scipioBsTmplLib.field_defaultArgs_min)>
   <#local dummy = localsPutAll(args)>
   
   <#if !type?has_content>
@@ -78,7 +78,7 @@ NOTES:
   
   <#-- FIXME: the following classes don't belong here at all (shouldn't be on <input> elems but only on wrappers), 
       but currently can't add wrappers in markup macro... -->
-  <#local fieldEntryTypeClass = "field-entry-type-" + mapCatoFieldTypeToStyleName(type)>
+  <#local fieldEntryTypeClass = "field-entry-type-" + mapScipioFieldTypeToStyleName(type)>
   <#local class = addClassArg(class, "field-entry-widget")/>
   <#local class = addClassArg(class, fieldEntryTypeClass)/>
   
@@ -87,7 +87,7 @@ NOTES:
   
   <#-- NOTE: the inlineArgs always override the args map, so can exploit this to avoid making an extra map 
       NOTE: passArgs should always concatenate, so a caller can still pass args through us -->
-  <@catoStdTmplLib.field args=args class=class passArgs=(passArgs+extraPassArgs)><#nested /></@catoStdTmplLib.field>
+  <@scipioStdTmplLib.field args=args class=class passArgs=(passArgs+extraPassArgs)><#nested /></@scipioStdTmplLib.field>
 </#macro>
 
 <#-- @field container markup - theme override 
@@ -99,7 +99,7 @@ NOTES:
   labelAreaContentArgs={} postfixContentArgs={} prePostContentArgs={} defaultGridArgs={} gridArgs={}
   widgetAreaClass="" labelAreaClass="" postfixAreaClass="" widgetPostfixAreaClass="" inverted=false labelSmallDiffColumns=""
   origArgs={} passArgs={} catchArgs...>
-  <#-- FIXME: the current non-grid arrangement does not properly support parent/child fields which cato macros
+  <#-- FIXME: the current non-grid arrangement does not properly support parent/child fields which scipio macros
       should support (see layoutdemo - "Default form fields (with label area) with parent/child fields") 
       this especially affects submit buttons but others too
        FIXME: collapse, collapsePostfix are not handled -->
@@ -115,7 +115,7 @@ NOTES:
       NOTE: the spans below don't support extra classes at all right now
   <#local defaultGridStyles = getDefaultFieldGridStyles(defaultGridArgs + {"labelInRow": labelInRow} + gridArgs)>-->
 
-  <#local fieldEntryTypeClass = "field-entry-type-" + mapCatoFieldTypeToStyleName(type)>
+  <#local fieldEntryTypeClass = "field-entry-type-" + mapScipioFieldTypeToStyleName(type)>
   
   <#local rowClass = addClassArg(rowClass, "form-field-entry " + fieldEntryTypeClass)>
   <@row class=compileClassArg(rowClass) collapse=collapse!false norows=(norows || !container) id=containerId style=containerStyle>
@@ -312,7 +312,7 @@ NOTES:
           </#if>
         };
         
-        <#-- Cato: How this works: the datepicker will put a yyyy-MM-dd value into the id_i18n field. 
+        <#-- Scipio: How this works: the datepicker will put a yyyy-MM-dd value into the id_i18n field. 
             This triggers onDateChange which may transform the date and put it back in id_i18n.
             This triggers then another change() which copies it into the hidden id field (with another conversion if necessary). -->
         $("#${displayInputId}").bootstrapMaterialDatePicker(${datepickerOptions!}).on('changeDate', onDateChange).on('show', onDatePopup);
@@ -328,16 +328,16 @@ NOTES:
         these are acceptable as well (because of args/inlineArgs pattern) and provides more examples of ways to override. 
     2016-02-22: Comment this completely because the htmlwraps are now set in styles hash, per-menu-type
 <#assign menu_defaultArgs_min = {"htmlwrap":"div", "passArgs":{}}> <#- change the default value, but still possible for client to override ->
-<#assign menu_defaultArgs = getCatoMacroDefaultArgs("menu", catoStdTmplLib) + menu_defaultArgs_min>
+<#assign menu_defaultArgs = getScipioMacroDefaultArgs("menu", scipioStdTmplLib) + menu_defaultArgs_min>
 <#macro menu args={} inlineArgs...>
-  <@catoStdTmplLib.menu args=mergeArgMaps(args, inlineArgs, catoBsTmplLib.menu_defaultArgs_min)><#nested /></@catoStdTmplLib.menu>
+  <@scipioStdTmplLib.menu args=mergeArgMaps(args, inlineArgs, scipioBsTmplLib.menu_defaultArgs_min)><#nested /></@scipioStdTmplLib.menu>
 </#macro>-->
 
 <#-- @menuitem template-facing macro - theme override
 <#assign menuitem_defaultArgs_min = {"htmlwrap":false, "passArgs":{}}> <#- no html wrapper by default ->
-<#assign menuitem_defaultArgs = getCatoMacroDefaultArgs("menuitem", catoStdTmplLib) + menuitem_defaultArgs_min>
+<#assign menuitem_defaultArgs = getScipioMacroDefaultArgs("menuitem", scipioStdTmplLib) + menuitem_defaultArgs_min>
 <#macro menuitem args={} inlineArgs...>
-  <@catoStdTmplLib.menuitem args=mergeArgMaps(args, inlineArgs, catoBsTmplLib.menuitem_defaultArgs_min)><#nested /></@catoStdTmplLib.menuitem>
+  <@scipioStdTmplLib.menuitem args=mergeArgMaps(args, inlineArgs, scipioBsTmplLib.menuitem_defaultArgs_min)><#nested /></@scipioStdTmplLib.menuitem>
 </#macro>-->
 
 <#-- @modal main markup - theme override -->
@@ -361,15 +361,15 @@ NOTES:
 
 <#-- @slider main markup - theme override -->
 <#macro slider_markup title="" sliderId="" sliderIdNum=0 class="" controls=true indicator=true origArgs={} passArgs={} catchArgs...>
-    <#local sliderIdNum = getRequestVar("catoSliderIdNum")!0>
-    <#if !sliderId?has_content><#local sliderId = "cato_slider_${sliderIdNum}"/></#if>
-    <#local dummy = setRequestVar("catoSliderLength", 0)>  
+    <#local sliderIdNum = getRequestVar("scipioSliderIdNum")!0>
+    <#if !sliderId?has_content><#local sliderId = "scipio_slider_${sliderIdNum}"/></#if>
+    <#local dummy = setRequestVar("scipioSliderLength", 0)>  
     <#if title?has_content><@heading>${title!}</@heading></#if>
     <div class="${styles.slider_container!""}" data-ride="carousel" id="${sliderId!""}">
       <div class="${styles.slider_wrap!""}">
         <#nested/>
       </div>
-        <#local sliderLength = getRequestVar("catoSliderLength")!0>
+        <#local sliderLength = getRequestVar("scipioSliderLength")!0>
         <#if controls>
             <a class="carousel-control left" href="#${sliderId!""}" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left"></span>
@@ -390,12 +390,12 @@ NOTES:
 
 <#-- @slide markup - theme override -->
 <#macro slide_markup class="" image="" link="" linkTarget="" title="" origArgs={} passArgs={} catchArgs...>
-    <#local slideIdNum = getRequestVar("catoSlideIdNum")!0>
+    <#local slideIdNum = getRequestVar("scipioSlideIdNum")!0>
     <#local slideIdNum = slideIdNum + 1 />
-    <#local dummy = setRequestVar("catoSlideIdNum", slideIdNum)>
-    <#local sliderLength = getRequestVar("catoSliderLength")!0>
+    <#local dummy = setRequestVar("scipioSlideIdNum", slideIdNum)>
+    <#local sliderLength = getRequestVar("scipioSliderLength")!0>
     <#local sliderLength = sliderLength + 1 />
-    <#local dummy = setRequestVar("catoSliderLength", sliderLength)> <#-- Slider counter -->
+    <#local dummy = setRequestVar("scipioSliderLength", sliderLength)> <#-- Slider counter -->
     <#local slideId = "slide_${renderSeqNumber!}_${slideIdNum!}"/>
     <div id="${slideId!}" class="${styles.slide_container!} <#if sliderLength==1>active</#if>">
         <#if link?has_content><a href="${link}"<#if linkTarget?has_content> target="${linkTarget}"</#if>></#if>
@@ -453,4 +453,4 @@ NOTES:
 
 
 <#-- save copy of this namespace so that our macros are able to access its own definitions without overrides (sometimes needed) -->
-<#assign catoBsTmplLib = copyObject(.namespace)>
+<#assign scipioBsTmplLib = copyObject(.namespace)>

@@ -8,8 +8,8 @@ may be of interest to you:
 
 
 * Default load style sheets directory: webapp/bootstrap/css/bower_components/bootstrap/dist/css
-* CATO will load a base set of class & html definitions located here
-  catoHtmlVariablesDefault.ftl - ofbiz_foundation/framework/common/webcommon/includes
+* SCIPIO will load a base set of class & html definitions located here
+  scipioHtmlVariablesDefault.ftl - ofbiz_foundation/framework/common/webcommon/includes
   
   These can be (and for the purpose of this theme will be) overriden by in the following file
   themeStyles.ftl - ofbiz_foundation/themes/bootstrap/includes

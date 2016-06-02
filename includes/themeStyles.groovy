@@ -1,8 +1,8 @@
 /**
  * Master HTML templating variables include, Bootstrap theme/framework.
  *
- * Overrides the default CATO styles located in 
- * htmlVariables.groovy - ofbiz_foundation/framework/common/webcommon/includes/cato/lib/standard/
+ * Overrides the default SCIPIO styles located in 
+ * htmlVariables.groovy - ofbiz_foundation/framework/common/webcommon/includes/scipio/lib/standard/
  * 
  */
 
@@ -871,7 +871,7 @@ context.styles = [
     "field_extra" : "field-extra",
 
     /* Field type style name maps */
-    "field_type_stylenames_cato" : [
+    "field_type_stylenames_scipio" : [
         "default": true
     ],
     "field_type_stylenames_ofbiz" : [

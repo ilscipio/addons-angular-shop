@@ -33,7 +33,7 @@ under the License.
             <div class="container ">
                 <div class="text-center">
                     <p>
-                        ${uiLabelMap.CommonCopyright} (c) 2014-${nowTimestamp?string("yyyy")} <a href="http://www.ilscipio.com" target="_blank">ilscipio GmbH</a>. ${uiLabelMap.CommonPoweredBy} <a href="http://www.cato-commerce.com" target="_blank">Cato Commerce</a> &amp; <a href="http://ofbiz.apache.org/" target=_blank>OFBiz</a>. <#include "ofbizhome://runtime/svninfo.ftl" /> <#include "ofbizhome://runtime/gitinfo.ftl" />
+                        ${uiLabelMap.CommonCopyright} (c) 2014-${nowTimestamp?string("yyyy")} <a href="http://www.ilscipio.com" target="_blank">ilscipio GmbH</a>. ${uiLabelMap.CommonPoweredBy} <a href="http://www.scipio-commerce.com" target="_blank">Scipio Commerce</a> &amp; <a href="http://ofbiz.apache.org/" target=_blank>OFBiz</a>. <#include "ofbizhome://runtime/svninfo.ftl" /> <#include "ofbizhome://runtime/gitinfo.ftl" />
                     </p>
                 </div>
             </div>
@@ -42,7 +42,7 @@ under the License.
 
 
   <@scripts output=true> <#-- ensure @script elems here will always output -->
-    <#-- New in cato; priority footer javascripts (before screen footer javascripts) -->
+    <#-- New in scipio; priority footer javascripts (before screen footer javascripts) -->
     <#if layoutSettings.VT_FTPR_JAVASCRIPT?has_content>
         <#--layoutSettings.javaScripts is a list of java scripts. -->
         <#-- use a Set to make sure each javascript is declared only once, but iterate the list to maintain the correct order -->
@@ -55,7 +55,7 @@ under the License.
         </#list>
     </#if>
 
-    <#-- New in cato; for app scripts that aren't (exclusively) styling but must go at end of page -->
+    <#-- New in scipio; for app scripts that aren't (exclusively) styling but must go at end of page -->
     <#if layoutSettings.javaScriptsFooter?has_content>
         <#assign javaScriptsSet = toSet(layoutSettings.javaScriptsFooter)/>
         <#list layoutSettings.javaScriptsFooter as javaScript>
@@ -79,7 +79,7 @@ under the License.
         </#list>
     </#if>
 
-    <#-- New in cato; always-bottom guaranteed-last javascripts -->
+    <#-- New in scipio; always-bottom guaranteed-last javascripts -->
     <#if layoutSettings.VT_BTM_JAVASCRIPT?has_content>
         <#--layoutSettings.javaScripts is a list of java scripts. -->
         <#-- use a Set to make sure each javascript is declared only once, but iterate the list to maintain the correct order -->
