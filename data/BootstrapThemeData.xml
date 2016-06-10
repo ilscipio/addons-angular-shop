@@ -73,7 +73,7 @@ under the License.
     <!-- Scripts -->
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/bootstrap/dist/js/bootstrap.min.js" sequenceId="01"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/datatables/datatables.min.js" sequenceId="02"/>
-    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/Chart.js/Chart.min.js" sequenceId="03"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/Chart.js/dist/Chart.min.js" sequenceId="03"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/sass-to-js/js/dist/sass-to-js.min.js" sequenceId="04"/>
  
  
