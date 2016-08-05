@@ -1,9 +1,9 @@
 /**
  * Master HTML templating variables include, Bootstrap theme/framework.
  *
- * Overrides the default SCIPIO styles located in 
+ * Overrides the default SCIPIO styles located in
  * htmlVariables.groovy - ofbiz_foundation/framework/common/webcommon/includes/scipio/lib/standard/
- * 
+ *
  */
 
 /*
@@ -16,7 +16,7 @@ context.styles = [
     
   /* Generic */
     "framework" : "bootstrap",
-	"customSideBar" : false,
+    "customSideBar" : false,
     "disabled" : "disabled",
     "active" : "active",
     "selected" : "selected",
@@ -256,11 +256,11 @@ context.styles = [
     
     /* General and default styles */
     "treemenu_deflib" : "jstree",
-    /* These can be used more easily from templates. 
+    /* These can be used more easily from templates.
      * NOTE: if deflib is changed, all these must be changed too. These imply default library.
      */
     "treemenu_icon_node" : "jstree-file",        // default node icon (including leaf)
-    "treemenu_icon_dirnode" : "jstree-folder",   // default dir node icon   
+    "treemenu_icon_dirnode" : "jstree-folder",   // default dir node icon
     "treemenu_icon_file" : "jstree-file",
     "treemenu_icon_folder" : "jstree-folder",
     
@@ -788,7 +788,7 @@ context.styles = [
     "fields_default_labelsmallcoldiff" : 1,
     "fields_default_widgetpostfixcombined" : false,
     
-    "fields_formwidget_totalcolumns" : 11,              
+    "fields_formwidget_totalcolumns" : 11,
     
     "fields_default_alt1_labelareaconsumeexceptions" : "checkbox-single radio-single",
     "fields_default_alt1_checkboxtype" : "simple",
