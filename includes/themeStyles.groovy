@@ -875,6 +875,9 @@ context.styles = [
     /* display type styles */
     "field_display_tooltip" : "has-tip field-tooltip-wrap",
     
+    /* submit type styles */
+    "field_submit_default_text" : "#PROP:CommonSubmit",
+        
     /* generic type styles */
     "field_generic_tooltip" : "has-tip field-tooltip-wrap",
 
