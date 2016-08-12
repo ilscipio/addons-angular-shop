@@ -2,7 +2,7 @@
 {
 	var pluginName = "bootstrapMaterialDatePicker";
   	var pluginDataName = "plugin_" + pluginName;
-  	
+
   	moment.locale('en');
 
 	function Plugin(element, options)
@@ -51,18 +51,18 @@
 		return this;
 	};
 
-	Plugin.prototype = 
+	Plugin.prototype =
 	{
 		init: function()
-		{	
+		{
 			this.initDays();
-			this.initDates();	
+			this.initDates();
 
 			this.initTemplate();
 
 			this.initButtons();
 
-			this._attachEvent($(window), 'resize', this._centerBox(this));
+			this._attachEvent($(window), 'resize', this._centerBox.bind(this));
 			this._attachEvent(this.$dtpElement.find('.dtp-content'), 'click', this._onElementClick.bind(this));
 			this._attachEvent(this.$dtpElement, 'click', this._onBackgroundClick.bind(this));
 			this._attachEvent(this.$dtpElement.find('.dtp-close > a'), 'click', this._onCloseClick.bind(this));
@@ -169,6 +169,10 @@
 					}
 				}
 			}
+			else if (this.params.minDate === null)
+			{
+				this.minDate = null;
+			}
 
 			if(typeof(this.params.maxDate) !== 'undefined' && this.params.maxDate !== null)
 			{
@@ -196,6 +200,10 @@
 					}
 				}
 			}
+			else if (this.params.maxDate === null)
+			{
+				this.maxDate = null;
+			}
 
 			if(!this.isAfterMinDate(this.currentDate))
 			{
@@ -213,7 +221,7 @@
 									'<div class="dtp-date-view">' +
 										'<header class="dtp-header">' +
 											'<div class="dtp-actual-day">Lundi</div>' +
-											'<div class="dtp-close"><a href="javascript:void(0);"><i class="material-icons">clear</i></</div>' + 
+											'<div class="dtp-close"><a href="javascript:void(0);"><i class="material-icons">clear</i></</div>' +
 										'</header>' +
 										'<div class="dtp-date hidden">' +
 											'<div>' +
@@ -241,7 +249,7 @@
 										'<div class="dtp-time hidden">' +
 											'<div class="dtp-actual-maxtime">23:55</div>' +
 										'</div>' +
-										'<div class="dtp-picker">' +													
+										'<div class="dtp-picker">' +
 											'<div class="dtp-picker-calendar"></div>' +
 											'<div class="dtp-picker-datetime hidden">' +
 												'<div class="dtp-actual-meridien">' +
@@ -254,7 +262,8 @@
 													'</div>' +
 													'<div class="clearfix"></div>' +
 												'</div>' +
-												'<div class="dtp-picker-clock"></div>' +
+												'<div id="dtp-svg-clock">' +
+												'</div>' +
 											'</div>' +
 										'</div>' +
 									'</div>' +
@@ -271,6 +280,8 @@
 			if($('body').find("#" + this.name).length <= 0)
 			{
 				$('body').append(this.template);
+
+				if(this)
 
 				this.dtpElement = $('body').find("#" + this.name);
 				this.$dtpElement = $(this.dtpElement);
@@ -295,6 +306,15 @@
 			{
 				this._attachEvent(this.$dtpElement.find('.dtp-btn-now'), 'click', this._onNowClick.bind(this));
 				this.$dtpElement.find('.dtp-btn-now').removeClass('hidden');
+			}
+
+			if ((this.params.nowButton === true) && (this.params.clearButton === true))
+			{
+				this.$dtpElement.find('.dtp-btn-clear, .dtp-btn-now, .dtp-btn-cancel, .dtp-btn-ok').addClass('btn-xs');
+			}
+			else if ((this.params.nowButton === true) || (this.params.clearButton === true))
+			{
+				this.$dtpElement.find('.dtp-btn-clear, .dtp-btn-now, .dtp-btn-cancel, .dtp-btn-ok').addClass('btn-sm');
 			}
 		},
 		initMeridienButtons: function()
@@ -331,24 +351,8 @@
 		{
 			this.currentView = 1;
 
-			if(!this.params.date)
-			{
-				var w = this.$dtpElement.find('.dtp-content').width();
-
-				var ml = this.$dtpElement.find('.dtp-picker-clock').css('marginLeft').replace('px', '');
-				var mr = this.$dtpElement.find('.dtp-picker-clock').css('marginRight').replace('px', '');
-
-				var pl = this.$dtpElement.find('.dtp-picker').css('paddingLeft').replace('px', '');
-				var pr = this.$dtpElement.find('.dtp-picker').css('paddingRight').replace('px', '');
-
-				this.$dtpElement.find('.dtp-picker-clock').innerWidth(w - (parseInt(ml) + parseInt(mr) + parseInt(pl) + parseInt(pr)));
-			}			
-
 			this.showTime(this.currentDate);
 			this.initMeridienButtons();
-
-			this.$dtpElement.find('.dtp-picker-datetime').removeClass('hidden');
-			this.$dtpElement.find('.dtp-picker-calendar').addClass('hidden');
 
 			if(this.currentDate.hour() < 12)
 			{
@@ -359,98 +363,78 @@
 				this.$dtpElement.find('a.dtp-meridien-pm').click();
 			}
 
-			var cW = this.$dtpElement.find('.dtp-picker-clock').width();
-			var oT = this.$dtpElement.find('.dtp-picker-clock').parent().parent().css('paddingTop').replace('px', '');
-			var oL = this.$dtpElement.find('.dtp-picker-clock').parent().parent().css('paddingLeft').replace('px', '');
-			var pL = this.$dtpElement.find('.dtp-picker-clock').parent().parent().css('paddingLeft').replace('px', '');
-			var pT = this.$dtpElement.find('.dtp-picker-clock').parent().parent().css('paddingTop').replace('px', '');
-			var mL = this.$dtpElement.find('.dtp-picker-clock').css('marginLeft').replace('px', '');
-			var mT = this.$dtpElement.find('.dtp-picker-clock').css('marginTop').replace('px', '');
+			var hFormat = ((this.params.shortTime) ? 'h' : 'H');
 
-			var r = (this.$dtpElement.find('.dtp-picker-clock').innerWidth() / 2);
-			var j = r / 1.2;
-			var jj = r / 2.25;
+			this.$dtpElement.find('.dtp-picker-datetime').removeClass('hidden');
+			this.$dtpElement.find('.dtp-picker-calendar').addClass('hidden');
 
-			var hours = [];
+			var svgClockElement = this.createSVGClock(true);
 
-			var cHFormat = ((this.params.shortTime === false) ? 'H' : 'h');
+			for(var i = 0; i < 12; i++)
+			{
+				var x = -(162 * (Math.sin(-Math.PI * 2 * (i / 12))));
+				var y = -(162 * (Math.cos(-Math.PI * 2 * (i / 12))));
 
-    		if(this.params.shortTime === false)
-    		{
-    			for(var h = 0; h < 12; ++h)
+				var fill = ((this.currentDate.format(hFormat) == i) ? "#8BC34A" : 'transparent');
+				var color = ((this.currentDate.format(hFormat) == i) ? "#fff" : '#000');
+
+				var svgHourCircle = this.createSVGElement("circle", { 'id' : 'h-' + i, 'class' : 'dtp-select-hour', 'style' : 'cursor:pointer', r : '30', cx : x, cy : y, fill : fill, 'data-hour' : i });
+
+				var svgHourText = this.createSVGElement("text", { 'id' : 'th-' + i, 'class' : 'dtp-select-hour-text', 'text-anchor' : 'middle', 'style' : 'cursor:pointer', 'font-weight' : 'bold', 'font-size' : '20', x : x, y : y + 7, fill : color, 'data-hour' : i });
+					svgHourText.textContent = ((i === 0) ? ((this.params.shortTime) ? 12 : i ) : i);
+
+				if(!this.toggleTime(i, true))
 				{
-					var x = (jj + (cW) / 2) * Math.sin(Math.PI * 2 * (h / 12));
-					var y = (jj + (cW) / 2) * Math.cos(Math.PI * 2 * (h / 12));
-					
-					var hour = $('<div>', { class : 'dtp-picker-time' })
-						.css
-						({
-							marginLeft: ((r + x) / 2) + (parseInt(pL) + parseInt(mL)),
-    						marginTop: ((r - y) / 2) + (parseInt(pT) + parseInt(mT))
-						});
-					var cH = ((this.currentDate.format(cHFormat) == 12) ? 0 : this.currentDate.format(cHFormat));
-					var hourLink = $('<a>', { href : 'javascript:void(0);', class : 'dtp-select-hour' }).data('hour', (h == 0 ? 12 : h)).text((h == 0 ? 12 : h));
-						if(h == parseInt(cH))
-							hourLink.addClass('selected');
-
-					hour.append(hourLink);
-	      			hours.push(hour);
-	    		}
-
-	    		for(var h = 0; h < 12; ++h)
+					svgHourCircle.className += " disabled";
+					svgHourText.className += " disabled";
+					svgHourText.setAttribute('fill', '#bdbdbd');
+				}
+				else
 				{
-					var x = (j + (cW) / 2) * Math.sin(Math.PI * 2 * (h / 12));
-					var y = (j + (cW) / 2) * Math.cos(Math.PI * 2 * (h / 12));
-					
-					var hour = $('<div>', { class : 'dtp-picker-time' })
-						.css
-						({
-							marginLeft: ((r + x) / 2) + (parseInt(pL) + parseInt(mL)),
-    						marginTop: ((r - y) / 2) + (parseInt(pT) + parseInt(mT))
-						});
-					var cH = ((this.currentDate.format(cHFormat) == 24) ? 0 : this.currentDate.format(cHFormat));
-					var hourLink = $('<a>', { href : 'javascript:void(0);', class : 'dtp-select-hour sub-hour' }).data('hour', (h == 0 ? 0 : h + 12)).text((h == 0 ? 0 : h + 12));
-						if(h + 12 == parseInt(cH))
-							hourLink.addClass('selected');
+					svgHourCircle.addEventListener('click', this._onSelectHour.bind(this));
+					svgHourText.addEventListener('click', this._onSelectHour.bind(this));
+				}
 
-					hour.append(hourLink);
-	      			hours.push(hour);
-	    		}
+				svgClockElement.appendChild(svgHourCircle)
+				svgClockElement.appendChild(svgHourText)
+			}
 
-	    		this.$dtpElement.find('a.dtp-meridien-am').addClass('hidden');
-	    		this.$dtpElement.find('a.dtp-meridien-pm').addClass('hidden');
-	    	}
-	    	else
-	    	{
-	    		for(var h = 0; h < 12; ++h)
+			if(!this.params.shortTime)
+			{
+				for(var i = 0; i < 12; i++)
 				{
-					var x = (j + (cW) / 2) * Math.sin(Math.PI * 2 * (h / 12));
-					var y = (j + (cW) / 2) * Math.cos(Math.PI * 2 * (h / 12));
-					
-					var hour = $('<div>', { class : 'dtp-picker-time' })
-						.css
-						({
-							marginLeft: ((r + x) / 2) + (parseInt(pL) + parseInt(mL)),
-    						marginTop: ((r - y) / 2) + (parseInt(pT) + parseInt(mT))
-						});
-					var cH = ((this.currentDate.format(cHFormat) == 24) ? 0 : this.currentDate.format(cHFormat));
-					var hourLink = $('<a>', { href : 'javascript:void(0);', class : 'dtp-select-hour' }).data('hour', (h == 0 ? 0 : h)).text((h == 0 ? 0 : h));
-						if(h == parseInt(cH))
-							hourLink.addClass('selected');
+					var x = -(110 * (Math.sin(-Math.PI * 2 * (i / 12))));
+					var y = -(110 * (Math.cos(-Math.PI * 2 * (i / 12))));
 
-					hour.append(hourLink);
-	      			hours.push(hour);
-	    		}
-	    	}
+					var fill = ((this.currentDate.format(hFormat) == (i + 12)) ? "#8BC34A" : 'transparent');
+					var color = ((this.currentDate.format(hFormat) == (i + 12)) ? "#fff" : '#000');
 
-    		this.$dtpElement.find('a.dtp-select-hour').off('click');
+					var svgHourCircle = this.createSVGElement("circle", { 'id' : 'h-' + (i + 12), 'class' : 'dtp-select-hour', 'style' : 'cursor:pointer', r : '30', cx : x, cy : y, fill : fill, 'data-hour' : (i + 12) });
 
-    		this.$dtpElement.find('.dtp-picker-clock').html(hours);
-    		this.toggleTime(true);
+					var svgHourText = this.createSVGElement("text", { 'id' : 'th-' + (i + 12), 'class' : 'dtp-select-hour-text', 'text-anchor' : 'middle', 'style' : 'cursor:pointer', 'font-weight' : 'bold', 'font-size' : '22', x : x, y : y + 7, fill : color, 'data-hour' : (i + 12) });
+						svgHourText.textContent = i + 12;
 
-    		this.$dtpElement.find('.dtp-picker-clock').css('height', (this.$dtpElement.find('.dtp-picker-clock').width()) + (parseInt(pT) + parseInt(mT)) + 'px');    		
+					if(!this.toggleTime(i + 12, true))
+					{
+						svgHourCircle.className += " disabled";
+						svgHourText.className += " disabled";
+						svgHourText.setAttribute('fill', '#bdbdbd');
+					}
+					else
+					{
+						svgHourCircle.addEventListener('click', this._onSelectHour.bind(this));
+						svgHourText.addEventListener('click', this._onSelectHour.bind(this));
+					}
 
-    		this.initHands(true);
+					svgClockElement.appendChild(svgHourCircle)
+					svgClockElement.appendChild(svgHourText)
+				}
+
+				this.$dtpElement.find('a.dtp-meridien-am').addClass('hidden');
+	     		this.$dtpElement.find('a.dtp-meridien-pm').addClass('hidden');
+			}
+
+   			this._centerBox();
 		},
 		initMinutes: function()
 		{
@@ -472,119 +456,118 @@
 			this.$dtpElement.find('.dtp-picker-calendar').addClass('hidden');
 			this.$dtpElement.find('.dtp-picker-datetime').removeClass('hidden');
 
-			var cW = this.$dtpElement.find('.dtp-picker-clock').width();
-			var oT = this.$dtpElement.find('.dtp-picker-clock').parent().parent().css('paddingTop').replace('px', '');
-			var oL = this.$dtpElement.find('.dtp-picker-clock').parent().parent().css('paddingLeft').replace('px', '');
-			var pL = this.$dtpElement.find('.dtp-picker-clock').parent().parent().css('paddingLeft').replace('px', '');
-			var pT = this.$dtpElement.find('.dtp-picker-clock').parent().parent().css('paddingTop').replace('px', '');
-			var mL = this.$dtpElement.find('.dtp-picker-clock').css('marginLeft').replace('px', '');
-			var mT = this.$dtpElement.find('.dtp-picker-clock').css('marginTop').replace('px', '');
+			var svgClockElement = this.createSVGClock(false);
 
-			var r = (this.$dtpElement.find('.dtp-picker-clock').innerWidth() / 2);
-			var j = r / 1.1;
-
-			var minutes = [];
-
-			for(var m = 0; m < 60; m += 5)
+			for(var i = 0; i < 60; i++)
 			{
-				var x = (j + (cW - pL * 2) / 2) * Math.sin(Math.PI * 2 * (m / 60));
-				var y = (j + (cW - pT * 2) / 2) * Math.cos(Math.PI * 2 * (m / 60));
+				var s = ((i % 5 === 0) ? 162 : 158);
+				var r = ((i % 5 === 0) ? 30 : 20);
 
-				var minute = $('<div>', { class : 'dtp-picker-time' }).css
-				({
-					marginLeft: ((r + x) / 2) + (parseInt(pL) + parseInt(mL)),
-    				marginTop: ((r - y) / 2) + (parseInt(pT) + parseInt(mT))
-				});					
+				var x = -(s * (Math.sin(-Math.PI * 2 * (i / 60))));
+				var y = -(s * (Math.cos(-Math.PI * 2 * (i / 60))));
 
-				if(m % 5 === 0)
+				var color = ((this.currentDate.format("m") == i) ? "#8BC34A" : 'transparent');
+
+				var svgMinuteCircle = this.createSVGElement("circle", { 'id' : 'm-' + i, 'class' : 'dtp-select-minute', 'style' : 'cursor:pointer', r : r, cx : x, cy : y, fill : color, 'data-minute' : i });
+
+				if(!this.toggleTime(i, false))
 				{
-					var minuteLink = $('<a>', { href : 'javascript:void(0);', class : 'dtp-select-minute' }).data('minute', m).text(((m.toString().length == 2) ? m : '0' + m));
-						if(m == 5 * Math.round(this.currentDate.minute() / 5))
-						{
-							minuteLink.addClass('selected');
-							this.currentDate.minute(m);
-						}
+					svgMinuteCircle.className += " disabled";
 				}
 				else
 				{
-					// var minuteLink = $('<a>', { href : 'javascript:void(0);', class : 'dtp-select-minute sub-minute' }).data('minute', m).text(".");
-					// 	if(m == 5 * Math.round(this.currentDate.minute() / 5))
-					// 	{
-					// 		minuteLink.addClass('selected');
-					// 		this.currentDate.minute(m);
-					// 	}
+					svgMinuteCircle.addEventListener('click', this._onSelectMinute.bind(this));
 				}
 
-				minute.append(minuteLink);
-      			minutes.push(minute);
-    		}
+				svgClockElement.appendChild(svgMinuteCircle)
+			}
 
-			this.$dtpElement.find('a.dtp-select-minute').off('click');
+			for(var i = 0; i < 60; i++)
+			{
+				if((i % 5) === 0)
+				{
+					var x = -(162 * (Math.sin(-Math.PI * 2 * (i / 60))));
+					var y = -(162 * (Math.cos(-Math.PI * 2 * (i / 60))));
 
-    		this.$dtpElement.find('.dtp-picker-clock').html(minutes);
-    		this.toggleTime(false);
+					var color = ((this.currentDate.format("m") == i) ? "#fff" : '#000');
 
-    		this.$dtpElement.find('.dtp-picker-clock').css('height', (this.$dtpElement.find('.dtp-picker-clock').width()) + (parseInt(pT) + parseInt(mT)) + 'px');
+					var svgMinuteText = this.createSVGElement("text", { 'id' : 'tm-' + i, 'class' : 'dtp-select-minute-text', 'text-anchor' : 'middle', 'style' : 'cursor:pointer', 'font-weight' : 'bold', 'font-size' : '20', x : x, y : y + 7, fill : color, 'data-minute' : i });
+						svgMinuteText.textContent = i;
 
-    		this.initHands(false);
+					if(!this.toggleTime(i, false))
+					{
+						svgMinuteText.className += " disabled";
+						svgMinuteText.setAttribute('fill', '#bdbdbd');
+					}
+					else
+					{
+						svgMinuteText.addEventListener('click', this._onSelectMinute.bind(this));
+					}
 
-    		this._centerBox();
+					svgClockElement.appendChild(svgMinuteText)
+				}
+			}
+
+   			this._centerBox();
 		},
-		initHands: function(t)
+		animateHands: function()
 		{
-			this.$dtpElement.find('.dtp-picker-clock').append
-			(
-				'<div class="dtp-hand dtp-hour-hand"></div>' +
-				'<div class="dtp-hand dtp-minute-hand"></div>' +
-				'<div class="dtp-clock-center"></div>'
-			);
-	
-			var cW = this.$dtpElement.find('.dtp-picker-clock').width();
-			var oT = this.$dtpElement.find('.dtp-picker-clock').parent().parent().css('paddingTop').replace('px', '');
-			var oL = this.$dtpElement.find('.dtp-picker-clock').parent().parent().css('paddingLeft').replace('px', '');
-			var pL = this.$dtpElement.find('.dtp-picker-clock').parent().parent().css('paddingLeft').replace('px', '');
-			var pT = this.$dtpElement.find('.dtp-picker-clock').parent().parent().css('paddingTop').replace('px', '');
+			var H = this.currentDate.hour();
+			var M = this.currentDate.minute();
 
-			var mL = this.$dtpElement.find('.dtp-picker-clock').css('marginLeft').replace('px', '');
-			var mT = this.$dtpElement.find('.dtp-picker-clock').css('marginTop').replace('px', '');	
+			var hh = this.$dtpElement.find('.hour-hand');
+				hh[0].setAttribute('transform', "rotate(" + 360 * H / 12 + ")");
 
-			var w = this.$dtpElement.find('.dtp-clock-center').width() / 2;
-			var h = this.$dtpElement.find('.dtp-clock-center').height() / 2;
+			var mh = this.$dtpElement.find('.minute-hand');
+				mh[0].setAttribute('transform', "rotate(" + 360 * M / 60 + ")");
+		},
+		createSVGClock : function(isHour)
+		{
+			var hl = ((this.params.shortTime) ? -120 : -90 );
 
-			var r = (this.$dtpElement.find('.dtp-picker-clock').innerWidth() / 2);
-			var j = r / 1.2;
+			var svgElement = this.createSVGElement("svg", { class : 'svg-clock', viewBox : '0,0,400,400' });
+			var svgGElement = this.createSVGElement("g", { transform : 'translate(200,200) ' });
+			var svgClockFace = this.createSVGElement("circle", { r : '192', fill : '#eee', stroke : '#bdbdbd', 'stroke-width' : 2 });
+			var svgClockCenter = this.createSVGElement("circle", { r : '15', fill : '#757575' });
 
-			var _hL = ((this.params.shortTime === false) ? (r / 2.4) : (r / 1.8));
-			var _mL = ((this.params.shortTime === false) ? (r / 1.8) : (r / 1.4));					
+			svgGElement.appendChild(svgClockFace)
 
-			this.$dtpElement.find('.dtp-hour-hand').css({
-				left: ((parseInt(cW) + (parseInt(mL) * 2) + (parseInt(pL) * 2) + parseInt(oL)) / 2) + 8,
-				height: _hL + 'px',
-				marginTop: (r - _hL - parseInt(pL)) + 'px'
-			}).addClass((t === true) ? 'on' : '');
-     		this.$dtpElement.find('.dtp-minute-hand').css
-			({
-				left: ((parseInt(cW) + (parseInt(mL) * 2) + (parseInt(pL) * 2) + parseInt(oL)) / 2) + 8,
-				height: _mL + 'px',
-				marginTop: (r - _mL - parseInt(pL)) + 'px'
-			}).addClass((t === false) ? 'on' : '');
-			this.$dtpElement.find('.dtp-clock-center').css
-			({
-				left: ((parseInt(cW) + (parseInt(mL) * 2) + (parseInt(pL) * 2) + parseInt(oL)) / 2),
-				marginTop: (0 - parseInt(pT)) + (parseInt(cW) + parseInt(pT)) / 2
-			});
+			if(isHour)
+			{
+				var svgMinuteHand = this.createSVGElement("line", { class : 'minute-hand', x1 : 0, y1 : 0, x2 : 0, y2 : -150, stroke : '#bdbdbd', 'stroke-width' : 2 });
+				var svgHourHand = this.createSVGElement("line", { class : 'hour-hand', x1 : 0, y1 : 0, x2 : 0, y2 : hl, stroke : '#8BC34A', 'stroke-width' : 8 });
+
+				svgGElement.appendChild(svgMinuteHand);
+				svgGElement.appendChild(svgHourHand);
+			}
+			else
+			{
+				var svgMinuteHand = this.createSVGElement("line", { class : 'minute-hand', x1 : 0, y1 : 0, x2 : 0, y2 : -150, stroke : '#8BC34A', 'stroke-width' : 2 });
+				var svgHourHand = this.createSVGElement("line", { class : 'hour-hand', x1 : 0, y1 : 0, x2 : 0, y2 : hl, stroke : '#bdbdbd', 'stroke-width' : 8 });
+
+				svgGElement.appendChild(svgHourHand);
+				svgGElement.appendChild(svgMinuteHand);
+			}
+
+			svgGElement.appendChild(svgClockCenter)
+
+			svgElement.appendChild(svgGElement)
+
+			this.$dtpElement.find("#dtp-svg-clock").empty();
+			this.$dtpElement.find("#dtp-svg-clock")[0].appendChild(svgElement);
 
 			this.animateHands();
 
-    		this._centerBox();
+			return svgGElement;
 		},
-		animateHands: function()
-		{	
-			var h = this.currentDate.hour();
-			var m = this.currentDate.minute();
-
-			this.rotateElement(this.$dtpElement.find('.dtp-hour-hand'), (360 / 12) * h);
-			this.rotateElement(this.$dtpElement.find('.dtp-minute-hand'), ((360 / 60) * (5 * Math.round(this.currentDate.minute() / 5))));
+		createSVGElement: function(tag, attrs)
+		{
+			var el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+            for (var k in attrs)
+            {
+                el.setAttribute(k, attrs[k]);
+            }
+            return el;
 		},
 		isAfterMinDate: function(date, checkHour, checkMinute)
 		{
@@ -665,7 +648,7 @@
 		rotateElement: function(el, deg)
 		{
 			$(el).css
-			({ 
+			({
 				WebkitTransform: 'rotate(' + deg + 'deg)',
 				'-moz-transform': 'rotate(' + deg + 'deg)'
 			});
@@ -684,8 +667,8 @@
 		{
 			if(date)
 			{
-				var minutes = (5 * Math.round(date.minute() / 5));
-				var content = ((this.params.shortTime) ? date.format('hh') : date.format('HH')) + ':' + ((minutes.toString().length == 2) ? minutes : '0' + minutes);
+				var minutes = date.minute();
+				var content = ((this.params.shortTime) ? date.format('hh') : date.format('HH')) + ':' + ((minutes.toString().length == 2) ? minutes : '0' + minutes) + ((this.params.shortTime) ? ' ' + date.format('A') : '');
 
 				if(this.params.date)
 					this.$dtpElement.find('.dtp-actual-time').html(content);
@@ -699,7 +682,7 @@
 					this.$dtpElement.find('.dtp-actual-maxtime').html(content);
 				}
 			}
-		},		
+		},
 		selectDate: function(date)
 		{
 			if(date)
@@ -753,7 +736,7 @@
 			{
 				_template += '<th>' + moment(parseInt(calendar.week[i]), "d").locale(this.params.lang).format("dd").substring(0, 1) + '</th>';
 			}
-			
+
 			_template += '</thead>';
 			_template += '<tbody><tr>';
 
@@ -778,7 +761,7 @@
 						{
 							_template += '<a href="javascript:void(0);" class="dtp-select-day">' + moment(calendar.days[i]).locale(this.params.lang).format("DD") + '</a>';
 						}
-					}						
+					}
 
 					_template += '</td>';
 				}
@@ -860,61 +843,26 @@
 				}
 			}
 		},
-		toggleTime: function(isHours)
+		toggleTime: function(value, isHours)
 		{
+			var result = false;
+
 			if(isHours)
 			{
-				this.$dtpElement.find('a.dtp-select-hour').removeClass('disabled');
-				this.$dtpElement.find('a.dtp-select-hour').removeProp('disabled');
-				this.$dtpElement.find('a.dtp-select-hour').off('click');
+				var _date = moment(this.currentDate);
+			 		_date.hour(this.convertHours(value)).minute(0).second(0);
 
-				var _self = this;
-
-				this.$dtpElement.find('a.dtp-select-hour').each(function()
-				{
-					var _hour = $(this).data('hour');
-
-					console.log(_self.convertHours(_hour))
-					var _date = moment(_self.currentDate);
-					_date.hour(_self.convertHours(_hour)).minute(0).second(0);
-
-					if(_self.isAfterMinDate(_date, true, false) === false || _self.isBeforeMaxDate(_date, true, false) === false)
-					{
-						$(this).prop("disabled");
-						$(this).addClass("disabled");
-					}
-					else
-					{
-						$(this).on('click', _self._onSelectHour.bind(_self));
-					}
-				});
+		 		result = !(this.isAfterMinDate(_date, true, false) === false || this.isBeforeMaxDate(_date, true, false) === false);
 			}
 			else
 			{
-				this.$dtpElement.find('a.dtp-select-minute').removeClass('disabled');
-				this.$dtpElement.find('a.dtp-select-minute').removeProp('disabled');
-				this.$dtpElement.find('a.dtp-select-minute').off('click');
+				var _date = moment(this.currentDate);
+			 		_date.minute(value).second(0);
 
-				var _self = this;
-
-				this.$dtpElement.find('a.dtp-select-minute').each(function()
-				{
-					var _minute = $(this).data('minute');
-
-					var _date = moment(_self.currentDate);					
-					_date.minute(_minute).second(0);
-
-					if(_self.isAfterMinDate(_date, true, true) === false || _self.isBeforeMaxDate(_date, true, true) === false)
-					{
-						$(this).prop("disabled");
-						$(this).addClass("disabled");
-					}
-					else
-					{
-						$(this).on('click', _self._onSelectMinute.bind(_self));
-					}
-				});
+		 		result = !(this.isAfterMinDate(_date, true, true) === false || this.isBeforeMaxDate(_date, true, true) === false);
 			}
+
+			return result;
 		},
 		_attachEvent: function(el, ev, fn)
 		{
@@ -935,7 +883,7 @@
 			this.$element.blur();
 
 			this.initDates();
-			
+
 			this.show();
 
 			if(this.params.date)
@@ -971,21 +919,45 @@
 		_onCloseClick: function()
 		{
 			this.hide();
-		},		
+		},
 		_onClearClick: function()
 		{
+			this.currentDate = null;
+			this.$element.trigger('beforeChange', this.currentDate);
 			this.hide();
+                        if(typeof($.material) !== 'undefined')
+                        {
+                                this.$element.addClass('empty');
+                        }
 			this.$element.val('');
-		},		
+                        this.$element.trigger('change', this.currentDate);
+		},
 		_onNowClick: function()
 		{
 			this.currentDate = moment();
 
-			this.showDate(this.currentDate);
+			if(this.params.date === true)
+			{
+				this.showDate(this.currentDate);
 
-			this.showTime(this.currentDate);
+				if(this.currentView === 0)
+				{
+					this.initDate();
+				}
+			}
 
-			this.animateHands();
+			if(this.params.time === true)
+			{
+				this.showTime(this.currentDate);
+
+				switch(this.currentView)
+				{
+					case 1 : this.initHours(); break;
+					case 2 : this.initMinutes(); break;
+				}
+
+				this.animateHands();
+			}
 		},
 		_onOKClick: function()
 		{
@@ -1002,10 +974,10 @@
 						this.hide();
 					}
 					break;
-				case 1: 
-					this.initMinutes(); 
+				case 1:
+					this.initMinutes();
 					break;
-				case 2: 
+				case 2:
 					this.setElementValue();
 					this.hide();
 					break;
@@ -1017,28 +989,28 @@
 			{
 				switch(this.currentView)
 				{
-					case 0: 
+					case 0:
 						this.hide();
 						break;
-					case 1: 
+					case 1:
 						if(this.params.date)
 						{
-							this.initDate();  
+							this.initDate();
 						}
 						else
 						{
 							this.hide();
 						}
 						break;
-					case 2: 
-						this.initHours(); 
+					case 2:
+						this.initHours();
 						break;
 				}
 			}
 			else
 			{
 				this.hide();
-			}			
+			}
 		},
 		_onMonthBeforeClick: function()
 		{
@@ -1072,32 +1044,73 @@
 		},
 		_onSelectHour: function(e)
 		{
-			this.$dtpElement.find('a.dtp-select-hour').removeClass('selected');
-			$(e.currentTarget).addClass('selected');
-
-			var dataHour = parseInt($(e.currentTarget).data('hour'));
-			if(this.params.shortTime === true && this.isPM())
+			if(!$(e.target).hasClass('disabled'))
 			{
-				dataHour += 12;
+				var value = $(e.target).data('hour');
+				var parent = $(e.target).parent();
+
+				var h = parent.find('.dtp-select-hour');
+				for(var i = 0; i < h.length; i++)
+				{
+					$(h[i]).attr('fill', 'transparent');
+				}
+				var th = parent.find('.dtp-select-hour-text');
+				for(var i = 0; i < th.length; i++)
+				{
+					$(th[i]).attr('fill', '#000');
+				}
+
+				$(parent.find('#h-' + value)).attr('fill', '#8BC34A');
+				$(parent.find('#th-' + value)).attr('fill', '#fff');
+
+				this.currentDate.hour(parseInt(value));
+
+				if(this.params.shortTime === true && this.isPM())
+				{
+				 	this.currentDate.add(12, 'hours');
+				}
+				
+				this.showTime(this.currentDate);
+
+				this.animateHands();
+
+				if(this.params.switchOnClick === true)
+					setTimeout(this.initMinutes.bind(this), 200);
 			}
-
-			this.currentDate.hour(dataHour);
-			this.showTime(this.currentDate);
-
-			this.animateHands();
-
-			if(this.params.switchOnClick === true)
-				setTimeout(this.initMinutes.bind(this), 200);
 		},
 		_onSelectMinute: function(e)
 		{
-			this.$dtpElement.find('a.dtp-select-minute').removeClass('selected');
-			$(e.currentTarget).addClass('selected');
+			if(!$(e.target).hasClass('disabled'))
+			{
+				var value = $(e.target).data('minute');
+				var parent = $(e.target).parent();
 
-			this.currentDate.minute(parseInt($(e.currentTarget).data('minute')));
-			this.showTime(this.currentDate);
+				var m = parent.find('.dtp-select-minute');
+				for(var i = 0; i < m.length; i++)
+				{
+					$(m[i]).attr('fill', 'transparent');
+				}
+				var tm = parent.find('.dtp-select-minute-text');
+				for(var i = 0; i < tm.length; i++)
+				{
+					$(tm[i]).attr('fill', '#000');
+				}
 
-			this.animateHands();
+				$(parent.find('#m-' + value)).attr('fill', '#8BC34A');
+				$(parent.find('#tm-' + value)).attr('fill', '#fff');
+
+				this.currentDate.minute(parseInt(value));
+				this.showTime(this.currentDate);
+
+				this.animateHands();
+
+				if(this.params.switchOnClick === true)
+					setTimeout(function()
+					{
+						this.setElementValue();
+						this.hide();
+					}.bind(this), 200);
+			}
 		},
 		_onSelectAM: function(e)
 		{
@@ -1146,7 +1159,7 @@
 		{
 			this.params.minDate = date;
 			this.initDates();
-		},		
+		},
 		setMaxDate: function(date)
 		{
 			this.params.maxDate = date;
@@ -1158,7 +1171,7 @@
 			this.$dtpElement.remove();
 		},
 		show: function()
-		{			
+		{
 			this.$dtpElement.removeClass('hidden');
 			this._attachEvent($(window), 'keydown', this._onKeydown.bind(this));
 			this._centerBox();
@@ -1168,15 +1181,11 @@
 			$(window).off('keydown', null, null, this._onKeydown.bind(this));
 			this.$dtpElement.addClass('hidden');
 		},
-		resetDate: function()
-		{
-
-		},
 		_centerBox: function()
 		{
 			var h = (this.$dtpElement.height() - this.$dtpElement.find('.dtp-content').height()) / 2;
 			this.$dtpElement.find('.dtp-content').css('marginLeft', -(this.$dtpElement.find('.dtp-content').width() / 2) + 'px');
-			this.$dtpElement.find('.dtp-content').css('top', h + 'px');			
+			this.$dtpElement.find('.dtp-content').css('top', h + 'px');
 		}
 	};
 })(jQuery, moment);

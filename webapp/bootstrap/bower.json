@@ -19,9 +19,9 @@
     "tests"
   ],
   "dependencies": {
-    "Chart.js": "~2",
+    "Chart.js": "~2.1",
     "jquery-migrate": "~1.2.1",
-    "jQuery": "~2.1",
+    "jQuery": "^2.2.3",
     "sass-to-js": "~1.1.0",
     "bootstrap-material-design": "^0.5.8"
   }

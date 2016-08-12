@@ -260,7 +260,7 @@ so for now we have to split the screens in half and rely on the menu widget rend
     
         <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#leftNavbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -269,6 +269,7 @@ so for now we have to split the screens in half and rely on the menu widget rend
                 <@logoMenu isSmall=true/>
             </div>
             <!-- Top Menu Items -->
+            <div class="collapse navbar-collapse" id="leftNavbar">
             <ul class="nav navbar-nav navbar-right top-nav">
                 <#-- Messages
                 <li class="dropdown">

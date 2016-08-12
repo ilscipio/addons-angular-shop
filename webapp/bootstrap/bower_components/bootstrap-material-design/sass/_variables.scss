@@ -22,7 +22,7 @@ $mdb-label-color-toggle-focus: unquote("rgba(#{$rgb-black}, .54)") !default;
 // Converted bs variables
 
 // Bootstrap brand color customization
-$brand-primary: $blue-grey !default;
+$brand-primary: $teal !default;
 $brand-success: $green !default;
 $brand-danger: $red !default;
 $brand-warning: $deep-orange !default;
@@ -128,6 +128,7 @@ $mdb-checkbox-animation-ripple: 500ms !default;
 $mdb-checkbox-animation-check: 0.3s !default;
 $mdb-checkbox-checked-color: $brand-primary !default;
 
+$mdb-checkbox-border-size: 2px !default;
 $mdb-checkbox-label-color: $mdb-label-color !default;
 $mdb-checkbox-border-color: $mdb-label-color-toggle-focus !default;
 

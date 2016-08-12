@@ -1,6 +1,6 @@
 /*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1106,7 +1106,6 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2537,7 +2536,6 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3029,7 +3027,6 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -4489,14 +4486,15 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
   .navbar-right {
     float: right !important;
+    margin-right: -15px;
   }
   .navbar-right ~ .navbar-right {
     margin-right: 0;
   }
 }
 .navbar-default {
-  background-color: #333;
-  border-color: #222;
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
 }
 .navbar-default .navbar-brand {
   color: #777;
@@ -4521,7 +4519,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
   color: #555;
-  background-color: #222;
+  background-color: #e7e7e7;
 }
 .navbar-default .navbar-nav > .disabled > a,
 .navbar-default .navbar-nav > .disabled > a:hover,
@@ -4541,13 +4539,13 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
-  border-color: #222;
+  border-color: #e7e7e7;
 }
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
   color: #555;
-  background-color: #222;
+  background-color: #e7e7e7;
 }
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
@@ -4562,7 +4560,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
     color: #555;
-    background-color: #222;
+    background-color: #e7e7e7;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a,
   .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover,
@@ -6755,102 +6753,5 @@ button.close {
   .hidden-print {
     display: none !important;
   }
-}
-/*This is actually the compiled version of the one we use in foundation. Just to be compatible here.*/
-.chart-data {
-  width: 100% !important;
-  max-width: 800px;
-  height: auto !important;
-}
-.chart-data:before {
-  display: none;
-  content: '{"primaryFillColor":"rgba(0, 140, 186, 0.5)","primaryStrokeColor":"rgba(0, 140, 186, 0.7)","primaryPointStrokeColor":"rgba(0, 140, 186, 0.7)","secondaryFillColor":"rgba(231, 231, 231, 0.3)","secondaryStrokeColor":"rgba(231, 231, 231, 0.7)","secondaryPointStrokeColor":"rgba(231, 231, 231, 0.7)","pieFillColor1":"#008cba","pieFillColor2":"#e7e7e7","pieFillColor3":"#f04124","pieFillColor4":"#43ac6a","pieFillColor5":"#f08a24","pieFillColor6":"#a0d3e8","pieHighlightColor1":"rgba(0, 140, 186, 0.6)","pieHighlightColor2":"rgba(231, 231, 231, 0.6)","pieHighlightColor3":"rgba(240, 65, 36, 0.6)","pieHighlightColor4":"rgba(67, 172, 106, 0.6)","pieHighlightColor5":"rgba(240, 138, 36, 0.6)","pieHighlightColor6":"rgba(160, 211, 232, 0.6)","pointColor":"white","pointHighlightFill":"#fafafa","pointHighlightStroke":"#aaaaaa","pointDot":true,"pointHitDetectionRadius":5,"pointDotRadius":3,"pointDotStrokeWidth":1,"scaleType":"linear","scaleDisplay":true,"scaleGridLineColor":"rgba(0,0,0,.1)","scaleLabelFontFamily":["Open Sans","Helvetica Neue","Helvetica","Helvetica","Arial","sans-serif"],"scaleLabelFontSize":14,"scaleLabelFontColor":"#222222","scaleLabelDisplay":false,"angleShowLineOut":true,"scaleBeginAtZero":true,"showTooltips":true,"color":"#f7464a","highlight":"#ff5a5e","dataLabels":false}';
-}
-/*
-* Based on the works of Lyn http://foundation.zurb.com/forum/posts/18131-step-by-step-list
-*/
-.steps {
-  display: inline-block;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-  padding-left: 0;
-  margin: 0;
-  overflow: hidden;
-  font-size: 0;
-  line-height: 1;
-  cursor: pointer;
-  border: 1px solid #ccc;
-}
-.steps .expanded {
-  display: block;
-}
-.steps .radius {
-  border-radius: 5px;
-  border-radius: 1000px;
-}
-.steps li {
-  position: relative;
-  display: inline-block;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 1em 2em 1em 3em;
-  font-size: 1rem;
-  vertical-align: top;
-  background-color: #fafafa;
-}
-.steps .even-2 li {
-  width: 50%;
-}
-.steps .even-3 li {
-  width: 33.33334%;
-}
-.steps .even-4 li {
-  width: 25%;
-}
-.steps .even-5 li {
-  width: 20%;
-}
-.steps .even-6 li {
-  width: 16.66667%;
-}
-.steps li:after {
-  position: absolute;
-  top: .36em;
-  right: -1.2em;
-  z-index: 2;
-  display: block;
-  width: 2.3em;
-  height: 2.3em;
-  content: "";
-  background-color: #fafafa;
-  border-right: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-  -webkit-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-       -o-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-}
-.steps li:first-child {
-  padding-left: 2.5em;
-}
-.steps li:last-child {
-  padding-right: 2.5em;
-}
-.steps li:hover,
-.steps li:hover:after {
-  background-color: #e6f4f9;
-}
-.steps li.active,
-.steps li.active:after {
-  color: #fff;
-  background-color: #007295;
-}
-.steps li.disabled,
-.steps li.disabled:after {
-  color: #aaa;
-  cursor: default;
-  background-color: #fff;
 }
 /*# sourceMappingURL=bootstrap.css.map */

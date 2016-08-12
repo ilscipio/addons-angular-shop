@@ -1,15 +1,15 @@
 // http://www.google.com/design/spec/components/selection-controls.html#selection-controls-checkbox
-.form-group {
+
+.checkbox label,
+label.checkbox-inline {
+  cursor: pointer;
+  padding-left: 0; // Reset for Bootstrap rule
+  color: @mdb-checkbox-label-color;
+  .mdb-label-color-toggle-focus();
 }
 
-.checkbox {
-  label {
-    cursor: pointer;
-    padding-left: 0; // Reset for Bootstrap rule
-    color: @mdb-checkbox-label-color;
-    .mdb-label-color-toggle-focus();
-  }
-
+.checkbox,
+label.checkbox-inline {
   // Hide native checkbox
   input[type=checkbox] {
     opacity: 0;
@@ -27,12 +27,13 @@
     vertical-align: middle;
     position: relative;
     top: 3px;
-    &:before {  // FIXME: document why this is necessary (doesn't seem to be on chrome)
+    &:before { // FIXME: document why this is necessary (doesn't seem to be on chrome)
       display: block;
       position: absolute;
+      top:-5px;
       left: 0;
       content: "";
-      background-color: rgba(0,0,0,.84);
+      background-color: rgba(0, 0, 0, .84);
       height: @mdb-checkbox-size;
       width: @mdb-checkbox-size;
       border-radius: 100%;
@@ -48,6 +49,7 @@
       width: @mdb-checkbox-size;
       height: @mdb-checkbox-size;
       border: @border-radius-base solid @mdb-checkbox-border-color;
+      border-radius: @border-radius-base;
       overflow: hidden;
       z-index: 1;
     }
@@ -68,7 +70,6 @@
         0 0 0 0,
         0 0 0 0,
         0 0 0 0 inset;
-      animation: checkbox-off @mdb-checkbox-animation-check forwards;
     }
   }
 
@@ -77,7 +78,36 @@
     &:focus + .checkbox-material .check:after {
       opacity: 0.2;
     }
-
+ 
+    &:focus{
+      
+      &:checked{
+        & + .checkbox-material:before {
+          animation: rippleOn 500ms;
+        }
+        & + .checkbox-material .check:before {
+          animation: checkbox-on @mdb-checkbox-animation-check forwards;
+        }
+        & + .checkbox-material .check:after {
+          animation: rippleOn @mdb-checkbox-animation-ripple forwards; // Ripple effect on check
+        }
+      }
+      
+      &:not(:checked) {
+        & + .checkbox-material:before {
+          animation: rippleOff 500ms;
+        }
+        & + .checkbox-material .check:before {
+          animation: checkbox-off @mdb-checkbox-animation-check forwards;
+        }
+        & + .checkbox-material .check:after {
+          animation: rippleOff @mdb-checkbox-animation-ripple forwards; // Ripple effect on uncheck
+        }
+      }
+      
+    }
+    
+    
     &:checked {
 
       // FIXME: once working - combine further to reduce code
@@ -88,33 +118,17 @@
 
       & + .checkbox-material .check:before {
         color: @mdb-checkbox-checked-color;
-        box-shadow: 0 0 0 10px,
+        box-shadow:
+          0 0 0 10px,
           10px -10px 0 10px,
-        32px 0 0 20px,
-        0px 32px 0 20px,
-        -5px 5px 0 10px,
+          32px 0 0 20px,
+          0px 32px 0 20px,
+          -5px 5px 0 10px,
           20px -12px 0 11px;
-        animation: checkbox-on @mdb-checkbox-animation-check forwards;
-      }
-
-      & + .checkbox-material:before {
-        animation: rippleOn @mdb-checkbox-animation-ripple;
       }
 
       & + .checkbox-material .check:after {
         //background-color: @brand-success; // FIXME: seems like tho wrong color, test and make sure it can be removed
-        animation: rippleOn @mdb-checkbox-animation-ripple forwards; // Ripple effect on check
-      }
-    }
-
-    &:not(:checked) {
-      & + .checkbox-material:before {
-        animation: rippleOff @mdb-checkbox-animation-ripple;
-      }
-
-      & + .checkbox-material .check:after {
-        animation: rippleOff @mdb-checkbox-animation-ripple forwards; // Ripple effect on uncheck
-
       }
     }
   }
@@ -162,6 +176,7 @@
       20px -12px 0 11px;
   }
 }
+
 @keyframes checkbox-off {
   0% {
     box-shadow:
@@ -173,7 +188,6 @@
       20px -12px 0 11px,
       0 0 0 0 inset;
   }
-
   25% {
     box-shadow:
       0 0 0 10px,
@@ -230,6 +244,7 @@
       0px 0 0 0 inset;
   }
 }
+
 @keyframes rippleOn {
   0% {
     opacity: 0;
@@ -241,6 +256,7 @@
     opacity: 0;
   }
 }
+
 @keyframes rippleOff {
   0% {
     opacity: 0;

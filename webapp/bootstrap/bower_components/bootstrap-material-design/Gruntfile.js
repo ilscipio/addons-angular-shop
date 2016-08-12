@@ -206,7 +206,7 @@ module.exports = function (grunt) {
     sass: {
       compile: {
         options:{
-          loadPath: "../bootstrap-sass/assets/stylesheets",
+          loadPath: "bower_components/bootstrap-sass/assets/stylesheets",
         },
         files: [{
           expand: true,
@@ -569,9 +569,4 @@ module.exports = function (grunt) {
     "connect:livereload",
     "watch"
   ]);
-
-  // Meteor tasks
-  grunt.registerTask("meteor-test", ["exec:meteor-init", "exec:meteor-test", "exec:meteor-cleanup"]);
-  grunt.registerTask("meteor-publish", ["exec:meteor-init", "exec:meteor-publish", "exec:meteor-cleanup"]);
-  grunt.registerTask("meteor", ["exec:meteor-init", "exec:meteor-test", "exec:meteor-publish", "exec:meteor-cleanup"]);
 };
