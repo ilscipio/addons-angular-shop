@@ -3,19 +3,17 @@
 ***************
 = Introduction =
 This is a base theme for the Bootstrap CSS framework. 
-Please be aware that the theme is experimental. To get started the following information
+Please be aware that the theme is in testing. To get started the following information
 may be of interest to you:
-
 
 * Default load style sheets directory: webapp/bootstrap/css/bower_components/bootstrap/dist/css
 * SCIPIO will load a base set of class & html definitions located here
-  scipioHtmlVariablesDefault.ftl - ofbiz_foundation/framework/common/webcommon/includes
+  htmlVariables.groovy - ofbiz_foundation/framework/common/webcommon/includes/scipio/lib/standard
   
-  These can be (and for the purpose of this theme will be) overriden by in the following file
-  themeStyles.ftl - ofbiz_foundation/themes/bootstrap/includes
-
+  These can be (and for the purpose of this theme will be) overriden in the following file
+  themeStyles.groovy - ofbiz_foundation/themes/bootstrap/includes
 
 
 = TODO =
-* Validate all themeStyles.ftl settings.
+* Validate all themeStyles.groovy settings.
 * Reset macro defaults for bootstrap based html rendering
