@@ -1,9 +1,24 @@
-***************
-* R E A D M E *
-***************
-= Introduction =
+
+**************************************************************************
+
+   _____    _____   _   _____    _    ____      _____   _____    _____
+  / ____|  / ____| | | |  __ \  | |  / __ \    |  ___| |  __ \  |  __ \
+ | (___   | |      | | | |__) | | | | |  | |   | |___  | |__) | | |__) |
+  \___ \  | |      | | |  ___/  | | | |  | |   |  ___| |  _  /  |  ___/
+  ____) | | |____  | | | |      | | | |__| |   | |___  | | \ \  | |
+ |_____/   \_____| |_| |_|      |_|  \____/    |_____| |_|  \_\ |_|
+
+                    http://www.scipioerp.com
+
+**************************************************************************
+
+SCIPIO ERP - Bootstrap Theme
+
+*****************
+* G E N E R A L *
+*****************
 This is a base theme for the Bootstrap CSS framework. 
-Please be aware that the theme is in testing. To get started the following information
+Please be aware that the theme may receive frequent enhancements. To get started the following information
 may be of interest to you:
 
 * Default load style sheets directory: webapp/bootstrap/css/bower_components/bootstrap/dist/css
@@ -13,7 +28,9 @@ may be of interest to you:
   These can be (and for the purpose of this theme will be) overriden in the following file
   themeStyles.groovy - ofbiz_foundation/themes/bootstrap/includes
 
-
-= TODO =
-* Validate all themeStyles.groovy settings.
-* Reset macro defaults for bootstrap based html rendering
+***************************
+* I N S T A L L A T I O N *
+***************************
+If not already included with your copy, the theme can be manually installed into any Scipio repo and 
+kept up to date using Git subtrees (git subtree add/pull) or submodules (git submodule add/update). 
+The theme assumes its location to be /themes/bootstrap.
