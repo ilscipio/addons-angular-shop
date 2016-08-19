@@ -32,5 +32,6 @@ may be of interest to you:
 * I N S T A L L A T I O N *
 ***************************
 If not already included with your copy, the theme can be manually installed into any Scipio repo and 
-kept up to date by merging from the dedicated repo. 
+kept up to date by merging from a separate repository.
+
 The theme assumes its location to be /themes/bootstrap.
