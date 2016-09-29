@@ -342,7 +342,7 @@ NOTES:
 
 <#-- @modal main markup - theme override -->
 <#macro modal_markup id="" label="" href="" icon="" origArgs={} passArgs={} catchArgs...>
-  <a href="${href!"#"}" data-toggle="modal" data-target="#${id}_modal"><#if icon?has_content><i class="${icon!}"></i> </#if>${label}</a>
+  <a href="${href!"#"}" data-toggle="modal" data-target="#${id}_modal"><#if icon?has_content><i class="${icon!}"></i> </#if>${escapePart(label, 'html')}</a>
   <div id="${id}_modal" class="${styles.modal_wrap!}" role="dialog">
     <div class="modal-dialog">
     <#-- Modal content-->
@@ -360,28 +360,25 @@ NOTES:
 </#macro>
 
 <#-- @slider main markup - theme override -->
-<#macro slider_markup title="" sliderId="" sliderIdNum=0 class="" controls=true indicator=true origArgs={} passArgs={} catchArgs...>
-    <#local sliderIdNum = getRequestVar("scipioSliderIdNum")!0>
-    <#if !sliderId?has_content><#local sliderId = "scipio_slider_${sliderIdNum}"/></#if>
-    <#local dummy = setRequestVar("scipioSliderLength", 0)>  
-    <#if title?has_content><@heading>${title!}</@heading></#if>
-    <div class="${styles.slider_container!""}" data-ride="carousel" id="${sliderId!""}">
-      <div class="${styles.slider_wrap!""}">
+<#macro slider_markup title="" id="" sliderIdNum=0 class="" controls=true indicator=true origArgs={} passArgs={} catchArgs...>
+    <#if title?has_content><@heading>${escapePart(title, 'html')}</@heading></#if>
+    <div class="${styles.slider_container!}" data-ride="carousel" id="${id}">
+      <div class="${styles.slider_wrap!}">
         <#nested/>
       </div>
         <#local sliderLength = getRequestVar("scipioSliderLength")!0>
         <#if controls>
-            <a class="carousel-control left" href="#${sliderId!""}" data-slide="prev">
+            <a class="carousel-control left" href="#${id}" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
-            <a class="carousel-control right" href="#${sliderId!""}" data-slide="next">
+            <a class="carousel-control right" href="#${id}" data-slide="next">
                 <span class="glyphicon glyphicon-chevron-right"></span>
             </a>
         </#if>
         <#if indicator>
             <ol class="carousel-indicators">
                 <#list 1..sliderLength as x>
-                    <li data-target="#${sliderId!""}" data-slide-to="${x}" class="<#if x==1>active</#if>"></li>
+                    <li data-target="#${id}" data-slide-to="${x}"<#if x==1> class="active"</#if>></li>
                 </#list>
             </ol> 
         </#if>
@@ -389,22 +386,15 @@ NOTES:
 </#macro>
 
 <#-- @slide markup - theme override -->
-<#macro slide_markup class="" image="" link="" linkTarget="" title="" origArgs={} passArgs={} catchArgs...>
-    <#local slideIdNum = getRequestVar("scipioSlideIdNum")!0>
-    <#local slideIdNum = slideIdNum + 1 />
-    <#local dummy = setRequestVar("scipioSlideIdNum", slideIdNum)>
-    <#local sliderLength = getRequestVar("scipioSliderLength")!0>
-    <#local sliderLength = sliderLength + 1 />
-    <#local dummy = setRequestVar("scipioSliderLength", sliderLength)> <#-- Slider counter -->
-    <#local slideId = "slide_${renderSeqNumber!}_${slideIdNum!}"/>
-    <div id="${slideId!}" class="${styles.slide_container!} <#if sliderLength==1>active</#if>">
-        <#if link?has_content><a href="${link}"<#if linkTarget?has_content> target="${linkTarget}"</#if>></#if>
+<#macro slide_markup id="" class="" image="" link="" linkTarget="" title="" slideIdNum=0 sliderLength=1 renderSeqNumber="" origArgs={} passArgs={} catchArgs...>
+    <div id="${id}" class="${styles.slide_container!}<#if sliderLength==1> active</#if>">
+        <#if link?has_content><a href="${escapeFullUrl(link, 'html')}"<#if linkTarget?has_content> target="${escapePart(linkTarget, 'html')}"</#if>></#if>
         <div>
         <#if image?has_content>
-        <img src="${image!}"/>
+          <img src="${escapeFullUrl(image, 'html')}"/>
         </#if>
               <#local nestedContent><#nested></#local>
-              <#if nestedContent?has_content || title?has_content><div class="${styles.slide_content!}"><#if title?has_content><h2>${title!}</h2></#if>${nestedContent}</div></#if>
+              <#if nestedContent?has_content || title?has_content><div class="${styles.slide_content!}"><#if title?has_content><h2>${escapePart(title, 'html')}</h2></#if>${nestedContent}</div></#if>
         </div>
         <#if link?has_content></a></#if>
     </div>
