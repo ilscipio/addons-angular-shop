@@ -242,6 +242,8 @@ NOTES:
 <#-- @field label area markup - theme override -->
 <#macro field_markup_labelarea labelType="" labelPosition="" label="" labelContent=false labelDetail=false fieldType="" fieldId="" 
   collapse="" required=false labelContentArgs={} norows=false nocells=false container=true origArgs={} passArgs={} catchArgs...>
+  <#-- FIXME: The label SHOULD be escaped but too many places might not do it currently, full review needed
+  <#local label = escapePart(label, 'html')?trim> -->
   <#local label = label?trim>
   <#if !labelContent?is_boolean>
     <@contentArgRender content=labelContent args=labelContentArgs doTrim=true />
@@ -315,7 +317,7 @@ NOTES:
         <#-- Scipio: How this works: the datepicker will put a yyyy-MM-dd value into the id_i18n field. 
             This triggers onDateChange which may transform the date and put it back in id_i18n.
             This triggers then another change() which copies it into the hidden id field (with another conversion if necessary). -->
-        $("#${displayInputId}").bootstrapMaterialDatePicker(${datepickerOptions!}).on('changeDate', onDateChange).on('show', onDatePopup);
+        $("#${displayInputId}").bootstrapMaterialDatePicker(${datepickerOptions}).on('changeDate', onDateChange).on('show', onDatePopup);
         <#-- Cannot use name, must use ID, this is invalid (will break multiple forms per page): $("input[name='${displayInputName}']")-->
 
       </#if>
