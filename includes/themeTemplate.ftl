@@ -344,7 +344,7 @@ NOTES:
 
 <#-- @modal main markup - theme override -->
 <#macro modal_markup id="" label="" href="" icon="" origArgs={} passArgs={} catchArgs...>
-  <a href="${href!"#"}" data-toggle="modal" data-target="#${id}_modal"><#if icon?has_content><i class="${icon!}"></i> </#if>${escapePart(label, 'html')}</a>
+  <a href="${escapeFullUrl(href, 'html')}" data-toggle="modal" data-target="#${id}_modal"><#if icon?has_content><i class="${icon!}"></i> </#if>${escapePart(label, 'html')}</a>
   <div id="${id}_modal" class="${styles.modal_wrap!}" role="dialog">
     <div class="modal-dialog">
     <#-- Modal content-->
