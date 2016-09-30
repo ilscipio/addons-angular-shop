@@ -242,9 +242,9 @@ NOTES:
 <#-- @field label area markup - theme override -->
 <#macro field_markup_labelarea labelType="" labelPosition="" label="" labelContent=false labelDetail=false fieldType="" fieldId="" 
   collapse="" required=false labelContentArgs={} norows=false nocells=false container=true origArgs={} passArgs={} catchArgs...>
-  <#-- FIXME: The label SHOULD be escaped but too many places might not do it currently, full review needed
-  <#local label = escapePart(label, 'html')?trim> -->
-  <#local label = label?trim>
+  <#-- the label must be escaped by default. caller can prevent using #wrapAsRaw
+  <#local label = label?trim>-->
+  <#local label = escapePart(label, 'html')?trim>
   <#if !labelContent?is_boolean>
     <@contentArgRender content=labelContent args=labelContentArgs doTrim=true />
   <#elseif label?has_content>
