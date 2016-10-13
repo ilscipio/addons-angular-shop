@@ -244,7 +244,7 @@ NOTES:
   collapse="" required=false labelContentArgs={} norows=false nocells=false container=true origArgs={} passArgs={} catchArgs...>
   <#-- the label must be escaped by default. caller can prevent using #wrapAsRaw
   <#local label = label?trim>-->
-  <#local label = escapePart(label, 'html')?trim>
+  <#local label = escapePart(label, 'htmlmarkup')?trim>
   <#if !labelContent?is_boolean>
     <@contentArgRender content=labelContent args=labelContentArgs doTrim=true />
   <#elseif label?has_content>
@@ -344,7 +344,7 @@ NOTES:
 
 <#-- @modal main markup - theme override -->
 <#macro modal_markup id="" label="" href="" icon="" origArgs={} passArgs={} catchArgs...>
-  <a href="${escapeFullUrl(href, 'html')}" data-toggle="modal" data-target="#${escapePart(id, 'html')}_modal"><#if icon?has_content><i class="${escapePart(icon, 'html')}"></i> </#if>${escapePart(label, 'html')}</a>
+  <a href="${escapeFullUrl(href, 'html')}" data-toggle="modal" data-target="#${escapePart(id, 'html')}_modal"><#if icon?has_content><i class="${escapePart(icon, 'html')}"></i> </#if>${escapePart(label, 'htmlmarkup')}</a>
   <div id="${escapePart(id, 'html')}_modal" class="${styles.modal_wrap!}" role="dialog">
     <div class="modal-dialog">
     <#-- Modal content-->
@@ -363,7 +363,7 @@ NOTES:
 
 <#-- @slider main markup - theme override -->
 <#macro slider_markup title="" id="" sliderIdNum=0 class="" controls=true indicator=true origArgs={} passArgs={} catchArgs...>
-    <#if title?has_content><@heading>${escapePart(title, 'html')}</@heading></#if>
+    <#if title?has_content><@heading>${escapePart(title, 'htmlmarkup')}</@heading></#if>
     <div class="${styles.slider_container!}" data-ride="carousel" id="${escapePart(id, 'html')}">
       <div class="${styles.slider_wrap!}">
         <#nested/>
@@ -396,7 +396,7 @@ NOTES:
           <img src="${escapeFullUrl(image, 'html')}"/>
         </#if>
           <#local nestedContent><#nested></#local>
-          <#if nestedContent?has_content || title?has_content><div class="${styles.slide_content!}"><#if title?has_content><h2>${escapePart(title, 'html')}</h2></#if>${nestedContent}</div></#if>
+          <#if nestedContent?has_content || title?has_content><div class="${styles.slide_content!}"><#if title?has_content><h2>${escapePart(title, 'htmlmarkup')}</h2></#if>${nestedContent}</div></#if>
         </div>
         <#if link?has_content></a></#if>
     </div>
