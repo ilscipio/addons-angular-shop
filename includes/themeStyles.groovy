@@ -164,7 +164,7 @@ context.styles = [
     "menu_main_item_text" : "text-entry",
     "menu_main_item_submit" : "",
     "menu_sidebar" : "nav navbar-nav side-nav menu-type-sidebar",
-    "menu_sidebar_altnested" : "menu-type-sidebar",
+    "menu_sidebar_altnested" : "menu-type-sidebar nav navbar-nav",
     "menu_sidebar_type" : "menu-type-sidebar",
     "menu_sidebar_specialtype" : "sidebar",
     "menu_sidebar_wrap" : "collapse navbar-collapse navbar-ex1-collapse",

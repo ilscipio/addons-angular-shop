@@ -122,7 +122,8 @@ ul.alert-dropdown {
 
 }
 
-.side-nav>li>a {
+/* TODO: review? */
+.side-nav>li>a, .side-nav>li ul>li>a {
     width: 225px;
 }
 
@@ -137,15 +138,32 @@ ul.alert-dropdown {
 
 }
 
-
-.side-nav>li>ul {
+/* for nested */
+.side-nav>li ul>li>a {
+    display: block;
+    text-decoration: none;
+}
+.side-nav>li ul {
     padding: 0;
 }
-
+/* FIXME?: this force manual pad all levels, can't recurse... 
+  but needed if want to fill width using the "a" element (since it gets highlight) */
+.side-nav>li ul>li>a {
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+}
 .side-nav>li>ul>li>a {
-    display: block;
-    padding: 10px 15px 10px 38px;
-    text-decoration: none;
+    padding-left: 30px; /* old left: 38px */
+}
+.side-nav>li>ul>li>ul>li>a {
+    padding-left: 50px;
+}
+.side-nav>li>ul>li>ul>li>ul>li>a {
+    padding-left: 70px;
+}
+.side-nav>li>ul>li>ul>li>ul>li>ul>li>a {
+    padding-left: 90px;
 }
 
 .side-nav>li>ul>li>a:hover {
