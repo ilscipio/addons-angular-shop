@@ -137,7 +137,7 @@ NOTES:
               <#else>
                 <#if !preLabelContent?is_boolean><@contentArgRender content=preLabelContent args=prePostContentArgs /></#if>
                 <#-- FIXME?: This span should be in @field_markup_labelarea? -->
-                <span class="input-group-addon field-entry-title ${escapePart(fieldEntryTypeClass, 'html')}"><#if !labelAreaContent?is_boolean><@contentArgRender content=labelAreaContent args=labelAreaContentArgs /></#if></span>
+                <span class="input-group-addon field-entry-title ${escapeVal(fieldEntryTypeClass, 'html')}"><#if !labelAreaContent?is_boolean><@contentArgRender content=labelAreaContent args=labelAreaContentArgs /></#if></span>
                 <#if !postLabelContent?is_boolean><@contentArgRender content=postLabelContent args=prePostContentArgs /></#if>
               </#if>
             </@cell>
@@ -152,7 +152,7 @@ NOTES:
               <#if inverted>
                 <#if !preLabelContent?is_boolean><@contentArgRender content=preLabelContent args=prePostContentArgs /></#if>
                 <#-- FIXME?: This span should be in @field_markup_labelarea? -->
-                <span class="input-group-addon field-entry-title ${escapePart(fieldEntryTypeClass, 'html')}"><#if !labelAreaContent?is_boolean><@contentArgRender content=labelAreaContent args=labelAreaContentArgs /></#if></span>
+                <span class="input-group-addon field-entry-title ${escapeVal(fieldEntryTypeClass, 'html')}"><#if !labelAreaContent?is_boolean><@contentArgRender content=labelAreaContent args=labelAreaContentArgs /></#if></span>
                 <#if !postLabelContent?is_boolean><@contentArgRender content=postLabelContent args=prePostContentArgs /></#if>
               <#else>
                 <#-- quick hack to add container to things that don't naturally have any (shouldn't
@@ -197,7 +197,7 @@ NOTES:
             <#else>
               <#if !preLabelContent?is_boolean><@contentArgRender content=preLabelContent args=prePostContentArgs /></#if>
               <#-- FIXME: give label area min width -->
-              <span class="input-group-addon field-entry-title ${escapePart(fieldEntryTypeClass, 'html')}"><#if !labelAreaContent?is_boolean><@contentArgRender content=labelAreaContent args=labelAreaContentArgs /></#if></span>
+              <span class="input-group-addon field-entry-title ${escapeVal(fieldEntryTypeClass, 'html')}"><#if !labelAreaContent?is_boolean><@contentArgRender content=labelAreaContent args=labelAreaContentArgs /></#if></span>
               <#if !postLabelContent?is_boolean><@contentArgRender content=postLabelContent args=prePostContentArgs /></#if>
             </#if>
           </#if>
@@ -209,7 +209,7 @@ NOTES:
           <#if inverted>
             <#if !preLabelContent?is_boolean><@contentArgRender content=preLabelContent args=prePostContentArgs /></#if>
             <#-- FIXME?: This span should be in @field_markup_labelarea? -->
-            <span class="input-group-addon field-entry-title ${escapePart(fieldEntryTypeClass, 'html')}"><#if !labelAreaContent?is_boolean><@contentArgRender content=labelAreaContent args=labelAreaContentArgs /></#if></span>
+            <span class="input-group-addon field-entry-title ${escapeVal(fieldEntryTypeClass, 'html')}"><#if !labelAreaContent?is_boolean><@contentArgRender content=labelAreaContent args=labelAreaContentArgs /></#if></span>
             <#if !postLabelContent?is_boolean><@contentArgRender content=postLabelContent args=prePostContentArgs /></#if>
           <#else>
             <#if type == "display">
@@ -222,7 +222,7 @@ NOTES:
           </#if>
           <#-- FIXME: CSS not working with postfix (form-control goes to width 100% and pushes this to next line) 
           <#if postfix>
-            <span class="field-entry-postfix ${escapePart(fieldEntryTypeClass, 'html')}">
+            <span class="field-entry-postfix ${escapeVal(fieldEntryTypeClass, 'html')}">
               <#if !prePostfixContent?is_boolean><@contentArgRender content=prePostfixContent args=prePostContentArgs /></#if>
               <#if (postfixContent?is_boolean && postfixContent == true) || !postfixContent?has_content>
                 <span class="postfix"><input type="submit" class="${styles.icon!} ${styles.icon_button!}" value="${styles.icon_button_value!}"/></span>
@@ -244,7 +244,7 @@ NOTES:
   collapse="" required=false labelContentArgs={} norows=false nocells=false container=true origArgs={} passArgs={} catchArgs...>
   <#-- the label must be escaped by default. caller can prevent using #wrapAsRaw
   <#local label = label?trim>-->
-  <#local label = escapePart(label, 'htmlmarkup')?trim>
+  <#local label = escapeVal(label, 'htmlmarkup')?trim>
   <#if !labelContent?is_boolean>
     <@contentArgRender content=labelContent args=labelContentArgs doTrim=true />
   <#elseif label?has_content>
@@ -286,13 +286,13 @@ NOTES:
             return date;
         };
     
-        jQuery("#${escapePart(displayInputId, 'js')}").change(function() {
+        jQuery("#${escapeVal(displayInputId, 'js')}").change(function() {
           <#if dateType == "timestamp">
-            jQuery("#${escapePart(inputId, 'js')}").val(convertToDateTimeNorm(dateI18nToNorm(this.value)));
+            jQuery("#${escapeVal(inputId, 'js')}").val(convertToDateTimeNorm(dateI18nToNorm(this.value)));
           <#elseif dateType == "date">
-            jQuery("#${escapePart(inputId, 'js')}").val(convertToDateNorm(dateI18nToNorm(this.value)));
+            jQuery("#${escapeVal(inputId, 'js')}").val(convertToDateNorm(dateI18nToNorm(this.value)));
           <#elseif dateType == "time">
-            jQuery("#${escapePart(inputId, 'js')}").val(convertToTimeNorm(dateI18nToNorm(this.value)));
+            jQuery("#${escapeVal(inputId, 'js')}").val(convertToTimeNorm(dateI18nToNorm(this.value)));
           </#if>
         });
         
@@ -304,20 +304,20 @@ NOTES:
       
         var oldDate = "";
         var onDatePopup = function(ev) {
-            oldDate = dateI18nToNorm(jQuery("#${escapePart(displayInputId, 'js')}").val());
+            oldDate = dateI18nToNorm(jQuery("#${escapeVal(displayInputId, 'js')}").val());
         };
         var onDateChange = function(ev) {
           <#if dateDisplayType == "timestamp">
-            jQuery("#${escapePart(displayInputId, 'js')}").val(dateNormToI18n(convertToDateTimeNorm(dateI18nToNorm(jQuery("#${escapePart(displayInputId, 'js')}").val()), oldDate)));
+            jQuery("#${escapeVal(displayInputId, 'js')}").val(dateNormToI18n(convertToDateTimeNorm(dateI18nToNorm(jQuery("#${escapeVal(displayInputId, 'js')}").val()), oldDate)));
           <#elseif dateDisplayType == "date">
-            jQuery("#${escapePart(displayInputId, 'js')}").val(dateNormToI18n(convertToDateNorm(dateI18nToNorm(jQuery("#${escapePart(displayInputId, 'js')}").val()), oldDate)));
+            jQuery("#${escapeVal(displayInputId, 'js')}").val(dateNormToI18n(convertToDateNorm(dateI18nToNorm(jQuery("#${escapeVal(displayInputId, 'js')}").val()), oldDate)));
           </#if>
         };
         
         <#-- Scipio: How this works: the datepicker will put a yyyy-MM-dd value into the id_i18n field. 
             This triggers onDateChange which may transform the date and put it back in id_i18n.
             This triggers then another change() which copies it into the hidden id field (with another conversion if necessary). -->
-        $("#${escapePart(displayInputId, 'js')}").bootstrapMaterialDatePicker(${datepickerOptions}).on('changeDate', onDateChange).on('show', onDatePopup);
+        $("#${escapeVal(displayInputId, 'js')}").bootstrapMaterialDatePicker(${datepickerOptions}).on('changeDate', onDateChange).on('show', onDatePopup);
         <#-- Cannot use name, must use ID, this is invalid (will break multiple forms per page): $("input[name='${displayInputName}']")-->
 
       </#if>
@@ -344,8 +344,8 @@ NOTES:
 
 <#-- @modal main markup - theme override -->
 <#macro modal_markup id="" label="" href="" icon="" origArgs={} passArgs={} catchArgs...>
-  <a href="${escapeFullUrl(href, 'html')}" data-toggle="modal" data-target="#${escapePart(id, 'html')}_modal"><#if icon?has_content><i class="${escapePart(icon, 'html')}"></i> </#if>${escapePart(label, 'htmlmarkup')}</a>
-  <div id="${escapePart(id, 'html')}_modal" class="${styles.modal_wrap!}" role="dialog">
+  <a href="${escapeFullUrl(href, 'html')}" data-toggle="modal" data-target="#${escapeVal(id, 'html')}_modal"><#if icon?has_content><i class="${escapeVal(icon, 'html')}"></i> </#if>${escapeVal(label, 'htmlmarkup')}</a>
+  <div id="${escapeVal(id, 'html')}_modal" class="${styles.modal_wrap!}" role="dialog">
     <div class="modal-dialog">
     <#-- Modal content-->
     <div class="modal-content">
@@ -363,24 +363,24 @@ NOTES:
 
 <#-- @slider main markup - theme override -->
 <#macro slider_markup title="" id="" sliderIdNum=0 class="" controls=true indicator=true origArgs={} passArgs={} catchArgs...>
-    <#if title?has_content><@heading>${escapePart(title, 'htmlmarkup')}</@heading></#if>
-    <div class="${styles.slider_container!}" data-ride="carousel" id="${escapePart(id, 'html')}">
+    <#if title?has_content><@heading>${escapeVal(title, 'htmlmarkup')}</@heading></#if>
+    <div class="${styles.slider_container!}" data-ride="carousel" id="${escapeVal(id, 'html')}">
       <div class="${styles.slider_wrap!}">
         <#nested/>
       </div>
         <#local sliderLength = getRequestVar("scipioSliderLength")!0>
         <#if controls>
-            <a class="carousel-control left" href="#${escapePart(id, 'html')}" data-slide="prev">
+            <a class="carousel-control left" href="#${escapeVal(id, 'html')}" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
-            <a class="carousel-control right" href="#${escapePart(id, 'html')}" data-slide="next">
+            <a class="carousel-control right" href="#${escapeVal(id, 'html')}" data-slide="next">
                 <span class="glyphicon glyphicon-chevron-right"></span>
             </a>
         </#if>
         <#if indicator>
             <ol class="carousel-indicators">
                 <#list 1..sliderLength as x>
-                    <li data-target="#${escapePart(id, 'html')}" data-slide-to="${x}"<#if x==1> class="active"</#if>></li>
+                    <li data-target="#${escapeVal(id, 'html')}" data-slide-to="${x}"<#if x==1> class="active"</#if>></li>
                 </#list>
             </ol> 
         </#if>
@@ -389,14 +389,14 @@ NOTES:
 
 <#-- @slide markup - theme override -->
 <#macro slide_markup id="" class="" image="" link="" linkTarget="" title="" slideIdNum=0 sliderLength=1 renderSeqNumber="" origArgs={} passArgs={} catchArgs...>
-    <div id="${escapePart(id, 'html')}" class="${styles.slide_container!}<#if sliderLength==1> active</#if>">
-        <#if link?has_content><a href="${escapeFullUrl(link, 'html')}"<#if linkTarget?has_content> target="${escapePart(linkTarget, 'html')}"</#if>></#if>
+    <div id="${escapeVal(id, 'html')}" class="${styles.slide_container!}<#if sliderLength==1> active</#if>">
+        <#if link?has_content><a href="${escapeFullUrl(link, 'html')}"<#if linkTarget?has_content> target="${escapeVal(linkTarget, 'html')}"</#if>></#if>
         <div>
         <#if image?has_content>
           <img src="${escapeFullUrl(image, 'html')}"/>
         </#if>
           <#local nestedContent><#nested></#local>
-          <#if nestedContent?has_content || title?has_content><div class="${styles.slide_content!}"><#if title?has_content><h2>${escapePart(title, 'htmlmarkup')}</h2></#if>${nestedContent}</div></#if>
+          <#if nestedContent?has_content || title?has_content><div class="${styles.slide_content!}"><#if title?has_content><h2>${escapeVal(title, 'htmlmarkup')}</h2></#if>${nestedContent}</div></#if>
         </div>
         <#if link?has_content></a></#if>
     </div>
