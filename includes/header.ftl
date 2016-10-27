@@ -329,8 +329,9 @@ so for now we have to split the screens in half and rely on the menu widget rend
                     <#if userLogin??><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> ${userLogin.userLoginId} <b class="caret"></b><#else><a href="<@ofbizUrl>${checkLoginUrl}</@ofbizUrl>">${uiLabelMap.CommonLogin}</a></#if></a>
                     <ul class="dropdown-menu">
                         <@generalMenu />
-                        <#assign helpLink><@ofbizUrl>showHelp?helpTopic=${rawString(helpTopic!)}&amp;portalPageId=${rawString(parameters.portalPageId!)}</@ofbizUrl></#assign>
-                        <#if helpLink?has_content><li class="has-form"><@modal label=uiLabelMap.CommonHelp id="help" href=helpLink icon="fa fa-fw fa-info"></@modal></li></#if>
+                        <#assign portalPageParamStr><#if parameters.portalPageId?has_content>&portalPageId=${rawString(parameters.portalPageId!)}</#if></#assign>
+                        <li class="has-form"><@modal label=uiLabelMap.CommonHelp id="help" 
+                            href=makeOfbizUrl("showHelp?helpTopic=${rawString(helpTopic!)}${portalPageParamStr}") icon="fa fa-fw fa-info"></@modal></li>
                     </ul>
                 </li>
             </ul>
