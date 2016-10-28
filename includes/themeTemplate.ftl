@@ -314,7 +314,7 @@ NOTES:
           </#if>
         };
         
-        <#-- Scipio: How this works: the datepicker will put a yyyy-MM-dd value into the id_i18n field. 
+        <#-- SCIPIO: How this works: the datepicker will put a yyyy-MM-dd value into the id_i18n field. 
             This triggers onDateChange which may transform the date and put it back in id_i18n.
             This triggers then another change() which copies it into the hidden id field (with another conversion if necessary). -->
         $("#${escapeVal(displayInputId, 'js')}").bootstrapMaterialDatePicker(${datepickerOptions}).on('changeDate', onDateChange).on('show', onDatePopup);
