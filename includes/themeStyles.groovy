@@ -128,7 +128,7 @@ context.styles = [
     "menu_button_dropdown_altnested" : "menu-type-button-dropdown",
     "menu_button_dropdown_type" : "menu-type-button-dropdown",
     "menu_button_dropdown_specialtype" : "button-dropdown",
-    "menu_button_dropdown_mainbutton" : "btn btn-raised btn-sm dropdown",
+    "menu_button_dropdown_title" : "btn btn-raised btn-sm dropdown",
     "menu_button_dropdown_item" : "",
     "menu_button_dropdown_itemdisabled" : "disabled",
     "menu_button_dropdown_itemactive" : "active",
