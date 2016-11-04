@@ -76,6 +76,10 @@ function ScipioUploadProgress(options) {
     
     this.iframeParentSel = options.iframeParentSel; // optional, default is html body, if specified should exist in doc; will contain hidden iframe(s) to internally hold file upload html page result
     this.expectedResultContainerSel = options.expectedResultContainerSel; // required; id of an elem to test existence in upload page result; was originally same as resultContentContainerSel
+    
+    this.successResultContainerSel = options.successResultContainerSel; // required; success message within the iframe content to display.
+    this.successResultAddWrapper = options.successResultAddWrapper; // optional, default false; if true, successResultContainerSel contents will be wrapped like other messages; else it must supply its own; does not apply to ajax and other errors (always get wrapper, needed)
+    
     this.errorResultContainerSel = options.errorResultContainerSel; // required; if this elem in upload page result exists, treat it as error and use its content as error message (required to help against forever-uploading bug)
                                                                     // 2016-11-02: if the elem has a "has-scipio-errormsg" html attribute (true/false string value) it is consulted to check if should consider errors present
     this.errorResultAddWrapper = options.errorResultAddWrapper; // optional, default false; if true, errorResultContainerSel contents will be wrapped like other errors; else it must supply its own; does not apply to ajax and other errors (always get wrapper, needed)
@@ -283,7 +287,7 @@ function ScipioUploadProgress(options) {
         return jQuery(this.formSel);
     };
     
-    this.processUploadComplete = function(uploadInfo) {
+    this.processUploadComplete = function(uploadInfo, successMessage, successWrapper) {
         var error = false;
         if (this.resultContentReplace) {
             var iframeContent = jQuery("#"+uploadInfo.iframeId).contents().find(this.resultContentContainerSel);
@@ -293,6 +297,14 @@ function ScipioUploadProgress(options) {
                 // to the page content container
                 var contentContainer = jQuery(this.contentContainerSel);
                 if (contentContainer.length > 0) {
+                	if (this.msgContainerId) {
+                        if (successWrapper) {
+                            jQuery("#"+this.msgContainerId).html('<div data-alert class="' + scipioStyles.alert_wrap + ' ' + scipioStyles.alert_prefix_type + 'info">' + successMessage + "</div>");
+                        }
+                        else {
+                            jQuery("#"+this.msgContainerId).html(successMessage);
+                        }
+                    }
                     contentContainer.html(iframeContent.html());
                 }
                 else {
@@ -391,7 +403,7 @@ function ScipioUploadProgress(options) {
                     if (iframeContent.length > 0) {
                         uploadInfo.finished = true;
                         timerId.stop();
-                        prog.processUploadComplete(uploadInfo);
+                        prog.processError(uploadInfo, iframeErrorContent.html(), prog.errorResultAddWrapper);
                     }
                 }
                 
