@@ -68,6 +68,7 @@ under the License.
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" sequenceId="10"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="//fonts.googleapis.com/icon?family=Material+Icons" sequenceId="11"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/bower_components/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" sequenceId="12"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/base-theme/js/trumbowyg/scipio_media/trumbowyg.min.css" sequenceId="13"/>
     
     
     <!-- Scripts -->
@@ -84,6 +85,5 @@ under the License.
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/bootstrap-theme/js/app.js" sequenceId="08"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/momentjs/min/moment-with-locales.min.js" sequenceId="09"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js" sequenceId="10"/>
-    
    
 </entity-engine-xml>
