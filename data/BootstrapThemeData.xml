@@ -68,7 +68,7 @@ under the License.
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" sequenceId="10"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="//fonts.googleapis.com/icon?family=Material+Icons" sequenceId="11"/>
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/bower_components/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" sequenceId="12"/>
-    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/base-theme/js/trumbowyg/scipio_media/trumbowyg.min.css" sequenceId="13"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/base-theme/bower_components/trumbowyg/dist/ui/trumbowyg.min.css" sequenceId="13"/>
     
     
     <!-- Scripts -->
