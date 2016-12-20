@@ -3576,7 +3576,7 @@ hr.on-light {
   padding: .425rem .425rem;
   width: 100%;
   border-bottom: 1px solid #eee;
-  color: #607d8b;
+  color: #ffffff;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
 }
@@ -3760,6 +3760,13 @@ hr.on-light {
   width: auto;
   height: 22px;
 }
+.form-group {
+  margin: 0px;
+}
+div.form-control,
+.form-group div.form-control {
+  background: none;
+}
 .navbar .side-nav form {
   padding: 0px;
 }
@@ -3781,5 +3788,9 @@ hr.on-light {
 }
 .navbar .side-nav > li > .dashboard a {
   color: #222222;
+}
+.nav-tabs {
+  background: none;
+  border-bottom: 0px;
 }
 /*# sourceMappingURL=bootstrap-material-design.css.map */
