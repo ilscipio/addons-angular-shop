@@ -1843,11 +1843,6 @@ fieldset[disabled] .form-group .form-control {
 .form-group textarea ~ .form-control-highlight {
   margin-top: -11px;
 }
-.form-group select {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-}
 .form-group select ~ .material-input:after {
   display: none;
 }
