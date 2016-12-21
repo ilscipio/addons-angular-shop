@@ -48,7 +48,8 @@ under the License.
     <!-- Styles -->
     <!-- Scripts -->
     <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_TOP_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/jquery/dist/jquery.min.js" sequenceId="01"/>
-    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_TOP_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/jquery-migrate/jquery-migrate.min.js" sequenceId="02"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_TOP_JAVASCRIPT" resourceValue="/base-theme/bower_components/jquery-ui/jquery-ui.min.js" sequenceId="02"/>
+    <VisualThemeResource visualThemeId="BOOTSTRAP" resourceTypeEnumId="VT_TOP_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/jquery-migrate/jquery-migrate.min.js" sequenceId="03"/>
 
     
     <!-- THEME SPECIFIC -->
