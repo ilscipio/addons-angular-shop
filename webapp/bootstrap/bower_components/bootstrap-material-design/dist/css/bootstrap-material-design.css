@@ -3778,6 +3778,9 @@ pre.scrollable {
   background: #f0f0f0;
   padding: 10px;
 }
+.form-control {
+  height: auto;
+}
 div.form-control,
 .form-group div.form-control,
 .field-entry-type-display {
