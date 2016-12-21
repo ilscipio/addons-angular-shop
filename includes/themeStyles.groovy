@@ -586,7 +586,7 @@ context.styles = [
     "button_color_error" : "btn-danger",
     
     "text_color_primary" : "colored-text text-primary",
-    "text_color_secondary" : "colored-text text-secondary",
+    "text_color_secondary" : "colored-text text-success",
     "text_color_info" : "colored-text text-info",
     "text_color_warning" : "colored-text text-warning",
     "text_color_success" : "colored-text text-success",
