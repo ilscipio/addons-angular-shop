@@ -355,12 +355,12 @@ NOTES:
 <#-- @modal main markup - theme override -->
 <#macro modal_markup id="" label="" href="" class="" icon="" origArgs={} passArgs={} catchArgs...>
   <a href="${escapeFullUrl(href, 'html')}" data-toggle="modal" data-target="#${escapeVal(id, 'html')}_modal" <@compiledClassAttribStr class=class />><#if icon?has_content><i class="${escapeVal(icon, 'html')}"></i> </#if>${escapeVal(label, 'htmlmarkup')}</a>
-  <div id="${escapeVal(id, 'html')}_modal" class="${styles.modal_wrap!}" role="dialog">
+  <div id="${escapeVal(id, 'html')}_modal" class="${styles.modal_wrap!}" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
         <#-- Modal content-->
             <div class="modal-content">
                   <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
                   </div>
                   <div class="modal-body">
                     <#nested>
