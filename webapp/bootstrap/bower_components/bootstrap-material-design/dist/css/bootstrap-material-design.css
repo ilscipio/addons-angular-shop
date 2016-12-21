@@ -3758,6 +3758,12 @@ hr.on-light {
 .form-group {
   margin: 0px;
 }
+.radio-item-inline.radio-item-separator {
+  display: none;
+}
+.checkbox-item-inline.checkbox-item-separator {
+  display: none;
+}
 legend {
   font-size: 0.9em;
   padding-top: 10px;

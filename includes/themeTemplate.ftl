@@ -196,7 +196,7 @@ NOTES:
       </@cell>
     <#else> <#-- elseif labelType == "horizontal" -->
       <@cell class="" nocells=(nocells || !container)>
-        <div class="form-group input-group">
+        <div class="form-group">
           <#if labelArea  && labelType == "horizontal" && labelPosition == "left">
             <#if inverted>
               <#if type == "display">
@@ -209,7 +209,7 @@ NOTES:
             <#else>
               <#if !preLabelContent?is_boolean><@contentArgRender content=preLabelContent args=prePostContentArgs /></#if>
               <#-- FIXME: give label area min width -->
-              <span class="input-group-addon field-entry-title ${escapeVal(fieldEntryTypeClass, 'html')}"><#if !labelAreaContent?is_boolean><@contentArgRender content=labelAreaContent args=labelAreaContentArgs /></#if></span>
+              <#-- <span class="input-group-addon field-entry-title ${escapeVal(fieldEntryTypeClass, 'html')}"> --><#if !labelAreaContent?is_boolean><@contentArgRender content=labelAreaContent args=labelAreaContentArgs /></#if><#-- </span> -->
               <#if !postLabelContent?is_boolean><@contentArgRender content=postLabelContent args=prePostContentArgs /></#if>
             </#if>
           </#if>
@@ -221,7 +221,7 @@ NOTES:
           <#if inverted>
             <#if !preLabelContent?is_boolean><@contentArgRender content=preLabelContent args=prePostContentArgs /></#if>
             <#-- FIXME?: This span should be in @field_markup_labelarea? -->
-            <span class="input-group-addon field-entry-title ${escapeVal(fieldEntryTypeClass, 'html')}"><#if !labelAreaContent?is_boolean><@contentArgRender content=labelAreaContent args=labelAreaContentArgs /></#if></span>
+            <#-- <span class="input-group-addon field-entry-title ${escapeVal(fieldEntryTypeClass, 'html')}"> --><#if !labelAreaContent?is_boolean><@contentArgRender content=labelAreaContent args=labelAreaContentArgs /></#if><#-- </span> -->
             <#if !postLabelContent?is_boolean><@contentArgRender content=postLabelContent args=prePostContentArgs /></#if>
           <#else>
             <#if type == "display">
@@ -262,7 +262,7 @@ NOTES:
     <#-- don't show this here, let macro handle it
     <#if required>*</#if>-->
   <#elseif label?has_content>
-      <label class="form-field-label control-label"<#if fieldId?has_content> for="${escapeVal(fieldId, 'html')}"</#if>>${label}<#if required> *</#if></label>
+      <label class="control-label "<#if fieldId?has_content> for="${escapeVal(fieldId, 'html')}"</#if>>${label}<#if required> *</#if></label>
   <#-- only show this if there's a label, otherwise affects inline fields too in ugly way, and there are other indications anyhow
   <#else>
     <#if required>*</#if>-->
