@@ -446,29 +446,3 @@ NOTES:
 
 <#-- save copy of this namespace so that our macros are able to access its own definitions without overrides (sometimes needed) -->
 <#assign scipioBsTmplLib = copyObject(.namespace)>
-
-
-<#-- @field_markup_labelarea - theme override, because our bootstrap theme does not support collapsed fields-->
-<#macro field_markup_labelarea labelType="" labelPosition="" label="" labelContent=false labelDetail=false fieldType="" fieldsType="" fieldId="" collapse="" 
-    required=false labelContentArgs={} norows=false nocells=false container=true origArgs={} passArgs={} catchArgs...>
-  <#-- the label must be escaped by default. caller can prevent using #wrapAsRaw
-  <#local label = label?trim>-->
-  <#local label = escapeVal(label, 'htmlmarkup')?trim>
-  <#if !labelContent?is_boolean>
-    <@contentArgRender content=labelContent args=labelContentArgs doTrim=true />
-    <#-- don't show this here, let macro handle it
-    <#if required>*</#if>-->
-  <#elseif label?has_content>
-      <label class="form-field-label control-label"<#if fieldId?has_content> for="${escapeVal(fieldId, 'html')}"</#if>>${label}<#if required> *</#if></label>
-  <#-- only show this if there's a label, otherwise affects inline fields too in ugly way, and there are other indications anyhow
-  <#else>
-    <#if required>*</#if>-->
-  </#if> 
-  <#if !labelDetail?is_boolean><@contentArgRender content=labelDetail args=labelContentArgs doTrim=true /></#if>
-  <#-- This was nbsp to prevent collapsing empty cells in foundation, now replaced by a CSS hack (see _base.scss)
-  <#if container && !nocells>
-    <#if !label?has_content && labelDetail?is_boolean && labelContent?is_boolean>
-      &nbsp;
-    </#if>
-  </#if>-->
-</#macro>
