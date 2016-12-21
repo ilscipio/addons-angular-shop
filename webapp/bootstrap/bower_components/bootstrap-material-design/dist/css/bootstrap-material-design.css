@@ -3763,6 +3763,15 @@ hr.on-light {
 .form-group {
   margin: 0px;
 }
+legend {
+  font-size: 0.9em;
+  padding-top: 10px;
+  color: #03a9f4;
+}
+.collapsehide {
+  background: #f0f0f0;
+  padding: 10px;
+}
 div.form-control,
 .form-group div.form-control,
 .field-entry-type-display {

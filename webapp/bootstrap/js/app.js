@@ -28,9 +28,7 @@ function collapseFieldset(){
     var parent = $(".toggleField");
     parent.each(function( index ) {
         $(this).find("fieldset > .row").wrapAll('<div class="collapsehide"/>');
-        if(parent.hasClass("collapsed")){
-            parent.find(".collapsehide").hide();
-        }
+        $(this).find(".collapsehide").hide(); // this line differs from the foundation variant atm and needs to be reviewed
     });
     
 

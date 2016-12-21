@@ -92,31 +92,43 @@ NOTES:
 
 <#-- @field container markup - theme override 
     #nested is the actual field widget (<input>, <select>, etc.). -->
-<#macro field_markup_container type="" class="" postfix=false postfixContent=true 
-  labelArea=true labelType="" labelPosition="" labelAreaContent="" collapse="" collapsePostfix="" norows=false 
-  nocells=false container=true containerId="" containerClass="" containerStyle=""
-  preWidgetContent=false postWidgetContent=false preLabelContent=false postLabelContent=false prePostfixContent=false postPostfixContent=false
-  labelAreaContentArgs={} postfixContentArgs={} prePostContentArgs={} defaultGridArgs={} gridArgs={}
-  widgetAreaClass="" labelAreaClass="" postfixAreaClass="" widgetPostfixAreaClass="" inverted=false labelSmallDiffColumns=""
-  origArgs={} passArgs={} catchArgs...>
-  <#-- FIXME: the current non-grid arrangement does not properly support parent/child fields which scipio macros
-      should support (see layoutdemo - "Default form fields (with label area) with parent/child fields") 
-      this especially affects submit buttons but others too
-       FIXME: collapse, collapsePostfix are not handled -->
+<#macro field_markup_container type="" fieldsType="" defaultGridArgs={} gridArgs={} 
+    postfix=false postfixContent=true labelArea=true labelType="" labelPosition="" labelAreaContent="" collapse="" 
+    collapseLabel="" collapsePostfix="" norows=false nocells=false container=true containerId="" containerClass="" containerStyle=""
+    preWidgetContent=false postWidgetContent=false preLabelContent=false postLabelContent=false prePostfixContent=false postPostfixContent=false
+    labelAreaContentArgs={} postfixContentArgs={} prePostContentArgs={}
+    widgetAreaClass="" labelAreaClass="" postfixAreaClass="" widgetPostfixAreaClass="" inverted=false labelSmallDiffColumns=""
+    origArgs={} passArgs={} required=false catchArgs...>
   <#local rowClass = containerClass>
-  <#--<#local labelAreaClass = "">  
-  <#local postfixClass = "">-->
-  
-  <#-- FIXME: The *Class args above are largely non-implementable with current markup -->
-  
-  <#-- NOTE: currently we assume widgetPostfixCombined==false in general -->
 
-  <#-- not using grid here...
-      NOTE: the spans below don't support extra classes at all right now
-  <#local defaultGridStyles = getDefaultFieldGridStyles(defaultGridArgs + {"labelInRow": labelInRow} + gridArgs)>-->
+  <#local labelInRow = (labelType != "vertical")>
+  
+  <#local widgetPostfixCombined = gridArgs.widgetPostfixCombined!defaultGridArgs.widgetPostfixCombined!"">
+  <#if !widgetPostfixCombined?is_boolean>
+    <#-- We may have collapse==false but collapsePostfix==true, in which case
+        we may want to collapse the postfix without collapsing the entire thing. 
+        Handle this by making a combined sub-row if needed.
+        2016-04-05: This container is also important for max field row width CSS workaround!
+            Therefore, we will also omit the collapsePostfix requirement. -->
+    <#if postfix && !collapse> <#-- previously: ((postfix && collapsePostfix) && !collapse) -->
+      <#local widgetPostfixCombined = styles["fields_" + fieldsType + "_widgetpostfixcombined"]!styles["fields_default_widgetpostfixcombined"]!true>
+    <#else>
+      <#local widgetPostfixCombined = false>
+    </#if>
+  </#if>
+
+  <#-- This is separated because some templates need access to the grid sizes to align things, and they
+      can't be calculated statically in the styles hash -->
+  <#local defaultGridStyles = getDefaultFieldGridStyles(defaultGridArgs + {"labelInRow": labelInRow,
+    "widgetPostfixCombined":widgetPostfixCombined} + gridArgs)>
+  <#-- NOTE: For inverted, we don't swap the defaultGridStyles grid classes, only the user-supplied and identifying ones -->
 
   <#local fieldEntryTypeClass = "field-entry-type-" + mapScipioFieldTypeToStyleName(type)>
-  
+  <#local labelAreaClass = addClassArg(labelAreaClass, "field-entry-title " + fieldEntryTypeClass)>
+  <#local widgetAreaClass = addClassArg(widgetAreaClass, "field-entry-widget " + fieldEntryTypeClass)>
+  <#local postfixAreaClass = addClassArg(postfixAreaClass, "field-entry-postfix " + fieldEntryTypeClass)>
+  <#local widgetPostfixAreaClass = addClassArg(widgetPostfixAreaClass, "field-entry-widgetpostfix " + fieldEntryTypeClass)>
+
   <#local rowClass = addClassArg(rowClass, "form-field-entry " + fieldEntryTypeClass)>
   <@row class=compileClassArg(rowClass) collapse=collapse!false norows=(norows || !container) id=containerId style=containerStyle>
     <#if labelType == "vertical">
