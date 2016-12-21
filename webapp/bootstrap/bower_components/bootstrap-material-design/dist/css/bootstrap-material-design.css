@@ -3769,6 +3769,10 @@ legend {
   color: #03a9f4;
   cursor: pointer;
 }
+pre.scrollable {
+  max-height: 500px;
+  overflow-x: scroll;
+}
 .collapsehide {
   background: #f0f0f0;
   padding: 10px;
