@@ -3751,6 +3751,101 @@ hr.on-light {
 .tile-color-snow-alpha-heavy {
   background-color: rgba(249, 249, 249, 0.7);
 }
+.month-calendar-full table.calendar .month-entry {
+  vertical-align: top;
+  padding: 0.5em;
+  border-color: #ddd;
+  border-width: 1px;
+  border-style: solid;
+}
+.month-calendar-full table.calendar .month-entry-content-add {
+  float: right;
+}
+.month-calendar-full table.calendar .month-entry-content-event {
+  width: 100%;
+  padding: 0 .8em;
+  border-left: #607d8b 4px solid;
+  display: block;
+  overflow: auto;
+  line-height: 1.5em;
+  background: #f0f0f0;
+  margin-bottom: 2px;
+}
+.month-calendar-full table.calendar a {
+  color: $oil;
+}
+.month-calendar-full table.calendar a:hover {
+  color: #607d8b;
+}
+.month-calendar-full table.calendar th {
+  word-break: break-all;
+}
+.month-calendar-full table.calendar td.month-entry:last-child {
+  border-width: 1px 0 0 0;
+}
+.month-calendar-full table.calendar th.month-header-day,
+.month-calendar-full table.calendar .month-calendar-full td.month-entry-day {
+  width: 13.5% !important;
+}
+.month-calendar-full table.calendar th.month-header-week,
+.month-calendar-full table.calendar td.month-entry-week {
+  width: auto;
+}
+.month-calendar-full table.calendar td.month-entry-day .day-event-time {
+  font-size: 0.8em;
+}
+.month-calendar-full table.calendar td.month-entry-day .cal-entry-status {
+  font-size: 0.8em;
+}
+.month-calendar-full table.calendar td.month-entry-day .month-entry-wrapper {
+  width: 100%;
+  padding-bottom: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.month-calendar-full table.calendar td.month-entry-day .month-entry-abs {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.month-calendar-full table.calendar td.month-entry-day.other-month {
+  background: #eee;
+}
+.month-calendar-full table.calendar td.month-entry-day.other-month a {
+  color: #999;
+}
+.month-calendar-full table.calendar td.month-entry-day.other-month a:hover {
+  color: #607d8b;
+}
+.month-calendar-full table.calendar td.month-entry-day.current-month {
+  background: $white;
+}
+.month-calendar-full table.calendar td.month-entry-day.current-period {
+  border-bottom: 4px solid #03a9f4;
+}
+.month-calendar-full table.calendar td.month-entry-day.current-period .month-entry-content-title {
+  font-weight: bold;
+}
+.month-calendar-full table.calendar td.month-entry-day:hover {
+  background: #fafafa;
+}
+.month-calendar-full .cal-detail-content .month-entry-content-event:first-child {
+  margin-top: 0;
+}
+.month-calendar-full .cal-detail-content .month-entry-content-event {
+  margin-top: 0.5em;
+}
+.month-calendar-full .cal-detail-content .day-entry-stats {
+  margin-top: 1em;
+}
+.week-calendar-full table.calendar td.week-entry-event {
+  border: 1px solid black;
+}
+.day-calendar-full table.calendar td.day-entry-event {
+  border: 1px solid black;
+}
 .navbar-brand > img {
   width: auto;
   height: 22px;
