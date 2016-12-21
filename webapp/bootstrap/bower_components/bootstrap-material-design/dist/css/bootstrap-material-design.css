@@ -3755,6 +3755,9 @@ hr.on-light {
   width: auto;
   height: 22px;
 }
+.sidebar .navbar {
+  background-color: #ff5252;
+}
 .form-group {
   margin: 0px;
 }
