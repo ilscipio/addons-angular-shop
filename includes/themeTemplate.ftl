@@ -240,25 +240,23 @@ NOTES:
 </#macro>
 
 <#-- @field label area markup - theme override -->
-<#macro field_markup_labelarea labelType="" labelPosition="" label="" labelContent=false labelDetail=false fieldType="" fieldId="" 
-  collapse="" required=false labelContentArgs={} norows=false nocells=false container=true origArgs={} passArgs={} catchArgs...>
+<#macro field_markup_labelarea labelType="" labelPosition="" label="" labelContent=false labelDetail=false fieldType="" fieldsType="" fieldId="" collapse="" 
+    required=false labelContentArgs={} norows=false nocells=false container=true origArgs={} passArgs={} catchArgs...>
   <#-- the label must be escaped by default. caller can prevent using #wrapAsRaw
   <#local label = label?trim>-->
   <#local label = escapeVal(label, 'htmlmarkup')?trim>
   <#if !labelContent?is_boolean>
     <@contentArgRender content=labelContent args=labelContentArgs doTrim=true />
+    <#-- don't show this here, let macro handle it
+    <#if required>*</#if>-->
   <#elseif label?has_content>
-    <#if collapse>
-      <span class="form-field-label">${label}<#if required> *</#if></span>
-    <#else>
-      <span class="form-field-label">${label}<#if required> *</#if></span>
-    </#if>  
-  <#-- don't show this if no label
+      <label class="form-field-label control-label"<#if fieldId?has_content> for="${escapeVal(fieldId, 'html')}"</#if>>${label}<#if required> *</#if></label>
+  <#-- only show this if there's a label, otherwise affects inline fields too in ugly way, and there are other indications anyhow
   <#else>
     <#if required>*</#if>-->
   </#if> 
   <#if !labelDetail?is_boolean><@contentArgRender content=labelDetail args=labelContentArgs doTrim=true /></#if>
-  <#-- This was nbsp to prevent collapsing empty divs, now replaced by a CSS hack (see _base.scss)
+  <#-- This was nbsp to prevent collapsing empty cells in foundation, now replaced by a CSS hack (see _base.scss)
   <#if container && !nocells>
     <#if !label?has_content && labelDetail?is_boolean && labelContent?is_boolean>
       &nbsp;
@@ -343,21 +341,22 @@ NOTES:
 </#macro>-->
 
 <#-- @modal main markup - theme override -->
-<#macro modal_markup id="" label="" href="" icon="" origArgs={} passArgs={} catchArgs...>
-  <a href="${escapeFullUrl(href, 'html')}" data-toggle="modal" data-target="#${escapeVal(id, 'html')}_modal"><#if icon?has_content><i class="${escapeVal(icon, 'html')}"></i> </#if>${escapeVal(label, 'htmlmarkup')}</a>
+<#macro modal_markup id="" label="" href="" class="" icon="" origArgs={} passArgs={} catchArgs...>
+  <a href="${escapeFullUrl(href, 'html')}" data-toggle="modal" data-target="#${escapeVal(id, 'html')}_modal" <@compiledClassAttribStr class=class />><#if icon?has_content><i class="${escapeVal(icon, 'html')}"></i> </#if>${escapeVal(label, 'htmlmarkup')}</a>
   <div id="${escapeVal(id, 'html')}_modal" class="${styles.modal_wrap!}" role="dialog">
-    <div class="modal-dialog">
-    <#-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <#nested>
-      </div>
-      <div class="modal-footer">
-      </div>
-    </div>
+        <div class="modal-dialog">
+        <#-- Modal content-->
+            <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                    <#nested>
+                  </div>
+                  <div class="modal-footer">
+                  </div>
+            </div>
+        </div>
   </div>
 </#macro>
 
