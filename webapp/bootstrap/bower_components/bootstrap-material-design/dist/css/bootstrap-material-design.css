@@ -3782,26 +3782,30 @@ div.form-control,
 .field-entry-type-display {
   background: none;
 }
-.navbar .side-nav form {
+.side-nav {
+  list-style: none;
+  padding: 0;
+}
+.side-nav form {
   padding: 0px;
 }
-.navbar .side-nav input[type="search"]:focus {
+.side-nav input[type="search"]:focus {
   -webkit-box-shadow: 0 0 0 !important;
           box-shadow: 0 0 0 !important;
 }
-.navbar .side-nav > li > .disabled {
+.side-nav > li > .disabled {
   color: #555555;
   cursor: not-allowed;
 }
-.navbar .side-nav > li > .disabled a,
-.navbar .side-nav > li > .disabled button {
+.side-nav > li > .disabled a,
+.side-nav > li > .disabled button {
   cursor: not-allowed;
 }
-.navbar .side-nav > li > .dashboard {
+.side-nav > li > .dashboard {
   background-color: #eeeeee;
   border-bottom: 1px solid #333333;
 }
-.navbar .side-nav > li > .dashboard a {
+.side-nav > li > .dashboard a {
   color: #222222;
 }
 .nav-tabs {
