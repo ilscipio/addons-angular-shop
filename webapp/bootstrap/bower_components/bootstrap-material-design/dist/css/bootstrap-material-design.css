@@ -3767,6 +3767,7 @@ legend {
   font-size: 0.9em;
   padding-top: 10px;
   color: #03a9f4;
+  cursor: pointer;
 }
 .collapsehide {
   background: #f0f0f0;
