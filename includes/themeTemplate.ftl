@@ -251,10 +251,10 @@ NOTES:
     origArgs={} passArgs={} catchArgs...>
   <#if !inlineItems && specialType == "button-dropdown">
       <div class="${styles.button_group!}">
-          <@scipioStdTmplLib.menu_markup type=type specialType=specialType class=class id=id style=style attribs=attribs excludeAttribs=excludeAttribs
-                inlineItems=inlineItems titleClass=titleClass title=title htmlwrap=htmlwrap isNestedMenu=isNestedMenu parentMenuType=parentMenuType parentMenuSpecialType=parentMenuSpecialType
-                active=active activeTarget="" menuLevel=menuLevel
-                origArgs=origArgs passArgs=passArgs><#nested></@scipioStdTmplLib.menu_markup>
+          <button href="#" data-dropdown="${escapeVal(id, 'html')}" aria-controls="${escapeVal(id, 'html')}" data-toggle="dropdown"aria-expanded="false"<@compiledClassAttribStr class=titleClass />>${escapeVal(title, 'htmlmarkup')} <span class="caret"></span></button><br>
+          <#local attribs = attribs + {"data-dropdown-content":"true", "aria-hidden":"true"}>
+          <#if htmlwrap?has_content><${htmlwrap}<@compiledClassAttribStr class=class /><#if id?has_content> id="${escapeVal(id, 'html')}"</#if><#if style?has_content> style="${escapeVal(style, 'html')}"</#if><#if attribs?has_content><@commonElemAttribStr attribs=attribs exclude=excludeAttribs/></#if>></#if>
+          <#nested>
       </div>
   <#else>
       <@scipioStdTmplLib.menu_markup type=type specialType=specialType class=class id=id style=style attribs=attribs excludeAttribs=excludeAttribs
