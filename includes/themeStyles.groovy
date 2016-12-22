@@ -916,8 +916,8 @@ context.styles = [
     "field_textfind_select_default" : "form-control",
     "field_rangefind_default" : "form-control",
     "field_rangefind_select_default" : "form-control",
-    "field_display_default" : "form-control",
-    "field_generic_default" : "form-control",
+    "field_display_default" : "",
+    "field_generic_default" : "",
 
     /* checkbox type styles */
     "field_checkbox_default" : "switch btn-sm checkbox-type-switch",
