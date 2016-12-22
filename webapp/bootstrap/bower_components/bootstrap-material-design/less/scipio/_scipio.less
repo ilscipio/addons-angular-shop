@@ -5,6 +5,23 @@
 @brand-warning: @deep-orange;
 @brand-info: @light-blue;
 
+
+/*
+ Grid bugfix for wrong div structure (guerantees that the theme will play nice even if row col-lg* is not followed entirely)
+*/
+#main-content {
+    .row {
+        > div:not([class*="col-"]) {
+            position: relative;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+            float:left;
+            width:100%;
+        }
+    }
+}
+
 // Logo
 .navbar-brand>img { 
     width: auto;

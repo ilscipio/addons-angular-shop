@@ -3846,6 +3846,17 @@ hr.on-light {
 .day-calendar-full table.calendar td.day-entry-event {
   border: 1px solid black;
 }
+/*
+ Grid bugfix for wrong div structure (guerantees that the theme will play nice even if row col-lg* is not followed entirely)
+*/
+#main-content .row > div:not([class*="col-"]) {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  float: left;
+  width: 100%;
+}
 .navbar-brand > img {
   width: auto;
   height: 22px;
