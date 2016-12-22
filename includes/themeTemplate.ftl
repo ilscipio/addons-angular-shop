@@ -243,6 +243,27 @@ NOTES:
     </div>
 </#macro>
 
+<#-- @menu container main markup - theme override 
+    DEV NOTE: This is called directly from both @menu and widgets @renderMenuFull -->
+<#macro menu_markup type="" specialType="" class="" id="" style="" attribs={} excludeAttribs=[] 
+    inlineItems=false titleClass="" title="" htmlwrap="ul" isNestedMenu=false parentMenuType="" parentMenuSpecialType=""
+    active=false activeTarget="" menuLevel=1
+    origArgs={} passArgs={} catchArgs...>
+  <#if !inlineItems && specialType == "button-dropdown">
+      <div class="${styles.button_group!}">
+          <@scipioStdTmplLib.menu_markup type=type specialType=specialType class=class id=id style=style attribs=attribs excludeAttribs=excludeAttribs
+                inlineItems=inlineItems titleClass=titleClass title=title htmlwrap=htmlwrap isNestedMenu=isNestedMenu parentMenuType=parentMenuType parentMenuSpecialType=parentMenuSpecialType
+                active=active activeTarget="" menuLevel=menuLevel
+                origArgs=origArgs passArgs=passArgs><#nested></@scipioStdTmplLib.menu_markup>
+      </div>
+  <#else>
+      <@scipioStdTmplLib.menu_markup type=type specialType=specialType class=class id=id style=style attribs=attribs excludeAttribs=excludeAttribs
+        inlineItems=inlineItems titleClass=titleClass title=title htmlwrap=htmlwrap isNestedMenu=isNestedMenu parentMenuType=parentMenuType parentMenuSpecialType=parentMenuSpecialType
+        active=active activeTarget="" menuLevel=menuLevel
+        origArgs=origArgs passArgs=passArgs><#nested></@scipioStdTmplLib.menu_markup>
+  </#if>
+</#macro>
+
 <#-- @nav main markup - theme override -->
 <#macro nav_markup type="" origArgs={} passArgs={} catchArgs...>
   <#switch type>
