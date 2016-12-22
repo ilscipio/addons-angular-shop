@@ -602,7 +602,7 @@ context.styles = [
     "elem_color_error" : "colored-elem danger",
     
   /* Grid */
-    "grid_section" : "container",
+    "grid_section" : "",
     "grid_row" : "row",
     "grid_cell" : "columns",
     "grid_cell_default" : "col-lg-12",
