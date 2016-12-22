@@ -36,8 +36,8 @@ context.styles = [
     "collapse" : "",
     "collapsed" : "",
     "required" : "required",
-    "prefix" : "prefix",
-    "postfix" : "postfix",
+    "prefix" : "input-group-addon",
+    "postfix" : "input-group-addon",
     "hidden" : "hide",
     "icon" : "fa fa-fw",
     "icon_prefix" : "fa fa-",
@@ -899,6 +899,25 @@ context.styles = [
     /* misc fields styles */
     "fields_wrap" : "input-group",
     "fields_label" : "input-group-addon",
+    
+    /* generic field styles*/
+    "field_input_default" : "form-control",
+    "field_textarea_default" : "form-control",
+    "field_datetime_default" : "form-control",
+    "field_datefind_default" : "form-control",
+    "field_datefind_select_default" : "form-control",
+    "field_select_default" : "form-control",
+    "field_lookup_default" : "form-control",
+    "field_file_default" : "form-control",
+    "field_password_default" : "form-control",
+    "field_reset_default" : "form-control",
+    "field_submit_default" : "form-control",
+    "field_textfind_default" : "form-control",
+    "field_textfind_select_default" : "form-control",
+    "field_rangefind_default" : "form-control",
+    "field_rangefind_select_default" : "form-control",
+    "field_display_default" : "form-control",
+    "field_generic_default" : "form-control",
 
     /* checkbox type styles */
     "field_checkbox_default" : "switch btn-sm checkbox-type-switch",

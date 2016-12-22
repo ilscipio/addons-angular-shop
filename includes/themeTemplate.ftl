@@ -53,43 +53,6 @@ NOTES:
     they all MUST accept an "catchArgs..." (varargs) so they are not subject to compatibility breaking.
  -->
 
-<#-- @field template-facing macro - theme override 
-    currently we only need this override because of some markup limitations that can't be addressed
-    in the _markup macros alone. ideally would have only the _markup macros. but this provides extra examples. -->
-<#-- field_defaultArgs_min only lists the min params we need access to in our immediate overriding code.
-    the _min separatation here is not necessary in general, it's only an optimization used because @field has a million
-    parameters. having field_defaultArgs only would work fine as well (and less error prone). -->
-<#assign field_defaultArgs_min = {"type":"", "class":"", "passArgs":{}}>
-<#assign field_defaultArgs = getScipioMacroDefaultArgs("field", scipioStdTmplLib) + field_defaultArgs_min>
-<#macro field args={} inlineArgs...>
-  <#-- WARN: usage of field_defaultArgs_min here means any arguments that need to be accessed 
-      from this override code must be declared in field_defaultArgs_min.
-  <#local args = mergeArgMaps(args, inlineArgs, scipioBsTmplLib.field_defaultArgs)>-->
-  <#local args = mergeArgMaps(args, inlineArgs, scipioBsTmplLib.field_defaultArgs_min)>
-  <#local dummy = localsPutAll(args)>
-  
-  <#if !type?has_content>
-    <#local type = "generic">
-  </#if>
-
-  <#-- FIXME? this works to add form-control to inputs, but probably complicates if need to add containers
-      (see other FIXMEs) -->
-  <#local class = addClassArg(class, "form-control")/>
-  
-  <#-- FIXME: the following classes don't belong here at all (shouldn't be on <input> elems but only on wrappers), 
-      but currently can't add wrappers in markup macro... -->
-  <#local fieldEntryTypeClass = "field-entry-type-" + mapScipioFieldTypeToStyleName(type)>
-  <#local class = addClassArg(class, "field-entry-widget")/>
-  <#local class = addClassArg(class, fieldEntryTypeClass)/>
-  
-  <#-- any extra args we need to communicate to our macro implementation can go in this map -->
-  <#local extraPassArgs = {}>
-  
-  <#-- NOTE: the inlineArgs always override the args map, so can exploit this to avoid making an extra map 
-      NOTE: passArgs should always concatenate, so a caller can still pass args through us -->
-  <@scipioStdTmplLib.field args=args class=class passArgs=(passArgs+extraPassArgs)><#nested /></@scipioStdTmplLib.field>
-</#macro>
-
 <#-- @field container markup - theme override 
     #nested is the actual field widget (<input>, <select>, etc.). -->
 <#macro field_markup_container type="" fieldsType="" defaultGridArgs={} gridArgs={} 
@@ -98,157 +61,24 @@ NOTES:
     preWidgetContent=false postWidgetContent=false preLabelContent=false postLabelContent=false prePostfixContent=false postPostfixContent=false
     labelAreaContentArgs={} postfixContentArgs={} prePostContentArgs={}
     widgetAreaClass="" labelAreaClass="" postfixAreaClass="" widgetPostfixAreaClass="" inverted=false labelSmallDiffColumns=""
-    origArgs={} passArgs={} required=false catchArgs...>
-  <#local rowClass = containerClass>
-
-  <#local labelInRow = (labelType != "vertical")>
-  
-  <#local widgetPostfixCombined = gridArgs.widgetPostfixCombined!defaultGridArgs.widgetPostfixCombined!"">
-  <#if !widgetPostfixCombined?is_boolean>
-    <#-- We may have collapse==false but collapsePostfix==true, in which case
-        we may want to collapse the postfix without collapsing the entire thing. 
-        Handle this by making a combined sub-row if needed.
-        2016-04-05: This container is also important for max field row width CSS workaround!
-            Therefore, we will also omit the collapsePostfix requirement. -->
-    <#if postfix && !collapse> <#-- previously: ((postfix && collapsePostfix) && !collapse) -->
-      <#local widgetPostfixCombined = styles["fields_" + fieldsType + "_widgetpostfixcombined"]!styles["fields_default_widgetpostfixcombined"]!true>
-    <#else>
-      <#local widgetPostfixCombined = false>
-    </#if>
+    origArgs={} passArgs={} required=false noLabelCell=false noInputCell=false catchArgs...>
+  <#if postfix>
+    <#local containerClass = addClassArg(containerClass, "input-group ")>
+  <#else>
+    <#local containerClass = addClassArg(containerClass, "form-group ")>
   </#if>
+  <#local labelAreaClass = addClassArg(labelAreaClass, "control-label")>
+  <#local widgetAreaClass = addClassArg(widgetAreaClass, "form-control")>
+  <#local nocells = true>
+        
+  <@scipioStdTmplLib.field_markup_container type=type fieldsType=fieldsType defaultGridArgs=defaultGridArgs gridArgs=gridArgs postfix=postfix  
+    postfixContent=postfixContent labelArea=labelArea labelType=labelType labelPosition=labelPosition labelAreaContent=labelAreaContent 
+    collapse=collapse collapseLabel=collapseLabel collapsePostfix=collapsePostfix norows=norows nocells=nocells container=container containerId=containerId containerClass=containerClass containerStyle=containerStyle
+    preWidgetContent=preWidgetContent postWidgetContent=postWidgetContent preLabelContent=preLabelContent postLabelContent=postLabelContent prePostfixContent=prePostfixContent postPostfixContent=postPostfixContent
+    labelAreaContentArgs=labelAreaContentArgs postfixContentArgs=postfixContentArgs prePostContentArgs=prePostContentArgs
+    widgetAreaClass=widgetAreaClass labelAreaClass=labelAreaClass postfixAreaClass=postfixAreaClass widgetPostfixAreaClass=widgetPostfixAreaClass
+    inverted=inverted labelSmallDiffColumns=labelSmallDiffColumns origArgs=origArgs passArgs=passArgs required=required noLabelCell=noLabelCell noInputCell=noInputCell><#nested></@scipioStdTmplLib.field_markup_container>
 
-  <#-- This is separated because some templates need access to the grid sizes to align things, and they
-      can't be calculated statically in the styles hash -->
-  <#local defaultGridStyles = getDefaultFieldGridStyles(defaultGridArgs + {"labelInRow": labelInRow,
-    "widgetPostfixCombined":widgetPostfixCombined} + gridArgs)>
-  <#-- NOTE: For inverted, we don't swap the defaultGridStyles grid classes, only the user-supplied and identifying ones -->
-
-  <#local fieldEntryTypeClass = "field-entry-type-" + mapScipioFieldTypeToStyleName(type)>
-  <#local labelAreaClass = addClassArg(labelAreaClass, "field-entry-title " + fieldEntryTypeClass)>
-  <#local widgetAreaClass = addClassArg(widgetAreaClass, "field-entry-widget " + fieldEntryTypeClass)>
-  <#local postfixAreaClass = addClassArg(postfixAreaClass, "field-entry-postfix " + fieldEntryTypeClass)>
-  <#local widgetPostfixAreaClass = addClassArg(widgetPostfixAreaClass, "field-entry-widgetpostfix " + fieldEntryTypeClass)>
-
-  <#local rowClass = addClassArg(rowClass, "form-field-entry " + fieldEntryTypeClass)>
-  <@row class=compileClassArg(rowClass) collapse=collapse!false norows=(norows || !container) id=containerId style=containerStyle>
-    <#if labelType == "vertical">
-      <#-- FIXME: vertical was mostly copy-pasted quickly so it can be seen visually, needs work -->
-      <@cell>
-        <div class="form-group input-group">
-        <#if labelArea && labelPosition == "top">
-          <@row>
-            <@cell class=compileClassArg(inverted?string(widgetAreaClass, labelAreaClass))>
-              <#if inverted>
-                <#if type == "display">
-                  <span class="form-control"><#nested></span>
-                <#else>
-                  <#if !preWidgetContent?is_boolean><@contentArgRender content=preWidgetContent args=prePostContentArgs /></#if>
-                  <#nested>
-                  <#if !postWidgetContent?is_boolean><@contentArgRender content=postWidgetContent args=prePostContentArgs /></#if>
-                </#if>
-              <#else>
-                <#if !preLabelContent?is_boolean><@contentArgRender content=preLabelContent args=prePostContentArgs /></#if>
-                <#-- FIXME?: This span should be in @field_markup_labelarea? -->
-                <span class="input-group-addon field-entry-title ${escapeVal(fieldEntryTypeClass, 'html')}"><#if !labelAreaContent?is_boolean><@contentArgRender content=labelAreaContent args=labelAreaContentArgs /></#if></span>
-                <#if !postLabelContent?is_boolean><@contentArgRender content=postLabelContent args=prePostContentArgs /></#if>
-              </#if>
-            </@cell>
-          </@row>
-        </#if>
-          <@row>
-            <#-- WARN: widgetAreaClass is probably not quite proper here -->
-            <@cell class=compileClassArg(inverted?string(labelAreaClass, widgetAreaClass))>
-              <#-- FIXME: currently can't add wrapper without breaking style, so moved these classes to @field override
-              <span class="field-entry-widget ${fieldEntryTypeClass}"><#nested></span>
-              -->
-              <#if inverted>
-                <#if !preLabelContent?is_boolean><@contentArgRender content=preLabelContent args=prePostContentArgs /></#if>
-                <#-- FIXME?: This span should be in @field_markup_labelarea? -->
-                <span class="input-group-addon field-entry-title ${escapeVal(fieldEntryTypeClass, 'html')}"><#if !labelAreaContent?is_boolean><@contentArgRender content=labelAreaContent args=labelAreaContentArgs /></#if></span>
-                <#if !postLabelContent?is_boolean><@contentArgRender content=postLabelContent args=prePostContentArgs /></#if>
-              <#else>
-                <#-- quick hack to add container to things that don't naturally have any (shouldn't
-                    be needed, see last FIXME -->
-                <#if type == "display">
-                  <span class="form-control"><#nested></span>
-                <#else>
-                  <#if !preWidgetContent?is_boolean><@contentArgRender content=preWidgetContent args=prePostContentArgs /></#if>
-                  <#nested>
-                  <#if !postWidgetContent?is_boolean><@contentArgRender content=postWidgetContent args=prePostContentArgs /></#if>
-                </#if>
-              </#if>
-              <#-- FIXME: CSS not working with postfix (form-control goes to width 100% and pushes this to next line) 
-              <#if postfix>
-                <span class="field-entry-postfix ${fieldEntryTypeClass}">
-                  <#if !prePostfixContent?is_boolean><@contentArgRender content=prePostfixContent args=prePostContentArgs /></#if>
-                  <#if (postfixContent?is_boolean && postfixContent == true) || !postfixContent?has_content>
-                    <span class="postfix"><input type="submit" class="${styles.icon!} ${styles.icon_button!}" value="${styles.icon_button_value!}"/></span>
-                  <#elseif !postfixContent?is_boolean>
-                    <#if !postfixContent?is_boolean><@contentArgRender content=postfixContent args=postfixContentArgs /></#if>
-                  </#if>
-                  <#if !postPostfixContent?is_boolean><@contentArgRender content=postPostfixContent args=prePostContentArgs /></#if>
-                </span>
-              </#if>
-              -->
-            </@cell>
-          </@row>
-        </div>
-      </@cell>
-    <#else> <#-- elseif labelType == "horizontal" -->
-      <@cell class="" nocells=(nocells || !container)>
-        <div class="form-group">
-          <#if labelArea  && labelType == "horizontal" && labelPosition == "left">
-            <#if inverted>
-              <#if type == "display">
-                <span class="form-control"><#nested></span>
-              <#else>
-                <#if !preWidgetContent?is_boolean><@contentArgRender content=preWidgetContent args=prePostContentArgs /></#if>
-                <#nested>
-                <#if !postWidgetContent?is_boolean><@contentArgRender content=postWidgetContent args=prePostContentArgs /></#if>
-              </#if>
-            <#else>
-              <#if !preLabelContent?is_boolean><@contentArgRender content=preLabelContent args=prePostContentArgs /></#if>
-              <#-- FIXME: give label area min width -->
-              <#-- <span class="input-group-addon field-entry-title ${escapeVal(fieldEntryTypeClass, 'html')}"> --><#if !labelAreaContent?is_boolean><@contentArgRender content=labelAreaContent args=labelAreaContentArgs /></#if><#-- </span> -->
-              <#if !postLabelContent?is_boolean><@contentArgRender content=postLabelContent args=prePostContentArgs /></#if>
-            </#if>
-          </#if>
-          <#-- FIXME: currently can't add wrapper without breaking style, so moved these classes to @field override
-          <span class="field-entry-widget ${fieldEntryTypeClass}"><#nested></span>
-          -->
-          <#-- quick hack to add container to things that don't naturally have any (shouldn't
-              be needed, see last FIXME -->
-          <#if inverted>
-            <#if !preLabelContent?is_boolean><@contentArgRender content=preLabelContent args=prePostContentArgs /></#if>
-            <#-- FIXME?: This span should be in @field_markup_labelarea? -->
-            <#-- <span class="input-group-addon field-entry-title ${escapeVal(fieldEntryTypeClass, 'html')}"> --><#if !labelAreaContent?is_boolean><@contentArgRender content=labelAreaContent args=labelAreaContentArgs /></#if><#-- </span> -->
-            <#if !postLabelContent?is_boolean><@contentArgRender content=postLabelContent args=prePostContentArgs /></#if>
-          <#else>
-            <#if type == "display">
-              <span class="form-control"><#nested></span>
-            <#else>
-              <#if !preWidgetContent?is_boolean><@contentArgRender content=preWidgetContent args=prePostContentArgs /></#if>
-              <#nested>
-              <#if !postWidgetContent?is_boolean><@contentArgRender content=postWidgetContent args=prePostContentArgs /></#if>
-            </#if>
-          </#if>
-          <#-- FIXME: CSS not working with postfix (form-control goes to width 100% and pushes this to next line) 
-          <#if postfix>
-            <span class="field-entry-postfix ${escapeVal(fieldEntryTypeClass, 'html')}">
-              <#if !prePostfixContent?is_boolean><@contentArgRender content=prePostfixContent args=prePostContentArgs /></#if>
-              <#if (postfixContent?is_boolean && postfixContent == true) || !postfixContent?has_content>
-                <span class="postfix"><input type="submit" class="${styles.icon!} ${styles.icon_button!}" value="${styles.icon_button_value!}"/></span>
-              <#elseif !postfixContent?is_boolean>
-                <#if !postfixContent?is_boolean><@contentArgRender content=postfixContent args=postfixContentArgs /></#if>
-              </#if>
-              <#if !postPostfixContent?is_boolean><@contentArgRender content=postPostfixContent args=prePostContentArgs /></#if>
-            </span>
-          </#if>
-          -->
-        </div>
-      </@cell>
-    </#if>
-  </@row>
 </#macro>
 
 <#-- @field label area markup - theme override -->
