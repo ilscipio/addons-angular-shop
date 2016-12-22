@@ -62,14 +62,14 @@ NOTES:
     labelAreaContentArgs={} postfixContentArgs={} prePostContentArgs={}
     widgetAreaClass="" labelAreaClass="" postfixAreaClass="" widgetPostfixAreaClass="" inverted=false labelSmallDiffColumns=""
     origArgs={} passArgs={} required=false noLabelCell=false noInputCell=false catchArgs...>
-  <#if postfix>
-    <#local containerClass = addClassArg(containerClass, "input-group ")>
-  <#else>
-    <#local containerClass = addClassArg(containerClass, "form-group ")>
+  <#local containerClass = addClassArg(containerClass, "form-group ")>
+  <#if labelArea && labelPosition == "top">
+    <#local nocells = true>
   </#if>
+  <#--
   <#local labelAreaClass = addClassArg(labelAreaClass, "control-label")>
-  <#local widgetAreaClass = addClassArg(widgetAreaClass, "form-control")>
-  <#local nocells = true>
+  <#local widgetAreaClass = addClassArg(widgetAreaClass, "form-control")>-->
+
         
   <@scipioStdTmplLib.field_markup_container type=type fieldsType=fieldsType defaultGridArgs=defaultGridArgs gridArgs=gridArgs postfix=postfix  
     postfixContent=postfixContent labelArea=labelArea labelType=labelType labelPosition=labelPosition labelAreaContent=labelAreaContent 
