@@ -3912,6 +3912,15 @@ pre.scrollable {
   text-align: center;
   width: 100%;
 }
+.btn-group input,
+.btn-group form {
+  position: relative;
+  float: left;
+}
+.btn-group input:not(:first-child):not(:last-child):not(.dropdown-toggle),
+.btn-group form:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+  border-radius: 0;
+}
 div.form-control,
 .form-group div.form-control,
 .field-entry-type-display {

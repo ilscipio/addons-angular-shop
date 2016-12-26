@@ -93,6 +93,15 @@ pre.scrollable {
     }
 }
 
+.btn-group input, .btn-group form {    
+		position: relative;
+    float: left;
+		
+		&:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+			border-radius: 0;
+			}
+		}
+
 div.form-control, .form-group div.form-control,.field-entry-type-display {background:none;}
 
 .dropdown-menu {min-width:200px;}
