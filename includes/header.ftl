@@ -63,10 +63,14 @@ under the License.
     </#if>
     <#if parameters.componentName?? && requestAttributes._CURRENT_VIEW_?? && helpTopic??>
         <#include "component://common/webcommon/includes/helplink.ftl" />
+        <#assign portalPageParamStr><#if parameters.portalPageId?has_content>&portalPageId=${rawString(parameters.portalPageId!)}</#if></#assign>
+        <li class="has-form"><@modal label=uiLabelMap.CommonHelp id="help" 
+            href=makeOfbizUrl("showHelp?helpTopic=${rawString(helpTopic!)}${portalPageParamStr}") icon="fa fa-fw fa-info"></@modal></li>
     </#if>
     <#if userLogin??>
         <li class="divider"></li>
         <li class="active"><a href="<@ofbizUrl>logout</@ofbizUrl>"><i class="fa fa-fw fa-power-off"></i> ${uiLabelMap.CommonLogout}</a></li>
+        <li class="divider"></li>
     </#if>
 </#macro>
 
@@ -269,7 +273,7 @@ so for now we have to split the screens in half and rely on the menu widget rend
                 <@logoMenu isSmall=true/>
             </div>
             <!-- Top Menu Items -->
-            <div class="collapse navbar-collapse" id="leftNavbar">
+            <div class="collapse navbar-collapse navbar-responsive-collapse" id="leftNavbar">
             <ul class="nav navbar-nav navbar-right top-nav">
                 <#-- Messages
                 <li class="dropdown">
@@ -329,9 +333,6 @@ so for now we have to split the screens in half and rely on the menu widget rend
                     <#if userLogin??><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> ${userLogin.userLoginId} <b class="caret"></b><#else><a href="<@ofbizUrl>${checkLoginUrl}</@ofbizUrl>">${uiLabelMap.CommonLogin}</a></#if></a>
                     <ul class="dropdown-menu">
                         <@generalMenu />
-                        <#assign portalPageParamStr><#if parameters.portalPageId?has_content>&portalPageId=${rawString(parameters.portalPageId!)}</#if></#assign>
-                        <li class="has-form"><@modal label=uiLabelMap.CommonHelp id="help" 
-                            href=makeOfbizUrl("showHelp?helpTopic=${rawString(helpTopic!)}${portalPageParamStr}") icon="fa fa-fw fa-info"></@modal></li>
                     </ul>
                 </li>
             </ul>

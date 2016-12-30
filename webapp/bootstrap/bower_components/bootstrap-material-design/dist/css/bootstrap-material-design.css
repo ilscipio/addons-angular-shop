@@ -3959,4 +3959,13 @@ div.form-control,
   background: none;
   border-bottom: 0px;
 }
+@media (max-width: 1199px) {
+  #left-sidebar {
+    display: none;
+  }
+  #wrapper {
+    padding-left: 0px;
+    margin-top: 50px;
+  }
+}
 /*# sourceMappingURL=bootstrap-material-design.css.map */
