@@ -19,6 +19,9 @@ under the License.
 -->
 
 <project name="OFBiz - Bootstrap Theme" default="build" basedir=".">
+    <target name="check-init-lib-update"><!-- TODO: REMOVE -->
+    </target>
+    
     <import file="../../commontheme.xml"/>
 
     <!-- ================================================================== -->
