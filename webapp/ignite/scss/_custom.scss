@@ -4,6 +4,13 @@
 @import "chartsjs";
 @import "tiles";
 
+// GENERAL
+.main {
+    .container-fluid {
+        padding-top:20px;
+    }
+}
+
 // CODE
 pre {
     /* original is white background with no border */

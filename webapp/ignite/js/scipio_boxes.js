@@ -5,14 +5,17 @@
 var elSelector = 'pre.scrollable,.section-screenlet-content';
 var notSubSelector = 'pre.scrollable,.section-screenlet-content, table,.orbit-container, .steps, .tile-container, .signup-panel,.button-group,.trumbowyg-box';
 var scipioBoxClass = 'card';
-var scipioBoxSubClass = 'card';
+var scipioBoxSubClass = 'card-content';
 
 
 function scipio_boxify(){
     $(elSelector).each(function(){
         if($(this).has(notSubSelector).length == 0 && $(this).text().trim().length > 0){
-            $(this).addClass(scipioBoxClass);
-            //$(this).children('ul')
+        	var cell = $(this);
+            cell.addClass(scipioBoxClass);
+            $('<div/>')
+    		.addClass(scipioBoxSubClass)
+    		.appendTo( cell );
         }
     });
 }

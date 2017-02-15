@@ -265,7 +265,7 @@ so for now we have to split the screens in half and rely on the menu widget rend
             <!-- Top Menu Items -->
             <ul class="nav navbar-nav navbar-left top-nav">
                 <li class="nav-item">
-                     <button class="nav-link navbar-toggler layout-toggler" type="button">&#9776;</button>
+                     <button class="nav-link navbar-toggler sidebar-toggler" type="button">&#9776;</button>
                 </li>
                 <#if userLogin??>
                 <li class="nav-item p-x-1">

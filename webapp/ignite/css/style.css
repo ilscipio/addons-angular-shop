@@ -8856,6 +8856,9 @@ base-chart.chart {
 .tile-color-58h, .tile-color-snow-alpha-heavy {
   background-color: rgba(249, 249, 249, 0.7) !important; }
 
+.main .container-fluid {
+  padding-top: 20px; }
+
 pre {
   /* original is white background with no border */
   background-color: #fff;
