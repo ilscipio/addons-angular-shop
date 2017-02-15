@@ -55,7 +55,6 @@ under the License.
     
     <!-- THEME SPECIFIC -->
     <!-- Styles -->
-    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/ignite-shop-theme/bower_components/bootstrap/dist/css/bootstrap.min.css" sequenceId="01"/>
     <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/ignite-shop-theme/css/font-awesome.min.css" sequenceId="02"/>
     <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/ignite-shop-theme/css/simple-line-icons.css" sequenceId="03"/>
     <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/ignite-shop-theme/css/style.css" sequenceId="04"/>
@@ -80,6 +79,6 @@ under the License.
     <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/base-theme/bower_components/datatables/datatables.min.js" sequenceId="09"/>
     
     <!--<VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/base-theme/bower_components/momentjs/min/moment-with-locales.min.js" sequenceId="10"/>-->
-    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/metro-theme/js/scipio_boxes.js" sequenceId="20"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/ignite-shop-theme/js/scipio_boxes.js" sequenceId="20"/>
    
 </entity-engine-xml>
