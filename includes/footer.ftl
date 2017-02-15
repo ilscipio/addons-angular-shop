@@ -30,15 +30,8 @@ under the License.
         </main>
     </div>
     <footer class="app-footer">
-            <div class="container ">
-                <div class="text-center">
-                    <p>
-                        ${uiLabelMap.CommonCopyright} (c) 2014-${nowTimestamp?string("yyyy")} <a href="https://www.ilscipio.com" target="_blank">ilscipio GmbH</a>. ${uiLabelMap.CommonPoweredBy} <a href="http://www.scipioerp.com" target="_blank">SCIPIO ERP</a>. <#include "ofbizhome://runtime/svninfo.ftl" /> <#include "ofbizhome://runtime/gitinfo.ftl" />
-                    </p>
-                </div>
-            </div>
-            <!-- /.row -->
-        </footer>
+            ${uiLabelMap.CommonCopyright} (c) 2014-${nowTimestamp?string("yyyy")} <a href="https://www.ilscipio.com" target="_blank">ilscipio GmbH</a>.<span class="float-right">${uiLabelMap.CommonPoweredBy} <a href="http://www.scipioerp.com" target="_blank">SCIPIO ERP</a>. <#include "ofbizhome://runtime/svninfo.ftl" /> <#include "ofbizhome://runtime/gitinfo.ftl" /></span>
+    </footer>
 
 
   <@scripts output=true> <#-- ensure @script elems here will always output -->

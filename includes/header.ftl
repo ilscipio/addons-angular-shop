@@ -58,19 +58,17 @@ under the License.
           <li class="nav-item">${userLogin.userLoginId}</li>
         </#if>
         -->
-        <li class="nav-item"><a href="<@ofbizUrl>ListLocales</@ofbizUrl>"><i class="fa fa-fw fa-language"></i> ${uiLabelMap.CommonLanguageTitle}</a></li>
-        <li class="nav-item"><a href="<@ofbizUrl>ListVisualThemes</@ofbizUrl>"><i class="fa fa-fw fa-photo"></i> ${uiLabelMap.CommonVisualThemes}</a></li>
+        <li class="dropdown-item"><a href="<@ofbizUrl>ListLocales</@ofbizUrl>"><i class="fa fa-fw fa-language"></i> ${uiLabelMap.CommonLanguageTitle}</a></li>
+        <li class="dropdown-item"><a href="<@ofbizUrl>ListVisualThemes</@ofbizUrl>"><i class="fa fa-fw fa-photo"></i> ${uiLabelMap.CommonVisualThemes}</a></li>
     </#if>
     <#if parameters.componentName?? && requestAttributes._CURRENT_VIEW_?? && helpTopic??>
         <#include "component://common/webcommon/includes/helplink.ftl" />
         <#assign portalPageParamStr><#if parameters.portalPageId?has_content>&portalPageId=${rawString(parameters.portalPageId!)}</#if></#assign>
-        <li class="has-form"><@modal label=uiLabelMap.CommonHelp id="help" 
+        <li class="has-form dropdown-item"><@modal label=uiLabelMap.CommonHelp id="help" 
             href=makeOfbizUrl("showHelp?helpTopic=${rawString(helpTopic!)}${portalPageParamStr}") icon="fa fa-fw fa-info"></@modal></li>
     </#if>
     <#if userLogin??>
-        <li class="divider"></li>
-        <li class="active"><a href="<@ofbizUrl>logout</@ofbizUrl>"><i class="fa fa-fw fa-power-off"></i> ${uiLabelMap.CommonLogout}</a></li>
-        <li class="divider"></li>
+        <li class="active dropdown-item"><a href="<@ofbizUrl>logout</@ofbizUrl>"><i class="fa fa-fw fa-power-off"></i> ${uiLabelMap.CommonLogout}</a></li>
     </#if>
 </#macro>
 
@@ -262,20 +260,22 @@ so for now we have to split the screens in half and rely on the menu widget rend
     <header class="app-header navbar">
     
         <!-- Brand and toggle get grouped for better mobile display -->
-            <button class="navbar-toggler mobile-toggler hidden-lg-up" type="button">&#9776;</button>
             <@logoMenu isSmall=true/>
             
             <!-- Top Menu Items -->
             <ul class="nav navbar-nav navbar-left top-nav">
+                <li class="nav-item">
+                     <button class="nav-link navbar-toggler layout-toggler" type="button">&#9776;</button>
+                </li>
                 <#if userLogin??>
-                <li class="dropdown">
-                    <a href="javascript:;" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-dashboard"></i> ${uiLabelMap["CommonPrimaryApps"]} </i></a>
+                <li class="nav-item p-x-1">
+                    <a href="javascript:;" class="nav-link dropdown-toggle nav-link" data-toggle="dropdown"><i class="fa fa-fw fa-dashboard"></i> ${uiLabelMap["CommonPrimaryApps"]} </i></a>
                     <ul id="menuPrimary" class="dropdown-menu">
                         <@primaryAppsMenu/>
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <a href="javascript:;" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-desktop"></i> ${uiLabelMap["CommonSecondaryApps"]} </i></a>
+                <li class="nav-item p-x-1">
+                    <a href="javascript:;" class="nav-link dropdown-toggle nav-link" data-toggle="dropdown"><i class="fa fa-fw fa-desktop"></i> ${uiLabelMap["CommonSecondaryApps"]} </i></a>
                     <ul id="menuSecondary" class="dropdown-menu">
                         <@secondaryAppsMenu/>
                     </ul>
@@ -338,9 +338,9 @@ so for now we have to split the screens in half and rely on the menu widget rend
                     </ul>
                 </li>
                 -->
-                <li class="dropdown">
-                    <#if userLogin??><a href="#" class="nav-link" data-toggle="dropdown"><i class="fa fa-user"></i> ${userLogin.userLoginId} </b><#else><a href="<@ofbizUrl>${checkLoginUrl}</@ofbizUrl>">${uiLabelMap.CommonLogin}</a></#if></a>
-                    <ul class="dropdown-menu">
+                <li class="nav-item dropdown">
+                    <#if userLogin??><a href="#" class="nav-link dropdown-toggle nav-link" data-toggle="dropdown"><i class="fa fa-user"></i> ${userLogin.userLoginId} </b><#else><a href="<@ofbizUrl>${checkLoginUrl}</@ofbizUrl>">${uiLabelMap.CommonLogin}</a></#if></a>
+                    <ul class="dropdown-menu dropdown-menu-right">
                         <@generalMenu />
                     </ul>
                 </li>
