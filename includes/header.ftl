@@ -47,19 +47,19 @@ under the License.
         <#if layoutSettings.topLines?has_content>
           <#list layoutSettings.topLines as topLine>
             <#if topLine.text??>
-              <li>${topLine.text}<a href="${rawString(topLine.url!)}${rawString(externalKeyParam)}">${topLine.urlText!}</a></li>
+              <li class="nav-item">${topLine.text}<a href="${rawString(topLine.url!)}${rawString(externalKeyParam)}">${topLine.urlText!}</a></li>
             <#elseif topLine.dropDownList??>
-              <li><#include "component://common/webcommon/includes/insertDropDown.ftl"/></li>
+              <li class="nav-item"><#include "component://common/webcommon/includes/insertDropDown.ftl"/></li>
             <#else>
-              <li>${topLine!}</li>
+              <li class="nav-item">${topLine!}</li>
             </#if>
           </#list>
         <#else>
-          <li>${userLogin.userLoginId}</li>
+          <li class="nav-item">${userLogin.userLoginId}</li>
         </#if>
         -->
-        <li><a href="<@ofbizUrl>ListLocales</@ofbizUrl>"><i class="fa fa-fw fa-language"></i> ${uiLabelMap.CommonLanguageTitle}</a></li>
-        <li><a href="<@ofbizUrl>ListVisualThemes</@ofbizUrl>"><i class="fa fa-fw fa-photo"></i> ${uiLabelMap.CommonVisualThemes}</a></li>
+        <li class="nav-item"><a href="<@ofbizUrl>ListLocales</@ofbizUrl>"><i class="fa fa-fw fa-language"></i> ${uiLabelMap.CommonLanguageTitle}</a></li>
+        <li class="nav-item"><a href="<@ofbizUrl>ListVisualThemes</@ofbizUrl>"><i class="fa fa-fw fa-photo"></i> ${uiLabelMap.CommonVisualThemes}</a></li>
     </#if>
     <#if parameters.componentName?? && requestAttributes._CURRENT_VIEW_?? && helpTopic??>
         <#include "component://common/webcommon/includes/helplink.ftl" />
@@ -77,7 +77,7 @@ under the License.
 <#macro primaryAppsMenu>
   <#assign appCount = 0>
   <#assign firstApp = true>
-  <#--  <li><label>${uiLabelMap["CommonPrimaryApps"]}</label></li>-->
+  <#--  <li class="nav-item"><label>${uiLabelMap["CommonPrimaryApps"]}</label></li>-->
   <#list displayApps as display>
         <#assign thisApp = display.getContextRoot()>
         <#assign selected = false>
@@ -105,7 +105,7 @@ under the License.
 </#macro>
 
 <#macro secondaryAppsMenu>
-    <#--<li><label>${uiLabelMap["CommonSecondaryApps"]}</label></li>-->
+    <#--<li class="nav-item"><label>${uiLabelMap["CommonSecondaryApps"]}</label></li>-->
     <#list displaySecondaryApps as display>
         <#assign thisApp = display.getContextRoot()>
         <#assign selected = false>
@@ -150,11 +150,11 @@ so for now we have to split the screens in half and rely on the menu widget rend
     </#if>
     <#if headerImageUrl??>
         <#if organizationLogoLinkURL?has_content>
-            <#if hasLink><a href="<@ofbizUrl>${logoLinkURL}</@ofbizUrl>" class="navbar-brand"></#if><img alt="${layoutSettings.companyName}" src="<@ofbizContentUrl>${rawString(organizationLogoLinkURL)}</@ofbizContentUrl>"/><#if hasLink></a></#if>
-            <#else><#if hasLink><a href="<@ofbizUrl>${logoLinkURL}</@ofbizUrl>" class="navbar-brand"></#if><img alt="${layoutSettings.companyName}" src="<@ofbizContentUrl>${rawString(headerImageUrl)}</@ofbizContentUrl>"/><#if hasLink></a></#if>
+            <#if hasLink><a href="<@ofbizUrl>${logoLinkURL}</@ofbizUrl>" class="navbar-brand"></#if><#if hasLink></a></#if>
+            <#else><#if hasLink><a href="<@ofbizUrl>${logoLinkURL}</@ofbizUrl>" class="navbar-brand"></#if><#if hasLink></a></#if>
         </#if>
         <#else>
-        <a href="<@ofbizUrl>${logoLinkURL!""}</@ofbizUrl>" class="navbar-brand"><img alt="${layoutSettings.companyName}" src="<@ofbizContentUrl>/images/scipio/<#if isSmall>scipio-logo-small.png<#else>scipio-logo.svg</#if></@ofbizContentUrl>"/></a>
+        <a href="<@ofbizUrl>${logoLinkURL!""}</@ofbizUrl>" class="navbar-brand"></a>
     </#if>
 </#macro>
 
@@ -257,27 +257,36 @@ so for now we have to split the screens in half and rely on the menu widget rend
   <#assign logoLinkURL = "${layoutSettings.commonHeaderImageLinkUrl}">
 </#if>
 <#assign organizationLogoLinkURL = "${layoutSettings.organizationLogoLinkUrl!}">
-<body class="<#if activeApp?has_content>app-${activeApp}</#if><#if parameters._CURRENT_VIEW_?has_content> page-${parameters._CURRENT_VIEW_!}</#if> <#if userLogin??>page-auth<#else>page-noauth</#if>">
-<div id="wrapper">
+<body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden <#if activeApp?has_content>app-${activeApp}</#if><#if parameters._CURRENT_VIEW_?has_content> page-${parameters._CURRENT_VIEW_!}</#if> <#if userLogin??>page-auth<#else>page-noauth</#if>">
     <!-- Navigation -->
-    <nav class="navbar navbar-fixed-top" role="navigation">
+    <header class="app-header navbar">
     
         <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#leftNavbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <@logoMenu isSmall=true/>
-            </div>
+            <button class="navbar-toggler mobile-toggler hidden-lg-up" type="button">&#9776;</button>
+            <@logoMenu isSmall=true/>
+            
             <!-- Top Menu Items -->
-            <div class="collapse navbar-collapse navbar-responsive-collapse" id="leftNavbar">
-            <ul class="nav navbar-nav navbar-right top-nav">
+            <ul class="nav navbar-nav navbar-left top-nav">
+                <#if userLogin??>
+                <li class="dropdown">
+                    <a href="javascript:;" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-dashboard"></i> ${uiLabelMap["CommonPrimaryApps"]} </i></a>
+                    <ul id="menuPrimary" class="dropdown-menu">
+                        <@primaryAppsMenu/>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-desktop"></i> ${uiLabelMap["CommonSecondaryApps"]} </i></a>
+                    <ul id="menuSecondary" class="dropdown-menu">
+                        <@secondaryAppsMenu/>
+                    </ul>
+                </li>
+                </#if>
+             </ul>
+             
+             <ul class="nav navbar-nav navbar-right ml-auto">
                 <#-- Messages
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu message-dropdown">
                         <li class="message-preview">
                             <a href="#">
@@ -302,53 +311,38 @@ so for now we have to split the screens in half and rely on the menu widget rend
                 -->
                 <#-- Alerts
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu alert-dropdown">
-                        <li>
+                        <li class="nav-item">
                             <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
                         </li>
-                        <li>
+                        <li class="nav-item">
                             <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
                         </li>
-                        <li>
+                        <li class="nav-item">
                             <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
                         </li>
-                        <li>
+                        <li class="nav-item">
                             <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
                         </li>
-                        <li>
+                        <li class="nav-item">
                             <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
                         </li>
-                        <li>
+                        <li class="nav-item">
                             <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
                         </li>
                         <li class="divider"></li>
-                        <li>
+                        <li class="nav-item">
                             <a href="#">View All</a>
                         </li>
                     </ul>
                 </li>
                 -->
                 <li class="dropdown">
-                    <#if userLogin??><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> ${userLogin.userLoginId} <b class="caret"></b><#else><a href="<@ofbizUrl>${checkLoginUrl}</@ofbizUrl>">${uiLabelMap.CommonLogin}</a></#if></a>
+                    <#if userLogin??><a href="#" class="nav-link" data-toggle="dropdown"><i class="fa fa-user"></i> ${userLogin.userLoginId} </b><#else><a href="<@ofbizUrl>${checkLoginUrl}</@ofbizUrl>">${uiLabelMap.CommonLogin}</a></#if></a>
                     <ul class="dropdown-menu">
                         <@generalMenu />
                     </ul>
                 </li>
             </ul>
-            <ul class="nav navbar-nav navbar-left top-nav">
-                    <#if userLogin??>
-                    <li class="dropdown">
-                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-dashboard"></i> ${uiLabelMap["CommonPrimaryApps"]} <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="menuPrimary" class="dropdown-menu">
-                            <@primaryAppsMenu/>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-desktop"></i> ${uiLabelMap["CommonSecondaryApps"]} <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="menuSecondary" class="dropdown-menu">
-                            <@secondaryAppsMenu/>
-                        </ul>
-                    </li>
-                    </#if>
- 
+            <ul class="nav navbar-nav navbar-left top-nav" style="display:none">

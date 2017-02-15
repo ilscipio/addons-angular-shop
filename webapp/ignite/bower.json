@@ -8,7 +8,8 @@
     "fontawesome": "latest",
     "simple-line-icons": "latest",
     "pace": "latest",
-    "chart.js": "^2.3.0"
+    "Chart.js": "~2.1",
+    "sass-to-js": "~1.1.0"
   },
   "private": true
 }

@@ -16,7 +16,7 @@ context.styles = [
     
   /* Generic */
     "framework" : "bootstrap",
-    "customSideBar" : false,
+    "customSideBar" : true,
     "disabled" : "disabled",
     "active" : "active",
     "selected" : "selected",
@@ -148,10 +148,10 @@ context.styles = [
     "menu_main_altnested" : "menu-type-main",
     "menu_main_type" : "menu-type-main",
     "menu_main_specialtype" : "main",
-    "menu_main_wrap" : "dropdown",
-    "menu_main_item" : "dropdown-toggle",
+    "menu_main_wrap" : "nav-dropdown",
+    "menu_main_item" : "nav-item nav-dropdown-toggle",
     "menu_main_itemdisabled" : "disabled",
-    "menu_main_itemactive" : "active",
+    "menu_main_itemactive" : "open",
     "menu_main_itemactivetarget" : "active-target",
     "menu_main_itemactiveancestor" : "active-ancestor",
     "menu_main_itemselected" : "selected",
@@ -160,7 +160,7 @@ context.styles = [
     "menu_main_item_contentactivetarget" : "active-target",
     "menu_main_item_contentactiveancestor" : "active-ancestor",
     "menu_main_item_contentselected" : "selected",
-    "menu_main_item_link" : "javascript:;",
+    "menu_main_item_link" : "nav-link",
     "menu_main_item_text" : "text-entry",
     "menu_main_item_submit" : "",
     "menu_sidebar" : "nav navbar-nav side-nav menu-type-sidebar",
@@ -169,12 +169,12 @@ context.styles = [
     "menu_sidebar_specialtype" : "sidebar",
     "menu_sidebar_wrap" : "collapse navbar-collapse navbar-ex1-collapse",
     "menu_sidebar_active" : "",
-    "menu_sidebar_activeancestor" : "",
-    "menu_sidebar_item" : "",
+    "menu_sidebar_activeancestor" : "nav-dropdown-toggle",
+    "menu_sidebar_item" : "nav-item",
     "menu_sidebar_itemdisabled" : "disabled",
-    "menu_sidebar_itemactive" : "active",
+    "menu_sidebar_itemactive" : "open",
     "menu_sidebar_itemactivetarget" : "active-target",
-    "menu_sidebar_itemactiveancestor" : "active-ancestor",
+    "menu_sidebar_itemactiveancestor" : "nav-dropdown-items active-ancestor",
     "menu_sidebar_itemselected" : "selected",
     "menu_sidebar_itemdashboard" : "dashboard",
     "menu_sidebar_item_contentdisabled" : "disabled",
@@ -182,7 +182,7 @@ context.styles = [
     "menu_sidebar_item_contentactivetarget" : "active-target",
     "menu_sidebar_item_contentactiveancestor" : "active-ancestor",
     "menu_sidebar_item_contentselected" : "selected",
-    "menu_sidebar_item_link" : "",
+    "menu_sidebar_item_link" : "nav-link",
     "menu_sidebar_item_text" : "text-entry",
     "menu_sidebar_item_submit" : "",
     /* Tab and secondary navigation menus*/
@@ -607,7 +607,7 @@ context.styles = [
     "grid_cell" : "columns",
     "grid_cell_default" : "col-lg-12",
     "grid_display" : "display",      /* display grid */
-    "grid_theme" : "fullWidth",
+    "grid_theme" : "",
     "grid_end" : "end",
     "grid_small" : "col-sm-",
     "grid_medium" : "col-md-",
@@ -634,11 +634,11 @@ context.styles = [
     "grid_small_centered" : "text-centered",
     "grid_medium_centered" : "text-centered",
     "grid_large_centered" : "text-centered",
-    "grid_sidebar_0_main" : "col-lg-12",
-    "grid_sidebar_1_main" : "col-lg-12",
+    "grid_sidebar_0_main" : "container-fluid",
+    "grid_sidebar_1_main" : "container-fluid",
     "grid_sidebar_1_side" : "",
-    "grid_sidebar_2_main" : "col-lg-12",
-    "grid_sidebar_2_side" : "navbar-inverse",
+    "grid_sidebar_2_main" : "container-fluid",
+    "grid_sidebar_2_side" : "",
 
   /* Text align */
     "text_left" : "text-left",
@@ -653,7 +653,7 @@ context.styles = [
     
   /* Navigation */
     "nav_subnav" : "sub-nav",
-    "nav_sidenav" : "navbar navbar-collapse",
+    "nav_sidenav" : "sidebar-nav",
 
     /* Breadcrumbs */
     "nav_breadcrumbs" : "breadcrumb",

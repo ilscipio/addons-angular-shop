@@ -18,7 +18,7 @@ To start watching for less changes to auto compile to css, go to:
 @component-name/webapp/@component-name/
 
 and run:
-gulp serve
+gulp
 
 -----------------
 Bower update

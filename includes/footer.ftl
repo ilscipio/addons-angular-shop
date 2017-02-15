@@ -18,18 +18,18 @@ under the License.
 -->
 
         
-            </div>
+
             <!-- /.container-fluid -->
 
 
 
-        </div>
+
         <!-- /#page-wrapper -->
 
-    </div>
     <!-- /#wrapper -->
-    
-<footer>
+        </main>
+    </div>
+    <footer class="app-footer">
             <div class="container ">
                 <div class="text-center">
                     <p>
