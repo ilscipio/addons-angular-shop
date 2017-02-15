@@ -18,7 +18,7 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-<ofbiz-component name="bootstrap-theme"
+<ofbiz-component name="ignite-shop-theme"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/ofbiz-component.xsd">
     <depends-on component-name="base-theme"/>
@@ -27,14 +27,14 @@ under the License.
     <resource-loader name="main" type="component"/>
 
     <!-- entity resources: model(s), eca(s), group, and data definitions -->
-    <entity-resource type="data" reader-name="seed" loader="main" location="data/BootstrapThemeData.xml"/>
+    <entity-resource type="data" reader-name="seed" loader="main" location="data/IgniteShopThemeData.xml"/>
 
     <!-- web applications; will be mounted when using the embedded Jetty container -->
-    <webapp name="bootstrap-theme"
-        title="bootstrap-theme"
+    <webapp name="ignite-shop-theme"
+        title="ignite-shop-theme"
         menu-name="secondary"
         server="default-server"
-        location="webapp/bootstrap"
-        mount-point="/bootstrap-theme"
+        location="webapp/ignite"
+        mount-point="/ignite-shop-theme"
         app-bar-display="false"/>
 </ofbiz-component>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<entity-engine-xml>
+    <VisualTheme visualThemeId="IGNITE_SHOP" visualThemeSetId="BACKOFFICE" description="Bootstrap - Boostrap CSS Theme (PREMIUM)"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_THEME_DATA_RES" resourceValue="component://ignite-shop-theme/data/BootstrapThemeData.xml" sequenceId="01"/>
+    
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_NAME" resourceValue="IGNITE_SHOP" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_SCREENSHOT" resourceValue="/ignite-shop-theme/screenshot.jpg" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_HDR_TMPLT_LOC" resourceValue="component://ignite-shop-theme/includes/header.ftl" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_MSG_TMPLT_LOC" resourceValue="component://ignite-shop-theme/includes/messages.ftl" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTR_TMPLT_LOC" resourceValue="component://ignite-shop-theme/includes/footer.ftl" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_NAV_TMPLT_LOC" resourceValue="component://ignite-shop-theme/includes/appbar.ftl" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_NAV_OPEN_TMPLT" resourceValue="component://ignite-shop-theme/includes/appbarOpen.ftl" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_NAV_CLOSE_TMPLT" resourceValue="component://ignite-shop-theme/includes/appbarClose.ftl" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STL_VAR_LOC" resourceValue="component://ignite-shop-theme/includes/themeStyles.groovy" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STL_TMPLT_LOC" resourceValue="component://ignite-shop-theme/includes/themeTemplate.ftl" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_MENU_MACRO_LIB" resourceValue="component://ignite-shop-theme/includes/htmlMenuMacroLibrary.ftl" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_SHORTCUT_ICON" resourceValue="/ignite-shop-theme/images/favicon.ico" sequenceId="01"/>
+
+    <!-- SCIPIO: Set custom logo -->
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_HDR_IMAGE_URL" resourceValue="/ignite-shop-theme/images/logo_bw.png" sequenceId="01"/>
+
+    <!-- SCIPIO: The following includes can be used to override specific default pages
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_ERROR_TMPLT_LOC" resourceValue="component://ignite-shop-theme/includes/error.ftl" sequenceId="01"/> // Custom Error Page
+     -->    
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_LOGIN_TMPLT_LOC" resourceValue="component://ignite-shop-theme/includes/login.ftl" sequenceId="01"/> 
+
+    
+    <!-- GENERAL -->
+    <!-- Styles -->
+    <!-- Scripts -->
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_TOP_JAVASCRIPT" resourceValue="/ignite-shop-theme/bower_components/jquery/dist/jquery.min.js" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_TOP_JAVASCRIPT" resourceValue="/base-theme/bower_components/jquery-ui/jquery-ui.min.js" sequenceId="02"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_TOP_JAVASCRIPT" resourceValue="/ignite-shop-theme/bower_components/jquery-migrate/jquery-migrate.min.js" sequenceId="03"/>
+
+    
+    <!-- THEME SPECIFIC -->
+    <!-- Styles -->
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/ignite-shop-theme/bower_components/bootstrap/dist/css/bootstrap.min.css" sequenceId="01"/>
+    <!--<VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/ignite-shop-theme/bower_components/bootstrap/dist/css/ignite-shop-theme.min.css" sequenceId="02"/>-->
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/ignite-shop-theme/sb-admin/sb-admin.css" sequenceId="03"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/ignite-shop-theme/sb-admin/font-awesome/css/font-awesome.css" sequenceId="04"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/ignite-shop-theme/sb-admin/block-grid.css" sequenceId="05"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/ignite-shop-theme/sb-admin/pricing-table.css" sequenceId="06"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/ignite-shop-theme/bower_components/datatables/datatables.min.css" sequenceId="07"/>
+    <!-- <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="//fonts.googleapis.com/css?family=Open+Sans:400,600,300" sequenceId="03"/>-->
+    
+    <!-- Bootstrap Material design -->
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/ignite-shop-theme/bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css" sequenceId="08"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/ignite-shop-theme/bower_components/bootstrap-material-design/dist/css/ripples.min.css" sequenceId="09"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" sequenceId="10"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="//fonts.googleapis.com/icon?family=Material+Icons" sequenceId="11"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/ignite-shop-theme/bower_components/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" sequenceId="12"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/base-theme/bower_components/trumbowyg/dist/ui/trumbowyg.min.css" sequenceId="13"/>
+    
+    
+    <!-- Scripts -->
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/ignite-shop-theme/bower_components/bootstrap/dist/js/bootstrap.min.js" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/ignite-shop-theme/bower_components/datatables/datatables.min.js" sequenceId="02"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/ignite-shop-theme/bower_components/Chart.js/dist/Chart.min.js" sequenceId="03"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/ignite-shop-theme/bower_components/sass-to-js/js/dist/sass-to-js.min.js" sequenceId="04"/>
+ 
+ 
+     <!-- CoreUI -->
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/ignite-shop-theme/bower_components/bootstrap-material-design/dist/js/material.min.js" sequenceId="05"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/ignite-shop-theme/bower_components/bootstrap-material-design/dist/js/ripples.min.js" sequenceId="06"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/ignite-shop-theme/js/freetile.min.js" sequenceId="07"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/ignite-shop-theme/js/app.js" sequenceId="08"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/ignite-shop-theme/bower_components/momentjs/min/moment-with-locales.min.js" sequenceId="09"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/ignite-shop-theme/bower_components/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js" sequenceId="10"/>
+   
+</entity-engine-xml>

@@ -12,18 +12,18 @@
 
 **************************************************************************
 
-SCIPIO ERP - Bootstrap Theme
+SCIPIO ERP - Ignite Shop Theme
 
 *****************
 * G E N E R A L *
 *****************
-This is a base theme implemented using the Bootstrap CSS framework. 
+This is a base theme implemented using the Bootstrap CSS framework and based on Core UI (http://coreui.io/index.html#features). 
 
 Please be aware that the theme may receive frequent updates. 
 To get started, the following information may be of interest to you:
 
 * Default load style sheets directory: 
-  webapp/bootstrap/css/bower_components/bootstrap/dist/css
+  webapp/ignite/css/
 * SCIPIO will load a base set of class & html definitions located here:
   htmlVariables.groovy - ofbiz_foundation/framework/common/webcommon/includes/scipio/lib/standard
   
