@@ -1,7 +1,7 @@
 .app-footer {
   min-height: $footer-height;
   padding: 0 $spacer-x;
-  line-height: $footer-height;
+  line-height: calc(#{$footer-height} - #{$footer-border-size});
   color: $footer-color;
   background: $footer-bg;
   @include borders($footer-borders);

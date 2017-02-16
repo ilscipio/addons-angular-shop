@@ -160,9 +160,10 @@ $aside-menu-nav-padding-x:          1rem;
 $footer-height: 50px;
 $footer-bg:     $gray-lightest;
 $footer-color:  $body-color;
+$footer-border-size: 1px;
 $footer-borders: (
   top: (
-    size:                           1px,
+    size:                           $footer-border-size,
     style:                          solid,
     color:                          $border-color
   )

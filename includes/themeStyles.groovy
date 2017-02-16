@@ -657,7 +657,7 @@ context.styles = [
 
     /* Breadcrumbs */
     "nav_breadcrumbs" : "breadcrumb",
-    "nav_breadcrumb" : "",
+    "nav_breadcrumb" : "breadcrumb-item",
     "nav_breadcrumb_disabled" : "disabled",
     "nav_breadcrumb_active" : "active",
     "nav_breadcrumb_link" : "",
