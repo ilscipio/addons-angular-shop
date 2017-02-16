@@ -295,6 +295,16 @@ NOTES:
   </#switch>
 </#macro>
 
+<#-- @menuitem type="link" markup - theme override -->
+<#macro menuitem_link_markup itemType="" menuType="" menuSpecialType="" class="" id="" style="" href="" name="" onClick="" target="" title="" 
+    attribs={} excludeAttribs=[] disabled=false selected=false active=false activeTarget="" isNestedMenu=false menuLevel=1 parentMenuType="" parentMenuSpecialType="" itemIndex=0 
+    origArgs={} passArgs={} catchArgs...>
+  <#t><a href="${escapeFullUrl(href, 'html')}"<#if onClick?has_content> onclick="${escapeVal(onClick, 'html')}"</#if><@compiledClassAttribStr class=class /><#if id?has_content> id="${escapeVal(id, 'html')}"</#if><#if name?has_content> name="${escapeVal(name, 'html')}"</#if><#if style?has_content> style="${escapeVal(style, 'html')}"</#if><#if attribs?has_content><@commonElemAttribStr attribs=attribs exclude=excludeAttribs/></#if><#if target?has_content> target="${escapeVal(target, 'html')}"</#if><#if title?has_content> title="${escapeVal(title, 'html')}"</#if>>
+  <#-- <#if styles.app_icon[href]?has_content><i class="${styles.icon!} ${styles.app_icon[display.name]}"></i> </#if> -->
+  <#nested>
+  </a>
+</#macro>
+
 <#-- @mli main markup - theme override -->
 <#macro mli_markup arrival="" origArgs={} passArgs={} catchArgs...>
   <li><#nested></li>

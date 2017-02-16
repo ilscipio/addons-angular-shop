@@ -8,9 +8,6 @@
           </#if>
         </#macro>
 
-
-
-
                 </ul>
              </header>
         </div>

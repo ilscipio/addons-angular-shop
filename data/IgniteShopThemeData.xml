@@ -55,7 +55,7 @@ under the License.
     
     <!-- THEME SPECIFIC -->
     <!-- Styles -->
-    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/ignite-shop-theme/css/font-awesome.min.css" sequenceId="02"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/ignite-shop-theme/bower_components/fontawesome/css/font-awesome.min.css" sequenceId="02"/>
     <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/ignite-shop-theme/css/simple-line-icons.css" sequenceId="03"/>
     <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/ignite-shop-theme/css/style.css" sequenceId="04"/>
     <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/base-theme/bower_components/datatables/datatables.min.css" sequenceId="05"/>

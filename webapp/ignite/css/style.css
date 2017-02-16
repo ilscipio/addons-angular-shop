@@ -8859,6 +8859,9 @@ base-chart.chart {
 .main .container-fluid {
   padding-top: 20px; }
 
+header.navbar .nav-item {
+  margin: 0 10px 0 0 !important; }
+
 pre {
   /* original is white background with no border */
   background-color: #fff;

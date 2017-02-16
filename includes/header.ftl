@@ -58,17 +58,17 @@ under the License.
           <li class="nav-item">${userLogin.userLoginId}</li>
         </#if>
         -->
-        <li class="dropdown-item"><a href="<@ofbizUrl>ListLocales</@ofbizUrl>"><i class="fa fa-fw fa-language"></i> ${uiLabelMap.CommonLanguageTitle}</a></li>
-        <li class="dropdown-item"><a href="<@ofbizUrl>ListVisualThemes</@ofbizUrl>"><i class="fa fa-fw fa-photo"></i> ${uiLabelMap.CommonVisualThemes}</a></li>
+        <li class="dropdown-item"><a href="<@ofbizUrl>ListLocales</@ofbizUrl>" class="nav-link"><i class="${styles.icon!} fa-language"></i> ${uiLabelMap.CommonLanguageTitle}</a></li>
+        <li class="dropdown-item"><a href="<@ofbizUrl>ListVisualThemes</@ofbizUrl>" class="nav-link"><i class="${styles.icon!} fa-photo"></i> ${uiLabelMap.CommonVisualThemes}</a></li>
     </#if>
     <#if parameters.componentName?? && requestAttributes._CURRENT_VIEW_?? && helpTopic??>
         <#include "component://common/webcommon/includes/helplink.ftl" />
         <#assign portalPageParamStr><#if parameters.portalPageId?has_content>&portalPageId=${rawString(parameters.portalPageId!)}</#if></#assign>
         <li class="has-form dropdown-item"><@modal label=uiLabelMap.CommonHelp id="help" 
-            href=makeOfbizUrl("showHelp?helpTopic=${rawString(helpTopic!)}${portalPageParamStr}") icon="fa fa-fw fa-info"></@modal></li>
+            href=makeOfbizUrl("showHelp?helpTopic=${rawString(helpTopic!)}${portalPageParamStr}") icon="${styles.icon!} fa-info"></@modal></li>
     </#if>
     <#if userLogin??>
-        <li class="active dropdown-item"><a href="<@ofbizUrl>logout</@ofbizUrl>"><i class="fa fa-fw fa-power-off"></i> ${uiLabelMap.CommonLogout}</a></li>
+        <li class="active dropdown-item"><a href="<@ofbizUrl>logout</@ofbizUrl>" class="nav-link"><i class="${styles.icon!} fa-power-off"></i> ${uiLabelMap.CommonLogout}</a></li>
     </#if>
 </#macro>
 
@@ -95,7 +95,13 @@ under the License.
           <#-- do not display this component-->
         <#else>
             <li class="dropdown-item <#if selected> active</#if>">
-                <a href="${thisURL}${rawString(externalKeyParam)}" class="nav-link<#if selected> active</#if>"<#if uiLabelMap??> title="${uiLabelMap[display.description]}">${uiLabelMap[display.title]}<#else> title="${display.description}">${display.title}</#if></a>
+                <a href="${thisURL}${rawString(externalKeyParam)}" class="nav-link<#if selected> active</#if>"
+                <#if uiLabelMap??> title="${uiLabelMap[display.description]}">
+                    <#if styles.app_icon[display.name]?has_content><i class="${styles.icon!} ${styles.app_icon[display.name]}"></i> </#if>${uiLabelMap[display.title]}
+                <#else> title="${display.description}">
+                    ${display.title}
+                </#if>
+                </a>
             </li>
             <#assign appCount = appCount + 1>
         </#if>
@@ -120,7 +126,13 @@ under the License.
             </#if>
           </#if>
           <li class="dropdown-item <#if selected> active</#if>">      
-            <a href="${thisURL}${rawString(externalKeyParam)}" class="nav-link<#if selected> active</#if>"<#if uiLabelMap??> title="${uiLabelMap[display.description]}">${uiLabelMap[display.title]}<#else> title="${display.description}">${display.title}</#if></a>
+            <a href="${thisURL}${rawString(externalKeyParam)}" class="nav-link<#if selected> active</#if>"
+                <#if uiLabelMap??> title="${uiLabelMap[display.description]}">
+                    <#if styles.app_icon[display.name]?has_content><i class="${styles.icon!} ${styles.app_icon[display.name]}"></i> </#if>${uiLabelMap[display.title]}
+                <#else> title="${display.description}">
+                    ${display.title}
+                </#if>
+            </a>
             <#assign appCount = appCount + 1>
           </li>
     </#list>
@@ -268,14 +280,14 @@ so for now we have to split the screens in half and rely on the menu widget rend
                      <button class="nav-link navbar-toggler sidebar-toggler" type="button">&#9776;</button>
                 </li>
                 <#if userLogin??>
-                <li class="nav-item p-x-1">
-                    <a href="javascript:;" class="nav-link dropdown-toggle nav-link" data-toggle="dropdown"><i class="fa fa-fw fa-dashboard"></i> ${uiLabelMap["CommonPrimaryApps"]} </i></a>
+                <li class="nav-item p-x-1 dropdown">
+                    <a href="javascript:;" class="nav-link dropdown-toggle nav-link" data-toggle="dropdown"><i class="${styles.icon!} fa-dashboard"></i> ${uiLabelMap["CommonPrimaryApps"]} </i></a>
                     <ul id="menuPrimary" class="dropdown-menu">
                         <@primaryAppsMenu/>
                     </ul>
                 </li>
-                <li class="nav-item p-x-1">
-                    <a href="javascript:;" class="nav-link dropdown-toggle nav-link" data-toggle="dropdown"><i class="fa fa-fw fa-desktop"></i> ${uiLabelMap["CommonSecondaryApps"]} </i></a>
+                <li class="nav-item p-x-1 dropdown">
+                    <a href="javascript:;" class="nav-link dropdown-toggle nav-link" data-toggle="dropdown"><i class="${styles.icon!} fa-desktop"></i> ${uiLabelMap["CommonSecondaryApps"]} </i></a>
                     <ul id="menuSecondary" class="dropdown-menu">
                         <@secondaryAppsMenu/>
                     </ul>
