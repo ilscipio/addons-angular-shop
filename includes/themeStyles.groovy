@@ -13,7 +13,7 @@
 */
 
  /* EXTENDS/MODIFIES the default foundation styles. Adopted for Foundation 6*/
- //GroovyUtil.runScriptAtLocation("component://common/webcommon/includes/scipio/lib/standard/htmlVariables.groovy", null, context);
+// GroovyUtil.runScriptAtLocation("component://common/webcommon/includes/scipio/lib/standard/htmlVariables.groovy", null, context);
   
 context.styles = [
     

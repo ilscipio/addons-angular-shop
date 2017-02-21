@@ -9023,6 +9023,12 @@ canvas {
 header.navbar .nav-item {
   margin: 0 10px 0 0 !important; }
 
+a.dropdown-item:last-child {
+  border-bottom: 1px solid #cfd8dc; }
+
+.dropdown-menu :last-child a.dropdown-item {
+  border-bottom: 0; }
+
 pre {
   /* original is white background with no border */
   background-color: #fff;

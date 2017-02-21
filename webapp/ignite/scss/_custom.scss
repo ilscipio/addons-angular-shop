@@ -20,6 +20,24 @@ header.navbar .nav-item {
      margin: 0 10px 0 0!important;
     }
 
+
+// Navigation
+
+a.dropdown-item {
+
+  &:last-child {
+    border-bottom: 1px solid $dropdown-border-color;
+  }
+
+}
+
+
+.dropdown-menu :last-child {
+    a.dropdown-item {
+         border-bottom: 0;
+    }
+} 
+
 // CODE
 pre {
     /* original is white background with no border */

@@ -58,17 +58,17 @@ under the License.
           <li class="nav-item">${userLogin.userLoginId}</li>
         </#if>
         -->
-        <li class="dropdown-item"><a href="<@ofbizUrl>ListLocales</@ofbizUrl>" class="nav-link"><i class="${styles.icon!} fa-language"></i> ${uiLabelMap.CommonLanguageTitle}</a></li>
-        <li class="dropdown-item"><a href="<@ofbizUrl>ListVisualThemes</@ofbizUrl>" class="nav-link"><i class="${styles.icon!} fa-photo"></i> ${uiLabelMap.CommonVisualThemes}</a></li>
+        <li class=""><a href="<@ofbizUrl>ListLocales</@ofbizUrl>" class="dropdown-item"><i class="${styles.icon!} fa-language"></i> ${uiLabelMap.CommonLanguageTitle}</a></li>
+        <li class=""><a href="<@ofbizUrl>ListVisualThemes</@ofbizUrl>" class="dropdown-item"><i class="${styles.icon!} fa-photo"></i> ${uiLabelMap.CommonVisualThemes}</a></li>
     </#if>
     <#if parameters.componentName?? && requestAttributes._CURRENT_VIEW_?? && helpTopic??>
         <#include "component://common/webcommon/includes/helplink.ftl" />
         <#assign portalPageParamStr><#if parameters.portalPageId?has_content>&portalPageId=${rawString(parameters.portalPageId!)}</#if></#assign>
-        <li class="has-form dropdown-item"><@modal label=uiLabelMap.CommonHelp id="help" 
+        <li class="has-form"><@modal label=uiLabelMap.CommonHelp id="help"  class="dropdown-item"
             href=makeOfbizUrl("showHelp?helpTopic=${rawString(helpTopic!)}${portalPageParamStr}") icon="${styles.icon!} fa-info"></@modal></li>
     </#if>
     <#if userLogin??>
-        <li class="active dropdown-item"><a href="<@ofbizUrl>logout</@ofbizUrl>" class="nav-link"><i class="${styles.icon!} fa-power-off"></i> ${uiLabelMap.CommonLogout}</a></li>
+        <li class="active"><a href="<@ofbizUrl>logout</@ofbizUrl>" class="dropdown-item active"><i class="${styles.icon!} fa-power-off"></i> ${uiLabelMap.CommonLogout}</a></li>
     </#if>
 </#macro>
 
@@ -94,8 +94,8 @@ under the License.
         <#if layoutSettings.suppressTab?? && display.name == layoutSettings.suppressTab>
           <#-- do not display this component-->
         <#else>
-            <li class="dropdown-item <#if selected> active</#if>">
-                <a href="${thisURL}${rawString(externalKeyParam)}" class="nav-link<#if selected> active</#if>"
+            <li class="<#if selected> active</#if>">
+                <a href="${thisURL}${rawString(externalKeyParam)}" class="dropdown-item<#if selected> active</#if>"
                 <#if uiLabelMap??> title="${uiLabelMap[display.description]}">
                     <#if styles.app_icon[display.name]?has_content><i class="${styles.icon!} ${styles.app_icon[display.name]}"></i> </#if>${uiLabelMap[display.title]}
                 <#else> title="${display.description}">
@@ -125,8 +125,8 @@ under the License.
               <#assign thisURL = thisApp>
             </#if>
           </#if>
-          <li class="dropdown-item <#if selected> active</#if>">      
-            <a href="${thisURL}${rawString(externalKeyParam)}" class="nav-link<#if selected> active</#if>"
+          <li class="<#if selected> active</#if>">      
+            <a href="${thisURL}${rawString(externalKeyParam)}" class="dropdown-item <#if selected> active</#if>"
                 <#if uiLabelMap??> title="${uiLabelMap[display.description]}">
                     <#if styles.app_icon[display.name]?has_content><i class="${styles.icon!} ${styles.app_icon[display.name]}"></i> </#if>${uiLabelMap[display.title]}
                 <#else> title="${display.description}">
