@@ -59,6 +59,7 @@ under the License.
     <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/ignite-shop-theme/css/simple-line-icons.css" sequenceId="03"/>
     <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/ignite-shop-theme/css/style.css" sequenceId="04"/>
     <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/base-theme/bower_components/datatables/datatables.min.css" sequenceId="05"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bootstrap-theme/bower_components/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" sequenceId="06"/>
     
     
     <!-- Not required for shop
@@ -77,6 +78,10 @@ under the License.
     <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/base-theme/js/freetile.min.js" sequenceId="07"/>
     <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/ignite-shop-theme/js/app.js" sequenceId="08"/>
     <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/base-theme/bower_components/datatables/datatables.min.js" sequenceId="09"/>
+    <!-- FIXME: Migrate bootstrap-material to theme dependecy -->
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js" sequenceId="10"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/bootstrap-theme/js/app.js" sequenceId="11"/>
+    
     
     <!--<VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/base-theme/bower_components/momentjs/min/moment-with-locales.min.js" sequenceId="10"/>-->
     <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/ignite-shop-theme/js/scipio_boxes.js" sequenceId="20"/>

@@ -6200,8 +6200,10 @@ body {
 .main .container-fluid {
   padding: 0 30px; }
 
-html, body {
-  height: 100%; }
+@media all and (-ms-high-contrast: none) {
+  html {
+    display: flex;
+    flex-direction: column; } }
 
 .app,
 app-dashboard,
@@ -6991,7 +6993,7 @@ ul.icons-list {
 .app-footer {
   min-height: 50px;
   padding: 0 1rem;
-  line-height: calc(50px - 1px);
+  line-height: 50px;
   color: #263238;
   background: #eceff1;
   border-top: 1px solid #cfd8dc; }
@@ -8650,13 +8652,16 @@ base-chart.chart {
   border-radius: 1rem !important; }
 
 .chart-data {
-  width: 100% !important;
-  max-width: 800px;
-  height: auto !important; }
-
-.chart-data:before {
-  content: '{"primaryFillColor":"rgba(0, 140, 186, 0.5)","primaryStrokeColor":"rgba(0, 140, 186, 0.7)","primaryPointStrokeColor":"rgba(0, 140, 186, 0.7)","secondaryFillColor":"rgba(231, 231, 231, 0.3)","secondaryStrokeColor":"rgba(231, 231, 231, 0.7)","secondaryPointStrokeColor":"rgba(231, 231, 231, 0.7)","pieFillColor1":"#008cba","pieFillColor2":"#e7e7e7","pieFillColor3":"#f04124","pieFillColor4":"#43ac6a","pieFillColor5":"#f08a24","pieFillColor6":"#a0d3e8","pieHighlightColor1":"rgba(0, 140, 186, 0.6)","pieHighlightColor2":"rgba(231, 231, 231, 0.6)","pieHighlightColor3":"rgba(240, 65, 36, 0.6)","pieHighlightColor4":"rgba(67, 172, 106, 0.6)","pieHighlightColor5":"rgba(240, 138, 36, 0.6)","pieHighlightColor6":"rgba(160, 211, 232, 0.6)","pointColor":"white","pointHighlightFill":"#fafafa","pointHighlightStroke":"#aaaaaa","pointDot":true,"pointHitDetectionRadius":5,"pointDotRadius":3,"pointDotStrokeWidth":1,"scaleType":"linear","scaleDisplay":true,"scaleGridLineColor":"rgba(0,0,0,.1)","scaleLabelFontFamily":["Open Sans","Helvetica Neue","Helvetica","Helvetica","Arial","sans-serif"],"scaleLabelFontSize":14,"scaleLabelFontColor":"#222222","scaleLabelDisplay":false,"angleShowLineOut":true,"scaleBeginAtZero":true,"showTooltips":true,"color":"#f7464a","highlight":"#ff5a5e","dataLabels":false}';
+  /*width: 100% !important;
+        max-width: 800px;
+        height: auto !important;*/
   display: none; }
+  .chart-data:before {
+    content: '{"primaryFillColor":"rgba(32, 168, 216, 0.7)","primaryStrokeColor":"rgba(32, 168, 216, 0.9)","primaryPointStrokeColor":"rgba(32, 168, 216, 0.7)","secondaryFillColor":"rgba(176, 190, 197, 0.7)","secondaryStrokeColor":"rgba(176, 190, 197, 0.9)","secondaryPointStrokeColor":"rgba(176, 190, 197, 0.7)","pieFillColor1":"#20a8d8","pieFillColor2":"#b0bec5","pieFillColor3":"#f86c6b","pieFillColor4":"#4dbd74","pieFillColor5":"#f8cb00","pieFillColor6":"#63c2de","pieHighlightColor1":"rgba(32, 168, 216, 0.6)","pieHighlightColor2":"rgba(176, 190, 197, 0.6)","pieHighlightColor3":"rgba(248, 108, 107, 0.6)","pieHighlightColor4":"rgba(77, 189, 116, 0.6)","pieHighlightColor5":"rgba(248, 203, 0, 0.6)","pieHighlightColor6":"rgba(99, 194, 222, 0.6)","pointColor":"#fff","pointHighlightFill":"#cfd8dc","pointHighlightStroke":"#263238","pointDot":true,"pointHitDetectionRadius":"5","pointDotRadius":"3","pointDotStrokeWidth":"1","scaleType":"linear","scaleDisplay":true,"scaleGridLineColor":"rgba(0,0,0,.1)","scaleLabelFontFamily":["-apple-system","system-ui","BlinkMacSystemFont","Segoe UI","Roboto","Helvetica Neue","Arial","sans-serif"],"scaleLabelFontSize":"14","scaleLabelFontColor":"#263238","scaleLabelDisplay":false,"angleShowLineOut":true,"scaleBeginAtZero":true,"showTooltips":true,"color":"#F7464A","highlight":"#FF5A5E","dataLabels":false}';
+    display: none; }
+
+canvas {
+  margin: 0.5em 0; }
 
 /* Experimental Tiles Design */
 .tiles-container {
@@ -8856,6 +8861,162 @@ base-chart.chart {
 .tile-color-58h, .tile-color-snow-alpha-heavy {
   background-color: rgba(249, 249, 249, 0.7) !important; }
 
+.month-calendar-full table.calendar .month-entry {
+  vertical-align: top;
+  padding: 0.5em;
+  border-color: #cfd8dc;
+  border-width: 1px; }
+
+.month-calendar-full table.calendar .month-entry-content-add {
+  float: right; }
+
+.month-calendar-full table.calendar .month-entry-content-event {
+  display: block;
+  width: 100%;
+  padding: 0 .8em;
+  border-left: #20a8d8 4px solid;
+  display: block;
+  overflow: auto;
+  line-height: 1.5em;
+  background: #cfd8dc;
+  margin-bottom: 2px; }
+
+.month-calendar-full table.calendar a {
+  color: #263238; }
+  .month-calendar-full table.calendar a:hover {
+    color: #20a8d8; }
+
+.month-calendar-full table.calendar th {
+  word-break: break-all; }
+
+.month-calendar-full table.calendar td.month-entry:last-child {
+  border-width: 1px 0 0 0; }
+
+.month-calendar-full table.calendar th.month-header-day, .month-calendar-full table.calendar .month-calendar-full td.month-entry-day {
+  width: 13.5% !important; }
+
+.month-calendar-full table.calendar th.month-header-week, .month-calendar-full table.calendar td.month-entry-week {
+  width: auto; }
+
+.month-calendar-full table.calendar td.month-entry-day .day-event-time {
+  font-size: 0.8em; }
+
+.month-calendar-full table.calendar td.month-entry-day .cal-entry-status {
+  font-size: 0.8em; }
+
+.month-calendar-full table.calendar td.month-entry-day .month-entry-wrapper {
+  width: 100%;
+  padding-bottom: 100%;
+  position: relative;
+  overflow: hidden; }
+
+.month-calendar-full table.calendar td.month-entry-day .month-entry-abs {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+
+.month-calendar-full table.calendar td.month-entry-day.other-month {
+  background: #607d8b; }
+  .month-calendar-full table.calendar td.month-entry-day.other-month a {
+    color: #263238; }
+    .month-calendar-full table.calendar td.month-entry-day.other-month a:hover {
+      color: #20a8d8; }
+
+.month-calendar-full table.calendar td.month-entry-day.current-month {
+  background: #fff; }
+
+.month-calendar-full table.calendar td.month-entry-day.current-period {
+  border-bottom: 4px solid #63c2de; }
+  .month-calendar-full table.calendar td.month-entry-day.current-period .month-entry-content-title {
+    font-weight: bold; }
+
+.month-calendar-full table.calendar td.month-entry-day:hover {
+  background: #cfd8dc; }
+
+.month-calendar-full .cal-detail-content .month-entry-content-event:first-child {
+  margin-top: 0; }
+
+.month-calendar-full .cal-detail-content .month-entry-content-event {
+  margin-top: 0.5em; }
+
+.month-calendar-full .cal-detail-content .day-entry-stats {
+  margin-top: 1em; }
+
+.week-calendar-full table.calendar td.week-entry-event {
+  border: 1px solid black; }
+
+.day-calendar-full table.calendar td.day-entry-event {
+  border: 1px solid black; }
+
+/*
+* Based on the works of Lyn http://foundation.zurb.com/forum/posts/18131-step-by-step-list
+*/
+.steps {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  line-height: 1;
+  box-sizing: border-box;
+  padding-left: 0;
+  margin: 0; }
+  .steps.expanded {
+    display: block; }
+  .steps.radius {
+    border-radius: 5px;
+    border-radius: 1000px; }
+  .steps li {
+    display: inline-block;
+    position: relative;
+    padding: 1em 2em 1em 3em;
+    vertical-align: top;
+    background-color: #fafafa;
+    box-sizing: border-box;
+    font-size: 1rem; }
+  .steps.even-2 li {
+    width: 50%; }
+  .steps.even-3 li {
+    width: 33.33334%; }
+  .steps.even-4 li {
+    width: 25%; }
+  .steps.even-5 li {
+    width: 20%; }
+  .steps.even-6 li {
+    width: 16.66667%; }
+  .steps li:after {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    content: "";
+    top: 0.36em;
+    right: -1.2em;
+    width: 2.3em;
+    height: 2.3em;
+    background-color: #fafafa;
+    transform: rotate(-45deg);
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc; }
+  .steps li:first-child {
+    padding-left: 2.5em; }
+  .steps li:last-child {
+    padding-right: 2.5em; }
+  .steps li:hover, .steps li:hover:after {
+    background-color: #e6f4f9; }
+  .steps li.active,
+  .steps li.active:after {
+    background-color: #007295;
+    color: #fff; }
+  .steps li.active a, .steps li.active a:hover, .steps li.active a:visited, .steps li.active a:active, .steps li.active a:focus {
+    color: #fff; }
+  .steps li.disabled,
+  .steps li.disabled:after {
+    background-color: #fff;
+    color: #aaa;
+    cursor: default; }
+
 .main .container-fluid {
   padding-top: 20px; }
 
@@ -8904,3 +9065,27 @@ code {
 pre.scrollable {
   max-height: 500px;
   overflow-x: scroll; }
+
+.btn-default {
+  color: #fff;
+  background-color: #20a8d8;
+  border-color: #20a8d8; }
+  .btn-default:hover {
+    color: #fff;
+    background-color: #1985ac;
+    border-color: #187fa3; }
+  .btn-default:focus, .btn-default.focus {
+    box-shadow: 0 0 0 2px rgba(32, 168, 216, 0.5); }
+  .btn-default.disabled, .btn-default:disabled {
+    background-color: #20a8d8;
+    border-color: #20a8d8; }
+  .btn-default:active, .btn-default.active,
+  .show > .btn-default.dropdown-toggle {
+    color: #fff;
+    background-color: #1985ac;
+    background-image: none;
+    border-color: #187fa3; }
+
+.btn-xs, .btn-group-xs {
+  padding: 4px 15px;
+  font-size: 10px; }

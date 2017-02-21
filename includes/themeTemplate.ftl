@@ -182,6 +182,9 @@ NOTES:
   <@scipioStdTmplLib.menuitem args=mergeArgMaps(args, inlineArgs, scipioBsTmplLib.menuitem_defaultArgs_min)><#nested /></@scipioStdTmplLib.menuitem>
 </#macro>-->
 
+
+
+
 <#-- @modal main markup - theme override -->
 <#macro modal_markup id="" label="" href="" class="" icon="" origArgs={} passArgs={} catchArgs...>
   <a href="${escapeFullUrl(href, 'html')}" data-toggle="modal" data-target="#${escapeVal(id, 'html')}_modal" <@compiledClassAttribStr class=class />><#if icon?has_content><i class="${escapeVal(icon, 'html')}"></i> </#if>${escapeVal(label, 'htmlmarkup')}</a>
@@ -314,6 +317,228 @@ NOTES:
 <#function isMenuMarkupItemsInline menuContent>
   <#return menuContent?matches(r'(\s*<!--((?!<!--).)*?-->\s*)*\s*<(li|a|span|button|input)(\s|>).*', 'rs')>
 </#function>
+
+<#-- @chart main markup - theme override -->
+<#macro chart_markup type="" chartLibrary="" title="" id="" xlabel="" ylabel="" label1="" label2="" labelUom1="" labelUom2="" chartIdNum=0 renderSeqNumber=0 origArgs={} passArgs={} catchArgs...>
+  <#-- WARN/FIXME?: ids and type are not escaped, currently assumed to come from internal only... -->
+  <#local nestedContent><#nested /></#local>
+  <#if chartLibrary=="foundation">
+    <#if nestedContent?has_content>
+    <@row>
+      <@cell columns=3>
+        <ul data-${escapeVal(type, 'html')}-id="${escapeVal(id, 'html')}" class="${styles.chart_legend!}">
+            <#nested/>
+        </ul>
+      </@cell>
+      <@cell columns=9><div id="${escapeVal(id, 'html')}" style="height:300px;"></div></@cell>
+    </@row>
+    <#else>
+        <#-- Default to chart.js chart for now, as this is capable of rendering an empty chart -->
+        <@chart type=type library="chart" xlabel=xlabel ylabel=ylabel label1=label1 label2=label2>
+            <#nested>
+        </@chart>
+    </#if>
+  <#else>
+    <#-- Get the number of datasets by inspecting the nested content (chartjs addData function values) -->
+    <#if nestedContent?has_content>
+        <#assign chartDatasets=chart_get_number_of_datasets(nestedContent, chartLibrary) />
+        <#else>
+        <#assign chartDatasets=0/>
+    </#if>
+    <#if (chartDatasets < 1)><#local chartDatasets = 1 /></#if>
+    <#-- THEME Specific changes -->
+    <div class="chart-wrapper">
+        <span class="chart-data">&nbsp;</span>
+        <canvas id="${escapeVal(id, 'html')}" height="300" width="500"></canvas>
+    </div>
+    <#-- End of THEME Specific changes -->
+    <@script>
+        $(function(){
+            var chartDataEl = $('.chart-data').first();
+            var chartData = chartDataEl.sassToJs({pseudoEl:"::before", cssProperty: "content"});
+            var options =  {
+                    responsive: true, 
+                    responsiveAnimationDuration: 0, 
+                    animation: {
+                        duration: 1000
+                    },
+                    maintainAspectRatio: true,
+                    tooltips: {
+                        mode: <#if type=="line" || type=="bar">'label'<#else>'single'</#if><#if (labelUom1?has_content ||labelUom2?has_content) >,
+                        callbacks: {
+                            label: function(tooltipItem, data) {                                
+                                <#if labelUom1?has_content> 
+                                    if(tooltipItem.datasetIndex == 0) {
+                                        var datasetLabel = '';                                  
+                                        <#if type=="line" || type=="bar">
+                                             datasetLabel = data.datasets[tooltipItem.datasetIndex].label;
+                                             return datasetLabel + ': ' + tooltipItem.yLabel + ' ${escapeVal(labelUom1, 'js')}';
+                                        <#elseif type="pie">
+                                             datasetLabel = data.labels[tooltipItem.index] + ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                                             return datasetLabel + ' ${escapeVal(labelUom1, 'js')}';
+                                        <#else>
+                                            return datasetLabel;
+                                        </#if>
+                                    }
+                                </#if>
+                                <#if labelUom2?has_content> 
+                                    if(tooltipItem.datasetIndex == 1) {
+                                        var datasetLabel = data.datasets[tooltipItem.datasetIndex].label || '';
+                                        return datasetLabel + ': ' + tooltipItem.yLabel + ' ${escapeVal(labelUom2, 'js')}';
+                                    }
+                                </#if>
+                            }
+                        }
+                        </#if>
+                    },
+                    hover: {
+                        mode: <#if type=="line" || type=="bar">'label'<#else>'single'</#if>
+                    },
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            boxWidth: 30
+                        }
+                    },
+                    title: {
+                        <#if title?has_content>
+                            display: true,
+                            text: '${escapeVal(title, 'js')}',
+                        <#else>
+                            display: false,
+                        </#if>
+                        fontColor: chartData.scaleLabelFontColor,
+                        fontFamily: chartData.scaleLabelFontFamily,
+                        fontSize: chartData.scaleLabelFontSize
+                    }
+                    <#if type=="line" || type=="bar">,
+                        <#if type=="line"> animation: {
+                        duration: 0
+                        },</#if>
+                        scales: {
+                            type: chartData.scaleType,
+                            display: true,                        
+                            xAxes: [{
+                                gridLines: {
+                                    color: chartData.scaleGridLineColor
+                                },
+                                scaleLabel : {
+                                    display: chartData.scaleLabelDisplay,
+                                    <#if xlabel?has_content>labelString: '${escapeVal(xlabel, 'js')}',</#if>
+                                    fontColor: chartData.scaleLabelFontColor,
+                                    fontFamily: chartData.scaleLabelFontFamily,
+                                    fontSize: chartData.scaleLabelFontSize                                
+                                },
+                                ticks: {
+                                    display: true,
+                                    autoSkip: true,
+                                    padding:10,
+                                    maxRotation:30,
+                                    fontColor: chartData.scaleLabelFontColor,
+                                    fontFamily: chartData.scaleLabelFontFamily,
+                                    fontSize: chartData.scaleLabelFontSize
+                                }                            
+                              }],
+                            yAxes: [{
+                                scaleLabel : {
+                                    display: chartData.scaleLabelDisplay,
+                                    <#if ylabel?has_content>scaleLabel: '${escapeVal(xlabel, 'js')}',</#if>
+                                    fontColor: chartData.scaleLabelFontColor,
+                                    fontFamily: chartData.scaleLabelFontFamily,
+                                    fontSize: chartData.scaleLabelFontSize
+                                },
+                                ticks: {
+                                    display: true,
+                                    autoSkip: true,                            
+                                    fontColor: chartData.scaleLabelFontColor,
+                                    fontFamily: chartData.scaleLabelFontFamily,
+                                    fontSize: chartData.scaleLabelFontSize
+                                }
+                            }]
+                        }
+                    <#elseif type=="pie">,                        
+                        scale: {
+                           type: chartData.scaleType,
+                           display: false
+                        }            
+                    </#if>
+                };
+            var ctx = $('#${escapeVal(id, 'js')}').get(0).getContext("2d");
+            var data = {
+                labels :[],
+                datasets: [
+                    {
+                      <#if type=="line" || type=="bar">
+                      label: '${escapeVal(label1, 'js')}',                      
+                      fill: true,
+                      backgroundColor: chartData.primaryFillColor,
+                      borderColor: chartData.primaryStrokeColor,
+                      pointBackgroundColor: chartData.pointColor,
+                      pointBorderColor: chartData.primaryPointStrokeColor,
+                      pointHoverBackgroundColor: chartData.pointHighlightFill,
+                      pointHoverBorderColor: chartData.pointHighlightStroke,
+                      <#else>
+                      backgroundColor: [
+                            chartData.pieFillColor1,
+                            chartData.pieFillColor2,
+                            chartData.pieFillColor3,
+                            chartData.pieFillColor4,
+                            chartData.pieFillColor5,
+                            chartData.pieFillColor6
+                        ],
+                        hoverBackgroundColor: [
+                            chartData.pieHighlightColor1,
+                            chartData.pieHighlightColor2,
+                            chartData.pieHighlightColor3,
+                            chartData.pieHighlightColor4,
+                            chartData.pieHighlightColor5,
+                            chartData.pieHighlightColor6
+                        ],
+                      </#if>
+                      data: []
+                    }
+                    <#if (chartDatasets > 1)>
+                    ,{
+                      <#if (type=="line" || type=="bar")>
+                      label: '${escapeVal(label2, 'js')}',
+                      fill: true,
+                      backgroundColor: chartData.secondaryFillColor,
+                      borderColor: chartData.secondaryStrokeColor,
+                      pointBackgroundColor: chartData.pointColor,
+                      pointBorderColor: chartData.secondaryPointStrokeColor,
+                      pointHoverBackgroundColor: chartData.pointHighlightFill,
+                      pointHoverBorderColor: chartData.pointHighlightStroke,
+                      <#else>
+                       backgroundColor: [
+                            chartData.pieFillColor1,
+                            chartData.pieFillColor2,
+                            chartData.pieFillColor3,
+                            chartData.pieFillColor4,
+                            chartData.pieFillColor5,
+                            chartData.pieFillColor6
+                        ]
+                      </#if>
+                      data: []
+                    }           
+                    </#if>        
+                    ]
+                };
+            var config = {
+                <#switch type>
+                    <#case "bar">type: 'bar'<#break>
+                    <#case "pie">type: 'pie'<#break>
+                    <#default>type: 'line'
+                </#switch>,
+                data: data,
+                options: options
+            };
+            var newChart = new Chart(ctx,config);
+            ${nestedContent}
+            newChart.update();
+        });
+    </@script>
+  </#if>
+</#macro>
 
 
 <#-- save copy of this namespace so that our macros are able to access its own definitions without overrides (sometimes needed) -->

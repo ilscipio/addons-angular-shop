@@ -1,8 +1,11 @@
 // Here you can add other styles
 
 // Chart.js
-@import "chartsjs";
-@import "tiles";
+@import "scipio/chartsjs";
+@import "scipio/tiles";
+@import "scipio/calendar";
+@import "scipio/steps";
+
 
 // GENERAL
 .main {
@@ -54,4 +57,18 @@ code {
 pre.scrollable {
     max-height:500px;
     overflow-x:scroll;
+}
+
+
+.btn-default {
+  @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+}
+
+$mdb-input-padding-xs-vertical:       2px !default; // 1
+$mdb-input-padding-xs-horizontal:     0 !default; // 5
+$mdb-btn-font-size-xs: 10px !default;
+
+.btn-xs,.btn-group-xs {
+    padding: 4px 15px;
+    font-size: $mdb-btn-font-size-xs;
 }

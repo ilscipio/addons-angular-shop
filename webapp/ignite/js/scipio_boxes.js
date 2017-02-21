@@ -3,9 +3,10 @@
  * Used to add classes to elements, so that they can be styled as boxes.
  * */
 var elSelector = 'pre.scrollable,.section-screenlet-content';
-var notSubSelector = 'pre.scrollable,.section-screenlet-content, table,.orbit-container, .steps, .tile-container, .signup-panel,.button-group,.trumbowyg-box';
+var notSubSelector = 'pre.scrollable,.section-screenlet-content, .steps, .tile-container, .signup-panel,.button-group';
 var scipioBoxClass = 'card';
 var scipioBoxSubClass = 'card-block';
+var scipioBoxHeaderClass = 'card-header';
 
 
 function scipio_boxify(){
@@ -15,7 +16,11 @@ function scipio_boxify(){
             cell.addClass(scipioBoxClass);
             var innerCell = $('<div/>')
     		.addClass(scipioBoxSubClass);
-    		cell.wrapInner(innerCell);
+            cell.wrapInner(innerCell);
+            var headElement = innerCell.find('h1,h2,h3,h4,h5,h6').addClass('card-title');
+                        
+            
+            
         }
     });
 }

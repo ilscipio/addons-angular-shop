@@ -8,10 +8,13 @@
 
 /*
 *************************************
-* MAIN STYLES FOR BOOTSTRAP *
+* MAIN STYLES FOR IGNITE (COREUI - Bootstrap) *
 *************************************
 */
- 
+
+ /* EXTENDS/MODIFIES the default foundation styles. Adopted for Foundation 6*/
+ //GroovyUtil.runScriptAtLocation("component://common/webcommon/includes/scipio/lib/standard/htmlVariables.groovy", null, context);
+  
 context.styles = [
     
   /* Generic */
@@ -169,7 +172,7 @@ context.styles = [
     "menu_sidebar_specialtype" : "sidebar",
     "menu_sidebar_wrap" : "collapse navbar-collapse navbar-ex1-collapse",
     "menu_sidebar_active" : "",
-    "menu_sidebar_activeancestor" : "nav-dropdown-toggle",
+    "menu_sidebar_activeancestor" : "nav-dropdown-items nav-dropdown-toggle",
     "menu_sidebar_item" : "nav-item",
     "menu_sidebar_itemdisabled" : "disabled",
     "menu_sidebar_itemactive" : "open",
@@ -182,7 +185,7 @@ context.styles = [
     "menu_sidebar_item_contentactivetarget" : "active-target",
     "menu_sidebar_item_contentactiveancestor" : "active-ancestor",
     "menu_sidebar_item_contentselected" : "selected",
-    "menu_sidebar_item_link" : "nav-link",
+    "menu_sidebar_item_link" : "nav-link nav-dropdown-toggle",
     "menu_sidebar_item_text" : "text-entry",
     "menu_sidebar_item_submit" : "",
     /* Tab and secondary navigation menus*/
@@ -335,8 +338,8 @@ context.styles = [
     
   /* Data and Tables */
     /* table type-based styles */
-    "table_generic" : "table-type-generic",
-    "table_generic_type" : "table-type-generic",
+    "table_generic" : "table table-bordered table-condensed table-type-generic",
+    "table_generic_type" : "table table-bordered table-striped table-condensed table-type-generic",
     "table_generic_cellspacing" : "",
     "table_generic_rowtype" : "generic",    /* the default row type is normally "content", but generic tables need "generic" */
     "table_data_list" : "table table-striped table-type-data table-type-data-list",
@@ -344,7 +347,7 @@ context.styles = [
     "table_data_list_cellspacing" : 0,
     "table_data_list_responsive" : true,
     /* "table_data_list_autoaltrows" : true, */
-    "table_data_list_multiform" : "table table-striped table-type-data table-type-data-list-multiform",
+    "table_data_list_multiform" : "table table-bordered table-striped table-condensed table-type-data table-type-data-list-multiform",
     "table_data_list_multiform_type" : "table-type-data table-type-data-list-multiform",
     "table_data_list_multiform_cellspacing" : 0,
     "table_data_list_multiform_responsive" : false,
