@@ -157,7 +157,7 @@ NOTES:
         <#-- SCIPIO: How this works: the datepicker will put a yyyy-MM-dd value into the id_i18n field. 
             This triggers onDateChange which may transform the date and put it back in id_i18n.
             This triggers then another change() which copies it into the hidden id field (with another conversion if necessary). -->
-        $("#${escapeVal(displayInputId, 'js')}").bootstrapMaterialDatePicker(${datepickerOptions}).on('changeDate', onDateChange).on('show', onDatePopup);
+        <#-- $("#${escapeVal(displayInputId, 'js')}").bootstrapMaterialDatePicker(${datepickerOptions}).on('changeDate', onDateChange).on('show', onDatePopup); -->
         <#-- Cannot use name, must use ID, this is invalid (will break multiple forms per page): $("input[name='${displayInputName}']")-->
 
       </#if>
@@ -214,11 +214,13 @@ NOTES:
       </div>
         <#local sliderLength = getRequestVar("scipioSliderLength")!0>
         <#if controls>
-            <a class="carousel-control left" href="#${escapeVal(id, 'html')}" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
+            <a class="carousel-control-prev" href="#${escapeVal(id, 'html')}" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control right" href="#${escapeVal(id, 'html')}" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
+            <a class="carousel-control-next" href="#${escapeVal(id, 'html')}" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
             </a>
         </#if>
         <#if indicator>

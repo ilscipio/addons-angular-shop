@@ -60,8 +60,10 @@ pre.scrollable {
 }
 
 
-.btn-default {
-  @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+btn {
+ &.btn-default {
+    @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+  }
 }
 
 $mdb-input-padding-xs-vertical:       2px !default; // 1

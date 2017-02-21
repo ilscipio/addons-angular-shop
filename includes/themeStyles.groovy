@@ -42,7 +42,7 @@ context.styles = [
     "prefix" : "input-group-addon",
     "postfix" : "input-group-addon",
     "hidden" : "hide",
-    "icon" : "fa fa-fw",
+    "icon" : "fa",
     "icon_prefix" : "fa fa-",
     "icon_button" : "fa-widget",
     "icon_button_value" : "&#xf013;",
@@ -804,7 +804,7 @@ context.styles = [
   /* Slider */
     "slider_container" : "carousel slide",        /* Bootstrap: "carousel slide" */
     "slider_wrap" : "carousel-inner",             /* Bootstrap: "carousel-inner" */
-    "slide_container" : "item",
+    "slide_container" : "carousel-item",
     "slide_image" : "",
     "slide_content" : "carousel-caption",         /* Bootstrap: "carousel-caption" */
     "slide_linktarget" : "_blank",

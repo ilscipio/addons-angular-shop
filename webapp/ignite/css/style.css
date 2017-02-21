@@ -9066,21 +9066,21 @@ pre.scrollable {
   max-height: 500px;
   overflow-x: scroll; }
 
-.btn-default {
+btn.btn-default {
   color: #fff;
   background-color: #20a8d8;
   border-color: #20a8d8; }
-  .btn-default:hover {
+  btn.btn-default:hover {
     color: #fff;
     background-color: #1985ac;
     border-color: #187fa3; }
-  .btn-default:focus, .btn-default.focus {
+  btn.btn-default:focus, btn.btn-default.focus {
     box-shadow: 0 0 0 2px rgba(32, 168, 216, 0.5); }
-  .btn-default.disabled, .btn-default:disabled {
+  btn.btn-default.disabled, btn.btn-default:disabled {
     background-color: #20a8d8;
     border-color: #20a8d8; }
-  .btn-default:active, .btn-default.active,
-  .show > .btn-default.dropdown-toggle {
+  btn.btn-default:active, btn.btn-default.active,
+  .show > btn.btn-default.dropdown-toggle {
     color: #fff;
     background-color: #1985ac;
     background-image: none;
