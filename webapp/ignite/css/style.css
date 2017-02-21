@@ -9089,3 +9089,23 @@ btn.btn-default {
 .btn-xs, .btn-group-xs {
   padding: 4px 15px;
   font-size: 10px; }
+
+.btn-default {
+  color: #fff;
+  background-color: #20a8d8;
+  border-color: #20a8d8; }
+  .btn-default:hover {
+    color: #fff;
+    background-color: #1985ac;
+    border-color: #187fa3; }
+  .btn-default:focus, .btn-default.focus {
+    box-shadow: 0 0 0 2px rgba(32, 168, 216, 0.5); }
+  .btn-default.disabled, .btn-default:disabled {
+    background-color: #20a8d8;
+    border-color: #20a8d8; }
+  .btn-default:active, .btn-default.active,
+  .show > .btn-default.dropdown-toggle {
+    color: #fff;
+    background-color: #1985ac;
+    background-image: none;
+    border-color: #187fa3; }

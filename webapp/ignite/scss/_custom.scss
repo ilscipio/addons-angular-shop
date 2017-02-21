@@ -76,3 +76,7 @@ $mdb-btn-font-size-xs: 10px !default;
     padding: 4px 15px;
     font-size: $mdb-btn-font-size-xs;
 }
+
+.btn-default {
+  @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+}
