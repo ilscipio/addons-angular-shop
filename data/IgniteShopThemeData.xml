@@ -79,7 +79,7 @@ under the License.
     <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/base-theme/bower_components/datatables/datatables.min.js" sequenceId="10"/>
     <!-- FIXME: Migrate bootstrap-material to theme dependecy -->
     <!-- <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/bootstrap-theme/bower_components/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js" sequenceId="11"/>-->
-    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/bootstrap-theme/js/app.js" sequenceId="14"/>
+    <!--<VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/bootstrap-theme/js/app.js" sequenceId="14"/>-->
     <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/ignite-shop-theme/js/app.js" sequenceId="15"/>
     
     

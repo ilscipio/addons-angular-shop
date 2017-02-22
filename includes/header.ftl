@@ -281,13 +281,13 @@ so for now we have to split the screens in half and rely on the menu widget rend
                 </li>
                 <#if userLogin??>
                 <li class="nav-item p-x-1 dropdown">
-                    <a href="javascript:;" class="nav-link dropdown-toggle nav-link" data-toggle="dropdown"><i class="${styles.icon!} fa-dashboard"></i> ${uiLabelMap["CommonPrimaryApps"]} </i></a>
+                    <a href="javascript:;" class="nav-link dropdown-toggle nav-link" data-toggle="dropdown"><#--<i class="${styles.icon!} fa-dashboard"></i>-->${uiLabelMap["CommonPrimaryApps"]}</a>
                     <ul id="menuPrimary" class="dropdown-menu">
                         <@primaryAppsMenu/>
                     </ul>
                 </li>
                 <li class="nav-item p-x-1 dropdown">
-                    <a href="javascript:;" class="nav-link dropdown-toggle nav-link" data-toggle="dropdown"><i class="${styles.icon!} fa-desktop"></i> ${uiLabelMap["CommonSecondaryApps"]} </i></a>
+                    <a href="javascript:;" class="nav-link dropdown-toggle nav-link" data-toggle="dropdown"><#--<i class="${styles.icon!} fa-desktop"></i>-->${uiLabelMap["CommonSecondaryApps"]}</a>
                     <ul id="menuSecondary" class="dropdown-menu">
                         <@secondaryAppsMenu/>
                     </ul>
@@ -351,7 +351,7 @@ so for now we have to split the screens in half and rely on the menu widget rend
                 </li>
                 -->
                 <li class="nav-item dropdown">
-                    <#if userLogin??><a href="#" class="nav-link dropdown-toggle nav-link" data-toggle="dropdown"><i class="fa fa-user"></i> ${userLogin.userLoginId} </b><#else><a href="<@ofbizUrl>${checkLoginUrl}</@ofbizUrl>">${uiLabelMap.CommonLogin}</a></#if></a>
+                    <#if userLogin??><a href="#" class="nav-link dropdown-toggle nav-link" data-toggle="dropdown"><i class="fa fa-user"></i> ${userLogin.userLoginId} <#else><a href="<@ofbizUrl>${checkLoginUrl}</@ofbizUrl>">${uiLabelMap.CommonLogin}</a></#if></a>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <@generalMenu />
                     </ul>

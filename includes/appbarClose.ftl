@@ -10,7 +10,6 @@
 
                 </ul>
              </header>
-        </div>
         <div class="app-body">
             <div class="sidebar">
                 <@sideBarMenu/> 
