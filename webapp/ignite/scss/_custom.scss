@@ -50,7 +50,32 @@ a.dropdown-item {
         padding-left:10px;
         font-size: 0.7875rem;
     }
+    
+    // Hack for adding icon to the sidebar 
+
+    ul.nav li{
+    
+         a:before {
+            font-family: FontAwesome;
+            margin-right:5px;
+        }
+        
+        &.active a:before {
+            color: $brand-primary;
+        }
+        
+        &.active:hover a:before {
+            color: #fff;
+        }
+        
+        &.dashboard a:before {
+            content: "\f015";
+        }
+    }
+    
 }
+
+
 
 // CODE
 pre {

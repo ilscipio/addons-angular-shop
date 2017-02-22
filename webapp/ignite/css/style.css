@@ -9037,6 +9037,19 @@ a.dropdown-item:last-child {
   padding-left: 10px;
   font-size: 0.7875rem; }
 
+.sidebar nav ul.nav li a:before {
+  font-family: FontAwesome;
+  margin-right: 5px; }
+
+.sidebar nav ul.nav li.active a:before {
+  color: #20a8d8; }
+
+.sidebar nav ul.nav li.active:hover a:before {
+  color: #fff; }
+
+.sidebar nav ul.nav li.dashboard a:before {
+  content: "\f015"; }
+
 pre {
   /* original is white background with no border */
   background-color: #fff;
