@@ -357,4 +357,4 @@ so for now we have to split the screens in half and rely on the menu widget rend
                     </ul>
                 </li>
             </ul>
-            <ul class="nav navbar-nav navbar-left top-nav" style="display:none">
+            
