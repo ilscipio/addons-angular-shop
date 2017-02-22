@@ -38,6 +38,20 @@ a.dropdown-item {
     }
 } 
 
+
+.sidebar nav {
+    
+     ul.nav {
+        max-width:200px;
+        width:100%;
+     }
+
+     ul.nav li.nav-item li {
+        padding-left:10px;
+        font-size: 0.7875rem;
+    }
+}
+
 // CODE
 pre {
     /* original is white background with no border */

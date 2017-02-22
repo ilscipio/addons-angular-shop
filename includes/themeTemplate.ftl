@@ -254,7 +254,12 @@ NOTES:
     inlineItems=false titleClass="" title="" htmlwrap="ul" isNestedMenu=false parentMenuType="" parentMenuSpecialType=""
     active=false activeTarget="" menuLevel=1
     origArgs={} passArgs={} catchArgs...>
-  <#if !inlineItems && specialType == "button-dropdown">
+    
+  <#if !inlineItems && htmlwrap?has_content && specialType == "main">
+      <#-- WARN: isNestedMenu check here would not be logical -->
+      <li class="${styles.menu_main_wrap!}"><a href="#" class="${styles.menu_main_item_link!}"
+        <#if (styles.framework!"") == "bootstrap"> data-toggle="dropdown"</#if>>${escapeVal(title, 'htmlmarkup')} <#if (styles.framework!"") == "bootstrap"> <i class="fa fa-fw fa-caret-down"></i></#if></a>
+  <#elseif !inlineItems && htmlwrap?has_content && specialType == "button-dropdown">
       <div class="${styles.button_group!}">
           <button href="#" data-dropdown="${escapeVal(id, 'html')}" aria-controls="${escapeVal(id, 'html')}" data-toggle="dropdown"aria-expanded="false"<@compiledClassAttribStr class=titleClass />>${escapeVal(title, 'htmlmarkup')} <span class="caret"></span></button><br>
           <#local attribs = attribs + {"data-dropdown-content":"true", "aria-hidden":"true"}>
@@ -268,6 +273,7 @@ NOTES:
         origArgs=origArgs passArgs=passArgs><#nested></@scipioStdTmplLib.menu_markup>
   </#if>
 </#macro>
+
 
 <#-- @nav main markup - theme override -->
 <#macro nav_markup type="" origArgs={} passArgs={} catchArgs...>
@@ -304,7 +310,9 @@ NOTES:
 <#macro menuitem_link_markup itemType="" menuType="" menuSpecialType="" class="" id="" style="" href="" name="" onClick="" target="" title="" 
     attribs={} excludeAttribs=[] disabled=false selected=false active=false activeTarget="" isNestedMenu=false menuLevel=1 parentMenuType="" parentMenuSpecialType="" itemIndex=0 
     origArgs={} passArgs={} catchArgs...>
-  <#t><a href="${escapeFullUrl(href, 'html')}"<#if onClick?has_content> onclick="${escapeVal(onClick, 'html')}"</#if><@compiledClassAttribStr class=class /><#if id?has_content> id="${escapeVal(id, 'html')}"</#if><#if name?has_content> name="${escapeVal(name, 'html')}"</#if><#if style?has_content> style="${escapeVal(style, 'html')}"</#if><#if attribs?has_content><@commonElemAttribStr attribs=attribs exclude=excludeAttribs/></#if><#if target?has_content> target="${escapeVal(target, 'html')}"</#if><#if title?has_content> title="${escapeVal(title, 'html')}"</#if>>
+  <#t>
+  <#--<#local class = addClassArg(class, "nav-dropdown-toggle")>-->
+  <a href="${escapeFullUrl(href, 'html')}"<#if onClick?has_content> onclick="${escapeVal(onClick, 'html')}"</#if><@compiledClassAttribStr class=class /><#if id?has_content> id="${escapeVal(id, 'html')}"</#if><#if name?has_content> name="${escapeVal(name, 'html')}"</#if><#if style?has_content> style="${escapeVal(style, 'html')}"</#if><#if attribs?has_content><@commonElemAttribStr attribs=attribs exclude=excludeAttribs/></#if><#if target?has_content> target="${escapeVal(target, 'html')}"</#if><#if title?has_content> title="${escapeVal(title, 'html')}"</#if>>
   <#-- <#if styles.app_icon[href]?has_content><i class="${styles.icon!} ${styles.app_icon[display.name]}"></i> </#if> -->
   <#nested>
   </a>

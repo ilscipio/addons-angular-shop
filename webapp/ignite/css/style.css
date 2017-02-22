@@ -9029,6 +9029,14 @@ a.dropdown-item:last-child {
 .dropdown-menu :last-child a.dropdown-item {
   border-bottom: 0; }
 
+.sidebar nav ul.nav {
+  max-width: 200px;
+  width: 100%; }
+
+.sidebar nav ul.nav li.nav-item li {
+  padding-left: 10px;
+  font-size: 0.7875rem; }
+
 pre {
   /* original is white background with no border */
   background-color: #fff;
