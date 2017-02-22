@@ -9062,6 +9062,20 @@ a.dropdown-item:last-child {
 .sidebar nav ul.nav li.dashboard a:before {
   content: "\f015"; }
 
+.sidebar nav .nav-dropdown-toggle::before {
+  position: absolute;
+  top: 0.96875rem;
+  right: 1rem;
+  display: block;
+  width: 0.875rem;
+  height: 0.875rem;
+  padding: 0;
+  font-size: 0.875rem;
+  line-height: 0.65625rem;
+  text-align: center;
+  content: "\2039";
+  transition: .3s; }
+
 pre {
   /* original is white background with no border */
   background-color: #fff;
