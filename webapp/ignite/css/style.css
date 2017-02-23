@@ -9076,6 +9076,10 @@ a.dropdown-item:last-child {
   content: "\2039";
   transition: .3s; }
 
+.card-columns ul {
+  list-style-type: none;
+  padding-left: 0; }
+
 pre {
   /* original is white background with no border */
   background-color: #fff;

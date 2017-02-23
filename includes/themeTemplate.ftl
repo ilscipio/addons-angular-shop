@@ -328,6 +328,38 @@ NOTES:
   <#return menuContent?matches(r'(\s*<!--((?!<!--).)*?-->\s*)*\s*<(li|a|span|button|input)(\s|>).*', 'rs')>
 </#function>
 
+
+<#-- @pul main markup - theme override -->
+<#macro pul_markup title="" origArgs={} passArgs={} catchArgs...>
+  <div class="${styles.pricing_wrap!}">
+    <#if title?has_content><@pli type="title">${escapeVal(title, 'htmlmarkup')}</@pli></#if>
+    <div class="card-block">
+        <#nested>
+    </div>
+  </div>
+</#macro>
+
+<#-- @pli main markup - theme override -->
+<#macro pli_markup type="" origArgs={} passArgs={} catchArgs...>
+  <#switch type>
+    <#case "price">
+      <div class="${styles.pricing_price!}"><#nested></div>
+    <#break>
+    <#case "description">
+      <div class="${styles.pricing_description!}"><#nested></div>
+    <#break>
+    <#case "title">
+      <div class="${styles.pricing_title!}"><#nested></div>
+    <#break>
+    <#case "button">
+      <div class="${styles.pricing_cta!}"><#nested></div>
+    <#break>        
+    <#default>
+      <div class="${styles.pricing_bullet!}"><#nested></div>
+    <#break>
+  </#switch>
+</#macro>
+
 <#-- @chart main markup - theme override -->
 <#macro chart_markup type="" chartLibrary="" title="" id="" xlabel="" ylabel="" label1="" label2="" labelUom1="" labelUom2="" chartIdNum=0 renderSeqNumber=0 origArgs={} passArgs={} catchArgs...>
   <#-- WARN/FIXME?: ids and type are not escaped, currently assumed to come from internal only... -->

@@ -619,7 +619,7 @@ context.styles = [
     "grid_small_offset" : "col-sm-offset-",
     "grid_medium_offset" : "col-md-offset-",
     "grid_large_offset" : "col-lg-offset-",
-    "grid_block_container" : "block-grid-xs-2 block-grid-sm-3 block-grid-md-4 block-grid-lg-5",
+    "grid_block_container" : "card-columns",
     "grid_block_prefix" : "",
     "grid_block_postfix" : "block-grid-",
     "grid_columns_1" : "col-lg-1",
@@ -792,12 +792,12 @@ context.styles = [
     "alert_default_closable" : true,
 
   /* Pricing Tables */
-    "pricing_wrap" : "panel panel-primary",
+    "pricing_wrap" : "card text-center",
     "pricing_price" : "price",
-    "pricing_description" : "panel-body text-center",
-    "pricing_title" : "panel-heading",
-    "pricing_cta" : "btn btn-lg btn-block btn-primary",
-    "pricing_bullet" : "list-group-item",
+    "pricing_description" : "card-text",
+    "pricing_title" : "card-title card-header",
+    "pricing_cta" : "card-link",
+    "pricing_bullet" : "",
 
   /* Modal */
     "modal_wrap" : "modal fade",
