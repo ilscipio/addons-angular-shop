@@ -619,6 +619,7 @@ context.styles = [
     "grid_small_offset" : "col-sm-offset-",
     "grid_medium_offset" : "col-md-offset-",
     "grid_large_offset" : "col-lg-offset-",
+    "grid_block_container" : "block-grid-xs-2 block-grid-sm-3 block-grid-md-4 block-grid-lg-5",
     "grid_block_prefix" : "",
     "grid_block_postfix" : "block-grid-",
     "grid_columns_1" : "col-lg-1",
