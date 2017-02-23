@@ -270,23 +270,24 @@ so for now we have to split the screens in half and rely on the menu widget rend
 <body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden <#if activeApp?has_content>app-${activeApp}</#if><#if parameters._CURRENT_VIEW_?has_content> page-${parameters._CURRENT_VIEW_!}</#if> <#if userLogin??>page-auth<#else>page-noauth</#if>">
     <!-- Navigation -->
     <header class="app-header navbar">
-    
+        
         <!-- Brand and toggle get grouped for better mobile display -->
+            <button class="navbar-toggler mobile-sidebar-toggler hidden-lg-up" type="button">&#9776;</button>
             <@logoMenu isSmall=true/>
             
             <!-- Top Menu Items -->
-            <ul class="nav navbar-nav navbar-left top-nav">
+            <ul class="nav navbar-nav navbar-left top-nav  hidden-md-down">
                 <li class="nav-item">
-                     <button class="nav-link navbar-toggler sidebar-toggler" type="button">&#9776;</button>
+                     <a class="nav-link navbar-toggler sidebar-toggler" href="#">&#9776;</button>
                 </li>
                 <#if userLogin??>
-                <li class="nav-item p-x-1 dropdown">
+                <li class="nav-item p-x-1 dropdown ml-auto">
                     <a href="javascript:;" class="nav-link dropdown-toggle nav-link" data-toggle="dropdown"><#--<i class="${styles.icon!} fa-dashboard"></i>-->${uiLabelMap["CommonPrimaryApps"]}</a>
                     <ul id="menuPrimary" class="dropdown-menu">
                         <@primaryAppsMenu/>
                     </ul>
                 </li>
-                <li class="nav-item p-x-1 dropdown">
+                <li class="nav-item p-x-1 dropdown ml-auto">
                     <a href="javascript:;" class="nav-link dropdown-toggle nav-link" data-toggle="dropdown"><#--<i class="${styles.icon!} fa-desktop"></i>-->${uiLabelMap["CommonSecondaryApps"]}</a>
                     <ul id="menuSecondary" class="dropdown-menu">
                         <@secondaryAppsMenu/>
