@@ -6339,24 +6339,24 @@ app-root {
     margin-top: 55px; }
   .sidebar {
     position: fixed;
-    width: 220px;
+    width: 200px;
     height: 100%;
-    margin-left: -220px; }
+    margin-left: -200px; }
     .sidebar .sidebar-nav,
     .sidebar .nav {
-      width: 220px !important; }
+      width: 200px !important; }
   .main, .app-footer {
     margin-left: 0 !important; }
   .aside-menu {
     margin-right: -250px; }
   .sidebar-mobile-show .sidebar {
-    width: 220px;
+    width: 200px;
     margin-left: 0; }
     .sidebar-mobile-show .sidebar .sidebar-nav {
       height: calc(100vh - 55px); }
   .sidebar-mobile-show .main {
-    margin-right: -220px !important;
-    margin-left: 220px !important; } }
+    margin-right: -200px !important;
+    margin-left: 200px !important; } }
 
 .sidebar {
   padding: 0;

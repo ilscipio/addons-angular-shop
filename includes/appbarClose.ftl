@@ -9,10 +9,7 @@
             ${sections.render("left-column")}
           </#if>-->
         </#macro>
-                <#-- 
-                <ul class="nav navbar-nav navbar-left top-nav" style="display:none">
-                </ul>-->
-             </header>
+        </aside>
         <div class="app-body">
             <div class="sidebar">
                 <@sideBarMenu/> 

@@ -94,7 +94,7 @@ under the License.
         <#if layoutSettings.suppressTab?? && display.name == layoutSettings.suppressTab>
           <#-- do not display this component-->
         <#else>
-            <li class="<#if selected> active</#if>">
+            <li class="hidden-lg-up <#if selected> active</#if>">
                 <a href="${thisURL}${rawString(externalKeyParam)}" class="dropdown-item<#if selected> active</#if>"
                 <#if uiLabelMap??> title="${uiLabelMap[display.description]}">
                     <#if styles.app_icon[display.name]?has_content><i class="${styles.icon!} ${styles.app_icon[display.name]}"></i> </#if>${uiLabelMap[display.title]}
@@ -125,7 +125,7 @@ under the License.
               <#assign thisURL = thisApp>
             </#if>
           </#if>
-          <li class="<#if selected> active</#if>">      
+          <li class="hidden-lg-up  <#if selected> active</#if>">      
             <a href="${thisURL}${rawString(externalKeyParam)}" class="dropdown-item <#if selected> active</#if>"
                 <#if uiLabelMap??> title="${uiLabelMap[display.description]}">
                     <#if styles.app_icon[display.name]?has_content><i class="${styles.icon!} ${styles.app_icon[display.name]}"></i> </#if>${uiLabelMap[display.title]}
@@ -358,4 +358,4 @@ so for now we have to split the screens in half and rely on the menu widget rend
                     </ul>
                 </li>
             </ul>
-            
+     </header>
