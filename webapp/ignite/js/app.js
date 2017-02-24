@@ -29,7 +29,7 @@
 $(document).ready(function($){
 
   // Add dropdowns to sidebar
-  $('.nav-dropdown').has('ul').children('a').addClass('nav-dropdown-toggle');
+  $('.sidebar .nav-dropdown').has('ul').children('a').addClass('nav-dropdown-toggle');
 	
   // Add class .active to current link
   $.navigation.find('a').each(function(){

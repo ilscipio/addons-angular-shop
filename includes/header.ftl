@@ -58,8 +58,8 @@ under the License.
           <li class="nav-item">${userLogin.userLoginId}</li>
         </#if>
         -->
-        <li class=""><a href="<@ofbizUrl>ListLocales</@ofbizUrl>" class="dropdown-item"><i class="${styles.icon!} fa-language"></i> ${uiLabelMap.CommonLanguageTitle}</a></li>
-        <li class=""><a href="<@ofbizUrl>ListVisualThemes</@ofbizUrl>" class="dropdown-item"><i class="${styles.icon!} fa-photo"></i> ${uiLabelMap.CommonVisualThemes}</a></li>
+        <li><a href="<@ofbizUrl>ListLocales</@ofbizUrl>" class="dropdown-item"><i class="${styles.icon!} fa-language"></i> ${uiLabelMap.CommonLanguageTitle}</a></li>
+        <li><a href="<@ofbizUrl>ListVisualThemes</@ofbizUrl>" class="dropdown-item"><i class="${styles.icon!} fa-photo"></i> ${uiLabelMap.CommonVisualThemes}</a></li>
     </#if>
     <#if parameters.componentName?? && requestAttributes._CURRENT_VIEW_?? && helpTopic??>
         <#include "component://common/webcommon/includes/helplink.ftl" />
@@ -352,7 +352,7 @@ so for now we have to split the screens in half and rely on the menu widget rend
                 </li>
                 -->
                 <li class="nav-item dropdown">
-                    <#if userLogin??><a href="#" class="nav-link dropdown-toggle nav-link" data-toggle="dropdown"><i class="fa fa-user"></i> ${userLogin.userLoginId} <#else><a href="<@ofbizUrl>${checkLoginUrl}</@ofbizUrl>">${uiLabelMap.CommonLogin}</a></#if>
+                    <#if userLogin??><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> ${userLogin.userLoginId} </a><#else><a href="<@ofbizUrl>${checkLoginUrl}</@ofbizUrl>">${uiLabelMap.CommonLogin}</a></#if>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <@generalMenu />
                     </ul>
