@@ -20,10 +20,6 @@
     height: 22px;
 }
 
-.form-group{
-    margin:0px;
-    }
-
 .radio-item-inline.radio-item-separator {
   display:none;
 }
@@ -43,6 +39,11 @@ pre.scrollable {
     padding: 10px;
 }
 
+.form-group {
+    input {width:100%;}
+}
+
+/*
 .form-control{
     height:auto;
 }
@@ -79,16 +80,16 @@ pre.scrollable {
         text-align: center;
         width: 100%;
     }
-}
+}*/
 
 .btn-group input, .btn-group form {    
 		position: relative;
-    float: left;
+        float: left;
 		
 		&:not(:first-child):not(:last-child):not(.dropdown-toggle) {
 			border-radius: 0;
 			}
-		}
+}
 
 div.form-control, .form-group div.form-control,.field-entry-type-display {background:none;}
 
