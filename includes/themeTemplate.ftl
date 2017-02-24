@@ -108,7 +108,14 @@ NOTES:
 
 <#-- Override of @field_datetime_markup_script since fdatetime is foundation specific -->
 <#macro field_datetime_markup_script inputId="" inputName="" displayInputId="" displayInputName="" dateType="" dateDisplayType="" htmlwrap=true origArgs={} passArgs={} catchArgs...>
-  <#local datepickerOptions>{format:"yyyy-mm-dd", shortTime:false}</#local>
+  <#local datepickerOptions>{format:"YYYY-MM-DD",
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down"
+                }
+  }</#local>
   <@script htmlwrap=htmlwrap>
     $(function() {
 
@@ -157,7 +164,7 @@ NOTES:
         <#-- SCIPIO: How this works: the datepicker will put a yyyy-MM-dd value into the id_i18n field. 
             This triggers onDateChange which may transform the date and put it back in id_i18n.
             This triggers then another change() which copies it into the hidden id field (with another conversion if necessary). -->
-        <#-- $("#${escapeVal(displayInputId, 'js')}").bootstrapMaterialDatePicker(${datepickerOptions}).on('changeDate', onDateChange).on('show', onDatePopup); -->
+        $("#${escapeVal(displayInputId, 'js')}").datetimepicker(${datepickerOptions}).on('dp.change', onDateChange).on('dp.show', onDatePopup);
         <#-- Cannot use name, must use ID, this is invalid (will break multiple forms per page): $("input[name='${displayInputName}']")-->
 
       </#if>

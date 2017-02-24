@@ -278,7 +278,7 @@ so for now we have to split the screens in half and rely on the menu widget rend
             <!-- Top Menu Items -->
             <ul class="nav navbar-nav navbar-left top-nav  hidden-md-down">
                 <li class="nav-item">
-                     <a class="nav-link navbar-toggler sidebar-toggler" href="#">&#9776;</button>
+                     <a class="nav-link navbar-toggler sidebar-toggler" href="#">&#9776;</a>
                 </li>
                 <#if userLogin??>
                 <li class="nav-item p-x-1 dropdown ml-auto">
@@ -352,7 +352,7 @@ so for now we have to split the screens in half and rely on the menu widget rend
                 </li>
                 -->
                 <li class="nav-item dropdown">
-                    <#if userLogin??><a href="#" class="nav-link dropdown-toggle nav-link" data-toggle="dropdown"><i class="fa fa-user"></i> ${userLogin.userLoginId} <#else><a href="<@ofbizUrl>${checkLoginUrl}</@ofbizUrl>">${uiLabelMap.CommonLogin}</a></#if></a>
+                    <#if userLogin??><a href="#" class="nav-link dropdown-toggle nav-link" data-toggle="dropdown"><i class="fa fa-user"></i> ${userLogin.userLoginId} <#else><a href="<@ofbizUrl>${checkLoginUrl}</@ofbizUrl>">${uiLabelMap.CommonLogin}</a></#if>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <@generalMenu />
                     </ul>
