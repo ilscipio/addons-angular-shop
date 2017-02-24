@@ -8662,6 +8662,9 @@ base-chart.chart {
   float: left;
   width: 100%; }
 
+.row .row {
+  margin-bottom: 4px; }
+
 .navbar-brand > img {
   width: auto;
   height: 22px; }
