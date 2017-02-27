@@ -9137,6 +9137,32 @@ a.dropdown-item:last-child {
   content: "\2039";
   transition: .3s; }
 
+.page-item span, .pagination-datatables li span, .pagination li span {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #20a8d8;
+  background-color: #fff;
+  border: 1px solid #ddd; }
+
+.page-item:first-child span, .pagination-datatables li:first-child span, .pagination li:first-child span {
+  margin-left: 0; }
+
+.page-item.active span, .pagination-datatables li.active span, .pagination li.active span {
+  z-index: 2;
+  color: #fff;
+  background-color: #20a8d8;
+  border-color: #20a8d8; }
+
+.page-item.disabled span, .pagination-datatables li.disabled span, .pagination li.disabled span {
+  color: #b0bec5;
+  pointer-events: none;
+  cursor: not-allowed;
+  background-color: #fff;
+  border-color: #ddd; }
+
 .card-columns ul {
   list-style-type: none;
   padding-left: 0; }

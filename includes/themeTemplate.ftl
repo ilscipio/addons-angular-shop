@@ -286,9 +286,9 @@ NOTES:
 <#macro nav_markup type="" origArgs={} passArgs={} catchArgs...>
   <#switch type>
     <#case "magellan">
-      <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-          <ul class="nav navbar-nav">
+      <nav class="navbar navbar-default navbar-static" data-spy="scroll">
+        <div class="container-fluid">
+          <ul class="nav nav-tabs" role="tablist">
             <#nested>
           </ul>
         </div>

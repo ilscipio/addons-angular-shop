@@ -108,6 +108,47 @@ a.dropdown-item {
     
 }
 
+// Fix to the pagination elements
+.page-item {
+  span {
+  position: relative;
+  display: block;
+  padding: $pagination-padding-y $pagination-padding-x;
+  margin-left: -1px;
+  line-height: $pagination-line-height;
+  color: $pagination-color;
+  background-color: $pagination-bg;
+  border: $pagination-border-width solid $pagination-border-color;
+  }
+  
+  &:first-child {
+    span {
+      margin-left: 0;
+      @include border-left-radius($border-radius);
+    }
+  }
+  &:last-child {
+    span {
+      @include border-right-radius($border-radius);
+    }
+  }
+
+  &.active span {
+    z-index: 2;
+    color: $pagination-active-color;
+    background-color: $pagination-active-bg;
+    border-color: $pagination-active-border;
+  }
+
+  &.disabled span {
+    color: $pagination-disabled-color;
+    pointer-events: none;
+    cursor: $cursor-disabled; // While `pointer-events: none` removes the cursor in modern browsers, we provide a disabled cursor as a fallback.
+    background-color: $pagination-disabled-bg;
+    border-color: $pagination-disabled-border;
+  }
+}
+
 // Pricing table
 .card-columns {
     ul {
