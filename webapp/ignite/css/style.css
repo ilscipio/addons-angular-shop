@@ -6842,7 +6842,6 @@ nav.top-nav {
     height: 90px;
     margin: -90px 0 0; }
     .social-box .chart-wrapper canvas {
-      width: 100% !important;
       height: 90px !important; }
   .social-box ul {
     padding: 10px 0;
@@ -8692,44 +8691,11 @@ pre.scrollable {
 .form-group input {
   width: 100%; }
 
-/*
-.form-control{
-    height:auto;
-}
+.input-group-addon button, .input-group-addon [type="button"], .input-group-addon [type="reset"], .input-group-addon [type="submit"] {
+  background: none;
+  border: none;
+  color: #607d8b; }
 
-.form-group {
-    &.is-focused {
-        .radio-item{
-            .form-control {
-            }
-        }
-    }
-}
-
-.input-group{
-    margin:0px;
-}
-
-.input-group-addon{
-    padding: 6px 12px;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 14px;
-    color: #555;
-    text-align: center;
-    border:none;
-    background:none;
-
-    input {
-        padding: 6px 12px;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 14px;
-        color: #555;
-        text-align: center;
-        width: 100%;
-    }
-}*/
 .btn-group input, .btn-group form {
   position: relative;
   float: left; }
@@ -8752,7 +8718,7 @@ div.form-control, .form-group div.form-control, .field-entry-type-display {
         height: auto !important;*/
   display: none; }
   .chart-data:before {
-    content: '{"primaryFillColor":"rgba(32, 168, 216, 0.7)","primaryStrokeColor":"rgba(32, 168, 216, 0.9)","primaryPointStrokeColor":"rgba(32, 168, 216, 0.7)","secondaryFillColor":"rgba(176, 190, 197, 0.7)","secondaryStrokeColor":"rgba(176, 190, 197, 0.9)","secondaryPointStrokeColor":"rgba(176, 190, 197, 0.7)","pieFillColor1":"#20a8d8","pieFillColor2":"#b0bec5","pieFillColor3":"#f86c6b","pieFillColor4":"#4dbd74","pieFillColor5":"#f8cb00","pieFillColor6":"#63c2de","pieHighlightColor1":"rgba(32, 168, 216, 0.6)","pieHighlightColor2":"rgba(176, 190, 197, 0.6)","pieHighlightColor3":"rgba(248, 108, 107, 0.6)","pieHighlightColor4":"rgba(77, 189, 116, 0.6)","pieHighlightColor5":"rgba(248, 203, 0, 0.6)","pieHighlightColor6":"rgba(99, 194, 222, 0.6)","pointColor":"#fff","pointHighlightFill":"#cfd8dc","pointHighlightStroke":"#263238","pointDot":true,"pointHitDetectionRadius":"5","pointDotRadius":"3","pointDotStrokeWidth":"1","scaleType":"linear","scaleDisplay":true,"scaleGridLineColor":"rgba(0,0,0,.1)","scaleLabelFontFamily":["-apple-system","system-ui","BlinkMacSystemFont","Segoe UI","Roboto","Helvetica Neue","Arial","sans-serif"],"scaleLabelFontSize":"14","scaleLabelFontColor":"#263238","scaleLabelDisplay":false,"angleShowLineOut":true,"scaleBeginAtZero":true,"showTooltips":true,"color":"#F7464A","highlight":"#FF5A5E","dataLabels":false}';
+    content: '{"primaryFillColor":"rgba(32, 168, 216, 0.7)","primaryStrokeColor":"rgba(32, 168, 216, 0.9)","primaryPointStrokeColor":"rgba(32, 168, 216, 0.7)","secondaryFillColor":"rgba(176, 190, 197, 0.7)","secondaryStrokeColor":"rgba(176, 190, 197, 0.9)","secondaryPointStrokeColor":"rgba(176, 190, 197, 0.7)","pieFillColor1":"#20a8d8","pieFillColor2":"#b0bec5","pieFillColor3":"#f86c6b","pieFillColor4":"#4dbd74","pieFillColor5":"#f8cb00","pieFillColor6":"#63c2de","pieHighlightColor1":"rgba(32, 168, 216, 0.6)","pieHighlightColor2":"rgba(176, 190, 197, 0.6)","pieHighlightColor3":"rgba(248, 108, 107, 0.6)","pieHighlightColor4":"rgba(77, 189, 116, 0.6)","pieHighlightColor5":"rgba(248, 203, 0, 0.6)","pieHighlightColor6":"rgba(99, 194, 222, 0.6)","pointColor":"#fff","pointHighlightFill":"#cfd8dc","pointHighlightStroke":"#263238","pointDot":true,"scaleType":"linear","scaleDisplay":true,"scaleGridLineColor":"rgba(0,0,0,.1)","scaleLabelFontFamily":["-apple-system","system-ui","BlinkMacSystemFont","Segoe UI","Roboto","Helvetica Neue","Arial","sans-serif"],"scaleLabelFontColor":"#263238","scaleLabelDisplay":false,"angleShowLineOut":true,"scaleBeginAtZero":true,"showTooltips":true,"color":"#F7464A","highlight":"#FF5A5E","dataLabels":false}';
     display: none; }
 
 canvas {
