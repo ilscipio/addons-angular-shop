@@ -795,6 +795,7 @@ context.styles = [
     "pricing_wrap" : "card text-center",
     "pricing_price" : "price",
     "pricing_description" : "card-text",
+    "pricing_ribbon" : "ribbon",
     "pricing_title" : "card-title card-header",
     "pricing_cta" : "card-link",
     "pricing_bullet" : "",

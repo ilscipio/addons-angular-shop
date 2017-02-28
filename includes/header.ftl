@@ -122,7 +122,7 @@ so for now we have to split the screens in half and rely on the menu widget rend
           but also it's very convenient. 
           Presence of userLogin.partyId is what marks the difference. -->
       <#if userIsKnown>
-          <li class="has-dropdown not-click">
+          <li class="">
             <#if userIsAnon>
               <#assign person = delegator.findOne("Person", {"partyId":userLogin.partyId}, true)!>
               <#if person?has_content>
@@ -322,6 +322,11 @@ so for now we have to split the screens in half and rely on the menu widget rend
                     </ul>
                 </li>
                 -->
+                <#assign showHeadActn = (showHeaderActions!true) == true && (useMinimalTheme!false) == false>
+                <#if showHeadActn>
+                    <li class="nav-item"><@render resource="component://shop/widget/CartScreens.xml#microcart" /></li>
+                </#if>
+                
                 <@rightMenu/>
             </ul>
      </header>
