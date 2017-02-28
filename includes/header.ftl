@@ -18,20 +18,18 @@ under the License.
 -->
 
 <#-- Applications -->
-<#if (requestAttributes.externalLoginKey)??><#assign externalKeyParam = "?externalLoginKey=" + (requestAttributes.externalLoginKey!)></#if>
-<#if (externalLoginKey)??><#assign externalKeyParam = "?externalLoginKey=" + (requestAttributes.externalLoginKey!)></#if>
+<#include "common.ftl">
+
+<#-- Applications -->
+<#if (requestAttributes.externalLoginKey)??><#assign externalKeyParam = "?externalLoginKey=" + requestAttributes.externalLoginKey!></#if>
+<#if externalLoginKey??><#assign externalKeyParam = "?externalLoginKey=" + requestAttributes.externalLoginKey!></#if>
 <#assign ofbizServerName = application.getAttribute("_serverId")!"default-server">
 <#assign contextPath = request.getContextPath()>
-<#if userLogin?has_content>
-    <#assign displayApps = Static["org.ofbiz.webapp.control.LoginWorker"].getAppBarWebInfos(security, userLogin, ofbizServerName, "main")>
-    <#assign displaySecondaryApps = Static["org.ofbiz.webapp.control.LoginWorker"].getAppBarWebInfos(security, userLogin, ofbizServerName, "secondary")>
-    <#assign appModelMenu = Static["org.ofbiz.widget.model.MenuFactory"].getMenuFromLocation(applicationMenuLocation,applicationMenuName)>
-</#if>
 <#if person?has_content>
   <#assign userName = person.firstName! + " " + person.middleName! + " " + person.lastName!>
 <#elseif partyGroup?has_content>
   <#assign userName = partyGroup.groupName!>
-<#elseif userLogin??>
+<#elseif userHasAccount><#-- NOTE: see common.ftl for userHasAccount setup -->
   <#assign userName = userLogin.userLoginId>
 <#else>
   <#assign userName = "">
@@ -42,100 +40,49 @@ under the License.
   <#assign orgName = "">
 </#if>
 <#macro generalMenu>
-    <#if userLogin??>
+    <#if userHasAccount>
         <#--
         <#if layoutSettings.topLines?has_content>
           <#list layoutSettings.topLines as topLine>
             <#if topLine.text??>
-              <li class="nav-item">${topLine.text}<a href="${rawString(topLine.url!)}${rawString(externalKeyParam)}">${topLine.urlText!}</a></li>
+              <li>${topLine.text}<a href="${rawString(topLine.url!)}${rawString(externalKeyParam)}">${topLine.urlText!}</a></li>
             <#elseif topLine.dropDownList??>
-              <li class="nav-item"><#include "component://common/webcommon/includes/insertDropDown.ftl"/></li>
+              <li><#include "component://common/webcommon/includes/insertDropDown.ftl"/></li>
             <#else>
-              <li class="nav-item">${topLine!}</li>
+              <li>${topLine!}</li>
             </#if>
           </#list>
         <#else>
-          <li class="nav-item">${userLogin.userLoginId}</li>
+          <li>${userLogin.userLoginId}</li>
         </#if>
         -->
-        <li><a href="<@ofbizUrl>ListLocales</@ofbizUrl>" class="dropdown-item"><i class="${styles.icon!} fa-language"></i> ${uiLabelMap.CommonLanguageTitle}</a></li>
-        <li><a href="<@ofbizUrl>ListVisualThemes</@ofbizUrl>" class="dropdown-item"><i class="${styles.icon!} fa-photo"></i> ${uiLabelMap.CommonVisualThemes}</a></li>
+        <li><a href="<@ofbizUrl>orderhistory</@ofbizUrl>" class="dropdown-item">${uiLabelMap.CommonOrders}</a></li><#--uiLabelMap.EcommerceOrderHistory-->
+        <#-- TODO: Ofbiz/ecommerce supports more (above are bare essentials only):
+        <li><a href="<@ofbizUrl>messagelist</@ofbizUrl>">${uiLabelMap.CommonMessages}</a></li>
+        <li><a href="<@ofbizUrl>ListQuotes</@ofbizUrl>">${uiLabelMap.OrderOrderQuotes}</a></li>
+        <li><a href="<@ofbizUrl>ListRequests</@ofbizUrl>">${uiLabelMap.OrderRequests}</a></li>
+        <li><a href="<@ofbizUrl>editShoppingList</@ofbizUrl>">${uiLabelMap.EcommerceShoppingLists}</a></li>
+        -->
+        <li><a href="<@ofbizUrl>viewprofile</@ofbizUrl>" class="dropdown-item">${uiLabelMap.CommonProfile}</a></li>
+
+        <#-- not implemented for shop, belongs to profile settings: <li><a href="<@ofbizUrl>ListLocales</@ofbizUrl>">${uiLabelMap.CommonLanguageTitle}</a></li>-->
+        <#-- not implemented for shop: <li><a href="<@ofbizUrl>ListVisualThemes</@ofbizUrl>">${uiLabelMap.CommonVisualThemes}</a></li>-->
+    <#else>
+        <#-- language select for anon users 
+            MOVED to icon
+        <li><a href="<@ofbizUrl>ListLocales</@ofbizUrl>">${uiLabelMap.CommonLanguageTitle}</a></li> -->
     </#if>
+    <#--
     <#if parameters.componentName?? && requestAttributes._CURRENT_VIEW_?? && helpTopic??>
         <#include "component://common/webcommon/includes/helplink.ftl" />
-        <#assign portalPageParamStr><#if parameters.portalPageId?has_content>&portalPageId=${rawString(parameters.portalPageId!)}</#if></#assign>
-        <li class="has-form"><@modal label=uiLabelMap.CommonHelp id="help"  class="dropdown-item"
-            href=makeOfbizUrl("showHelp?helpTopic=${rawString(helpTopic!)}${portalPageParamStr}") icon="${styles.icon!} fa-info"></@modal></li>
+    </#if>-->
+    <#if userHasAccount>
+        <li class="divider"></li>
     </#if>
-    <#if userLogin??>
-        <li class="active"><a href="<@ofbizUrl>logout</@ofbizUrl>" class="dropdown-item active"><i class="${styles.icon!} fa-power-off"></i> ${uiLabelMap.CommonLogout}</a></li>
+    <#-- Now show this even for anon, unless it's anon without a party -->
+    <#if userIsKnown>
+        <li class="active"><a href="<@ofbizUrl>logout</@ofbizUrl>" class="dropdown-item active">${uiLabelMap.CommonLogout}</a></li>
     </#if>
-</#macro>
-
-<#macro primaryAppsMenu>
-  <#assign appCount = 0>
-  <#assign firstApp = true>
-  <#--  <li class="nav-item"><label>${uiLabelMap["CommonPrimaryApps"]}</label></li>-->
-  <#list displayApps as display>
-        <#assign thisApp = display.getContextRoot()>
-        <#assign selected = false>
-        <#if thisApp == contextPath || contextPath + "/" == thisApp>
-          <#assign selected = true>
-        </#if>
-        <#assign servletPath = Static["org.ofbiz.webapp.WebAppUtil"].getControlServletPathSafeSlash(display)!"">
-        <#assign thisURL = rawString(servletPath)>
-        <#if thisApp != "/">
-          <#if servletPath?has_content>
-            <#assign thisURL = thisURL + "main">
-          <#else>
-            <#assign thisURL = thisApp>
-          </#if>
-        </#if>
-        <#if layoutSettings.suppressTab?? && display.name == layoutSettings.suppressTab>
-          <#-- do not display this component-->
-        <#else>
-            <li class="<#if selected> active</#if>">
-                <a href="${thisURL}${rawString(externalKeyParam)}" class="dropdown-item<#if selected> active</#if>"
-                <#if uiLabelMap??> title="${uiLabelMap[display.description]}">
-                    <#if styles.app_icon[display.name]?has_content><i class="${styles.icon!} ${styles.app_icon[display.name]}"></i> </#if>${uiLabelMap[display.title]}
-                <#else> title="${display.description}">
-                    ${display.title}
-                </#if>
-                </a>
-            </li>
-            <#assign appCount = appCount + 1>
-        </#if>
-  </#list>
-</#macro>
-
-<#macro secondaryAppsMenu>
-    <#--<li class="nav-item"><label>${uiLabelMap["CommonSecondaryApps"]}</label></li>-->
-    <#list displaySecondaryApps as display>
-        <#assign thisApp = display.getContextRoot()>
-        <#assign selected = false>
-        <#if thisApp == contextPath || contextPath + "/" == thisApp>
-          <#assign selected = true>
-        </#if>
-          <#assign servletPath = Static["org.ofbiz.webapp.WebAppUtil"].getControlServletPathSafeSlash(display)!"">
-          <#assign thisURL = rawString(servletPath)>
-          <#if thisApp != "/">
-            <#if servletPath?has_content>
-              <#assign thisURL = thisURL + "main">
-            <#else>
-              <#assign thisURL = thisApp>
-            </#if>
-          </#if>
-          <li class="<#if selected> active</#if>">      
-            <a href="${thisURL}${rawString(externalKeyParam)}" class="dropdown-item <#if selected> active</#if>"
-                <#if uiLabelMap??> title="${uiLabelMap[display.description]}">
-                    <#if styles.app_icon[display.name]?has_content><i class="${styles.icon!} ${styles.app_icon[display.name]}"></i> </#if>${uiLabelMap[display.title]}
-                <#else> title="${display.description}">
-                    ${display.title}
-                </#if>
-            </a>
-            <#assign appCount = appCount + 1>
-          </li>
-    </#list>
 </#macro>
 
 <#-- in theory there is a transform that converts the selected menu to a proper list on these screens. It is never used by any of the other ofbiz screens, however and poorly documented
@@ -166,6 +113,44 @@ so for now we have to split the screens in half and rely on the menu widget rend
         <#else>
         <a href="<@ofbizUrl>${logoLinkURL!""}</@ofbizUrl>" class="navbar-brand"></a>
     </#if>
+</#macro>
+
+<#macro rightMenu>
+      <#-- SCIPIO: NOTE: We must display something for the anonymous user that has a partyId
+          attached (created during anon checkout), because otherwise he has no way to clear his session.
+          His temporary partyId is now (and must be) kept after checkout is done, for technical reasons,
+          but also it's very convenient. 
+          Presence of userLogin.partyId is what marks the difference. -->
+      <#if userIsKnown>
+          <li class="has-dropdown not-click">
+            <#if userIsAnon>
+              <#assign person = delegator.findOne("Person", {"partyId":userLogin.partyId}, true)!>
+              <#if person?has_content>
+                <#assign welcomeName = person.firstName!userLogin.userLoginId>
+              <#else>
+                <#assign partyGroup = delegator.findOne("PartyGroup", {"partyId":userLogin.partyId}, true)!>
+                <#if partyGroup?has_content>
+                  <#assign welcomeName = partyGroup.groupName!userLogin.userLoginId>
+                <#else>
+                  <#-- Use userLoginId ("anonymous") as the fallback for now; the partyId will be a random number, kind of insulting -->
+                  <#assign welcomeName = userLogin.userLoginId>
+                </#if>
+              </#if>
+            <#else>
+              <#-- NOTE: This is a bit inconsistent with the anon user -->
+              <#assign welcomeName = userLogin.userLoginId>
+            </#if>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> ${userLogin.userLoginId} </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <@generalMenu />
+                </ul>
+            </li>
+      <#else>
+        <li class="nav-item dropdown">
+            <a href="<@ofbizUrl>${checkLoginUrl}</@ofbizUrl>">${uiLabelMap.CommonLogin}</a>
+        </li>
+      </#if>
 </#macro>
 
   <@scripts output=true> <#-- ensure @script elems here will always output -->
@@ -267,33 +252,19 @@ so for now we have to split the screens in half and rely on the menu widget rend
   <#assign logoLinkURL = "${layoutSettings.commonHeaderImageLinkUrl}">
 </#if>
 <#assign organizationLogoLinkURL = "${layoutSettings.organizationLogoLinkUrl!}">
-<body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden <#if activeApp?has_content>app-${activeApp}</#if><#if parameters._CURRENT_VIEW_?has_content> page-${parameters._CURRENT_VIEW_!}</#if> <#if userLogin??>page-auth<#else>page-noauth</#if>">
+<body class="app header-fixed aside-menu-fixed aside-menu-hidden <#if activeApp?has_content>app-${activeApp}</#if><#if parameters._CURRENT_VIEW_?has_content> page-${parameters._CURRENT_VIEW_!}</#if> <#if userLogin??>page-auth<#else>page-noauth</#if>">
     <!-- Navigation -->
-    <header class="app-header navbar">
+    <header class="app-header sidebar-fixed navbar">
         
         <!-- Brand and toggle get grouped for better mobile display -->
-            <button class="navbar-toggler mobile-sidebar-toggler hidden-lg-up" type="button">&#9776;</button>
+            <#-- <button class="navbar-toggler mobile-sidebar-toggler hidden-lg-up" type="button">&#9776;</button> -->
             <@logoMenu isSmall=true/>
             
             <!-- Top Menu Items -->
             <ul class="nav navbar-nav navbar-left top-nav  hidden-md-down">
-                <li class="nav-item">
+               <#--  <li class="nav-item">
                      <a class="nav-link navbar-toggler sidebar-toggler" href="#">&#9776;</a>
-                </li>
-                <#if userLogin??>
-                <li class="nav-item p-x-1 dropdown ml-auto">
-                    <a href="javascript:;" class="nav-link dropdown-toggle nav-link" data-toggle="dropdown"><#--<i class="${styles.icon!} fa-dashboard"></i>-->${uiLabelMap["CommonPrimaryApps"]}</a>
-                    <ul id="menuPrimary" class="dropdown-menu">
-                        <@primaryAppsMenu/>
-                    </ul>
-                </li>
-                <li class="nav-item p-x-1 dropdown ml-auto">
-                    <a href="javascript:;" class="nav-link dropdown-toggle nav-link" data-toggle="dropdown"><#--<i class="${styles.icon!} fa-desktop"></i>-->${uiLabelMap["CommonSecondaryApps"]}</a>
-                    <ul id="menuSecondary" class="dropdown-menu">
-                        <@secondaryAppsMenu/>
-                    </ul>
-                </li>
-                </#if>
+                </li> -->
              </ul>
              
              <ul class="nav navbar-nav navbar-right ml-auto">
@@ -351,11 +322,6 @@ so for now we have to split the screens in half and rely on the menu widget rend
                     </ul>
                 </li>
                 -->
-                <li class="nav-item dropdown">
-                    <#if userLogin??><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> ${userLogin.userLoginId} </a><#else><a href="<@ofbizUrl>${checkLoginUrl}</@ofbizUrl>">${uiLabelMap.CommonLogin}</a></#if>
-                    <ul class="dropdown-menu dropdown-menu-right">
-                        <@generalMenu />
-                    </ul>
-                </li>
+                <@rightMenu/>
             </ul>
      </header>

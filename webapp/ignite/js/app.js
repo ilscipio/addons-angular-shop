@@ -62,6 +62,8 @@ $(document).ready(function($){
     }
 
   });
+  
+  // Other
 
   function resizeBroadcast() {
 

@@ -216,7 +216,7 @@ NOTES:
 <#macro slider_markup title="" id="" sliderIdNum=0 class="" controls=true indicator=true origArgs={} passArgs={} catchArgs...>
     <#if title?has_content><@heading>${escapeVal(title, 'htmlmarkup')}</@heading></#if>
     <div class="${styles.slider_container!}" data-ride="carousel" id="${escapeVal(id, 'html')}">
-      <div class="${styles.slider_wrap!}">
+      <div class="${styles.slider_wrap!}" role="listbox">
         <#nested/>
       </div>
         <#local sliderLength = getRequestVar("scipioSliderLength")!0>
@@ -338,15 +338,15 @@ NOTES:
 
 <#-- @pul main markup - theme override -->
 <#macro pul_markup title="" origArgs={} passArgs={} catchArgs...>
-  <div class="${styles.pricing_wrap!}">
+  <ul class="${styles.pricing_wrap!}">
     <#if title?has_content><@pli type="title">${escapeVal(title, 'htmlmarkup')}</@pli></#if>
-    <div class="card-block">
+    <li class="card-block">
         <#nested>
-    </div>
-  </div>
+    </li>
+  </ul>
 </#macro>
 
-<#-- @pli main markup - theme override -->
+<#-- @pli main markup - theme override 
 <#macro pli_markup type="" origArgs={} passArgs={} catchArgs...>
   <#switch type>
     <#case "price">
@@ -365,7 +365,7 @@ NOTES:
       <div class="${styles.pricing_bullet!}"><#nested></div>
     <#break>
   </#switch>
-</#macro>
+</#macro>-->
 
 <#-- @chart main markup - theme override -->
 <#macro chart_markup type="" chartLibrary="" title="" id="" xlabel="" ylabel="" label1="" label2="" labelUom1="" labelUom2="" chartIdNum=0 renderSeqNumber=0 origArgs={} passArgs={} catchArgs...>

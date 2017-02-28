@@ -8,8 +8,6 @@
 @import "scipio/steps";
 
 
-
-
 // GENERAL
 .row.display {
   background: #eee;
@@ -157,6 +155,57 @@ a.dropdown-item {
     }
 
 }
+
+ul.card {
+    list-style-type: none;
+    padding-left:0;
+    
+    
+}
+
+
+/*******
+* SHOP
+********/
+// Navigation
+
+
+#content-main-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+}
+
+// Ribbon
+.carousel-item{
+    li {}
+}
+.ribbon {
+    width:85px;
+    height:88px;
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    }
+.ribbon span{
+    position: relative;
+    padding: 7px 0;
+    left: -42px;
+    top: -9px;
+    display:block;
+    font-size:14px;
+    width: 140px;
+    padding:4px;
+    background-color: $brand-danger;
+    color:#fff;
+    text-align: center;
+      -webkit-transform: rotate(-45deg);
+      -moz-transform:    rotate(-45deg);
+      -ms-transform:     rotate(-45deg);
+      -o-transform:      rotate(-45deg);
+    }
 
 // CODE
 pre {

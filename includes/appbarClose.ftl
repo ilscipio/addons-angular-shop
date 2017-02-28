@@ -7,7 +7,7 @@
           </#if>
         </#macro>
         <div class="app-body">
-            <div class="sidebar">
+            <#--<div class="sidebar">
                 <@sideBarMenu/> 
-            </div>
+            </div>-->
             <main class="main">

@@ -9167,6 +9167,44 @@ a.dropdown-item:last-child {
   list-style-type: none;
   padding-left: 0; }
 
+ul.card {
+  list-style-type: none;
+  padding-left: 0; }
+
+/*******
+* SHOP
+********/
+#content-main-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-shrink: 0; }
+
+.ribbon {
+  width: 85px;
+  height: 88px;
+  overflow: hidden;
+  position: absolute;
+  top: 0px;
+  left: 0px; }
+
+.ribbon span {
+  position: relative;
+  padding: 7px 0;
+  left: -42px;
+  top: -9px;
+  display: block;
+  font-size: 14px;
+  width: 140px;
+  padding: 4px;
+  background-color: #f86c6b;
+  color: #fff;
+  text-align: center;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg); }
+
 pre {
   /* original is white background with no border */
   background-color: #fff;
