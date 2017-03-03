@@ -32,3 +32,8 @@ bower update
 Style changes
 -----------------
 Currently we include our own styles in @component-name/webapp/@component-name/styles
+
+-----------------
+Overlays
+-----------------
+Additional slider overlays can be downloaded from: http://html5backgroundvideos.com

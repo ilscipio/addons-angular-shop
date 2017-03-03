@@ -16,25 +16,68 @@ KIND, either express or implied.  See the License for the
 specific language governing permissions and limitations
 under the License.
 -->
-
+<#include "common.ftl">
         
 
             <!-- /.container-fluid -->
 
 
-
-
         <!-- /#page-wrapper -->
+        
+        <#if (showFooterOtherContent!true) == true && (useMinimalTheme!false) == false>
+        <div class="container other-content">
+            <@row>
+                <@cell columns=3>
+                  <i class="${styles.icon} ${styles.icon_prefix}laptop"></i>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum maiores alias ea sunt facilis impedit fuga dignissimos illo quaerat iure in nobis id quos, eaque nostrum! Unde, voluptates suscipit repudiandae!</p>
+                </@cell>
+                <@cell columns=3>
+                  <i class="${styles.icon} ${styles.icon_prefix}html5"></i>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit impedit consequuntur at! Amet sed itaque nostrum, distinctio eveniet odio, id ipsam fuga quam minima cumque nobis veniam voluptates deserunt!</p>
+                </@cell>
+                <@cell columns=3>
+                  <@heading>SCIPIO Webstore</@heading>
+                  <ul class="other-links">
+                    <#-- language select --> 
+                      <li>
+                          <a href="<@ofbizUrl><#if userHasAccount>viewprofile<#else>ListLocales</#if></@ofbizUrl>">
+                            ${uiLabelMap.CommonChooseLanguage}
+                          </a>
+                      </li>
+                    <li><a href="<@ofbizUrl>showAllPromotions</@ofbizUrl>">${uiLabelMap.ProductPromotions}</a></li>
+                    <li><a href="<@ofbizUrl>license</@ofbizUrl>">License</a></li>  
+                    <li><a href="https://www.scipio-erp.com/products/faq">FAQ's</a></li>
+                  </ul>
+                </@cell>
+                <@cell columns=3>      
+                <@heading>Follow Us!</@heading>
+                  <ul class="other-links">
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                  </ul>
+                </@cell>
+            </@row>
+        </div>
+        </#if>
 
     <!-- /#wrapper -->
         </main>
     </div>
-    <footer class="app-footer">
-            ${uiLabelMap.CommonCopyright} (c) 2014-${nowTimestamp?string("yyyy")} <a href="https://www.ilscipio.com" target="_blank">ilscipio GmbH</a>.<span class="float-right">${uiLabelMap.CommonPoweredBy} <a href="http://www.scipioerp.com" target="_blank">SCIPIO ERP</a>. <#include "ofbizhome://runtime/svninfo.ftl" /> <#include "ofbizhome://runtime/gitinfo.ftl" /></span>
-    </footer>
 
 
-  <@scripts output=true> <#-- ensure @script elems here will always output -->
+
+ 
+
+
+
+<#-- FOOTER SECTION -->
+<footer class="app-footer">
+     ${uiLabelMap.CommonCopyright} (c) 2014-${nowTimestamp?string("yyyy")} <a href="https://www.ilscipio.com" target="_blank">ilscipio GmbH</a>.<span class="float-right">${uiLabelMap.CommonPoweredBy} <a href="http://www.scipioerp.com" target="_blank">SCIPIO ERP</a>. <#include "ofbizhome://runtime/svninfo.ftl" /> <#include "ofbizhome://runtime/gitinfo.ftl" /></span>
+</footer> <#-- END FOOTER -->
+
+<@scripts output=true> <#-- ensure @script elems here will always output -->
     <#-- New in scipio; priority footer javascripts (before screen footer javascripts) -->
     <#if layoutSettings.VT_FTPR_JAVASCRIPT?has_content>
         <#--layoutSettings.javaScripts is a list of java scripts. -->
@@ -87,3 +130,4 @@ under the License.
   </@scripts>
 </body>
 </html>
+

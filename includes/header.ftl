@@ -267,7 +267,7 @@ so for now we have to split the screens in half and rely on the menu widget rend
                 </li> -->
              </ul>
              
-             <ul class="nav navbar-nav navbar-right ml-auto">
+             <ul class="nav navbar-nav navbar-right ml-auto" id="right-nav">
                 <#-- Messages
                 <li class="dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
@@ -322,11 +322,11 @@ so for now we have to split the screens in half and rely on the menu widget rend
                     </ul>
                 </li>
                 -->
+                <@rightMenu/>
+
                 <#assign showHeadActn = (showHeaderActions!true) == true && (useMinimalTheme!false) == false>
                 <#if showHeadActn>
-                    <li class="nav-item"><@render resource="component://shop/widget/CartScreens.xml#microcart" /></li>
+                    <li class="nav-item "><@render resource="component://shop/widget/CartScreens.xml#microcart" /></li>
                 </#if>
-                
-                <@rightMenu/>
             </ul>
      </header>

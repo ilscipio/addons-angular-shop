@@ -159,8 +159,6 @@ a.dropdown-item {
 ul.card {
     list-style-type: none;
     padding-left:0;
-    
-    
 }
 
 
@@ -168,7 +166,34 @@ ul.card {
 * SHOP
 ********/
 // Navigation
+#right-nav {
+   > .nav-item {
+    line-height:36px;
+   }
+}
 
+#microcart{
+    line-height:36px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+#microCartIcon{
+    width: 36px;
+    height: 36px;
+    background: #009bcb;
+    border-radius: 0;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    margin: 0 8px 0 8px;
+    order:1;
+}
+
+#microCartTotal{
+    order:-1;
+}
 
 #content-main-section {
     display: flex;
@@ -206,6 +231,24 @@ ul.card {
       -ms-transform:     rotate(-45deg);
       -o-transform:      rotate(-45deg);
     }
+
+// hero
+.scipio-image::after {
+    content:"";
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    background-repeat: repeat;
+    opacity: 0.3;
+    background-image: url(../img/overlays/black-horizontal-stripes.png);
+}
 
 // CODE
 pre {
