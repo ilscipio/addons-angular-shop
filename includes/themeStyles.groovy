@@ -610,7 +610,8 @@ context.styles = [
     "grid_cell" : "columns",
     "grid_cell_default" : "col-lg-12",
     "grid_display" : "display",      /* display grid */
-    "grid_theme" : "",
+    "grid_theme_pre" : "", /*pre-content-section*/
+    "grid_theme" : "row-offcanvas row-offcanvas-left container", /*content-section*/
     "grid_end" : "end",
     "grid_small" : "col-sm-",
     "grid_medium" : "col-md-",
@@ -638,11 +639,11 @@ context.styles = [
     "grid_small_centered" : "text-centered",
     "grid_medium_centered" : "text-centered",
     "grid_large_centered" : "text-centered",
-    "grid_sidebar_0_main" : "container-fluid",
-    "grid_sidebar_1_main" : "container-fluid",
-    "grid_sidebar_1_side" : "",
-    "grid_sidebar_2_main" : "container-fluid",
-    "grid_sidebar_2_side" : "",
+    "grid_sidebar_0_main" : "col-12 col-md-10",
+    "grid_sidebar_1_main" : "col-12 col-md-10",
+    "grid_sidebar_1_side" : "col-2 col-md-2 sidebar-offcanvas",
+    "grid_sidebar_2_main" : "col-12 col-md-10",
+    "grid_sidebar_2_side" : "col-2 col-md-2 sidebar-offcanvas",
 
   /* Text align */
     "text_left" : "text-left",
@@ -657,7 +658,7 @@ context.styles = [
     
   /* Navigation */
     "nav_subnav" : "sub-nav",
-    "nav_sidenav" : "sidebar-nav",
+    "nav_sidenav" : "",
 
     /* Breadcrumbs */
     "nav_breadcrumbs" : "breadcrumb",
@@ -807,7 +808,7 @@ context.styles = [
     "slider_container" : "carousel slide",        /* Bootstrap: "carousel slide" */
     "slider_wrap" : "carousel-inner",             /* Bootstrap: "carousel-inner" */
     "slide_container" : "carousel-item",
-    "slide_image" : "",
+    "slide_image" : "d-block img-fluid",
     "slide_content" : "carousel-caption",         /* Bootstrap: "carousel-caption" */
     "slide_linktarget" : "_blank",
 

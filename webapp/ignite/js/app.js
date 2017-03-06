@@ -48,6 +48,8 @@ $(document).ready(function($){
       });
     }
   });
+  
+  // Add slider elements
 
   // Dropdown Menu
   $.navigation.on('click', 'a', function(e){

@@ -213,46 +213,88 @@ NOTES:
 </#macro>
 
 <#-- @slider main markup - theme override -->
-<#macro slider_markup title="" id="" sliderIdNum=0 class="" controls=true indicator=true origArgs={} passArgs={} catchArgs...>
+<#macro slider_markup title="" id="" sliderIdNum=0 class="" library="" controls=true indicator=true 
+        jsOptions="" origArgs={} passArgs={} catchArgs...>
     <#if title?has_content><@heading>${escapeVal(title, 'htmlmarkup')}</@heading></#if>
-    <div class="${styles.slider_container!}" data-ride="carousel" id="${escapeVal(id, 'html')}">
-      <div class="${styles.slider_wrap!}">
-        <#nested/>
-      </div>
-        <#local sliderLength = getRequestVar("scipioSliderLength")!0>
-        <#if controls>
-            <a class="carousel-control-prev" href="#${escapeVal(id, 'html')}" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#${escapeVal(id, 'html')}" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </#if>
-        <#if indicator>
-            <ol class="carousel-indicators">
-                <#list 1..sliderLength as x>
-                    <li data-target="#${escapeVal(id, 'html')}" data-slide-to="${x}"<#if x==1> class="active"</#if>></li>
-                </#list>
-            </ol> 
-        </#if>
-    </div>
+    <#switch library>
+        <#case "owl">    
+            <#local class = addClassArg(class, "owl-carousel")>
+            <div<@compiledClassAttribStr class=class /> id="${escapeVal(id, 'html')}">
+                <#nested/>
+            </div>
+            <script type="text/javascript">
+            $(document).ready(function(){
+                  $("#${escapeVal(id, 'js')}").owlCarousel({${jsOptions}});
+                });
+            </script>
+          <#break>
+        <#case "slick">
+            <div class="slider-parent">
+                <div<@compiledClassAttribStr class=class /> id="${escapeVal(id, 'html')}">
+                    <#nested/>
+                </div>
+            </div>
+            <script type="text/javascript">
+            $(document).ready(function(){
+                  $("#${escapeVal(id, 'js')}").slick({${jsOptions}});
+                });
+            </script>
+          <#break>
+        <#default>
+            <#local class = addClassArg(class, styles.slider_container!)>
+            <div class="${styles.slider_container!}" data-ride="carousel" data-slide-to="0" id="${escapeVal(id, 'html')}">
+              <#local sliderLength = getRequestVar("scipioSliderLength")!0>
+              <#if indicator>
+                    <ol class="carousel-indicators">
+                        <#list 1..sliderLength as x>
+                            <li data-target="#${escapeVal(id, 'html')}" data-slide-to="${x}"<#if x==1> class="active"</#if>></li>
+                        </#list>
+                    </ol> 
+              </#if>
+              <div class="${styles.slider_wrap!}" role="listbox">
+                <#nested/>
+              </div>
+                <#if controls>
+                    <a class="carousel-control-prev" href="#${escapeVal(id, 'html')}" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#${escapeVal(id, 'html')}" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </#if>
+            </div>
+    </#switch>
 </#macro>
 
-<#-- @slide markup - theme override -->
-<#macro slide_markup id="" class="" image="" link="" linkTarget="" title="" slideIdNum=0 sliderLength=1 renderSeqNumber="" origArgs={} passArgs={} catchArgs...>
-    <div id="${escapeVal(id, 'html')}" class="${styles.slide_container!}<#if sliderLength==1> active</#if>">
-        <#if link?has_content><a href="${escapeFullUrl(link, 'html')}"<#if linkTarget?has_content> target="${escapeVal(linkTarget, 'html')}"</#if>></#if>
-        <div>
-        <#if image?has_content>
-          <img src="${escapeFullUrl(image, 'html')}"/>
-        </#if>
-          <#local nestedContent><#nested></#local>
-          <#if nestedContent?has_content || title?has_content><div class="${styles.slide_content!}"><#if title?has_content><h2>${escapeVal(title, 'htmlmarkup')}</h2></#if>${nestedContent}</div></#if>
+<#-- @slide main markup - theme override -->
+<#macro slide_markup id="" sliderId="" class="" library="" image="" link="" linkTarget="" title="" slideIdNum=0 sliderLength=1 renderSeqNumber="" origArgs={} passArgs={} catchArgs...>
+    <#if library=="owl" || library=="slick">
+        <div id="${escapeVal(id, 'html')}" class="item">
+            <#if link?has_content><a href="${escapeFullUrl(link, 'html')}"<#if linkTarget?has_content> target="${escapeVal(linkTarget, 'html')}"</#if>></#if>
+            <div>
+            <#if title?has_content><h2>${escapeVal(title, 'htmlmarkup')}</h2></#if>
+            <#if image?has_content>
+              <img src="${escapeFullUrl(image, 'html')}"  class="${styles.slide_image!}"/>
+            </#if>
+              <#local nestedContent><#nested></#local>
+              <#if nestedContent?has_content><div class="${styles.slide_content!}">${nestedContent}</div></#if>
+            </div>
+            <#if link?has_content></a></#if>
         </div>
-        <#if link?has_content></a></#if>
-    </div>
+    <#else>
+        <div data-orbit-slide="${escapeVal(id, 'html')}" class="${styles.slide_container!} <#if slideIdNum==1>active</#if>">
+            <#if link?has_content><a href="${escapeFullUrl(link, 'html')}"<#if linkTarget?has_content> target="${escapeVal(linkTarget, 'html')}"</#if>></#if>
+            <#if title?has_content><h2>${escapeVal(title, 'htmlmarkup')}</h2></#if>
+              <#if image?has_content>
+                <img src="${escapeFullUrl(image, 'html')}" class="${styles.slide_image!}"/>
+              </#if>
+              <#local nestedContent><#nested></#local>
+              <#if nestedContent?has_content><div class="${styles.slide_content!}">${nestedContent}</div></#if>
+            <#if link?has_content></a></#if>
+        </div>
+    </#if>
 </#macro>
 
 <#-- @menu container main markup - theme override 
@@ -352,6 +394,9 @@ NOTES:
     <#case "price">
       <div class="${styles.pricing_price!}"><#nested></div>
     <#break>
+    <#case "ribbon">
+      <div class="${styles.pricing_ribbon!}"><span><#nested></span></div>
+    <#break>
     <#case "description">
       <div class="${styles.pricing_description!}"><#nested></div>
     <#break>
@@ -366,6 +411,8 @@ NOTES:
     <#break>
   </#switch>
 </#macro>
+
+
 
 <#-- @chart main markup - theme override -->
 <#macro chart_markup type="" chartLibrary="" title="" id="" xlabel="" ylabel="" label1="" label2="" labelUom1="" labelUom2="" chartIdNum=0 renderSeqNumber=0 origArgs={} passArgs={} catchArgs...>

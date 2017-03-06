@@ -217,11 +217,11 @@ ul.card {
 .ribbon span{
     position: relative;
     padding: 7px 0;
-    left: -42px;
-    top: -9px;
+    left: -27px;
+    top:8px;
     display:block;
     font-size:14px;
-    width: 140px;
+    width: 100px;
     padding:4px;
     background-color: $brand-danger;
     color:#fff;
@@ -250,6 +250,25 @@ ul.card {
     background-image: url(../img/overlays/black-horizontal-stripes.png);
 }
 
+// Slider
+.slider { 
+  margin:20px auto;
+  text-align: center;
+  padding:20px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 100%;
+  flex-wrap: wrap;
+  flex-basis: 100%;
+  flex-direction: column;
+  max-width: 1340px;
+}
+
+.slick-slide {
+    margin-left: 5px;
+    margin-right: 5px;
+}
 // CODE
 pre {
     /* original is white background with no border */
