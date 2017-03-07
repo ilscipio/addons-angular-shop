@@ -121,6 +121,10 @@ so for now we have to split the screens in half and rely on the menu widget rend
           His temporary partyId is now (and must be) kept after checkout is done, for technical reasons,
           but also it's very convenient. 
           Presence of userLogin.partyId is what marks the difference. -->
+          <#--
+          <li class="">
+            <@render resource="component://shop/widget/CatalogScreens.xml#keywordsearchbox" />
+          </li>-->
       <#if userIsKnown>
           <li class="">
             <#if userIsAnon>

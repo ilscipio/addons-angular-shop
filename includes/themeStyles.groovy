@@ -193,7 +193,7 @@ context.styles = [
     "menu_tab_altnested" : "menu-type-tab",
     "menu_tab_type" : "menu-type-tab",
     "menu_tab_htmlwrap" : "div",
-    "menu_tab_item" : "",
+    "menu_tab_item" : "nav-item",
     "menu_tab_item_htmlwrap" : false,
     "menu_tab_itemdisabled" : "disabled",
     "menu_tab_itemactive" : "active",

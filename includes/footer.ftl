@@ -25,41 +25,43 @@ under the License.
         <!-- /#page-wrapper -->
         
         <#if (showFooterOtherContent!true) == true && (useMinimalTheme!false) == false>
-        <div class="container other-content">
-            <@row>
-                <@cell columns=3>
-                  <i class="${styles.icon} ${styles.icon_prefix}laptop"></i>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum maiores alias ea sunt facilis impedit fuga dignissimos illo quaerat iure in nobis id quos, eaque nostrum! Unde, voluptates suscipit repudiandae!</p>
-                </@cell>
-                <@cell columns=3>
-                  <i class="${styles.icon} ${styles.icon_prefix}html5"></i>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit impedit consequuntur at! Amet sed itaque nostrum, distinctio eveniet odio, id ipsam fuga quam minima cumque nobis veniam voluptates deserunt!</p>
-                </@cell>
-                <@cell columns=3>
-                  <@heading>SCIPIO Webstore</@heading>
-                  <ul class="other-links">
-                    <#-- language select --> 
-                      <li>
-                          <a href="<@ofbizUrl><#if userHasAccount>viewprofile<#else>ListLocales</#if></@ofbizUrl>">
-                            ${uiLabelMap.CommonChooseLanguage}
-                          </a>
-                      </li>
-                    <li><a href="<@ofbizUrl>showAllPromotions</@ofbizUrl>">${uiLabelMap.ProductPromotions}</a></li>
-                    <li><a href="<@ofbizUrl>license</@ofbizUrl>">License</a></li>  
-                    <li><a href="https://www.scipio-erp.com/products/faq">FAQ's</a></li>
-                  </ul>
-                </@cell>
-                <@cell columns=3>      
-                <@heading>Follow Us!</@heading>
-                  <ul class="other-links">
-                    <li><a href="#">GitHub</a></li>
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">Instagram</a></li>
-                  </ul>
-                </@cell>
-            </@row>
-        </div>
+            <div class="other-content">
+                <div class="container">
+                    <@row>
+                        <@cell columns=3>
+                          <i class="${styles.icon} ${styles.icon_prefix}laptop"></i>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum maiores alias ea sunt facilis impedit fuga dignissimos illo quaerat iure in nobis id quos, eaque nostrum! Unde, voluptates suscipit repudiandae!</p>
+                        </@cell>
+                        <@cell columns=3>
+                          <i class="${styles.icon} ${styles.icon_prefix}html5"></i>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit impedit consequuntur at! Amet sed itaque nostrum, distinctio eveniet odio, id ipsam fuga quam minima cumque nobis veniam voluptates deserunt!</p>
+                        </@cell>
+                        <@cell columns=3>
+                          <@heading>SCIPIO Webstore</@heading>
+                          <ul class="other-links">
+                            <#-- language select --> 
+                              <li>
+                                  <a href="<@ofbizUrl><#if userHasAccount>viewprofile<#else>ListLocales</#if></@ofbizUrl>">
+                                    ${uiLabelMap.CommonChooseLanguage}
+                                  </a>
+                              </li>
+                            <li><a href="<@ofbizUrl>showAllPromotions</@ofbizUrl>">${uiLabelMap.ProductPromotions}</a></li>
+                            <li><a href="<@ofbizUrl>license</@ofbizUrl>">License</a></li>  
+                            <li><a href="https://www.scipio-erp.com/products/faq">FAQ's</a></li>
+                          </ul>
+                        </@cell>
+                        <@cell columns=3>      
+                        <@heading>Follow Us!</@heading>
+                          <ul class="other-links">
+                            <li><a href="#">GitHub</a></li>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Instagram</a></li>
+                          </ul>
+                        </@cell>
+                    </@row>
+                </div>
+            </div>
         </#if>
 
     <!-- /#wrapper -->
