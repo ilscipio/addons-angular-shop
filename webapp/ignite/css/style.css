@@ -9273,7 +9273,25 @@ ul.card {
   line-height: 36px;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around; }
+  justify-content: space-around;
+  color: #fff;
+  background-color: #20a8d8;
+  border-color: #20a8d8; }
+  #microcart:hover {
+    color: #fff;
+    background-color: #1985ac;
+    border-color: #187fa3; }
+  #microcart:focus, #microcart.focus {
+    box-shadow: 0 0 0 2px rgba(32, 168, 216, 0.5); }
+  #microcart.disabled, #microcart:disabled {
+    background-color: #20a8d8;
+    border-color: #20a8d8; }
+  #microcart:active, #microcart.active,
+  .show > #microcart.dropdown-toggle {
+    color: #fff;
+    background-color: #1985ac;
+    background-image: none;
+    border-color: #187fa3; }
 
 #microCartIcon {
   width: 36px;
@@ -9283,11 +9301,11 @@ ul.card {
   text-align: center;
   font-size: 16px;
   color: #fff;
-  margin: 0 8px 0 8px;
   order: 1; }
 
 #microCartTotal {
-  order: -1; }
+  order: -1;
+  margin: 0 10px 0 10px; }
 
 #content-main-section {
   display: flex;

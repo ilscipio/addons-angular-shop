@@ -315,6 +315,7 @@ ul.card {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
+    @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
 }
 
 #microCartIcon{
@@ -325,12 +326,13 @@ ul.card {
     text-align: center;
     font-size: 16px;
     color: #fff;
-    margin: 0 8px 0 8px;
     order:1;
 }
 
 #microCartTotal{
     order:-1;
+    margin: 0 10px 0 10px;
+    
 }
 
 #content-main-section {
