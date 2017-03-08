@@ -107,7 +107,7 @@ NOTES:
     <#-- don't show this here, let macro handle it
     <#if required>*</#if>-->
   <#elseif label?has_content>
-      <label class="input-group-addon form-control-label"<#if fieldId?has_content> for="${escapeVal(fieldId, 'html')}"</#if>>${label}<#if required> *</#if></label>
+      <label class="form-control-label"<#if fieldId?has_content> for="${escapeVal(fieldId, 'html')}"</#if>>${label}<#if required> *</#if></label>
   <#-- only show this if there's a label, otherwise affects inline fields too in ugly way, and there are other indications anyhow
   <#else>
     <#if required>*</#if>-->
