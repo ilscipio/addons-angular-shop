@@ -9161,6 +9161,9 @@ FOOTER
 /*
 CONTENT
 */
+.section-screenlet {
+  margin-bottom: 1.5rem; }
+
 .page-item span, .pagination-datatables li span, .pagination li span {
   position: relative;
   display: block;
@@ -9337,6 +9340,7 @@ ul.card {
 .slider {
   text-align: center;
   padding: 20px;
+  padding-top: 0px;
   display: flex;
   justify-content: center;
   align-items: center;

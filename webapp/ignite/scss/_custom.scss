@@ -145,6 +145,11 @@ FOOTER
 /*
 CONTENT
 */
+.section-screenlet {
+    margin-bottom:1.5rem;
+}
+
+
 // Fix to the pagination elements
 .page-item {
   span {
@@ -388,6 +393,7 @@ ul.card {
 .slider { 
   text-align: center;
   padding:20px;
+  padding-top:0px;
   display:flex;
   justify-content: center;
   align-items: center;
