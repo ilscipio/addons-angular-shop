@@ -194,9 +194,7 @@ CONTENT
     }
 }
 
-.card{
-    //box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
-    
+.card{    
     .scipio-image-container {
     }
     h3,.card-block{
@@ -233,6 +231,10 @@ ul.card {
 }
 
 //Tables
+.table{
+    background:#fff;
+}
+
 .table-type-data, .table-type-data-complex{
     td {border-top:none;}
 }
