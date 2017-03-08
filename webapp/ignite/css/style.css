@@ -9170,7 +9170,7 @@ CONTENT
   padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: #20a8d8;
+  color: #b0bec5;
   background-color: #fff;
   border: 1px solid #ddd; }
 
@@ -9193,6 +9193,20 @@ CONTENT
 .card-columns ul {
   list-style-type: none;
   padding-left: 0; }
+
+.block-grid {
+  display: flex;
+  flex-flow: row wrap;
+  list-style: none; }
+  .block-grid li {
+    list-style-type: none;
+    margin: 0 1% 20px;
+    width: 30%; }
+
+@media (max-width: 767px) {
+  .block-grid li {
+    display: inline-block;
+    width: 100% !important; } }
 
 .card h3, .card .card-block {
   padding: 8px 0px;

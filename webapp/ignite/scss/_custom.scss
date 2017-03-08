@@ -158,7 +158,7 @@ CONTENT
   padding: $pagination-padding-y $pagination-padding-x;
   margin-left: -1px;
   line-height: $pagination-line-height;
-  color: $pagination-color;
+  color: $pagination-disabled-color;
   background-color: $pagination-bg;
   border: $pagination-border-width solid $pagination-border-color;
   }
@@ -196,6 +196,27 @@ CONTENT
     ul {
         list-style-type: none;
         padding-left:0;
+    }
+}
+
+.block-grid{
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none; 
+    
+    li {
+        list-style-type: none;
+        margin: 0 1% 20px;
+        width: 30%;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .block-grid {
+        li {
+            display: inline-block; // Don't let them vertically span multiple columns
+            width: 100% !important; // Don't let their width change
+        }
     }
 }
 
