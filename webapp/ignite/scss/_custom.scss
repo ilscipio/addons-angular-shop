@@ -206,8 +206,8 @@ CONTENT
         text-align:justify
     }
     
-    div {
-        padding:0px 10px;
+    .card-block {
+        padding:10px 10px;
     }
     
     .card-link a {
@@ -348,7 +348,7 @@ ul.card {
     top:8px;
     display:block;
     font-size:9px;
-    width: 100px;
+    width: 120px;
     padding:4px;
     background-color: $brand-success;
     color:#fff;

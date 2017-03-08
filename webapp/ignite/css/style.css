@@ -9197,8 +9197,8 @@ CONTENT
   border-bottom: solid 1px #eee;
   text-align: justify; }
 
-.card div {
-  padding: 0px 10px; }
+.card .card-block {
+  padding: 10px 10px; }
 
 .card .card-link a {
   width: 100%; }
@@ -9302,7 +9302,7 @@ ul.card {
   top: 8px;
   display: block;
   font-size: 9px;
-  width: 100px;
+  width: 120px;
   padding: 4px;
   background-color: #4dbd74;
   color: #fff;
