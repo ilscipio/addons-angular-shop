@@ -9213,6 +9213,9 @@ ul.card {
   list-style-type: none;
   padding-left: 0; }
 
+.table-type-data td, .table-type-data-complex td {
+  border-top: none; }
+
 /*
  * Off Canvas
  * --------------------------------------------------

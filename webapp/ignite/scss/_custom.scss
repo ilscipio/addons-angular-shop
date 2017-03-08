@@ -227,6 +227,11 @@ ul.card {
     padding-left:0;
 }
 
+//Tables
+.table-type-data, .table-type-data-complex{
+    td {border-top:none;}
+}
+
 /*
  * Off Canvas
  * --------------------------------------------------
