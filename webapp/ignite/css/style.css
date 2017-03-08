@@ -9209,6 +9209,9 @@ CONTENT
 .card .btn {
   margin-top: 10px; }
 
+.card.callout {
+  padding: 0px; }
+
 ul.card {
   list-style-type: none;
   padding-left: 0; }

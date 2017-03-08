@@ -772,10 +772,10 @@ context.styles = [
     "gallery_share_view_height" : 500,
 
   /* Panels */
-    "panel_wrap" : "panel panel-default",
-    "panel_head" : "panel-heading",
-    "panel_title" : "panel-title",
-    "panel_body" : "panel-body",
+    "panel_wrap" : "card",
+    "panel_head" : "card-header",
+    "panel_title" : "card-title",
+    "panel_body" : "card-block",
     "login_wrap" : "modal-dialog modal-content",                  /* the login box is a special form of a panel in this case */
     "login_header": "modal-header",
     "login_body" : "modal-body",
