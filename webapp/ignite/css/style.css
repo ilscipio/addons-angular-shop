@@ -9191,6 +9191,24 @@ CONTENT
   list-style-type: none;
   padding-left: 0; }
 
+.card h3, .card .card-block {
+  padding: 8px 0px;
+  margin: 0;
+  border-bottom: solid 1px #eee;
+  text-align: justify; }
+
+.card div {
+  padding: 0px 10px; }
+
+.card .card-link a {
+  width: 100%; }
+
+.card p {
+  padding-top: 8px; }
+
+.card .btn {
+  margin-top: 10px; }
+
 ul.card {
   list-style-type: none;
   padding-left: 0; }
@@ -9277,13 +9295,13 @@ ul.card {
 .ribbon span {
   position: relative;
   padding: 7px 0;
-  left: -27px;
+  left: -40px;
   top: 8px;
   display: block;
-  font-size: 14px;
+  font-size: 9px;
   width: 100px;
   padding: 4px;
-  background-color: #f86c6b;
+  background-color: #4dbd74;
   color: #fff;
   text-align: center;
   -webkit-transform: rotate(-45deg);

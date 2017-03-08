@@ -53,6 +53,21 @@ NOTES:
     they all MUST accept an "catchArgs..." (varargs) so they are not subject to compatibility breaking.
  -->
 
+<#-- General Overrides -->
+<#macro field_datefind_widget args={} inlineArgs...>
+    <#local args = mergeArgMaps(args, inlineArgs, scipioStdTmplLib.field_datefind_widget_defaultArgs)>
+    <#local dummy = localsPutAll(args)>
+    <#local origArgs = args>
+    <@scipioStdTmplLib.field_datefind_widget inlinePostfix=true args=args />
+</#macro>
+
+<#macro field_datetime_widget args={} inlineArgs...>
+    <#local args = mergeArgMaps(args, inlineArgs, scipioStdTmplLib.field_datetime_widget_defaultArgs)>
+    <#local dummy = localsPutAll(args)>
+    <#local origArgs = args>
+    <@scipioStdTmplLib.field_datetime_widget inlinePostfix=true args=args />
+</#macro>
+
 <#-- @field container markup - theme override 
     #nested is the actual field widget (<input>, <select>, etc.). -->
 <#macro field_markup_container type="" fieldsType="" defaultGridArgs={} gridArgs={} 
