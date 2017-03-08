@@ -9201,7 +9201,7 @@ CONTENT
   .block-grid li {
     list-style-type: none;
     margin: 0 1% 20px;
-    width: 30%; }
+    display: inline-block; }
 
 @media (max-width: 767px) {
   .block-grid li {
