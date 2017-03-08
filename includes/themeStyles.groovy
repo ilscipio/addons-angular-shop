@@ -1031,7 +1031,7 @@ context.styles = [
     /* Field select element multiple-select classes (jQuery asmselect) */
     "field_select_asmselect" : [
       "containerClass" : "asmContainer",
-      "selectClass" : "asmSelect",
+      "selectClass" : "asmSelect form-control",
       "optionDisabledClass" : "asmOptionDisabled",
       "listClass" : "asmList",
       "listSortableClass" : "asmListSortable",
