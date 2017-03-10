@@ -294,7 +294,7 @@ NOTES:
               <img src="${escapeFullUrl(image, 'html')}"  class="${styles.slide_image!}"/>
             </#if>
               <#local nestedContent><#nested></#local>
-              <#if nestedContent?has_content><div class="${styles.slide_content!}">${nestedContent}</div></#if>
+              <#if nestedContent?has_content><div class="">${nestedContent}</div></#if>
             </div>
             <#if link?has_content></a></#if>
         </div>
