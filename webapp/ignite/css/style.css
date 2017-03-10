@@ -9096,6 +9096,9 @@ canvas {
 header.navbar .nav-item {
   margin: 0 10px 0 0 !important; }
 
+.section-screenlet-container {
+  margin-bottom: 10px; }
+
 a.dropdown-item:last-child {
   border-bottom: 1px solid #cfd8dc; }
 
@@ -9397,39 +9400,21 @@ ul.card {
   opacity: 0.3;
   background-image: url(../img/overlays/black-horizontal-stripes.png); }
 
-.slider {
-  text-align: center;
-  padding: 20px;
-  padding-top: 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1 100%;
-  flex-wrap: wrap;
-  flex-basis: 100%;
-  flex-direction: column;
-  max-width: 1340px; }
+.slick-list {
+  margin: 0 -10px; }
 
 .slick-slide {
-  margin-left: 5px;
-  margin-right: 5px; }
-  .slick-initialized .slick-slide {
-    display: block;
-    height: 100%; }
-  .slick-loading .slick-slide {
-    visibility: hidden; }
-  .slick-vertical .slick-slide {
-    display: block;
-    height: auto;
-    border: 1px solid transparent; }
+  margin: 0 10px; }
 
-.slick-track {
-  display: flex; }
-  .slick-track .slick-slide {
-    display: flex;
-    height: auto;
-    align-items: center;
-    justify-content: center; }
+.slick-slider .slick-slide {
+  display: none; }
+
+.slick-slider .slick-slide:first-child {
+  display: block; }
+
+.slick-initialized.slick-slider .slick-slide,
+.slick-initialized.slick-slider .slick-slide:first-child {
+  display: block; }
 
 /* Carousel base class */
 /* Since positioning the image, we need to help out the caption */

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -6,12 +6,12 @@ module.exports = function(Chart) {
 
 	Chart.defaults.bar = {
 		hover: {
-			mode: "label"
+			mode: 'label'
 		},
 
 		scales: {
 			xAxes: [{
-				type: "category",
+				type: 'category',
 
 				// Specific to Bar Controller
 				categoryPercentage: 0.8,
@@ -23,7 +23,7 @@ module.exports = function(Chart) {
 				}
 			}],
 			yAxes: [{
-				type: "linear"
+				type: 'linear'
 			}]
 		}
 	};
@@ -40,7 +40,7 @@ module.exports = function(Chart) {
 		},
 
 		// Get the number of datasets that display bars. We use this to correctly calculate the bar width
-		getBarCount: function getBarCount() {
+		getBarCount: function() {
 			var me = this;
 			var barCount = 0;
 			helpers.each(me.chart.data.datasets, function(dataset, datasetIndex) {
@@ -52,14 +52,14 @@ module.exports = function(Chart) {
 			return barCount;
 		},
 
-		update: function update(reset) {
+		update: function(reset) {
 			var me = this;
 			helpers.each(me.getMeta().data, function(rectangle, index) {
 				me.updateElement(rectangle, index, reset);
 			}, me);
 		},
 
-		updateElement: function updateElement(rectangle, index, reset) {
+		updateElement: function(rectangle, index, reset) {
 			var me = this;
 			var meta = me.getMeta();
 			var xScale = me.getScaleForId(meta.xAxisID);
@@ -69,31 +69,29 @@ module.exports = function(Chart) {
 			var custom = rectangle.custom || {};
 			var dataset = me.getDataset();
 
-			helpers.extend(rectangle, {
-				// Utility
-				_xScale: xScale,
-				_yScale: yScale,
-				_datasetIndex: me.index,
-				_index: index,
+			rectangle._xScale = xScale;
+			rectangle._yScale = yScale;
+			rectangle._datasetIndex = me.index;
+			rectangle._index = index;
 
-				// Desired view properties
-				_model: {
-					x: me.calculateBarX(index, me.index),
-					y: reset ? scaleBase : me.calculateBarY(index, me.index),
+			var ruler = me.getRuler(index);
+			rectangle._model = {
+				x: me.calculateBarX(index, me.index, ruler),
+				y: reset ? scaleBase : me.calculateBarY(index, me.index),
 
-					// Tooltip
-					label: me.chart.data.labels[index],
-					datasetLabel: dataset.label,
+				// Tooltip
+				label: me.chart.data.labels[index],
+				datasetLabel: dataset.label,
 
-					// Appearance
-					base: reset ? scaleBase : me.calculateBarBase(me.index, index),
-					width: me.calculateBarWidth(index),
-					backgroundColor: custom.backgroundColor ? custom.backgroundColor : helpers.getValueAtIndexOrDefault(dataset.backgroundColor, index, rectangleElementOptions.backgroundColor),
-					borderSkipped: custom.borderSkipped ? custom.borderSkipped : rectangleElementOptions.borderSkipped,
-					borderColor: custom.borderColor ? custom.borderColor : helpers.getValueAtIndexOrDefault(dataset.borderColor, index, rectangleElementOptions.borderColor),
-					borderWidth: custom.borderWidth ? custom.borderWidth : helpers.getValueAtIndexOrDefault(dataset.borderWidth, index, rectangleElementOptions.borderWidth)
-				}
-			});
+				// Appearance
+				base: reset ? scaleBase : me.calculateBarBase(me.index, index),
+				width: me.calculateBarWidth(ruler),
+				backgroundColor: custom.backgroundColor ? custom.backgroundColor : helpers.getValueAtIndexOrDefault(dataset.backgroundColor, index, rectangleElementOptions.backgroundColor),
+				borderSkipped: custom.borderSkipped ? custom.borderSkipped : rectangleElementOptions.borderSkipped,
+				borderColor: custom.borderColor ? custom.borderColor : helpers.getValueAtIndexOrDefault(dataset.borderColor, index, rectangleElementOptions.borderColor),
+				borderWidth: custom.borderWidth ? custom.borderWidth : helpers.getValueAtIndexOrDefault(dataset.borderWidth, index, rectangleElementOptions.borderWidth)
+			};
+
 			rectangle.pivot();
 		},
 
@@ -106,23 +104,14 @@ module.exports = function(Chart) {
 			if (yScale.options.stacked) {
 				var chart = me.chart;
 				var datasets = chart.data.datasets;
-				var value = datasets[datasetIndex].data[index];
+				var value = Number(datasets[datasetIndex].data[index]);
 
-				if (value < 0) {
-					for (var i = 0; i < datasetIndex; i++) {
-						var negDS = datasets[i];
-						var negDSMeta = chart.getDatasetMeta(i);
-						if (negDSMeta.bar && negDSMeta.yAxisID === yScale.id && chart.isDatasetVisible(i)) {
-							base += negDS.data[index] < 0 ? negDS.data[index] : 0;
-						}
-					}
-				} else {
-					for (var j = 0; j < datasetIndex; j++) {
-						var posDS = datasets[j];
-						var posDSMeta = chart.getDatasetMeta(j);
-						if (posDSMeta.bar && posDSMeta.yAxisID === yScale.id && chart.isDatasetVisible(j)) {
-							base += posDS.data[index] > 0 ? posDS.data[index] : 0;
-						}
+				for (var i = 0; i < datasetIndex; i++) {
+					var currentDs = datasets[i];
+					var currentDsMeta = chart.getDatasetMeta(i);
+					if (currentDsMeta.bar && currentDsMeta.yAxisID === yScale.id && chart.isDatasetVisible(i)) {
+						var currentVal = Number(currentDs.data[index]);
+						base += value < 0 ? Math.min(currentVal, 0) : Math.max(currentVal, 0);
 					}
 				}
 
@@ -151,8 +140,8 @@ module.exports = function(Chart) {
 			var fullBarWidth = categoryWidth / datasetCount;
 
 			if (xScale.ticks.length !== me.chart.data.labels.length) {
-			    var perc = xScale.ticks.length / me.chart.data.labels.length;
-			    fullBarWidth = fullBarWidth * perc;
+				var perc = xScale.ticks.length / me.chart.data.labels.length;
+				fullBarWidth = fullBarWidth * perc;
 			}
 
 			var barWidth = fullBarWidth * xScale.options.barPercentage;
@@ -169,9 +158,11 @@ module.exports = function(Chart) {
 			};
 		},
 
-		calculateBarWidth: function(index) {
+		calculateBarWidth: function(ruler) {
 			var xScale = this.getScaleForId(this.getMeta().xAxisID);
-			var ruler = this.getRuler(index);
+			if (xScale.options.barThickness) {
+				return xScale.options.barThickness;
+			}
 			return xScale.options.stacked ? ruler.categoryWidth : ruler.barWidth;
 		},
 
@@ -190,13 +181,11 @@ module.exports = function(Chart) {
 			return barIndex;
 		},
 
-		calculateBarX: function(index, datasetIndex) {
+		calculateBarX: function(index, datasetIndex, ruler) {
 			var me = this;
 			var meta = me.getMeta();
 			var xScale = me.getScaleForId(meta.xAxisID);
 			var barIndex = me.getBarIndex(datasetIndex);
-
-			var ruler = me.getRuler(index);
 			var leftTick = xScale.getPixelForValue(null, index, datasetIndex, me.chart.isCombo);
 			leftTick -= me.chart.isCombo ? (ruler.tickWidth / 2) : 0;
 
@@ -216,7 +205,7 @@ module.exports = function(Chart) {
 			var me = this;
 			var meta = me.getMeta();
 			var yScale = me.getScaleForId(meta.yAxisID);
-			var value = me.getDataset().data[index];
+			var value = Number(me.getDataset().data[index]);
 
 			if (yScale.options.stacked) {
 
@@ -227,19 +216,19 @@ module.exports = function(Chart) {
 					var ds = me.chart.data.datasets[i];
 					var dsMeta = me.chart.getDatasetMeta(i);
 					if (dsMeta.bar && dsMeta.yAxisID === yScale.id && me.chart.isDatasetVisible(i)) {
-						if (ds.data[index] < 0) {
-							sumNeg += ds.data[index] || 0;
+						var stackedVal = Number(ds.data[index]);
+						if (stackedVal < 0) {
+							sumNeg += stackedVal || 0;
 						} else {
-							sumPos += ds.data[index] || 0;
+							sumPos += stackedVal || 0;
 						}
 					}
 				}
 
 				if (value < 0) {
 					return yScale.getPixelForValue(sumNeg + value);
-				} else {
-					return yScale.getPixelForValue(sumPos + value);
 				}
+				return yScale.getPixelForValue(sumPos + value);
 			}
 
 			return yScale.getPixelForValue(value);
@@ -248,12 +237,16 @@ module.exports = function(Chart) {
 		draw: function(ease) {
 			var me = this;
 			var easingDecimal = ease || 1;
-			helpers.each(me.getMeta().data, function(rectangle, index) {
-				var d = me.getDataset().data[index];
+			var metaData = me.getMeta().data;
+			var dataset = me.getDataset();
+			var i, len;
+
+			for (i = 0, len = metaData.length; i < len; ++i) {
+				var d = dataset.data[i];
 				if (d !== null && d !== undefined && !isNaN(d)) {
-					rectangle.transition(easingDecimal).draw();
+					metaData[i].transition(easingDecimal).draw();
 				}
-			}, me);
+			}
 		},
 
 		setHoverStyle: function(rectangle) {
@@ -286,17 +279,17 @@ module.exports = function(Chart) {
 	// it extends bar (like pie extends doughnut)
 	Chart.defaults.horizontalBar = {
 		hover: {
-			mode: "label"
+			mode: 'label'
 		},
 
 		scales: {
 			xAxes: [{
-				type: "linear",
-				position: "bottom"
+				type: 'linear',
+				position: 'bottom'
 			}],
 			yAxes: [{
-				position: "left",
-				type: "category",
+				position: 'left',
+				type: 'category',
 
 				// Specific to Horizontal Bar Controller
 				categoryPercentage: 0.8,
@@ -331,14 +324,14 @@ module.exports = function(Chart) {
 				},
 				label: function(tooltipItem, data) {
 					var datasetLabel = data.datasets[tooltipItem.datasetIndex].label || '';
-				return datasetLabel + ': ' + tooltipItem.xLabel;
+					return datasetLabel + ': ' + tooltipItem.xLabel;
 				}
 			}
 		}
 	};
 
 	Chart.controllers.horizontalBar = Chart.controllers.bar.extend({
-		updateElement: function updateElement(rectangle, index, reset, numBars) {
+		updateElement: function(rectangle, index, reset) {
 			var me = this;
 			var meta = me.getMeta();
 			var xScale = me.getScaleForId(meta.xAxisID);
@@ -348,130 +341,105 @@ module.exports = function(Chart) {
 			var dataset = me.getDataset();
 			var rectangleElementOptions = me.chart.options.elements.rectangle;
 
-			helpers.extend(rectangle, {
-				// Utility
-				_xScale: xScale,
-				_yScale: yScale,
-				_datasetIndex: me.index,
-				_index: index,
+			rectangle._xScale = xScale;
+			rectangle._yScale = yScale;
+			rectangle._datasetIndex = me.index;
+			rectangle._index = index;
 
-				// Desired view properties
-				_model: {
-					x: reset ? scaleBase : me.calculateBarX(index, me.index),
-					y: me.calculateBarY(index, me.index),
+			var ruler = me.getRuler(index);
+			rectangle._model = {
+				x: reset ? scaleBase : me.calculateBarX(index, me.index),
+				y: me.calculateBarY(index, me.index, ruler),
 
-					// Tooltip
-					label: me.chart.data.labels[index],
-					datasetLabel: dataset.label,
+				// Tooltip
+				label: me.chart.data.labels[index],
+				datasetLabel: dataset.label,
 
-					// Appearance
-					base: reset ? scaleBase : me.calculateBarBase(me.index, index),
-					height: me.calculateBarHeight(index),
-					backgroundColor: custom.backgroundColor ? custom.backgroundColor : helpers.getValueAtIndexOrDefault(dataset.backgroundColor, index, rectangleElementOptions.backgroundColor),
-					borderSkipped: custom.borderSkipped ? custom.borderSkipped : rectangleElementOptions.borderSkipped,
-					borderColor: custom.borderColor ? custom.borderColor : helpers.getValueAtIndexOrDefault(dataset.borderColor, index, rectangleElementOptions.borderColor),
-					borderWidth: custom.borderWidth ? custom.borderWidth : helpers.getValueAtIndexOrDefault(dataset.borderWidth, index, rectangleElementOptions.borderWidth)
-				},
+				// Appearance
+				base: reset ? scaleBase : me.calculateBarBase(me.index, index),
+				height: me.calculateBarHeight(ruler),
+				backgroundColor: custom.backgroundColor ? custom.backgroundColor : helpers.getValueAtIndexOrDefault(dataset.backgroundColor, index, rectangleElementOptions.backgroundColor),
+				borderSkipped: custom.borderSkipped ? custom.borderSkipped : rectangleElementOptions.borderSkipped,
+				borderColor: custom.borderColor ? custom.borderColor : helpers.getValueAtIndexOrDefault(dataset.borderColor, index, rectangleElementOptions.borderColor),
+				borderWidth: custom.borderWidth ? custom.borderWidth : helpers.getValueAtIndexOrDefault(dataset.borderWidth, index, rectangleElementOptions.borderWidth)
+			};
+			rectangle.draw = function() {
+				var ctx = this._chart.ctx;
+				var vm = this._view;
 
-				draw: function () {
-					var ctx = this._chart.ctx;
-					var vm = this._view;
+				var halfHeight = vm.height / 2,
+					topY = vm.y - halfHeight,
+					bottomY = vm.y + halfHeight,
+					right = vm.base - (vm.base - vm.x),
+					halfStroke = vm.borderWidth / 2;
 
-					var halfHeight = vm.height / 2,
-						topY = vm.y - halfHeight,
-						bottomY = vm.y + halfHeight,
-						right = vm.base - (vm.base - vm.x),
-						halfStroke = vm.borderWidth / 2;
-
-					// Canvas doesn't allow us to stroke inside the width so we can
-					// adjust the sizes to fit if we're setting a stroke on the line
-					if (vm.borderWidth) {
-						topY += halfStroke;
-						bottomY -= halfStroke;
-						right += halfStroke;
-					}
-
-					ctx.beginPath();
-
-					ctx.fillStyle = vm.backgroundColor;
-					ctx.strokeStyle = vm.borderColor;
-					ctx.lineWidth = vm.borderWidth;
-
-					// Corner points, from bottom-left to bottom-right clockwise
-					// | 1 2 |
-					// | 0 3 |
-					var corners = [
-						[vm.base, bottomY],
-						[vm.base, topY],
-						[right, topY],
-						[right, bottomY]
-					];
-
-					// Find first (starting) corner with fallback to 'bottom'
-					var borders = ['bottom', 'left', 'top', 'right'];
-					var startCorner = borders.indexOf(vm.borderSkipped, 0);
-					if (startCorner === -1)
-						startCorner = 0;
-
-					function cornerAt(index) {
-						return corners[(startCorner + index) % 4];
-					}
-
-					// Draw rectangle from 'startCorner'
-					ctx.moveTo.apply(ctx, cornerAt(0));
-					for (var i = 1; i < 4; i++)
-						ctx.lineTo.apply(ctx, cornerAt(i));
-
-					ctx.fill();
-					if (vm.borderWidth) {
-						ctx.stroke();
-					}
-				},
-
-				inRange: function (mouseX, mouseY) {
-					var vm = this._view;
-					var inRange = false;
-
-					if (vm) {
-						if (vm.x < vm.base) {
-							inRange = (mouseY >= vm.y - vm.height / 2 && mouseY <= vm.y + vm.height / 2) && (mouseX >= vm.x && mouseX <= vm.base);
-						} else {
-							inRange = (mouseY >= vm.y - vm.height / 2 && mouseY <= vm.y + vm.height / 2) && (mouseX >= vm.base && mouseX <= vm.x);
-						}
-					}
-
-					return inRange;
+				// Canvas doesn't allow us to stroke inside the width so we can
+				// adjust the sizes to fit if we're setting a stroke on the line
+				if (vm.borderWidth) {
+					topY += halfStroke;
+					bottomY -= halfStroke;
+					right += halfStroke;
 				}
-			});
+
+				ctx.beginPath();
+
+				ctx.fillStyle = vm.backgroundColor;
+				ctx.strokeStyle = vm.borderColor;
+				ctx.lineWidth = vm.borderWidth;
+
+				// Corner points, from bottom-left to bottom-right clockwise
+				// | 1 2 |
+				// | 0 3 |
+				var corners = [
+					[vm.base, bottomY],
+					[vm.base, topY],
+					[right, topY],
+					[right, bottomY]
+				];
+
+				// Find first (starting) corner with fallback to 'bottom'
+				var borders = ['bottom', 'left', 'top', 'right'];
+				var startCorner = borders.indexOf(vm.borderSkipped, 0);
+				if (startCorner === -1) {
+					startCorner = 0;
+				}
+
+				function cornerAt(cornerIndex) {
+					return corners[(startCorner + cornerIndex) % 4];
+				}
+
+				// Draw rectangle from 'startCorner'
+				ctx.moveTo.apply(ctx, cornerAt(0));
+				for (var i = 1; i < 4; i++) {
+					ctx.lineTo.apply(ctx, cornerAt(i));
+				}
+
+				ctx.fill();
+				if (vm.borderWidth) {
+					ctx.stroke();
+				}
+			};
 
 			rectangle.pivot();
 		},
 
-		calculateBarBase: function (datasetIndex, index) {
+		calculateBarBase: function(datasetIndex, index) {
 			var me = this;
 			var meta = me.getMeta();
 			var xScale = me.getScaleForId(meta.xAxisID);
 			var base = 0;
 
 			if (xScale.options.stacked) {
+				var chart = me.chart;
+				var datasets = chart.data.datasets;
+				var value = Number(datasets[datasetIndex].data[index]);
 
-				var value = me.chart.data.datasets[datasetIndex].data[index];
-
-				if (value < 0) {
-					for (var i = 0; i < datasetIndex; i++) {
-						var negDS = me.chart.data.datasets[i];
-						var negDSMeta = me.chart.getDatasetMeta(i);
-						if (negDSMeta.bar && negDSMeta.xAxisID === xScale.id && me.chart.isDatasetVisible(i)) {
-							base += negDS.data[index] < 0 ? negDS.data[index] : 0;
-						}
-					}
-				} else {
-					for (var j = 0; j < datasetIndex; j++) {
-						var posDS = me.chart.data.datasets[j];
-						var posDSMeta = me.chart.getDatasetMeta(j);
-						if (posDSMeta.bar && posDSMeta.xAxisID === xScale.id && me.chart.isDatasetVisible(j)) {
-							base += posDS.data[index] > 0 ? posDS.data[index] : 0;
-						}
+				for (var i = 0; i < datasetIndex; i++) {
+					var currentDs = datasets[i];
+					var currentDsMeta = chart.getDatasetMeta(i);
+					if (currentDsMeta.bar && currentDsMeta.xAxisID === xScale.id && chart.isDatasetVisible(i)) {
+						var currentVal = Number(currentDs.data[index]);
+						base += value < 0 ? Math.min(currentVal, 0) : Math.max(currentVal, 0);
 					}
 				}
 
@@ -481,7 +449,7 @@ module.exports = function(Chart) {
 			return xScale.getBasePixel();
 		},
 
-		getRuler: function (index) {
+		getRuler: function(index) {
 			var me = this;
 			var meta = me.getMeta();
 			var yScale = me.getScaleForId(meta.yAxisID);
@@ -513,22 +481,24 @@ module.exports = function(Chart) {
 				categorySpacing: categorySpacing,
 				fullBarHeight: fullBarHeight,
 				barHeight: barHeight,
-				barSpacing: barSpacing,
+				barSpacing: barSpacing
 			};
 		},
 
-		calculateBarHeight: function (index) {
+		calculateBarHeight: function(ruler) {
 			var me = this;
 			var yScale = me.getScaleForId(me.getMeta().yAxisID);
-			var ruler = me.getRuler(index);
+			if (yScale.options.barThickness) {
+				return yScale.options.barThickness;
+			}
 			return yScale.options.stacked ? ruler.categoryHeight : ruler.barHeight;
 		},
 
-		calculateBarX: function (index, datasetIndex) {
+		calculateBarX: function(index, datasetIndex) {
 			var me = this;
 			var meta = me.getMeta();
 			var xScale = me.getScaleForId(meta.xAxisID);
-			var value = me.getDataset().data[index];
+			var value = Number(me.getDataset().data[index]);
 
 			if (xScale.options.stacked) {
 
@@ -539,31 +509,29 @@ module.exports = function(Chart) {
 					var ds = me.chart.data.datasets[i];
 					var dsMeta = me.chart.getDatasetMeta(i);
 					if (dsMeta.bar && dsMeta.xAxisID === xScale.id && me.chart.isDatasetVisible(i)) {
-						if (ds.data[index] < 0) {
-							sumNeg += ds.data[index] || 0;
+						var stackedVal = Number(ds.data[index]);
+						if (stackedVal < 0) {
+							sumNeg += stackedVal || 0;
 						} else {
-							sumPos += ds.data[index] || 0;
+							sumPos += stackedVal || 0;
 						}
 					}
 				}
 
 				if (value < 0) {
 					return xScale.getPixelForValue(sumNeg + value);
-				} else {
-					return xScale.getPixelForValue(sumPos + value);
 				}
+				return xScale.getPixelForValue(sumPos + value);
 			}
 
 			return xScale.getPixelForValue(value);
 		},
 
-		calculateBarY: function (index, datasetIndex) {
+		calculateBarY: function(index, datasetIndex, ruler) {
 			var me = this;
 			var meta = me.getMeta();
 			var yScale = me.getScaleForId(meta.yAxisID);
 			var barIndex = me.getBarIndex(datasetIndex);
-
-			var ruler = me.getRuler(index);
 			var topTick = yScale.getPixelForValue(null, index, datasetIndex, me.chart.isCombo);
 			topTick -= me.chart.isCombo ? (ruler.tickHeight / 2) : 0;
 

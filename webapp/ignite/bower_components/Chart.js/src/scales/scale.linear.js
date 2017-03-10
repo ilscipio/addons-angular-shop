@@ -1,37 +1,13 @@
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
 	var helpers = Chart.helpers;
 
 	var defaultConfig = {
-		position: "left",
+		position: 'left',
 		ticks: {
-			callback: function(tickValue, index, ticks) {
-				// If we have lots of ticks, don't use the ones
-				var delta = ticks.length > 3 ? ticks[2] - ticks[1] : ticks[1] - ticks[0];
-
-				// If we have a number like 2.5 as the delta, figure out how many decimal places we need
-				if (Math.abs(delta) > 1) {
-					if (tickValue !== Math.floor(tickValue)) {
-						// not an integer
-						delta = tickValue - Math.floor(tickValue);
-					}
-				}
-
-				var logDelta = helpers.log10(Math.abs(delta));
-				var tickString = '';
-
-				if (tickValue !== 0) {
-					var numDecimal = -1 * Math.floor(logDelta);
-					numDecimal = Math.max(Math.min(numDecimal, 20), 0); // toFixed has a max of 20 decimal places
-					tickString = tickValue.toFixed(numDecimal);
-				} else {
-					tickString = '0'; // never show decimal places for 0
-				}
-
-				return tickString;
-			}
+			callback: Chart.Ticks.formatters.linear
 		}
 	};
 
@@ -39,7 +15,6 @@ module.exports = function(Chart) {
 		determineDataLimits: function() {
 			var me = this;
 			var opts = me.options;
-			var tickOpts = opts.ticks;
 			var chart = me.chart;
 			var data = chart.data;
 			var datasets = data.datasets;
@@ -55,8 +30,6 @@ module.exports = function(Chart) {
 
 			if (opts.stacked) {
 				var valuesPerType = {};
-				var hasPositiveValues = false;
-				var hasNegativeValues = false;
 
 				helpers.each(datasets, function(dataset, datasetIndex) {
 					var meta = chart.getDatasetMeta(datasetIndex);
@@ -83,14 +56,10 @@ module.exports = function(Chart) {
 
 							if (opts.relativePoints) {
 								positiveValues[index] = 100;
+							} else if (value < 0) {
+								negativeValues[index] += value;
 							} else {
-								if (value < 0) {
-									hasNegativeValues = true;
-									negativeValues[index] += value;
-								} else {
-									hasPositiveValues = true;
-									positiveValues[index] += value;
-								}
+								positiveValues[index] += value;
 							}
 						});
 					}
@@ -148,7 +117,7 @@ module.exports = function(Chart) {
 
 			return maxTicks;
 		},
-		// Called after the ticks are built. We need 
+		// Called after the ticks are built. We need
 		handleDirectionalChanges: function() {
 			if (!this.isHorizontal()) {
 				// We are in a vertical orientation. The top value is the highest. So reverse the array
@@ -159,9 +128,9 @@ module.exports = function(Chart) {
 			return +this.getRightValue(this.chart.data.datasets[datasetIndex].data[index]);
 		},
 		// Utils
-		getPixelForValue: function(value, index, datasetIndex, includeOffset) {
+		getPixelForValue: function(value) {
 			// This must be called after fit has been run so that
-			//      this.left, this.top, this.right, and this.bottom have been defined
+			// this.left, this.top, this.right, and this.bottom have been defined
 			var me = this;
 			var paddingLeft = me.paddingLeft;
 			var paddingBottom = me.paddingBottom;
@@ -176,11 +145,10 @@ module.exports = function(Chart) {
 				innerDimension = me.width - (paddingLeft + me.paddingRight);
 				pixel = me.left + (innerDimension / range * (rightValue - start));
 				return Math.round(pixel + paddingLeft);
-			} else {
-				innerDimension = me.height - (me.paddingTop + paddingBottom);
-				pixel = (me.bottom - paddingBottom) - (innerDimension / range * (rightValue - start));
-				return Math.round(pixel);
 			}
+			innerDimension = me.height - (me.paddingTop + paddingBottom);
+			pixel = (me.bottom - paddingBottom) - (innerDimension / range * (rightValue - start));
+			return Math.round(pixel);
 		},
 		getValueForPixel: function(pixel) {
 			var me = this;
@@ -191,10 +159,10 @@ module.exports = function(Chart) {
 			var offset = (isHorizontal ? pixel - me.left - paddingLeft : me.bottom - paddingBottom - pixel) / innerDimension;
 			return me.start + ((me.end - me.start) * offset);
 		},
-		getPixelForTick: function(index, includeOffset) {
-			return this.getPixelForValue(this.ticksAsNumbers[index], null, null, includeOffset);
+		getPixelForTick: function(index) {
+			return this.getPixelForValue(this.ticksAsNumbers[index]);
 		}
 	});
-	Chart.scaleService.registerScaleType("linear", LinearScale, defaultConfig);
+	Chart.scaleService.registerScaleType('linear', LinearScale, defaultConfig);
 
 };
