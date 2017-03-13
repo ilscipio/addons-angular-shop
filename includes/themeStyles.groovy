@@ -808,7 +808,8 @@ context.styles = [
     "tabs_wrap" : "nav nav-tabs",                  /* Bootstrap: "nav nav-tabs" */
     "tabs_item_title" : "nav-item",                /* Bootstrap: "nav-item" */
     "tabs_item_title_link" : "nav-link",           /* Bootstrap: "nav-link" */
-    "tabs_item_title_active" : "active",
+    "tabs_item_title_link_active" : "active",
+    "tabs_item_title_active" : "",
     "tabs_item_title_disabled" : "",
     "tabs_item_container": "tab-content",          /* Bootstrap: "tab-content" */
     "tabs_item_wrap" : "tab-pane",                 /* Bootstrap: "tab-pane" */
