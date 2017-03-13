@@ -803,6 +803,18 @@ context.styles = [
     "pricing_cta" : "card-link",
     "pricing_bullet" : "",
 
+    /* Tabs */
+    "tabs_container" : "",
+    "tabs_wrap" : "nav nav-tabs",                  /* Bootstrap: "nav nav-tabs" */
+    "tabs_item_title" : "nav-item",                /* Bootstrap: "nav-item" */
+    "tabs_item_title_link" : "nav-link",           /* Bootstrap: "nav-link" */
+    "tabs_item_title_active" : "active",
+    "tabs_item_title_disabled" : "",
+    "tabs_item_container": "tab-content",          /* Bootstrap: "tab-content" */
+    "tabs_item_wrap" : "tab-pane",                 /* Bootstrap: "tab-pane" */
+    "tabs_item_active" : "active",
+    "tabs_item_disabled" : "disabled",
+
   /* Modal */
     "modal_wrap" : "modal fade",
 
