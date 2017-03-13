@@ -123,14 +123,31 @@ NOTES:
 
 <#-- Override of @field_datetime_markup_script since fdatetime is foundation specific -->
 <#macro field_datetime_markup_script inputId="" inputName="" displayInputId="" displayInputName="" dateType="" dateDisplayType="" htmlwrap=true origArgs={} passArgs={} catchArgs...>
-  <#local datepickerOptions>{format:"YYYY-MM-DD",
+  <#if dateType == "timestamp">
+    <#local datepickerOptions>{format:"YYYY-MM-DD HH:mm",
                 icons: {
                     time: "fa fa-clock-o",
                     date: "fa fa-calendar",
                     up: "fa fa-arrow-up",
                     down: "fa fa-arrow-down"
-                }
-  }</#local>
+                }}</#local>
+  <#elseif dateType == "date">
+    <#local datepickerOptions>{format:"YYYY-MM-DD",
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down"
+                }}</#local>
+  <#elseif dateType == "time">
+    <#local datepickerOptions>{format:"HH:mm",
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down"
+                }}</#local>
+  </#if>
   <@script htmlwrap=htmlwrap>
     $(function() {
 
