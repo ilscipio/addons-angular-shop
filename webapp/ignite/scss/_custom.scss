@@ -561,6 +561,20 @@ ul.card {
   }
 }
 
+// Thumbnails
+.clearing-thumbs {
+    @include list-unstyled;
+    margin-top:10px;
+    
+    li {
+        display: inline-block;
+
+        &:not(:last-child) {
+            margin-right: $list-inline-padding;
+        }
+    }
+}
+
 // CODE
 pre {
     /* original is white background with no border */

@@ -9475,6 +9475,15 @@ ul.card {
   .featurette-heading {
     margin-top: 7rem; } }
 
+.clearing-thumbs {
+  padding-left: 0;
+  list-style: none;
+  margin-top: 10px; }
+  .clearing-thumbs li {
+    display: inline-block; }
+    .clearing-thumbs li:not(:last-child) {
+      margin-right: 5px; }
+
 pre {
   /* original is white background with no border */
   background-color: #fff;
