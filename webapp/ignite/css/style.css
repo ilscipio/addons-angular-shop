@@ -9233,6 +9233,9 @@ CONTENT
 .card.callout {
   padding: 0px; }
 
+.callout {
+  background: #fff; }
+
 ul.card {
   list-style-type: none;
   padding-left: 0; }
