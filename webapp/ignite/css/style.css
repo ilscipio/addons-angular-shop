@@ -9266,6 +9266,8 @@ ul.card {
     width: 91.66667%; }
   .table .col-lg-12 {
     width: 100%; }
+  .table th {
+    border-top: none; }
 
 .table-type-data td, .table-type-data-complex td {
   border-top: none; }
