@@ -341,7 +341,8 @@ ul.card {
 
   .row-offcanvas-left
   .sidebar-offcanvas {
-    left: -100%; /* 12 columns */
+    //left: -100%; /* 12 columns */
+    left: -200px;
   }
 
   .row-offcanvas-left.active
@@ -406,6 +407,19 @@ ul.card {
     flex-wrap: nowrap;
     flex-shrink: 0;
     margin-top:20px;
+}
+
+.keywordsearch {
+    .columns {padding:0px;font-size: 16px;}
+    .btn{ 
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
+        font-size: 16px;
+        height:35px;
+    }
+    margin: 0 10px 0 10px;
 }
 
 // Ribbon

@@ -121,12 +121,9 @@ so for now we have to split the screens in half and rely on the menu widget rend
           His temporary partyId is now (and must be) kept after checkout is done, for technical reasons,
           but also it's very convenient. 
           Presence of userLogin.partyId is what marks the difference. -->
-          <#--
-          <li class="">
-            <@render resource="component://shop/widget/CatalogScreens.xml#keywordsearchbox" />
-          </li>-->
+          <#---->
       <#if userIsKnown>
-          <li class="">
+          <li class="nav-item">
             <#if userIsAnon>
               <#assign person = delegator.findOne("Person", {"partyId":userLogin.partyId}, true)!>
               <#if person?has_content>
@@ -151,7 +148,7 @@ so for now we have to split the screens in half and rely on the menu widget rend
                 </ul>
             </li>
       <#else>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown hidden-md-down">
             <a href="<@ofbizUrl>${checkLoginUrl}</@ofbizUrl>">${uiLabelMap.CommonLogin}</a>
         </li>
       </#if>
@@ -261,15 +258,14 @@ so for now we have to split the screens in half and rely on the menu widget rend
     <header class="app-header sidebar-fixed navbar">
         
         <!-- Brand and toggle get grouped for better mobile display -->
-            <#-- <button class="navbar-toggler mobile-sidebar-toggler hidden-lg-up" type="button">&#9776;</button> -->
+            <button class="navbar-toggler mobile-sidebar-toggler hidden-lg-up" type="button">&#9776;</button>
             <@logoMenu isSmall=true/>
             
-            <!-- Top Menu Items -->
-            <ul class="nav navbar-nav navbar-left top-nav  hidden-md-down">
-               <#--  <li class="nav-item">
-                     <a class="nav-link navbar-toggler sidebar-toggler" href="#">&#9776;</a>
-                </li> -->
-             </ul>
+            <ul class="nav navbar-nav navbar-left" id="left-nav">
+                  <li class="nav-item hidden-md-down">
+                    <@render resource="component://shop/widget/CatalogScreens.xml#keywordsearchbox" />
+                  </li>
+            </ul>
              
              <ul class="nav navbar-nav navbar-right ml-auto" id="right-nav">
                 <#-- Messages
@@ -327,7 +323,6 @@ so for now we have to split the screens in half and rely on the menu widget rend
                 </li>
                 -->
                 <@rightMenu/>
-
                 <#assign showHeadActn = (showHeaderActions!true) == true && (useMinimalTheme!false) == false>
                 <#if showHeadActn>
                     <li class="nav-item "><@render resource="component://shop/widget/CartScreens.xml#microcart" /></li>

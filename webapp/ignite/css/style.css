@@ -9296,8 +9296,7 @@ ul.card {
     right: -50%;
     /* 6 columns */ }
   .row-offcanvas-left .sidebar-offcanvas {
-    left: -100%;
-    /* 12 columns */ }
+    left: -200px; }
   .row-offcanvas-left.active .sidebar-offcanvas {
     left: -50%;
     /* 6 columns */ }
@@ -9363,6 +9362,36 @@ ul.card {
   flex-wrap: nowrap;
   flex-shrink: 0;
   margin-top: 20px; }
+
+.keywordsearch {
+  margin: 0 10px 0 10px; }
+  .keywordsearch .columns {
+    padding: 0px;
+    font-size: 16px; }
+  .keywordsearch .btn {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    color: #fff;
+    background-color: #f8cb00;
+    border-color: #f8cb00;
+    font-size: 16px;
+    height: 35px; }
+    .keywordsearch .btn:hover {
+      color: #fff;
+      background-color: #c5a100;
+      border-color: #bb9900; }
+    .keywordsearch .btn:focus, .keywordsearch .btn.focus {
+      box-shadow: 0 0 0 2px rgba(248, 203, 0, 0.5); }
+    .keywordsearch .btn.disabled, .keywordsearch .btn:disabled {
+      background-color: #f8cb00;
+      border-color: #f8cb00; }
+    .keywordsearch .btn:active, .keywordsearch .btn.active,
+    .show > .keywordsearch .btn.dropdown-toggle {
+      color: #fff;
+      background-color: #c5a100;
+      background-image: none;
+      border-color: #bb9900; }
 
 .ribbon {
   width: 85px;
