@@ -97,6 +97,11 @@ a.dropdown-item {
         &.dashboard a:before {
             content: "\f015";
         }
+        
+        &.dashboard a{
+            background: $gray-dark;
+            color: $gray-lightest;
+        }
     }
     
     .nav-dropdown-toggle {

@@ -6464,7 +6464,7 @@ app-root {
           content: "\2039";
           transition: .3s; }
       .sidebar ul.nav li.nav-item.nav-dropdown.open {
-        background: rgba(0, 0, 0, 0.2); }
+        background: rgba(0, 0, 0, 0.1); }
         .sidebar ul.nav li.nav-item.nav-dropdown.open > ul, .sidebar ul.nav li.nav-item.nav-dropdown.open > ol {
           max-height: 1000px; }
         .sidebar ul.nav li.nav-item.nav-dropdown.open a.nav-link {
@@ -9133,6 +9133,10 @@ a.dropdown-item:last-child {
 
 .sidebar nav ul.nav li.dashboard a:before {
   content: "\f015"; }
+
+.sidebar nav ul.nav li.dashboard a {
+  background: #263238;
+  color: #eceff1; }
 
 .sidebar nav .nav-dropdown-toggle::before {
   position: absolute;
