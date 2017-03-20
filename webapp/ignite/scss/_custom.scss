@@ -77,6 +77,9 @@ a.dropdown-item {
     // Hack for adding icon to the sidebar 
 
     ul.nav li{
+        &.active a {color:$gray;}
+        &.active a:hover {color:#fff;}
+        
     
          a:before {
             font-family: FontAwesome;
@@ -84,7 +87,7 @@ a.dropdown-item {
         }
         
         &.active a:before {
-            color: $brand-primary;
+            color: $gray;
         }
         
         &.active:hover a:before {
