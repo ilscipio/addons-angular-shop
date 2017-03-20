@@ -63,7 +63,7 @@ under the License.
 
       </form>
     </div>
-    <div class="panel-footer">
+    <div class="panel-footer card-footer">
                 <small><a href="<@ofbizUrl>forgotPassword</@ofbizUrl>">${uiLabelMap.CommonForgotYourPassword}</a></small>
     </div>
 </div>

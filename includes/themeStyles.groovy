@@ -777,9 +777,9 @@ context.styles = [
     "panel_head" : "card-header",
     "panel_title" : "card-title",
     "panel_body" : "card-block",
-    "login_wrap" : "modal-dialog modal-content",                  /* the login box is a special form of a panel in this case */
-    "login_header": "modal-header",
-    "login_body" : "modal-body",
+    "login_wrap" : "modal-dialog modal-content card",                  /* the login box is a special form of a panel in this case */
+    "login_header": "modal-header card-header",
+    "login_body" : "modal-body card-block",
 
   /* Alert Box */
     "alert_wrap" : "alert",
