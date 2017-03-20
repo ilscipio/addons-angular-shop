@@ -9099,6 +9099,10 @@ header.navbar .nav-item {
 .section-screenlet-container {
   margin-bottom: 10px; }
 
+#main-content form {
+  background: #fff;
+  padding: 1em; }
+
 a.dropdown-item:last-child {
   border-bottom: 1px solid #cfd8dc; }
 
@@ -9239,6 +9243,9 @@ CONTENT
 ul.card {
   list-style-type: none;
   padding-left: 0; }
+
+.address-panel {
+  width: 200px; }
 
 .table {
   background: #fff; }

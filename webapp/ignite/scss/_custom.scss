@@ -37,6 +37,13 @@ header.navbar .nav-item {
     margin-bottom:10px
 }
 
+#main-content {
+    form {
+        background: #fff;
+        padding: 1em;
+    }
+}
+
 // Navigation
 
 a.dropdown-item {
@@ -260,6 +267,10 @@ CONTENT
 ul.card {
     list-style-type: none;
     padding-left:0;
+}
+
+.address-panel {
+    width:200px;
 }
 
 //Tables
