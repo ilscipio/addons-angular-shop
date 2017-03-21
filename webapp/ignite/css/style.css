@@ -9100,6 +9100,16 @@ header.navbar .nav-item {
 #main-content form {
   background: #fff;
   padding: 1em; }
+  #main-content form label {
+    width: 100%; }
+    #main-content form label i {
+      text-align: center;
+      line-height: 1.25;
+      display: block;
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.875rem;
+      color: #607d8b; }
 
 a.dropdown-item:last-child {
   border-bottom: 1px solid #cfd8dc; }

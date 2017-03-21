@@ -877,7 +877,7 @@ context.styles = [
     "fields_default_nolabelarea_labelarearequirecontent" : false,
 
     "fields_default_compact_labeltype" : "vertical",
-    "fields_default_compact_labelposition" : "top",
+    "fields_default_compact_labelposition" : "left",
     "fields_default_compact_labelarea" : true,
     "fields_default_compact_labelareaexceptions" : "checkbox-single radio-single",
     "fields_default_compact_labelarearequirecontent" : true,
