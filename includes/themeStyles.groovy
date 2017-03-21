@@ -132,7 +132,7 @@ context.styles = [
     "menu_button_dropdown_type" : "menu-type-button-dropdown",
     "menu_button_dropdown_specialtype" : "button-dropdown",
     "menu_button_dropdown_title" : "btn btn-raised btn-sm dropdown-toggle",
-    "menu_button_dropdown_item" : "",
+    "menu_button_dropdown_item" : "list-item",
     "menu_button_dropdown_itemdisabled" : "disabled",
     "menu_button_dropdown_itemactive" : "active",
     "menu_button_dropdown_itemactivetarget" : "active-target",
@@ -143,7 +143,7 @@ context.styles = [
     "menu_button_dropdown_item_contentactivetarget" : "active-target",
     "menu_button_dropdown_item_contentactiveancestor" : "active-ancestor",
     "menu_button_dropdown_item_contentselected" : "selected",
-    "menu_button_dropdown_item_link" : "",
+    "menu_button_dropdown_item_link" : "dropdown-item",
     "menu_button_dropdown_item_text" : "text-entry",
     "menu_button_dropdown_item_submit" : "",
     /* Main navigation menus */
