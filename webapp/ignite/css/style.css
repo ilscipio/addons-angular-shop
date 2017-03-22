@@ -8686,9 +8686,10 @@ pre.scrollable {
   background: #f0f0f0;
   padding: 10px; }
 
-.form-group input {
-  width: 100%; }
-
+/*
+.form-group {
+    input {width:100%;}
+}*/
 .input-group-addon button, .input-group-addon [type="button"], .input-group-addon [type="reset"], .input-group-addon [type="submit"] {
   background: none;
   border: none;
@@ -9101,7 +9102,7 @@ header.navbar .nav-item {
   background: #fff;
   padding: 1em; }
   #main-content form label {
-    width: 100%; }
+    display: inherit; }
     #main-content form label i {
       text-align: center;
       line-height: 1.25;
