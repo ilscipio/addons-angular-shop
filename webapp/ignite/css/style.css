@@ -8686,10 +8686,6 @@ pre.scrollable {
   background: #f0f0f0;
   padding: 10px; }
 
-/*
-.form-group {
-    input {width:100%;}
-}*/
 .input-group-addon button, .input-group-addon [type="button"], .input-group-addon [type="reset"], .input-group-addon [type="submit"] {
   background: none;
   border: none;
@@ -9235,7 +9231,7 @@ CONTENT
     display: inline-block;
     width: 100% !important; } }
 
-.card h3, .card .card-block {
+.card .card-block {
   padding: 8px 0px;
   margin: 0;
   border-bottom: solid 1px #eee;
