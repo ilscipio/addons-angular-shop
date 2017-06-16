@@ -9103,7 +9103,8 @@ header.navbar .nav-item {
   background: #fff;
   padding: 1em; }
   #main-content form label {
-    display: inherit; }
+    display: inherit;
+    word-break: break-word; }
     #main-content form label i {
       text-align: center;
       line-height: 1.25;
