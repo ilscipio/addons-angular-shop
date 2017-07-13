@@ -800,9 +800,9 @@ $.fn.bsPhotoGallery = function(options) {
 $.fn.bsPhotoGallery.defaults = {
   'hasModal' : true, 
   'fullHeight' : true,
-  'iconClose' : 'glyphicon glyphicon-remove-circle',
-  'iconLeft' : 'glyphicon glyphicon-chevron-left',
-  'iconRight' : 'glyphicon glyphicon-chevron-right'
+  'iconClose' : 'fa fa-times',
+  'iconLeft' : 'fa fa-chevron-left',
+  'iconRight' : 'fa fa-chevron-right'
 }
 
 $('ul.clearing-thumbs').bsPhotoGallery({});
