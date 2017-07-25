@@ -64,6 +64,10 @@ under the License.
     <!-- Not required for shop
     <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/base-theme/bower_components/trumbowyg/dist/ui/trumbowyg.min.css" sequenceId="13"/>-->
     
+    <!-- Right-to-Left support -->
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_RTL_STYLESHEET" resourceValue="/ignite-shop-theme/rtl/bootstrap.rtl.min.css" sequenceId="1"/>
+    <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_RTL_STYLESHEET" resourceValue="/ignite-shop-theme/rtl/bootstrap-grid.rtl.min.css" sequenceId="2"/>
+    
     
     <!-- Scripts -->
     <VisualThemeResource visualThemeId="IGNITE_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/ignite-shop-theme/bower_components/Chart.js/dist/Chart.min.js" sequenceId="03"/>
