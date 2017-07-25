@@ -1969,4 +1969,20 @@ th {
     text-align: left !important;
   }
 }
+
+/*Additional fixes*/
+.sidebar-fixed .main, .sidebar-fixed .app-footer, .aside-menu-fixed.aside-menu-hidden .main, .aside-menu-fixed.aside-menu-hidden .app-footer {
+    margin-right:200px;
+    margin-left:0px;
+}
+
+header.navbar .nav-item{
+    margin-left:10px !important;
+    
+}
+
+.navbar-toggler {display:none;}
+
+.dropdown-item i {margin-left:10px;margin-right:0px;}
+
 /*# sourceMappingURL=bootstrap.rtl.css.map */
