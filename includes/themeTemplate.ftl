@@ -247,6 +247,7 @@ NOTES:
 <#-- @slider main markup - theme override -->
 <#macro slider_markup title="" id="" sliderIdNum=0 class="" library="" controls=true indicator=true 
         jsOptions="" origArgs={} passArgs={} catchArgs...>
+    <#if langDir?has_content && langDir=="rtl"><#local jsOptions="rtl:true,"+jsOptions/></#if>
     <#if title?has_content><@heading>${escapeVal(title, 'htmlmarkup')}</@heading></#if>
     <#switch library>
         <#case "owl">    
