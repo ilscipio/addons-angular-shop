@@ -254,6 +254,26 @@ so for now we have to split the screens in half and rely on the menu widget rend
 </#if>
 <#assign organizationLogoLinkURL = "${layoutSettings.organizationLogoLinkUrl!}">
 <body class="app header-fixed aside-menu-fixed aside-menu-hidden <#if activeApp?has_content>app-${activeApp}</#if><#if parameters._CURRENT_VIEW_?has_content> page-${parameters._CURRENT_VIEW_!}</#if> <#if userLogin??>page-auth<#else>page-noauth</#if>">
+    <#-- ================================
+                SOCIAL LOGIN 
+         ================================
+    -->
+    <#-- Facebook Authentication Addon (required)-->
+    <#if getPropertyMsg("shop.properties","facebook.enabled")== "Y">
+        <#include "component://auth-facebook/webapp/facebook/fb-common.ftl"/>
+        <@fbInit scope="public_profile,user_birthday,email"/>
+    </#if>
+    <#-- Google Authentication Addon (required)-->
+    <#if getPropertyMsg("shop.properties","google.enabled")== "Y">
+        <#include "component://auth-google/webapp/google/google-common.ftl"/>
+        <@googleInit/>
+    </#if>
+    <#-- Twitter Authentication Addon (required)-->
+    <#if getPropertyMsg("shop.properties","twitter.enabled")== "Y">
+        <#include "component://auth-twitter/webapp/facebook/fb-twitter.ftl"/>
+        <@twitterInit/>
+    </#if>
+    <#-- ================================ -->
     <!-- Navigation -->
     <header class="app-header sidebar-fixed navbar">
         
