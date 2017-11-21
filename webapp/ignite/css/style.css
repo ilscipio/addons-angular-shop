@@ -9343,6 +9343,9 @@ CONTENT
 
 .callout {
   background: #fff; }
+  .callout h2 {
+    margin-top: 8px;
+    font-size: 1.4rem; }
 
 ul.card {
   list-style-type: none;
@@ -9389,8 +9392,6 @@ ul.card {
 /*table fixes*/
 .table-condensed {
   font-size: 0.9em; }
-  .table-condensed h2 {
-    font-size: 1.4 rem; }
 
 /*
  * Off Canvas

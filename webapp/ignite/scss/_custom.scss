@@ -285,7 +285,13 @@ CONTENT
     }
 }
 
-.callout {background:#fff;}
+.callout {
+	background:#fff;
+	
+	h2 {
+	margin-top:8px; 
+	font-size:1.4rem;}
+}
 
 
 ul.card {
@@ -347,8 +353,6 @@ ul.card {
 /*table fixes*/
 .table-condensed {
   font-size:0.9em; 
-	
-	h2 {font-size:1.4 rem}
 	}
 
 
