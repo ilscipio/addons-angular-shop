@@ -1,16 +1,10 @@
 @charset "UTF-8";
 /**
-
  * CoreUI - Open Source Bootstrap Admin Template
-
  * @version v1.0.0-alpha.3
-
  * @link http://coreui.io
-
  * Copyright (c) 2017 creativeLabs Łukasz Holeczek
-
  * @license MIT
-
  */
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 html {
@@ -8655,9 +8649,7 @@ base-chart.chart {
   border-radius: 1rem !important; }
 
 /*
-
  Grid bugfix for wrong div structure (guerantees that the theme will play nice even if row col-lg* is not followed entirely)
-
 */
 #main-content .row > div:not([class*="col-"]) {
   position: relative;
@@ -8802,9 +8794,7 @@ a.bsp-controls:hover {
 
 .chart-data {
   /*width: 100% !important;
-
         max-width: 800px;
-
         height: auto !important;*/
   display: none; }
   .chart-data:before {
@@ -9102,9 +9092,7 @@ canvas {
   border: 1px solid black; }
 
 /*
-
 * Based on the works of Lyn http://foundation.zurb.com/forum/posts/18131-step-by-step-list
-
 */
 .steps {
   cursor: pointer;
@@ -9279,14 +9267,10 @@ a.dropdown-item:last-child {
     padding: 0px; }
 
 /*
-
 FOOTER
-
 */
 /*
-
 CONTENT
-
 */
 .section-screenlet {
   margin-bottom: 1.5rem; }
@@ -9405,13 +9389,12 @@ ul.card {
 /*table fixes*/
 .table-condensed {
   font-size: 0.9em; }
+  .table-condensed h2 {
+    font-size: 1.4 rem; }
 
 /*
-
  * Off Canvas
-
  * --------------------------------------------------
-
  */
 @media screen and (max-width: 991px) {
   .row-offcanvas {
@@ -9447,9 +9430,7 @@ ul.card {
     /* 6 columns */ } }
 
 /*******
-
 * SHOP
-
 ********/
 #right-nav > .nav-item {
   line-height: 36px; }
@@ -9605,7 +9586,6 @@ ul.card {
   height: 32rem; }
 
 /* MARKETING CONTENT
-
 -------------------------------------------------- */
 /* Center align the text within the three columns below the carousel */
 .marketing .col-lg-4 {
@@ -9620,7 +9600,6 @@ ul.card {
   margin-left: .75rem; }
 
 /* Featurettes
-
 ------------------------- */
 .featurette-divider {
   margin: 5rem 0;
@@ -9633,7 +9612,6 @@ ul.card {
   letter-spacing: -.05rem; }
 
 /* RESPONSIVE CSS
-
 -------------------------------------------------- */
 @media (min-width: 40em) {
   /* Bump up size of carousel content */
