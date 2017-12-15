@@ -12,7 +12,7 @@
 
 **************************************************************************
 
-SCIPIO ERP - Ignite Shop Theme
+SCIPIO ERP - Angular Shop Theme
 
 *****************
 * G E N E R A L *
@@ -23,7 +23,7 @@ Please be aware that the theme may receive frequent updates.
 To get started, the following information may be of interest to you:
 
 * Default load style sheets directory: 
-  webapp/ignite/css/
+  webapp/angular/css/
 * SCIPIO will load a base set of class & html definitions located here:
   htmlVariables.groovy - ofbiz_foundation/framework/common/webcommon/includes/scipio/lib/standard
   

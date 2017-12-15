@@ -18,15 +18,15 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-<project name="Scipio - Ignite Shop Theme" default="build" basedir=".">
+<project name="Scipio - Angular Shop Theme" default="build" basedir=".">
     <import file="../../commontheme.xml"/>
 
     <!-- ================================================================== -->
     <!-- Initialization of all property settings                            -->
     <!-- ================================================================== -->
 
-    <property name="desc" value="Ignite Shop Theme"/>
-    <property name="name" value="ignite-shop-theme"/>
+    <property name="desc" value="Angular Shop Theme"/>
+    <property name="name" value="angular-shop-theme"/>
     <property name="ofbiz.home.dir" value="../.."/>
 
     <filelist dir="." id="component.build.dependencies">
@@ -34,8 +34,8 @@ under the License.
     </filelist>
 
     <target name="build" depends="check-init-lib-update">
-        <!-- echo message="[build] ========== Building Ignite Shop Theme ==========" />
-        <echo message="[build] ========== Done Building Ignite Shop Theme ==========" /-->
+        <!-- echo message="[build] ========== Building Angular Shop Theme ==========" />
+        <echo message="[build] ========== Done Building Angular Shop Theme ==========" /-->
     </target>
 
 </project>

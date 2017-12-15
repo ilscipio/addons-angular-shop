@@ -8,7 +8,7 @@
 
 /*
 *************************************
-* MAIN STYLES FOR IGNITE (COREUI - Bootstrap) *
+* MAIN STYLES FOR ANGULAR (COREUI - Bootstrap) *
 *************************************
 */
 
