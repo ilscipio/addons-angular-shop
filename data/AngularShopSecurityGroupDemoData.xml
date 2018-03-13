@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <!-- SCIPIO: use shop's
+    <SecurityGroupPermission groupId="FULLADMIN" permissionId="SHOP_ADMIN"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="SHOP_CREATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="SHOP_DELETE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="SHOP_UPDATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="SHOP_VIEW"/>
+    <SecurityGroupPermission groupId="VIEWADMIN" permissionId="SHOP_VIEW"/>
+    <SecurityGroupPermission groupId="BIZADMIN" permissionId="SHOP_ADMIN"/>
+    -->
+</entity-engine-xml>

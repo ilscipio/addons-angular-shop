@@ -21,20 +21,43 @@ under the License.
 <ofbiz-component name="angular-shop-theme"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/ofbiz-component.xsd">
-    <depends-on component-name="base-theme"/>
-
+    <depends-on component-name="shop"/><!-- NOTE: this should have no effect, but want it here for explicitness  -->
+    
     <!-- define resource loaders; most common is to use the component resource loader -->
     <resource-loader name="main" type="component"/>
 
+    <!-- place the config directory on the classpath to access configuration files -->
+    <classpath type="dir" location="config"/>
+    <classpath type="dir" location="dtd"/>
+
+    <!-- load single or multiple external libraries -->
+    <classpath type="jar" location="build/lib/*"/>
+    <classpath type="jar" location="lib/*"/>
+
     <!-- entity resources: model(s), eca(s), group, and data definitions -->
+    <!-- <entity-resource type="model" reader-name="main" loader="main" location="entitydef/entitymodel.xml"/>-->
+    <!-- <entity-resource type="eca" reader-name="main" loader="main" location="entitydef/eecas.xml"/> -->
+    <entity-resource type="data" reader-name="seed" loader="main" location="data/AngularShopSecurityPermissionSeedData.xml"/>
     <entity-resource type="data" reader-name="seed" loader="main" location="data/AngularShopThemeData.xml"/>
+    <entity-resource type="data" reader-name="demo" loader="main" location="data/AngularShopSecurityGroupDemoData.xml"/>
+    <entity-resource type="data" reader-name="demo" loader="main" location="data/AngularShopTaxAuthorityData.xml"/>
+    <entity-resource type="data" reader-name="demo" loader="main" location="data/AngularShopStoreData.xml"/>
+    <entity-resource type="data" reader-name="demo" loader="main" location="data/AngularShopCatalogData.xml"/>
+    <entity-resource type="data" reader-name="demo" loader="main" location="data/AngularShopProductData.xml"/>
+    <entity-resource type="data" reader-name="demo" loader="main" location="data/AngularShopShippingData.xml"/>
+    <entity-resource type="data" reader-name="demo" loader="main" location="data/AngularShopDemoData.xml"/>
+
+    <!-- service resources: model(s), eca(s) and group definitions -->
+    <service-resource type="model" loader="main" location="servicedef/services.xml"/>
 
     <!-- web applications; will be mounted when using the embedded Jetty container -->
-    <webapp name="angular-shop-theme"
-        title="angular-shop-theme"
-        menu-name="secondary"
+    <webapp name="angular-shop"
+        title="AngularShop"
         server="default-server"
-        location="webapp/angular"
-        mount-point="/angular-shop-theme"
-        app-bar-display="false"/>
+        location="webapp/angular-shop"
+        mount-point="/shop-angular"
+        app-bar-display="true"
+        menu-name="secondary"
+        />
+        
 </ofbiz-component>

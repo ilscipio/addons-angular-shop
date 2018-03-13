@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <!-- SCIPIO: use shop's
+    <SecurityPermission description="View operations in the AngularShop Component." permissionId="SHOP_VIEW"/>
+    <SecurityPermission description="Create operations in the AngularShop Component." permissionId="SHOP_CREATE"/>
+    <SecurityPermission description="Update operations in the AngularShop Component." permissionId="SHOP_UPDATE"/>
+    <SecurityPermission description="Delete operations in the AngularShop Component." permissionId="SHOP_DELETE"/>
+    <SecurityPermission description="ALL operations in the AngularShop Component." permissionId="SHOP_ADMIN"/>
+
+    <SecurityGroupPermission groupId="SUPER" permissionId="SHOP_ADMIN"/>
+    -->
+</entity-engine-xml>
