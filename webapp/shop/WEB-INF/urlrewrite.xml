@@ -36,7 +36,7 @@
     </rule>
 
     <!-- DEFAULT REQUEST MAPPING RULE - maps default request ("/") to main
-        uncomment this to get rid of /control/main URLs -->
+        uncomment this to get rid of /control/main URLs
     <rule>
         <from>^/[^/]+/?([?;#][^/]*)?$</from>
         <to last="true">%{attribute:scpCtrlServPath}/main$3</to>
@@ -48,16 +48,46 @@
     <outbound-rule>
         <from>^([^/]*//[^/]*)?(/[^/]*?)?(/control)?/main(/.*)$</from>
         <to last="true">$1$2$4</to>
+    </outbound-rule> -->
+    
+    <rule>
+        <condition  type="request-uri" operator="equal">^/[^/]+/?([?;#][^/]*)?$</condition>
+        <from>^/[^/]+/?([?;#][^/]*)?$</from>
+        <to last="true" type="forward">/dist/index.html$1</to>
+    </rule>
+    
+    <!-- 
+    <outbound-rule>
+        <from>^([^/]*//[^/]*)?(/[^/]*?)?/index.html([?;#].*)?$</from>
+        <to last="true">$1$2/#/$4</to>
     </outbound-rule>
+    <outbound-rule>
+        <from>^([^/]*//[^/]*)?(/[^/]*?)?/index.html(/.*)$</from>
+        <to last="true">$1$2$4</to>
+    </outbound-rule> -->
+    
 
-    <!-- CONTROL-SERVLET-STRIPPING RULES 
+
+     <rule>
+        <condition  type="request-uri" operator="notequal">^/[^/]+/?([?;#][^/]*)?$</condition>
+        <from>^/[^/]+/?([?;#][^/]*)?$</from>
+        <to last="true" type="forward">/dist/$1</to>
+    </rule>
+    
+    <!-- Angular rule to serve from index directory
+    <rule match-type="regex">
+        <condition type="request-uri" operator="notequal">^/(index.html|app|control|products|media|bower_components|api)</condition>
+        <from>^/[^/]+/?([?;#][^/]*)/(.*)$</from>
+        <to type="passthrough">/dist/index.html/#/$4</to>
+    </rule>-->
+
+    <!-- CONTROL-SERVLET-STRIPPING RULES -->
         These can be used instead of mapping ControlServlet to root; if you uncomment these,
         you likely want to set forwardRootControllerUris to Y in ContextFilter init-params in web.xml.
     <outbound-rule>
         <from>^([^/]*//[^/]*)?(/[^/]*?)?/control([?;#/].*)?$</from>
         <to>$1$2$3</to>
     </outbound-rule>
-    -->
-     
+    
 </urlrewrite>
 

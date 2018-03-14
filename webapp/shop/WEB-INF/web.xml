@@ -71,11 +71,11 @@
     <filter>
         <filter-name>UrlRewriteFilter</filter-name>
         <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
-        <!-- Uncomment this to make rules editable at runtime
+        <!-- Uncomment this to make rules editable at runtime-->
         <init-param>
             <param-name>confReloadCheckInterval</param-name>
             <param-value>0</param-value>
-        </init-param>-->
+        </init-param>
         <init-param>
             <param-name>logLevel</param-name>
             <param-value>log4j</param-value>
@@ -149,10 +149,11 @@
             <param-name>disableContextSecurity</param-name>
             <param-value>N</param-value>
         </init-param>
+        <!-- 
         <init-param>
             <param-name>allowedPaths</param-name>
             <param-value>/error:/control:/products:/select:/index.html:/index.jsp:/robots.txt:/default.html:/default.jsp:/images:/sitemaps:/media</param-value>
-        </init-param>
+        </init-param>-->
         <init-param>
             <description>SCIPIO: Set this to Y to automatically forward root requests that match controller URIs 
                 to the controller - e.g. "/main" -> "/control/main".
@@ -162,7 +163,7 @@
                     (unintentionally gives the controller URIs mapping priority) -
                     WARNING: Avoid having a controller request URI with name matching a servlet mappings below!</description>
             <param-name>forwardRootControllerUris</param-name>
-            <param-value>N</param-value>
+            <param-value>Y</param-value>
         </init-param>
     </filter>
     <filter-mapping>
@@ -177,13 +178,6 @@
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>FORWARD</dispatcher>
     </filter-mapping>
-    <!-- SCIPIO: the stock CatalogUrlFilter is now contained in the SeoCatalogUrlFilter - see comments above.
-    <filter-mapping>
-        <filter-name>CatalogUrlFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-        <dispatcher>REQUEST</dispatcher>
-        <dispatcher>FORWARD</dispatcher>
-    </filter-mapping>-->
     <filter-mapping>
         <filter-name>ContentUrlFilter</filter-name>
         <url-pattern>/*</url-pattern>
@@ -287,9 +281,7 @@
     </session-config>
 
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-        <welcome-file>index.html</welcome-file>
-        <welcome-file>index.htm</welcome-file>
+        <welcome-file>/dist/index.html</welcome-file>
     </welcome-file-list>
 
     <error-page>

@@ -46,8 +46,9 @@
                 <set field="shopSetupScriptLocation" from-field="shopSetupScriptLocation" default-value="component://angular-shop/webapp/shop/WEB-INF/actions/ShopSetup.groovy" />
             </actions>
             <widgets>
+                <!--
                 <decorator-screen name="ShopDecorator" location="component://shop/widget/CommonScreens.xml">
-                </decorator-screen>
+                </decorator-screen>-->
             </widgets>
         </section>
     </screen>
@@ -63,33 +64,34 @@
             </actions>
             <widgets>
                 <decorator-screen name="ShopDecorator" location="${parameters.mainDecoratorLocation}">
-                    <decorator-section name="pre-content">
-                        <container style="${styles.grid_row} ${styles.grid_theme_pre}" id="pre-content-section">
-                            <decorator-section-include name="pre-content"/>
-                        </container>
-                    </decorator-section>
-                    <decorator-section name="left-column" use-when="${context.widePage != true}" override-by-auto-include="true">
-                        <include-screen name="leftbar"/>
-                    </decorator-section>
-                    <decorator-section name="pre-body" >
-                        <decorator-section-include name="pre-body"/>
-                    </decorator-section>
-                    <decorator-section name="body" >
-                        <section>
-                            <condition>
-                                <not><if-empty field="globalContext.productStore"/></not>
-                            </condition>
-                            <actions>
-                            </actions>
-                            <widgets>
-                                <decorator-section-include name="body"/>
-                            </widgets>
-                            <fail-widgets>
-                                <!-- Scipio: now points to shop -->
-                                <label style="warning" text="A Product Store has not been defined for this shop."/>
-                            </fail-widgets>
-                        </section>
-                    </decorator-section>
+                    <!-- Uncommenting the decorator, as angular will be started from inside the webapp
+                        <decorator-section name="pre-content">
+                            <container style="${styles.grid_row} ${styles.grid_theme_pre}" id="pre-content-section">
+                                <decorator-section-include name="pre-content"/>
+                            </container>
+                        </decorator-section>
+                        <decorator-section name="left-column" use-when="${context.widePage != true}" override-by-auto-include="true">
+                            <include-screen name="leftbar"/>
+                        </decorator-section>
+                        <decorator-section name="pre-body" >
+                            <decorator-section-include name="pre-body"/>
+                        </decorator-section>
+                        <decorator-section name="body" >
+                            <section>
+                                <condition>
+                                    <not><if-empty field="globalContext.productStore"/></not>
+                                </condition>
+                                <actions>
+                                </actions>
+                                <widgets>
+                                    <decorator-section-include name="body"/>
+                                </widgets>
+                                <fail-widgets>
+                                    <label style="warning" text="A Product Store has not been defined for this shop."/>
+                                </fail-widgets>
+                            </section>
+                        </decorator-section>
+                    -->
                 </decorator-screen>
             </widgets>
         </section>
