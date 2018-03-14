@@ -20,74 +20,74 @@ under the License.
 
 <entity-engine-xml>
     <VisualTheme visualThemeId="ANGULAR_SHOP" visualThemeSetId="ECOMMERCE" description="Angular Shop - an ANGULAR.JS Shop Theme (PREMIUM)"/>
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_THEME_DATA_RES" resourceValue="component://angular-shop-theme/data/AngularShopThemeData.xml" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_THEME_DATA_RES" resourceValue="component://angular-shop/data/AngularShopThemeData.xml" sequenceId="01"/>
     
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_NAME" resourceValue="ANGULAR_SHOP" sequenceId="01"/>
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_SCREENSHOT" resourceValue="/angular-shop-theme/screenshot.jpg" sequenceId="01"/>
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_HDR_TMPLT_LOC" resourceValue="component://angular-shop-theme/includes/header.ftl" sequenceId="01"/>
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_MSG_TMPLT_LOC" resourceValue="component://angular-shop-theme/includes/messages.ftl" sequenceId="01"/>
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTR_TMPLT_LOC" resourceValue="component://angular-shop-theme/includes/footer.ftl" sequenceId="01"/>
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_NAV_TMPLT_LOC" resourceValue="component://angular-shop-theme/includes/appbar.ftl" sequenceId="01"/>
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_NAV_OPEN_TMPLT" resourceValue="component://angular-shop-theme/includes/appbarOpen.ftl" sequenceId="01"/>
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_NAV_CLOSE_TMPLT" resourceValue="component://angular-shop-theme/includes/appbarClose.ftl" sequenceId="01"/>
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_STL_VAR_LOC" resourceValue="component://angular-shop-theme/includes/themeStyles.groovy" sequenceId="01"/>
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_STL_TMPLT_LOC" resourceValue="component://angular-shop-theme/includes/themeTemplate.ftl" sequenceId="01"/>
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_MENU_MACRO_LIB" resourceValue="component://angular-shop-theme/includes/htmlMenuMacroLibrary.ftl" sequenceId="01"/>
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_SHORTCUT_ICON" resourceValue="/angular-shop-theme/images/favicon.ico" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_SCREENSHOT" resourceValue="/angular-shop/screenshot.jpg" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_HDR_TMPLT_LOC" resourceValue="component://angular-shop/includes/header.ftl" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_MSG_TMPLT_LOC" resourceValue="component://angular-shop/includes/messages.ftl" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTR_TMPLT_LOC" resourceValue="component://angular-shop/includes/footer.ftl" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_NAV_TMPLT_LOC" resourceValue="component://angular-shop/includes/appbar.ftl" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_NAV_OPEN_TMPLT" resourceValue="component://angular-shop/includes/appbarOpen.ftl" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_NAV_CLOSE_TMPLT" resourceValue="component://angular-shop/includes/appbarClose.ftl" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_STL_VAR_LOC" resourceValue="component://angular-shop/includes/themeStyles.groovy" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_STL_TMPLT_LOC" resourceValue="component://angular-shop/includes/themeTemplate.ftl" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_MENU_MACRO_LIB" resourceValue="component://angular-shop/includes/htmlMenuMacroLibrary.ftl" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_SHORTCUT_ICON" resourceValue="/angular-shop/images/favicon.ico" sequenceId="01"/>
 
     <!-- SCIPIO: Set custom logo -->
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_HDR_IMAGE_URL" resourceValue="/angular-shop-theme/images/scipio-logo.png" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_HDR_IMAGE_URL" resourceValue="/angular-shop/images/scipio-logo.png" sequenceId="01"/>
 
     <!-- SCIPIO: The following includes can be used to override specific default pages
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_ERROR_TMPLT_LOC" resourceValue="component://angular-shop-theme/includes/error.ftl" sequenceId="01"/> // Custom Error Page
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_ERROR_TMPLT_LOC" resourceValue="component://angular-shop/includes/error.ftl" sequenceId="01"/> // Custom Error Page
      -->    
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_LOGIN_TMPLT_LOC" resourceValue="component://angular-shop-theme/includes/login.ftl" sequenceId="01"/> 
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_LOGIN_TMPLT_LOC" resourceValue="component://angular-shop/includes/login.ftl" sequenceId="01"/> 
 
     
     <!-- GENERAL -->
     <!-- Styles -->
     <!-- Scripts -->
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_TOP_JAVASCRIPT" resourceValue="/angular-shop-theme/bower_components/jquery/dist/jquery.min.js" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_TOP_JAVASCRIPT" resourceValue="/angular-shop/bower_components/jquery/dist/jquery.min.js" sequenceId="01"/>
     
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_TOP_JAVASCRIPT" resourceValue="/base-theme/bower_components/jquery-ui/jquery-ui.min.js" sequenceId="02"/>
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_TOP_JAVASCRIPT" resourceValue="/base-theme/bower_components/jquery-migrate/jquery-migrate.min.js" sequenceId="03"/>
     
     <!-- THEME SPECIFIC -->
     <!-- Styles -->
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/angular-shop-theme/bower_components/fontawesome/css/font-awesome.min.css" sequenceId="02"/>
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/angular-shop-theme/css/simple-line-icons.css" sequenceId="03"/>
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/angular-shop-theme/css/style.css" sequenceId="04"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/angular-shop/bower_components/fontawesome/css/font-awesome.min.css" sequenceId="02"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/angular-shop/css/simple-line-icons.css" sequenceId="03"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/angular-shop/css/style.css" sequenceId="04"/>
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/base-theme/bower_components/datatables/datatables.min.css" sequenceId="05"/>
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/angular-shop-theme/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" sequenceId="06"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/angular-shop/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" sequenceId="06"/>
     
     
     <!-- Not required for shop
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/base-theme/bower_components/trumbowyg/dist/ui/trumbowyg.min.css" sequenceId="13"/>-->
     
     <!-- Right-to-Left support -->
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_RTL_STYLESHEET" resourceValue="/angular-shop-theme/rtl/bootstrap.rtl.min.css" sequenceId="1"/>
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_RTL_STYLESHEET" resourceValue="/angular-shop-theme/rtl/bootstrap-grid.rtl.min.css" sequenceId="2"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_RTL_STYLESHEET" resourceValue="/angular-shop/rtl/bootstrap.rtl.min.css" sequenceId="1"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_RTL_STYLESHEET" resourceValue="/angular-shop/rtl/bootstrap-grid.rtl.min.css" sequenceId="2"/>
     
     
     <!-- Scripts -->
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop-theme/bower_components/Chart.js/dist/Chart.min.js" sequenceId="03"/>
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop-theme/bower_components/sass-to-js/js/dist/sass-to-js.min.js" sequenceId="04"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop/bower_components/Chart.js/dist/Chart.min.js" sequenceId="03"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop/bower_components/sass-to-js/js/dist/sass-to-js.min.js" sequenceId="04"/>
  
  
      <!-- Angular -->
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop-theme/bower_components/bootstrap/dist/js/bootstrap.min.js" sequenceId="05"/>
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop-theme/bower_components/tether/dist/js/tether.min.js" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop/bower_components/bootstrap/dist/js/bootstrap.min.js" sequenceId="05"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop/bower_components/tether/dist/js/tether.min.js" sequenceId="01"/>
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/base-theme/js/freetile.min.js" sequenceId="07"/>
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop-theme/bower_components/bootstrap/js/dist/carousel.js" sequenceId="08"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop/bower_components/bootstrap/js/dist/carousel.js" sequenceId="08"/>
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/base-theme/bower_components/datatables/datatables.min.js" sequenceId="10"/>
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop-theme/bower_components/moment/min/moment-with-locales.min.js" sequenceId="11"/>
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop-theme/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js" sequenceId="12"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop/bower_components/moment/min/moment-with-locales.min.js" sequenceId="11"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js" sequenceId="12"/>
     
     <!-- FIXME: Migrate bootstrap-material to theme dependecy -->
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop-theme/js/app.js" sequenceId="15"/>
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop/js/app.js" sequenceId="15"/>
     
     
-    <!--<VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop-theme/js/scipio_boxes.js" sequenceId="20"/>-->
+    <!--<VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop/js/scipio_boxes.js" sequenceId="20"/>-->
  
  
      <!--// OWL Slider http://www.owlcarousel.owlgraphic.com/ (To activate, uncomment the following and switch the slider macro library to "owl", e.g.: <@slider library="owl")
