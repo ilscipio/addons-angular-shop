@@ -54,7 +54,7 @@ under the License.
     <webapp name="angular-shop"
         title="AngularShop"
         server="default-server"
-        location="webapp/angular-shop"
+        location="webapp/shop"
         mount-point="/angular-shop"
         app-bar-display="true"
         menu-name="secondary"
