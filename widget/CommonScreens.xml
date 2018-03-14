@@ -43,7 +43,7 @@
                 
                 <set field="layoutSettings.companyName" from-field="layoutSettings.companyName" default-value="${uiLabelMap.AngularShopCompanyName}" global="true"/>
                 
-                <set field="shopSetupScriptLocation" from-field="shopSetupScriptLocation" default-value="component://angular-shop/webapp/angular-shop/WEB-INF/actions/ShopSetup.groovy" />
+                <set field="shopSetupScriptLocation" from-field="shopSetupScriptLocation" default-value="component://angular-shop/webapp/shop/WEB-INF/actions/ShopSetup.groovy" />
             </actions>
             <widgets>
                 <decorator-screen name="ShopDecorator" location="component://shop/widget/CommonScreens.xml">
@@ -158,7 +158,7 @@
                 <!-- delegates to /applications/shop -->
                 <include-screen name="main" location="component://shop/widget/CommonScreens.xml"/>
                 <!-- this would replace the entire main screen with a custom FTL template
-                <platform-specific><html><html-template location="component://angular-shop/webapp/angular-shop/main.ftl"/></html></platform-specific>-->
+                <platform-specific><html><html-template location="component://angular-shop/webapp/shop/main.ftl"/></html></platform-specific>-->
             </widgets>
         </section>
     </screen>
