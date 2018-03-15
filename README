@@ -37,3 +37,6 @@ To get started, the following information may be of interest to you:
 ***************************
 If not already included with your copy, the theme can be manually installed into any Scipio repo and 
 kept up to date by merging from a separate repository.
+
+
+$ ng build -prod --base-href /users --deploy-url /public
