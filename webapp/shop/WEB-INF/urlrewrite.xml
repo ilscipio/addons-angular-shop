@@ -55,11 +55,17 @@
         <from>^/[^/]+/dist/.*$</from>
         <to last="true">-</to>
     </rule>
-
+    
     <rule>
-        <from>^/[^/]+/?([?;#][^/]*)?$</from>
-        <to last="true">/dist/index.html$1</to>
+        <from>^/[^/]+/?([^.]+)([?;#][^/]*)?$</from>
+        <to last="true">/dist/index.html$2</to>
     </rule>
+    
+    <rule>
+        <from>^/[^/]+/(.*)$</from>
+        <to last="true">/dist/$1</to>
+    </rule>
+     
 
     <!--
     <outbound-rule>
@@ -71,19 +77,6 @@
         <to last="true">$1$2$4</to>
     </outbound-rule> -->
 
-
-
-     <rule>
-        <from>^/[^/]+/(.*)$</from>
-        <to last="true">/dist/$1</to>
-    </rule>
-
-    <!-- Angular rule to serve from index directory
-    <rule match-type="regex">
-        <condition type="request-uri" operator="notequal">^/(index.html|app|control|products|media|bower_components|api)</condition>
-        <from>^/[^/]+/?([?;#][^/]*)/(.*)$</from>
-        <to type="passthrough">/dist/index.html/#/$4</to>
-    </rule>-->
 
     <!-- CONTROL-SERVLET-STRIPPING RULES
         These can be used instead of mapping ControlServlet to root; if you uncomment these,
