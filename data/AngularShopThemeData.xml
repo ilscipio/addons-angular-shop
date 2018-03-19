@@ -23,6 +23,11 @@ under the License.
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_THEME_DATA_RES" resourceValue="component://angular-shop/data/AngularShopThemeData.xml" sequenceId="01"/>
     
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_NAME" resourceValue="ANGULAR_SHOP" sequenceId="01"/>
+    
+    <!-- 
+        WARNING: The Angular theme differs from other webthemes and will load all resources as part of the index.html file. 
+     -->
+    <!--  
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_SCREENSHOT" resourceValue="/angular-shop/screenshot.jpg" sequenceId="01"/>
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_HDR_TMPLT_LOC" resourceValue="component://angular-shop/includes/header.ftl" sequenceId="01"/>
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_MSG_TMPLT_LOC" resourceValue="component://angular-shop/includes/messages.ftl" sequenceId="01"/>
@@ -35,25 +40,25 @@ under the License.
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_MENU_MACRO_LIB" resourceValue="component://angular-shop/includes/htmlMenuMacroLibrary.ftl" sequenceId="01"/>
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_SHORTCUT_ICON" resourceValue="/angular-shop/images/favicon.ico" sequenceId="01"/>
 
-    <!-- SCIPIO: Set custom logo -->
+    #SCIPIO: Set custom logo #
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_HDR_IMAGE_URL" resourceValue="/angular-shop/images/scipio-logo.png" sequenceId="01"/>
 
-    <!-- SCIPIO: The following includes can be used to override specific default pages
+    #SCIPIO: The following includes can be used to override specific default pages
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_ERROR_TMPLT_LOC" resourceValue="component://angular-shop/includes/error.ftl" sequenceId="01"/> // Custom Error Page
-     -->    
+     #    
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_LOGIN_TMPLT_LOC" resourceValue="component://angular-shop/includes/login.ftl" sequenceId="01"/> 
 
     
-    <!-- GENERAL -->
-    <!-- Styles -->
-    <!-- Scripts -->
+    #GENERAL #
+    #Styles #
+    #Scripts #
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_TOP_JAVASCRIPT" resourceValue="/angular-shop/bower_components/jquery/dist/jquery.min.js" sequenceId="01"/>
     
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_TOP_JAVASCRIPT" resourceValue="/base-theme/bower_components/jquery-ui/jquery-ui.min.js" sequenceId="02"/>
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_TOP_JAVASCRIPT" resourceValue="/base-theme/bower_components/jquery-migrate/jquery-migrate.min.js" sequenceId="03"/>
     
-    <!-- THEME SPECIFIC -->
-    <!-- Styles -->
+    #THEME SPECIFIC #
+    #Styles #
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/angular-shop/bower_components/fontawesome/css/font-awesome.min.css" sequenceId="02"/>
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/angular-shop/css/simple-line-icons.css" sequenceId="03"/>
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/angular-shop/css/style.css" sequenceId="04"/>
@@ -61,20 +66,20 @@ under the License.
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/angular-shop/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" sequenceId="06"/>
     
     
-    <!-- Not required for shop
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/base-theme/bower_components/trumbowyg/dist/ui/trumbowyg.min.css" sequenceId="13"/>-->
+    #Not required for shop
+    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/base-theme/bower_components/trumbowyg/dist/ui/trumbowyg.min.css" sequenceId="13"/>#
     
-    <!-- Right-to-Left support -->
+    #Right-to-Left support #
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_RTL_STYLESHEET" resourceValue="/angular-shop/rtl/bootstrap.rtl.min.css" sequenceId="1"/>
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_RTL_STYLESHEET" resourceValue="/angular-shop/rtl/bootstrap-grid.rtl.min.css" sequenceId="2"/>
     
     
-    <!-- Scripts -->
+    #Scripts #
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop/bower_components/Chart.js/dist/Chart.min.js" sequenceId="03"/>
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop/bower_components/sass-to-js/js/dist/sass-to-js.min.js" sequenceId="04"/>
  
  
-     <!-- Angular -->
+     #Angular #
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop/bower_components/bootstrap/dist/js/bootstrap.min.js" sequenceId="05"/>
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop/bower_components/tether/dist/js/tether.min.js" sequenceId="01"/>
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/base-theme/js/freetile.min.js" sequenceId="07"/>
@@ -83,21 +88,12 @@ under the License.
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop/bower_components/moment/min/moment-with-locales.min.js" sequenceId="11"/>
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js" sequenceId="12"/>
     
-    <!-- FIXME: Migrate bootstrap-material to theme dependecy -->
+    #FIXME: Migrate bootstrap-material to theme dependecy #
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop/js/app.js" sequenceId="15"/>
-    
-    
-    <!--<VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/angular-shop/js/scipio_boxes.js" sequenceId="20"/>-->
- 
- 
-     <!--// OWL Slider http://www.owlcarousel.owlgraphic.com/ (To activate, uncomment the following and switch the slider macro library to "owl", e.g.: <@slider library="owl")
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/base-theme/bower_components/owlcarousel/owl-carousel/owl.carousel.css" sequenceId="60"/> 
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/base-theme/bower_components/owlcarousel/owl-carousel/owl.theme.css" sequenceId="61"/> 
-    <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/base-theme/bower_components/owlcarousel/owl-carousel/owl.carousel.min.js" sequenceId="62"/> -->
 
-    <!--// Slick Slider http://kenwheeler.github.io/slick/ (To activate, uncomment the following and switch the chart slider library to "slick", e.g.: <@slider library="owl") -->
+    # // Slick Slider http://kenwheeler.github.io/slick/ (To activate, uncomment the following and switch the chart slider library to "slick", e.g.: <@slider library="owl") #
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/base-theme/bower_components/slick-carousel/slick/slick.css" sequenceId="63"/> 
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/base-theme/bower_components/slick-carousel/slick/slick-theme.css" sequenceId="64"/> 
     <VisualThemeResource visualThemeId="ANGULAR_SHOP" resourceTypeEnumId="VT_FTPR_JAVASCRIPT" resourceValue="/base-theme/bower_components/slick-carousel/slick/slick.js" sequenceId="65"/>
-   
+    -->
 </entity-engine-xml>
