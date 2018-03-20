@@ -8,9 +8,9 @@
               <span class="button-bar"></span>
           </a>
            <div ngbDropdownMenu>
-             <a class="dropdown-header">Dropdown header</a>
-             <a class="dropdown-item" href="#">Action</a>
-             <a class="dropdown-item" href="#">Another action</a>
+             <a class="dropdown-header">Catalog</a>
+             <a class="dropdown-item" href="https://localhost:8443/angular-shop/category/demo-catalog">Demo Catalog</a>
+             <a class="dropdown-item" href="https://localhost:8443/shop/angular-shop/featured-products">Featured Products</a>
              <a class="dropdown-item" href="#">Something else here</a>
              <div class="dropdown-divider"></div>
              <a class="dropdown-item" href="#">Separated link</a>
@@ -21,7 +21,7 @@
       </div>
         <div class="navbar-translate">
             <a class="navbar-brand" [routerLink]="['/index']" placement="bottom" ngbTooltip="">
-                Scipio ERP - Angular Shop
+                <img alt="SCIPIO Store" src="/images/scipio/scipio-logo-small.png">Angular Shop
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
                 <span class="navbar-toggler-bar bar1"></span>
@@ -31,19 +31,26 @@
         </div>
         <div class="collapse navbar-collapse" data-nav-image="assets/img/blurred-image-1.jpg" data-color="orange">
             <ul class="navbar-nav ml-auto">
-              <!--
-              <li class="nav-item">
-                  <a class="nav-link" href="https://www.creative-tim.com/product/now-ui-kit-angular" target="_blank">
-                      <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-                      <p>Download</p>
-                  </a>
-              </li>-->
                 <li class="nav-item">
-                    <a class="nav-link" href="#" target="_blank">
-                      <i class="now-ui-icons files_paper"></i>
-                      <p>Components</p>
+                    <a class="nav-link" href="category/demo-catalog" target="_blank">
+                      <i class="fa fa-shopping-bag"></i>
+                      <p>Products</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login">
+                      <i class="fa fa-sign-in"></i>
+                      <p>Login</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="checkout/cart" target="_blank">
+                      <i class="fa fa-shopping-cart"></i>
+                      <p>$0.00</p>
+                  </a>
+                </li>
+                
+                <!-- 
                 <li class="nav-item">
                     <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="#" target="_blank" data-original-title="Follow us on Twitter">
                         <i class="fa fa-twitter"></i>
@@ -61,7 +68,7 @@
                         <i class="fa fa-instagram"></i>
                         <p class="d-lg-none d-xl-none">Instagram</p>
                     </a>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>

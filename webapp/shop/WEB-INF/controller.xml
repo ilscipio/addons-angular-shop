@@ -3,7 +3,7 @@
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
     
     <!-- SCIPIO: extends shop -->
-    <include location="component://shop/webapp/shop/WEB-INF/controller.xml"/>
+    <!--<include location="component://shop/webapp/shop/WEB-INF/controller.xml"/>-->
 
     <description>AngularShop Component Site Configuration File</description>
 
@@ -20,9 +20,35 @@
     -->
 
     <!-- Request Mappings -->
-    <!-- 
-    <request-map uri="main"><security https="true" auth="true"/><response name="success" type="view" value="main"/></request-map>
-    -->
+
+    <request-map uri="solrProductsSearch">
+        <security https="true" auth="true" />
+        <event type="service" invoke="solrProductsSearch"/>
+        <response name="success" type="request" value="json" />
+        <response name="error" type="request" value="json" />
+    </request-map>
+    
+    <request-map uri="solrSideDeepCategory">
+        <security https="true" auth="true" />
+        <event type="service" invoke="solrSideDeepCategory"/>
+        <response name="success" type="request" value="json" />
+        <response name="error" type="request" value="json" />
+    </request-map>
+    
+    <request-map uri="solrAvailableCategories">
+        <security https="true" auth="true" />
+        <event type="service" invoke="solrAvailableCategories"/>
+        <response name="success" type="request" value="json" />
+        <response name="error" type="request" value="json" />
+    </request-map>
+
+    <request-map uri="solrKeywordSearch">
+        <security https="true" auth="true" />
+        <event type="service" invoke="solrKeywordSearch"/>
+        <response name="success" type="request" value="json" />
+        <response name="error" type="request" value="json" />
+    </request-map>
+
     
     <!-- View Mappings -->
     <!-- main screen view override -->

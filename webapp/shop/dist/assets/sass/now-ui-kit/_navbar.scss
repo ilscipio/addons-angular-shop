@@ -103,6 +103,12 @@
         padding-top: $padding-base-vertical;
         padding-bottom: $padding-base-vertical;
         line-height: $line-height-nav-link;
+        
+        img {
+            height: $line-height-nav-link;
+            margin-right:10px;
+            width: auto;
+        }
     }
 
     .navbar-toggler{
