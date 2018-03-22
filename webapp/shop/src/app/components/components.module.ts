@@ -13,6 +13,9 @@ import { TypographyComponent } from './typography/typography.component';
 import { ComponentsComponent } from './components.component';
 import { NotificationComponent } from './notification/notification.component';
 import { NgbdModalBasic } from './modal/modal.component';
+import { SlickModule } from 'ngx-slick';
+import { SliderComponent } from '../shared/slider/slider.component';
+
 
 @NgModule({
     imports: [
@@ -21,7 +24,9 @@ import { NgbdModalBasic } from './modal/modal.component';
         NgbModule,
         NouisliderModule,
         RouterModule,
-        JWBootstrapSwitchModule
+        JWBootstrapSwitchModule,
+        // Plugins
+        SlickModule.forRoot()
       ],
     declarations: [
         ComponentsComponent,
@@ -30,7 +35,8 @@ import { NgbdModalBasic } from './modal/modal.component';
         TypographyComponent,
         NotificationComponent,
         NgbdModalBasic,
-        ProductsliderComponent
+        ProductsliderComponent,
+        SliderComponent
     ],
     exports:[ ComponentsComponent ]
 })

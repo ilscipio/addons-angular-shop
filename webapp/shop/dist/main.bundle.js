@@ -20,7 +20,7 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\r\n<router-outlet></router-outlet>\r\n"
+module.exports = "<app-navbar></app-navbar>\r\n<router-outlet></router-outlet>\r\n<app-footer></app-footer>\r\n"
 
 /***/ }),
 
@@ -141,6 +141,7 @@ var components_module_1 = __webpack_require__("../../../../../src/app/components
 var examples_module_1 = __webpack_require__("../../../../../src/app/examples/examples.module.ts");
 var app_component_1 = __webpack_require__("../../../../../src/app/app.component.ts");
 var navbar_component_1 = __webpack_require__("../../../../../src/app/shared/navbar/navbar.component.ts");
+var footer_component_1 = __webpack_require__("../../../../../src/app/shared/footer/footer.component.ts");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -148,7 +149,8 @@ var AppModule = /** @class */ (function () {
         core_1.NgModule({
             declarations: [
                 app_component_1.AppComponent,
-                navbar_component_1.NavbarComponent
+                navbar_component_1.NavbarComponent,
+                footer_component_1.FooterComponent
             ],
             imports: [
                 animations_1.BrowserAnimationsModule,
@@ -353,7 +355,7 @@ exports.BasicelementsComponent = BasicelementsComponent;
 /***/ "../../../../../src/app/components/components.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\r\n  <div class=\"page-header clear-filter\" filter-color=\"primary\">\r\n    <div class=\"page-header-image rellax-header\" data-rellax-speed=\"-7\" style=\"background-image: url('http://www.scipioerp.com/files/2016/03/4ffb90e8948c4e47822ecd2b860e565a_28_1600-1.jpg');\">\r\n\r\n    </div>\r\n      <div class=\"container\">\r\n          <div class=\"content-center brand\">\r\n              <h1 class=\"h1-seo\">Angular JS</h1>\r\n              <b>for</b><br/><br/>\r\n              <img class=\"n-logo\" src=\"assets/img/scipio/scipio-logo.png\" alt=\"\"><br/>\r\n              <em>Let's celebrate modern web-development!</em>\r\n          </div>\r\n      </div>\r\n  </div>\r\n\r\n  <div class=\"main\">\r\n    <div class=\"section section-images\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <div class=\"hero-images-container\">\r\n                        <img src=\"assets/img/hero-image-1.png\" alt=\"\">\r\n                    </div>\r\n                    <div class=\"hero-images-container-1\">\r\n                        <img src=\"assets/img/hero-image-2.png\" alt=\"\">\r\n                    </div>\r\n                    <div class=\"hero-images-container-2\">\r\n                        <img src=\"assets/img/hero-image-3.png\" alt=\"\">\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n      <app-productslider id=\"test-id\" name=\"test\"></app-productslider>\r\n      <app-basicelements></app-basicelements>\r\n      <!--\r\n      <app-basicelements></app-basicelements>\r\n      <app-navigation></app-navigation>-->\r\n  </div>\r\n  <footer class=\"footer\" data-background-color=\"black\">\r\n      <div class=\"container\">\r\n          <nav>\r\n              <ul>\r\n                  <li>\r\n                      <a href=\"https://www.scipioerp.com\">\r\n                          Scipio ERP\r\n                      </a>\r\n                  </li>\r\n                  <li>\r\n                      <a href=\"http://www.ilscipio.com\">\r\n                          About Us\r\n                      </a>\r\n                  </li>\r\n              </ul>\r\n          </nav>\r\n          <div class=\"copyright\">\r\n              &copy;\r\n            {{data | date: 'yyyy'}}, \r\n              <a href=\"http://www.scipioerp.com\" target=\"_blank\">Scipio ERP</a>. UI based on\r\n              <a href=\"https://timcreative.github.io/now-ui-kit-angular/\" target=\"_blank\">\"Now UI Kit - Angular\"</a>.\r\n          </div>\r\n      </div>\r\n  </footer>\r\n</div>\r\n"
+module.exports = "<div class=\"wrapper\">\r\n  <div class=\"page-header clear-filter\" filter-color=\"primary\">\r\n    <div class=\"page-header-image rellax-header\" data-rellax-speed=\"-7\" style=\"background-image: url('https://www.scipioerp.com/files/2016/03/4ffb90e8948c4e47822ecd2b860e565a_28_1600-1.jpg');\">\r\n\r\n    </div>\r\n      <div class=\"container\">\r\n          <div class=\"content-center brand\">\r\n              <h1 class=\"h1-seo\">Angular JS</h1>\r\n              <b>for</b><br/><br/>\r\n              <img class=\"n-logo\" src=\"assets/img/scipio/scipio-logo.png\" alt=\"\"><br/>\r\n              <em>Let's celebrate modern web-development!</em>\r\n          </div>\r\n      </div>\r\n  </div>\r\n\r\n  <div class=\"main\">\r\n    <div class=\"section section-images\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <div class=\"hero-images-container\">\r\n                        <img src=\"assets/img/hero-image-1.png\" alt=\"\">\r\n                    </div>\r\n                    <div class=\"hero-images-container-1\">\r\n                        <img src=\"assets/img/hero-image-2.png\" alt=\"\">\r\n                    </div>\r\n                    <div class=\"hero-images-container-2\">\r\n                        <img src=\"assets/img/hero-image-3.png\" alt=\"\">\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n      <!-- <app-productslider id=\"test-id\" name=\"test\"></app-productslider> -->\r\n      <app-slider></app-slider>\r\n      <app-basicelements></app-basicelements>\r\n      <!--\r\n      <app-basicelements></app-basicelements>\r\n      <app-navigation></app-navigation>-->\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -450,6 +452,8 @@ var typography_component_1 = __webpack_require__("../../../../../src/app/compone
 var components_component_1 = __webpack_require__("../../../../../src/app/components/components.component.ts");
 var notification_component_1 = __webpack_require__("../../../../../src/app/components/notification/notification.component.ts");
 var modal_component_1 = __webpack_require__("../../../../../src/app/components/modal/modal.component.ts");
+var ngx_slick_1 = __webpack_require__("../../../../ngx-slick/index.js");
+var slider_component_1 = __webpack_require__("../../../../../src/app/shared/slider/slider.component.ts");
 var ComponentsModule = /** @class */ (function () {
     function ComponentsModule() {
     }
@@ -461,7 +465,9 @@ var ComponentsModule = /** @class */ (function () {
                 ng_bootstrap_1.NgbModule,
                 ng2_nouislider_1.NouisliderModule,
                 router_1.RouterModule,
-                jw_bootstrap_switch_ng2_1.JWBootstrapSwitchModule
+                jw_bootstrap_switch_ng2_1.JWBootstrapSwitchModule,
+                // Plugins
+                ngx_slick_1.SlickModule.forRoot()
             ],
             declarations: [
                 components_component_1.ComponentsComponent,
@@ -470,7 +476,8 @@ var ComponentsModule = /** @class */ (function () {
                 typography_component_1.TypographyComponent,
                 notification_component_1.NotificationComponent,
                 modal_component_1.NgbdModalBasic,
-                productslider_component_1.ProductsliderComponent
+                productslider_component_1.ProductsliderComponent,
+                slider_component_1.SliderComponent
             ],
             exports: [components_component_1.ComponentsComponent]
         })
@@ -964,7 +971,7 @@ exports.LandingComponent = LandingComponent;
 /***/ "../../../../../src/app/examples/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"page-header\" filter-color=\"primary\">\r\n    <div class=\"page-header-image\" style=\"background-image:url(assets/img/login.jpg)\"></div>\r\n    <div class=\"container\">\r\n        <div class=\"col-md-4 content-center\">\r\n            <div class=\"card card-login card-plain\">\r\n                <form class=\"form\" method=\"\" action=\"\">\r\n                    <div class=\"header header-primary text-center\">\r\n                        <div class=\"logo-container\">\r\n                            <img src=\"assets/img/scipio/scipio-logo-small.png\" alt=\"\">\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"content\">\r\n                      <div class=\"input-group form-group-no-border input-lg\" [ngClass]=\"{'input-group-focus':focus===true}\">\r\n                        <div class=\"input-group-prepend\">\r\n                            <span class=\"input-group-text\">  <i class=\"now-ui-icons users_circle-08\"></i></span>\r\n                        </div>\r\n                          <input type=\"text\" class=\"form-control\" placeholder=\"First Name...\" (focus)=\"focus=true\" (blur)=\"focus=false\" >\r\n                      </div>\r\n                      <div class=\"input-group form-group-no-border input-lg\" [ngClass]=\"{'input-group-focus':focus1===true}\">\r\n                        <div class=\"input-group-prepend\">\r\n                            <span class=\"input-group-text\"><i class=\"now-ui-icons text_caps-small\"></i></span>\r\n                        </div>\r\n                          <input type=\"text\" placeholder=\"Last Name...\" class=\"form-control\" (focus)=\"focus1=true\" (blur)=\"focus1=false\"/>\r\n                      </div>\r\n                    </div>\r\n                    <div class=\"footer text-center\">\r\n                        <a href=\"#pablo\" class=\"btn btn-primary btn-round btn-lg btn-block\">Get Started</a>\r\n                    </div>\r\n                    <div class=\"pull-left\">\r\n                        <h6>\r\n                            <a href=\"#pablo\" class=\"link\">Create Account</a>\r\n                        </h6>\r\n                    </div>\r\n                    <div class=\"pull-right\">\r\n                        <h6>\r\n                            <a href=\"#pablo\" class=\"link\">Need Help?</a>\r\n                        </h6>\r\n                    </div>\r\n                </form>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <footer class=\"footer\">\r\n        <div class=\"container\">\r\n            <nav>\r\n                <ul>\r\n                    <li>\r\n                        <a href=\"https://www.creative-tim.com\">\r\n                            Creative Tim\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a href=\"http://presentation.creative-tim.com\">\r\n                            About Us\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a href=\"http://blog.creative-tim.com\">\r\n                            Blog\r\n                        </a>\r\n                    </li>\r\n                    <li>\r\n                        <a href=\"https://github.com/creativetimofficial/now-ui-kit/blob/master/LICENSE.md\">\r\n                            MIT License\r\n                        </a>\r\n                    </li>\r\n                </ul>\r\n            </nav>\r\n            <div class=\"copyright\">\r\n                &copy;\r\n              {{data | date: 'yyyy'}}, Designed by\r\n                <a href=\"http://www.invisionapp.com\" target=\"_blank\">Invision</a>. Coded by\r\n                <a href=\"https://www.creative-tim.com\" target=\"_blank\">Creative Tim</a>.\r\n            </div>\r\n        </div>\r\n    </footer>\r\n</div>\r\n"
+module.exports = "\r\n<div class=\"page-header\" filter-color=\"primary\">\r\n    <div class=\"page-header-image\" style=\"background-image:url(assets/img/login.jpg)\"></div>\r\n    <div class=\"container\">\r\n        <div class=\"col-md-4 content-center\">\r\n            <div class=\"card card-login card-plain\">\r\n                <form class=\"form\" method=\"\" action=\"\">\r\n                    <div class=\"header header-primary text-center\">\r\n                        <div class=\"logo-container\">\r\n                            <img src=\"assets/img/scipio/scipio-logo-small.png\" alt=\"\">\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"content\">\r\n                      <div class=\"input-group form-group-no-border input-lg\" [ngClass]=\"{'input-group-focus':focus===true}\">\r\n                        <div class=\"input-group-prepend\">\r\n                            <span class=\"input-group-text\">  <i class=\"now-ui-icons users_circle-08\"></i></span>\r\n                        </div>\r\n                          <input type=\"text\" class=\"form-control\" placeholder=\"First Name...\" (focus)=\"focus=true\" (blur)=\"focus=false\" >\r\n                      </div>\r\n                      <div class=\"input-group form-group-no-border input-lg\" [ngClass]=\"{'input-group-focus':focus1===true}\">\r\n                        <div class=\"input-group-prepend\">\r\n                            <span class=\"input-group-text\"><i class=\"now-ui-icons text_caps-small\"></i></span>\r\n                        </div>\r\n                          <input type=\"text\" placeholder=\"Last Name...\" class=\"form-control\" (focus)=\"focus1=true\" (blur)=\"focus1=false\"/>\r\n                      </div>\r\n                    </div>\r\n                    <div class=\"footer text-center\">\r\n                        <a href=\"#pablo\" class=\"btn btn-primary btn-round btn-lg btn-block\">Get Started</a>\r\n                    </div>\r\n                    <div class=\"pull-left\">\r\n                        <h6>\r\n                            <a href=\"#pablo\" class=\"link\">Create Account</a>\r\n                        </h6>\r\n                    </div>\r\n                    <div class=\"pull-right\">\r\n                        <h6>\r\n                            <a href=\"#pablo\" class=\"link\">Need Help?</a>\r\n                        </h6>\r\n                    </div>\r\n                </form>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1107,6 +1114,67 @@ var ProfileComponent = /** @class */ (function () {
     return ProfileComponent;
 }());
 exports.ProfileComponent = ProfileComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/footer/footer.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<footer class=\"footer\" data-background-color=\"black\">\n  <div class=\"container\">\n      <nav>\n          <ul>\n              <li>\n                  <a href=\"https://www.scipioerp.com\">\n                      Scipio ERP\n                  </a>\n              </li>\n              <li>\n                  <a href=\"http://www.ilscipio.com\">\n                      About Us\n                  </a>\n              </li>\n          </ul>\n      </nav>\n      <div class=\"copyright\">\n          &copy;\n        {{data | date: 'yyyy'}}, \n          <a href=\"http://www.scipioerp.com\" target=\"_blank\">Scipio ERP</a>. UI based on\n          <a href=\"https://timcreative.github.io/now-ui-kit-angular/\" target=\"_blank\">\"Now UI Kit - Angular\"</a>.\n      </div>\n  </div>\n</footer>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/footer/footer.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/footer/footer.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var FooterComponent = /** @class */ (function () {
+    function FooterComponent() {
+    }
+    FooterComponent.prototype.ngOnInit = function () {
+    };
+    FooterComponent = __decorate([
+        core_1.Component({
+            selector: 'app-footer',
+            template: __webpack_require__("../../../../../src/app/shared/footer/footer.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/shared/footer/footer.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], FooterComponent);
+    return FooterComponent;
+}());
+exports.FooterComponent = FooterComponent;
 
 
 /***/ }),
@@ -1274,6 +1342,90 @@ var ProductsliderComponent = /** @class */ (function () {
     return ProductsliderComponent;
 }());
 exports.ProductsliderComponent = ProductsliderComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/slider/slider.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<ngx-slick class=\"slider slider-nav\" #slickModal=\"slick-modal\" [config]=\"slideConfig\" (afterChange)=\"afterChange($event)\">\n    <div ngxSlickItem *ngFor=\"let slide of slides\" class=\"slide\">\n            <img src=\"{{ slide.img }}\" alt=\"\" width=\"100%\">\n    </div>\n</ngx-slick>\n\n<button (click)=\"addSlide()\">Add</button>\n<button (click)=\"removeSlide()\">Remove</button>\n<button (click)=\"slickModal.slickGoTo(2)\">slickGoto 2</button>\n<button (click)=\"slickModal.unslick()\">unslick</button>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/slider/slider.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/slider/slider.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var SliderComponent = /** @class */ (function () {
+    function SliderComponent() {
+        this.slides = [
+            { img: "http://placehold.it/350x150/000000" },
+            { img: "http://placehold.it/350x150/111111" },
+            { img: "http://placehold.it/350x150/333333" },
+            { img: "http://placehold.it/350x150/666666" }
+        ];
+        this.slideConfig = {
+            'slidesToShow': 4,
+            'slidesToScroll': 4,
+            'dots': true,
+            'focusOnSelect': true,
+            'arrows': true,
+            'rows': 0
+        };
+    }
+    SliderComponent.prototype.ngOnInit = function () {
+    };
+    SliderComponent.prototype.addSlide = function () {
+        this.slides.push({ img: "http://placehold.it/350x150/777777" });
+    };
+    SliderComponent.prototype.removeSlide = function () {
+        this.slides.length = this.slides.length - 1;
+    };
+    SliderComponent.prototype.afterChange = function (e) {
+        console.log('afterChange');
+    };
+    SliderComponent = __decorate([
+        core_1.Component({
+            selector: 'app-slider',
+            template: __webpack_require__("../../../../../src/app/shared/slider/slider.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/shared/slider/slider.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], SliderComponent);
+    return SliderComponent;
+}());
+exports.SliderComponent = SliderComponent;
 
 
 /***/ }),
