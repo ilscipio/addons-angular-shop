@@ -353,7 +353,7 @@ exports.BasicelementsComponent = BasicelementsComponent;
 /***/ "../../../../../src/app/components/components.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\r\n  <div class=\"page-header clear-filter\" filter-color=\"primary\">\r\n    <div class=\"page-header-image rellax-header\" data-rellax-speed=\"-7\" style=\"background-image: url('http://www.scipioerp.com/files/2016/03/4ffb90e8948c4e47822ecd2b860e565a_28_1600-1.jpg');\">\r\n\r\n    </div>\r\n      <div class=\"container\">\r\n          <div class=\"content-center brand\">\r\n              <img class=\"n-logo\" src=\"assets/img/scipio/scipio-logo.png\" alt=\"\">\r\n              <h1 class=\"h1-seo\">Angular Shop</h1>\r\n              <h3>Based on Now UI and Bootstrap 4.</h3>\r\n          </div>\r\n      </div>\r\n  </div>\r\n\r\n  <div class=\"main\">\r\n    <div class=\"section section-images\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <div class=\"hero-images-container\">\r\n                        <img src=\"assets/img/hero-image-1.png\" alt=\"\">\r\n                    </div>\r\n                    <div class=\"hero-images-container-1\">\r\n                        <img src=\"assets/img/hero-image-2.png\" alt=\"\">\r\n                    </div>\r\n                    <div class=\"hero-images-container-2\">\r\n                        <img src=\"assets/img/hero-image-3.png\" alt=\"\">\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n      <!--\r\n      <app-basicelements></app-basicelements>\r\n      <app-navigation></app-navigation>-->\r\n  </div>\r\n  <footer class=\"footer\" data-background-color=\"black\">\r\n      <div class=\"container\">\r\n          <nav>\r\n              <ul>\r\n                  <li>\r\n                      <a href=\"https://www.scipioerp.com\">\r\n                          Scipio ERP\r\n                      </a>\r\n                  </li>\r\n                  <li>\r\n                      <a href=\"http://www.ilscipio.com\">\r\n                          About Us\r\n                      </a>\r\n                  </li>\r\n              </ul>\r\n          </nav>\r\n          <div class=\"copyright\">\r\n              &copy;\r\n            {{data | date: 'yyyy'}}, \r\n              <a href=\"http://www.scipioerp.com\" target=\"_blank\">Scipio ERP</a>. Based on\r\n              <a href=\"https://timcreative.github.io/now-ui-kit-angular/\" target=\"_blank\">Now UI Kit - Angular</a>.\r\n          </div>\r\n      </div>\r\n  </footer>\r\n</div>\r\n"
+module.exports = "<div class=\"wrapper\">\r\n  <div class=\"page-header clear-filter\" filter-color=\"primary\">\r\n    <div class=\"page-header-image rellax-header\" data-rellax-speed=\"-7\" style=\"background-image: url('http://www.scipioerp.com/files/2016/03/4ffb90e8948c4e47822ecd2b860e565a_28_1600-1.jpg');\">\r\n\r\n    </div>\r\n      <div class=\"container\">\r\n          <div class=\"content-center brand\">\r\n              <h1 class=\"h1-seo\">Angular JS</h1>\r\n              <b>for</b><br/><br/>\r\n              <img class=\"n-logo\" src=\"assets/img/scipio/scipio-logo.png\" alt=\"\"><br/>\r\n              <em>Let's celebrate modern web-development!</em>\r\n          </div>\r\n      </div>\r\n  </div>\r\n\r\n  <div class=\"main\">\r\n    <div class=\"section section-images\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <div class=\"hero-images-container\">\r\n                        <img src=\"assets/img/hero-image-1.png\" alt=\"\">\r\n                    </div>\r\n                    <div class=\"hero-images-container-1\">\r\n                        <img src=\"assets/img/hero-image-2.png\" alt=\"\">\r\n                    </div>\r\n                    <div class=\"hero-images-container-2\">\r\n                        <img src=\"assets/img/hero-image-3.png\" alt=\"\">\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n      <app-productslider id=\"test-id\" name=\"test\"></app-productslider>\r\n      <app-basicelements></app-basicelements>\r\n      <!--\r\n      <app-basicelements></app-basicelements>\r\n      <app-navigation></app-navigation>-->\r\n  </div>\r\n  <footer class=\"footer\" data-background-color=\"black\">\r\n      <div class=\"container\">\r\n          <nav>\r\n              <ul>\r\n                  <li>\r\n                      <a href=\"https://www.scipioerp.com\">\r\n                          Scipio ERP\r\n                      </a>\r\n                  </li>\r\n                  <li>\r\n                      <a href=\"http://www.ilscipio.com\">\r\n                          About Us\r\n                      </a>\r\n                  </li>\r\n              </ul>\r\n          </nav>\r\n          <div class=\"copyright\">\r\n              &copy;\r\n            {{data | date: 'yyyy'}}, \r\n              <a href=\"http://www.scipioerp.com\" target=\"_blank\">Scipio ERP</a>. UI based on\r\n              <a href=\"https://timcreative.github.io/now-ui-kit-angular/\" target=\"_blank\">\"Now UI Kit - Angular\"</a>.\r\n          </div>\r\n      </div>\r\n  </footer>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -444,6 +444,7 @@ var ng2_nouislider_1 = __webpack_require__("../../../../ng2-nouislider/src/nouis
 var jw_bootstrap_switch_ng2_1 = __webpack_require__("../../../../jw-bootstrap-switch-ng2/dist/index.js");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var basicelements_component_1 = __webpack_require__("../../../../../src/app/components/basicelements/basicelements.component.ts");
+var productslider_component_1 = __webpack_require__("../../../../../src/app/shared/productslider/productslider.component.ts");
 var navigation_component_1 = __webpack_require__("../../../../../src/app/components/navigation/navigation.component.ts");
 var typography_component_1 = __webpack_require__("../../../../../src/app/components/typography/typography.component.ts");
 var components_component_1 = __webpack_require__("../../../../../src/app/components/components.component.ts");
@@ -468,7 +469,8 @@ var ComponentsModule = /** @class */ (function () {
                 navigation_component_1.NavigationComponent,
                 typography_component_1.TypographyComponent,
                 notification_component_1.NotificationComponent,
-                modal_component_1.NgbdModalBasic
+                modal_component_1.NgbdModalBasic,
+                productslider_component_1.ProductsliderComponent
             ],
             exports: [components_component_1.ComponentsComponent]
         })
@@ -1210,6 +1212,68 @@ var NavbarComponent = /** @class */ (function () {
     return NavbarComponent;
 }());
 exports.NavbarComponent = NavbarComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/productslider/productslider.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"section section-basic\">\n    <div class=\"container\">\n        <nouislider class=\"slider\" [min]=\"0\" [max]=\"100\" [step]=\"1\" [(ngModel)]=\"simpleSlider\" [tooltips]=\"true\"></nouislider>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/productslider/productslider.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/productslider/productslider.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var ProductsliderComponent = /** @class */ (function () {
+    function ProductsliderComponent() {
+        this.simpleSlider = 40;
+    }
+    ProductsliderComponent.prototype.ngOnInit = function () {
+    };
+    ProductsliderComponent = __decorate([
+        core_1.Component({
+            selector: 'app-productslider',
+            template: __webpack_require__("../../../../../src/app/shared/productslider/productslider.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/shared/productslider/productslider.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ProductsliderComponent);
+    return ProductsliderComponent;
+}());
+exports.ProductsliderComponent = ProductsliderComponent;
 
 
 /***/ }),

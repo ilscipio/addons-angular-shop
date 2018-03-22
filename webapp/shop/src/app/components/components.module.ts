@@ -7,6 +7,7 @@ import { JWBootstrapSwitchModule } from 'jw-bootstrap-switch-ng2';
 import { RouterModule } from '@angular/router';
 
 import { BasicelementsComponent } from './basicelements/basicelements.component';
+import { ProductsliderComponent } from '../shared/productslider/productslider.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { TypographyComponent } from './typography/typography.component';
 import { ComponentsComponent } from './components.component';
@@ -28,7 +29,8 @@ import { NgbdModalBasic } from './modal/modal.component';
         NavigationComponent,
         TypographyComponent,
         NotificationComponent,
-        NgbdModalBasic
+        NgbdModalBasic,
+        ProductsliderComponent
     ],
     exports:[ ComponentsComponent ]
 })

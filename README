@@ -31,6 +31,10 @@ To get started, the following information may be of interest to you:
   
   These can be (and for the purpose of this theme will be) overriden in the following file:
   themeStyles.groovy
+  
+Compile with (in webapp/shop/):
+
+$ng build --watch
 
 ***************************
 * I N S T A L L A T I O N *
@@ -38,5 +42,5 @@ To get started, the following information may be of interest to you:
 If not already included with your copy, the theme can be manually installed into any Scipio repo and 
 kept up to date by merging from a separate repository.
 
-
+(in webapp/shop/)
 $ ng build -prod --base-href /users --deploy-url /public
