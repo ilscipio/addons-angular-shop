@@ -140,4 +140,7 @@
         <antcall target="revert-ofbiz-patches"/>
         <antcall target="apply-ofbiz-patches"/>
     </target>
+    
+    <property name="lib.resolve.build.confs" value="build"/>
+    <property name="lib.resolve.src.confs" value="sources"/>
 </project>
