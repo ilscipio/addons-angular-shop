@@ -1121,7 +1121,7 @@ exports.ProfileComponent = ProfileComponent;
 /***/ "../../../../../src/app/shared/footer/footer.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<footer class=\"footer\" data-background-color=\"black\">\n  <div class=\"container\">\n      <nav>\n          <ul>\n              <li>\n                  <a href=\"https://www.scipioerp.com\">\n                      Scipio ERP\n                  </a>\n              </li>\n              <li>\n                  <a href=\"http://www.ilscipio.com\">\n                      About Us\n                  </a>\n              </li>\n          </ul>\n      </nav>\n      <div class=\"copyright\">\n          &copy;\n        {{data | date: 'yyyy'}}, \n          <a href=\"http://www.scipioerp.com\" target=\"_blank\">Scipio ERP</a>. UI based on\n          <a href=\"https://timcreative.github.io/now-ui-kit-angular/\" target=\"_blank\">\"Now UI Kit - Angular\"</a>.\n      </div>\n  </div>\n</footer>"
+module.exports = "<footer class=\"footer\" data-background-color=\"black\">\r\n  <div class=\"container\">\r\n      <nav>\r\n          <ul>\r\n              <li>\r\n                  <a href=\"https://www.scipioerp.com\">\r\n                      Scipio ERP\r\n                  </a>\r\n              </li>\r\n              <li>\r\n                  <a href=\"http://www.ilscipio.com\">\r\n                      About Us\r\n                  </a>\r\n              </li>\r\n          </ul>\r\n      </nav>\r\n      <div class=\"copyright\">\r\n          &copy;\r\n        {{data | date: 'yyyy'}}, \r\n          <a href=\"http://www.scipioerp.com\" target=\"_blank\">Scipio ERP</a>. UI based on\r\n          <a href=\"https://timcreative.github.io/now-ui-kit-angular/\" target=\"_blank\">\"Now UI Kit - Angular\"</a>.\r\n      </div>\r\n  </div>\r\n</footer>"
 
 /***/ }),
 
@@ -1287,7 +1287,7 @@ exports.NavbarComponent = NavbarComponent;
 /***/ "../../../../../src/app/shared/productslider/productslider.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"section section-basic\">\n    <div class=\"container\">\n        <nouislider class=\"slider\" [min]=\"0\" [max]=\"100\" [step]=\"1\" [(ngModel)]=\"simpleSlider\" [tooltips]=\"true\"></nouislider>\n    </div>\n</div>"
+module.exports = "<div class=\"section section-basic\">\r\n    <div class=\"container\">\r\n        <nouislider class=\"slider\" [min]=\"0\" [max]=\"100\" [step]=\"1\" [(ngModel)]=\"simpleSlider\" [tooltips]=\"true\"></nouislider>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -1349,7 +1349,7 @@ exports.ProductsliderComponent = ProductsliderComponent;
 /***/ "../../../../../src/app/shared/slider/slider.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ngx-slick class=\"slider slider-nav\" #slickModal=\"slick-modal\" [config]=\"slideConfig\" (afterChange)=\"afterChange($event)\">\n    <div ngxSlickItem *ngFor=\"let slide of slides\" class=\"slide\">\n            <img src=\"{{ slide.img }}\" alt=\"\" width=\"100%\">\n    </div>\n</ngx-slick>\n\n<button (click)=\"addSlide()\">Add</button>\n<button (click)=\"removeSlide()\">Remove</button>\n<button (click)=\"slickModal.slickGoTo(2)\">slickGoto 2</button>\n<button (click)=\"slickModal.unslick()\">unslick</button>"
+module.exports = "<div class=\"section section-images\">\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <div class=\"col-md-12\">\r\n\r\n                <ngx-slick class=\"slider slider-nav\" #slickModal=\"slick-modal\" [config]=\"slideConfig\" (afterChange)=\"afterChange($event)\">\r\n                    <div ngxSlickItem *ngFor=\"let slide of slides\" class=\"slide\">\r\n                        <img src=\"{{ slide.img }}\" alt=\"\" width=\"100%\">\r\n                    </div>\r\n                </ngx-slick>\r\n\r\n                <button (click)=\"addSlide()\" class=\"btn btn-primary\">Add</button>\r\n                <button (click)=\"removeSlide()\" class=\"btn btn-primary\">Remove</button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -1397,11 +1397,13 @@ var SliderComponent = /** @class */ (function () {
         ];
         this.slideConfig = {
             'slidesToShow': 4,
-            'slidesToScroll': 4,
+            'slidesToScroll': 1,
             'dots': true,
             'focusOnSelect': true,
             'arrows': true,
-            'rows': 0
+            'rows': 0,
+            autoplay: true,
+            autoplaySpeed: 2000
         };
     }
     SliderComponent.prototype.ngOnInit = function () {

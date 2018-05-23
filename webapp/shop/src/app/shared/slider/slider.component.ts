@@ -16,11 +16,13 @@ export class SliderComponent implements OnInit {
   ];
   slideConfig = {
       'slidesToShow': 4,
-      'slidesToScroll': 4,
+      'slidesToScroll': 1,
       'dots': true,
       'focusOnSelect': true,
       'arrows': true,
-      'rows': 0
+      'rows': 0,
+      autoplay: true,
+      autoplaySpeed: 2000
       };
   
   constructor() { }

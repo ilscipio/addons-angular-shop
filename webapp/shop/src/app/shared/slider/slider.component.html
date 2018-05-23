@@ -1,10 +1,17 @@
-<ngx-slick class="slider slider-nav" #slickModal="slick-modal" [config]="slideConfig" (afterChange)="afterChange($event)">
-    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-            <img src="{{ slide.img }}" alt="" width="100%">
-    </div>
-</ngx-slick>
+<div class="section section-images">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
 
-<button (click)="addSlide()">Add</button>
-<button (click)="removeSlide()">Remove</button>
-<button (click)="slickModal.slickGoTo(2)">slickGoto 2</button>
-<button (click)="slickModal.unslick()">unslick</button>
+                <ngx-slick class="slider slider-nav" #slickModal="slick-modal" [config]="slideConfig" (afterChange)="afterChange($event)">
+                    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+                        <img src="{{ slide.img }}" alt="" width="100%">
+                    </div>
+                </ngx-slick>
+
+                <button (click)="addSlide()" class="btn btn-primary">Add</button>
+                <button (click)="removeSlide()" class="btn btn-primary">Remove</button>
+            </div>
+        </div>
+    </div>
+</div>

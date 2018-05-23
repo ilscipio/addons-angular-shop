@@ -24,14 +24,9 @@ and this component, it may neither be feature-complete nor bug-free.
 
 To get started, the following information may be of interest to you:
 
-* Default load style sheets directory: 
-  webapp/angular/css/
-* SCIPIO will load a base set of class & html definitions located here:
-  htmlVariables.groovy - ofbiz_foundation/framework/common/webcommon/includes/scipio/lib/standard
-  
-  These can be (and for the purpose of this theme will be) overriden in the following file:
-  themeStyles.groovy
-  
+* Default load directory
+  webapp/shop/
+    
 Compile with (in webapp/shop/):
 
 $ng build --watch
