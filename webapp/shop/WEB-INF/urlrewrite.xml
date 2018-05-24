@@ -57,14 +57,18 @@
     </rule>
     
     <rule>
+        <condition type="request-uri" operator="notequal">^([^/]*//[^/]*)?(/[^/]*?)?(/control)(/.*)$</condition>
         <from>^/[^/]+/?([^.]+)([?;#][^/]*)?$</from>
         <to last="true">/dist/index.html$2</to>
     </rule>
     
     <rule>
+        <condition type="request-uri" operator="notequal">^([^/]*//[^/]*)?(/[^/]*?)?(/control)(/.*)$</condition>
+
         <from>^/[^/]+/(.*)$</from>
         <to last="true">/dist/$1</to>
     </rule>
+
      
 
     <!--
@@ -80,11 +84,11 @@
 
     <!-- CONTROL-SERVLET-STRIPPING RULES
         These can be used instead of mapping ControlServlet to root; if you uncomment these,
-        you likely want to set forwardRootControllerUris to Y in ContextFilter init-params in web.xml. -->
+        you likely want to set forwardRootControllerUris to Y in ContextFilter init-params in web.xml.
     <outbound-rule>
         <from>^([^/]*//[^/]*)?(/[^/]*?)?/control([?;#/].*)?$</from>
         <to>$1$2$3</to>
-    </outbound-rule>
+    </outbound-rule> -->
     
 </urlrewrite>
 

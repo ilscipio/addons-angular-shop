@@ -163,7 +163,7 @@
                     (unintentionally gives the controller URIs mapping priority) -
                     WARNING: Avoid having a controller request URI with name matching a servlet mappings below!</description>
             <param-name>forwardRootControllerUris</param-name>
-            <param-value>Y</param-value>
+            <param-value>N</param-value>
         </init-param>
     </filter>
     <filter-mapping>
