@@ -357,7 +357,7 @@ exports.BasicelementsComponent = BasicelementsComponent;
 /***/ "../../../../../src/app/components/components.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\r\n  <div class=\"page-header clear-filter\" filter-color=\"primary\">\r\n    <div class=\"page-header-image rellax-header\" data-rellax-speed=\"-7\" style=\"background-image: url('https://www.scipioerp.com/files/2016/03/4ffb90e8948c4e47822ecd2b860e565a_28_1600-1.jpg');\">\r\n\r\n    </div>\r\n      <div class=\"container\">\r\n          <div class=\"content-center brand\">\r\n              <h1 class=\"h1-seo\">Angular JS</h1>\r\n              <b>for</b><br/><br/>\r\n              <img class=\"n-logo\" src=\"assets/img/scipio/scipio-logo.png\" alt=\"\"><br/>\r\n              <em>Let's celebrate modern web-development!</em>\r\n          </div>\r\n      </div>\r\n  </div>\r\n\r\n  <div class=\"main\">\r\n    <!--  \r\n    <div class=\"section section-images\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <div class=\"hero-images-container\">\r\n                        <img src=\"assets/img/hero-image-1.png\" alt=\"\">\r\n                    </div>\r\n                    <div class=\"hero-images-container-1\">\r\n                        <img src=\"assets/img/hero-image-2.png\" alt=\"\">\r\n                    </div>\r\n                    <div class=\"hero-images-container-2\">\r\n                        <img src=\"assets/img/hero-image-3.png\" alt=\"\">\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>-->\r\n      <!-- <app-productslider id=\"test-id\" name=\"test\"></app-productslider> -->\r\n      <app-slider></app-slider>\r\n      <app-basicelements></app-basicelements>\r\n      <!--\r\n      <app-basicelements></app-basicelements>\r\n      <app-navigation></app-navigation>-->\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"wrapper\">\r\n  <div class=\"page-header clear-filter\" filter-color=\"primary\">\r\n    <div class=\"page-header-image rellax-header\" data-rellax-speed=\"-7\" style=\"background-image: url('https://www.scipioerp.com/files/2016/03/4ffb90e8948c4e47822ecd2b860e565a_28_1600-1.jpg');\">\r\n\r\n    </div>\r\n      <div class=\"container\">\r\n          <div class=\"content-center brand\">\r\n              <h1 class=\"h1-seo\">Angular JS</h1>\r\n              <b>for</b><br/><br/>\r\n              <img class=\"n-logo\" src=\"assets/img/scipio/scipio-logo.png\" alt=\"\"><br/>\r\n              <em>Let's celebrate modern web-development!</em>\r\n          </div>\r\n      </div>\r\n  </div>\r\n\r\n  <div class=\"main\">\r\n    <!--  \r\n    <div class=\"section section-images\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <div class=\"hero-images-container\">\r\n                        <img src=\"assets/img/hero-image-1.png\" alt=\"\">\r\n                    </div>\r\n                    <div class=\"hero-images-container-1\">\r\n                        <img src=\"assets/img/hero-image-2.png\" alt=\"\">\r\n                    </div>\r\n                    <div class=\"hero-images-container-2\">\r\n                        <img src=\"assets/img/hero-image-3.png\" alt=\"\">\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>-->\r\n      <app-productslider [productcategoryid]=\"'ELTRN-100'\"></app-productslider>\r\n      <app-slider></app-slider>\r\n      <app-basicelements></app-basicelements>\r\n      <!--\r\n      <app-basicelements></app-basicelements>\r\n      <app-navigation></app-navigation>-->\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -478,7 +478,7 @@ var ComponentsModule = /** @class */ (function () {
                 typography_component_1.TypographyComponent,
                 notification_component_1.NotificationComponent,
                 modal_component_1.NgbdModalBasic,
-                productslider_component_1.ProductsliderComponent,
+                productslider_component_1.ProductSliderComponent,
                 slider_component_1.SliderComponent
             ],
             exports: [components_component_1.ComponentsComponent]
@@ -1289,7 +1289,7 @@ exports.NavbarComponent = NavbarComponent;
 /***/ "../../../../../src/app/shared/productslider/productslider.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"section section-basic\">\r\n    <div class=\"container\">\r\n        <nouislider class=\"slider\" [min]=\"0\" [max]=\"100\" [step]=\"1\" [(ngModel)]=\"simpleSlider\" [tooltips]=\"true\"></nouislider>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"section section-images\">\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <div class=\"col-md-12\">\r\n\r\n                <ngx-slick class=\"slider slider-nav\" #slickModal=\"slick-modal\" [config]=\"slideConfig\" (afterChange)=\"afterChange($event)\">\r\n                    <div ngxSlickItem *ngFor=\"let slide of slides\" class=\"slide\">\r\n                        <a href=\"{{ slide.href }}\"><img src=\"{{ slide.smallImage }}\" alt=\"\">{{slide.title_18n_general}}</a>\r\n                    </div>\r\n                </ngx-slick>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -1327,23 +1327,52 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var ProductsliderComponent = /** @class */ (function () {
-    function ProductsliderComponent() {
-        this.simpleSlider = 40;
+var products_services_1 = __webpack_require__("../../../../../src/app/shared/services/products.services.ts");
+var ProductSliderComponent = /** @class */ (function () {
+    function ProductSliderComponent(products) {
+        this.products = products;
+        this.slides = [];
+        this.slideConfig = {
+            'slidesToShow': 4,
+            'slidesToScroll': 4,
+            'dots': true,
+            'focusOnSelect': true,
+            'arrows': true,
+            'rows': 0,
+            autoplay: true,
+            autoplaySpeed: 2000
+        };
     }
-    ProductsliderComponent.prototype.ngOnInit = function () {
+    ProductSliderComponent.prototype.ngOnInit = function () {
+        this.loadProduct();
     };
-    ProductsliderComponent = __decorate([
+    ProductSliderComponent.prototype.loadProduct = function () {
+        var _this = this;
+        console.log('CategoryId is set to: ', this.productcategoryid);
+        return this.products.getProducts(this.productcategoryid).subscribe(function (resp) {
+            console.log(resp['results']);
+            _this.slides = resp['results'];
+        });
+    };
+    ProductSliderComponent.prototype.afterChange = function (e) {
+        console.log('afterChange');
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], ProductSliderComponent.prototype, "productcategoryid", void 0);
+    ProductSliderComponent = __decorate([
         core_1.Component({
             selector: 'app-productslider',
             template: __webpack_require__("../../../../../src/app/shared/productslider/productslider.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/shared/productslider/productslider.component.scss")]
+            styles: [__webpack_require__("../../../../../src/app/shared/productslider/productslider.component.scss")],
+            providers: [products_services_1.ProductService]
         }),
-        __metadata("design:paramtypes", [])
-    ], ProductsliderComponent);
-    return ProductsliderComponent;
+        __metadata("design:paramtypes", [products_services_1.ProductService])
+    ], ProductSliderComponent);
+    return ProductSliderComponent;
 }());
-exports.ProductsliderComponent = ProductsliderComponent;
+exports.ProductSliderComponent = ProductSliderComponent;
 
 
 /***/ }),
@@ -1390,7 +1419,7 @@ exports.ProductService = ProductService;
 /***/ "../../../../../src/app/shared/slider/slider.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"section section-images\">\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <div class=\"col-md-12\">\r\n\r\n                <ngx-slick class=\"slider slider-nav\" #slickModal=\"slick-modal\" [config]=\"slideConfig\" (afterChange)=\"afterChange($event)\">\r\n                    <div ngxSlickItem *ngFor=\"let slide of slides\" class=\"slide\">\r\n                        <a href=\"{{ slide.href }}\"><img src=\"{{ slide.smallImage }}\" alt=\"\">{{slide.title_18n_general}}</a>\r\n                    </div>\r\n                </ngx-slick>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"section section-images\">\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <div class=\"col-md-12\">\r\n\r\n                <ngx-slick class=\"slider slider-nav\" #slickModal=\"slick-modal\" [config]=\"slideConfig\" (afterChange)=\"afterChange($event)\">\r\n                    <div ngxSlickItem *ngFor=\"let slide of slides\" class=\"slide\">\r\n                        <a href=\"{{ slide.href }}\"><img src=\"{{ slide.img }}\" alt=\"\"/></a>\r\n                    </div>\r\n                </ngx-slick>\r\n\r\n                <button (click)=\"addSlide()\" class=\"btn btn-primary\">Add</button>\r\n                <button (click)=\"removeSlide()\" class=\"btn btn-primary\">Remove</button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -1428,11 +1457,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var products_services_1 = __webpack_require__("../../../../../src/app/shared/services/products.services.ts");
 var SliderComponent = /** @class */ (function () {
-    function SliderComponent(products) {
-        this.products = products;
-        this.slides = [];
+    function SliderComponent() {
+        this.slides = [
+            { img: 'http://placehold.it/350x150/000000', href: '' },
+            { img: 'http://placehold.it/350x150/111111', href: '' },
+            { img: 'http://placehold.it/350x150/333333', href: '' },
+            { img: 'http://placehold.it/350x150/666666', href: '' }
+        ];
         this.slideConfig = {
             'slidesToShow': 4,
             'slidesToScroll': 1,
@@ -1445,14 +1477,12 @@ var SliderComponent = /** @class */ (function () {
         };
     }
     SliderComponent.prototype.ngOnInit = function () {
-        this.loadProduct();
     };
-    SliderComponent.prototype.loadProduct = function () {
-        var _this = this;
-        return this.products.getProducts('ELTRN-100').subscribe(function (resp) {
-            console.log(resp);
-            _this.slides = resp.results;
-        });
+    SliderComponent.prototype.addSlide = function () {
+        this.slides.push({ img: 'http://placehold.it/350x150/777777', href: '' });
+    };
+    SliderComponent.prototype.removeSlide = function () {
+        this.slides.length = this.slides.length - 1;
     };
     SliderComponent.prototype.afterChange = function (e) {
         console.log('afterChange');
@@ -1461,10 +1491,9 @@ var SliderComponent = /** @class */ (function () {
         core_1.Component({
             selector: 'app-slider',
             template: __webpack_require__("../../../../../src/app/shared/slider/slider.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/shared/slider/slider.component.scss")],
-            providers: [products_services_1.ProductService]
+            styles: [__webpack_require__("../../../../../src/app/shared/slider/slider.component.scss")]
         }),
-        __metadata("design:paramtypes", [products_services_1.ProductService])
+        __metadata("design:paramtypes", [])
     ], SliderComponent);
     return SliderComponent;
 }());

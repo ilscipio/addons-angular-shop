@@ -10,7 +10,7 @@ export class ProductService {
     private httpClient:  HttpClient
   ) {}
 
-  getProducts(productCategoryId: string) {
+  getProducts(productCategoryId: String) {
     return this.httpClient.post(this.URL, {
       'productCategoryId': productCategoryId
     }, { responseType: 'json' });
