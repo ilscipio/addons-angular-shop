@@ -7,13 +7,15 @@ import { ComponentsComponent } from './components/components.component';
 import { LandingComponent } from './examples/landing/landing.component';
 import { LoginComponent } from './examples/login/login.component';
 import { ProfileComponent } from './examples/profile/profile.component';
+import { ProductPageComponent } from './pages/product/product.component';
 
-const routes: Routes =[
+const routes: Routes = [
     { path: '', redirectTo: 'index', pathMatch: 'full' },
     { path: 'index',                component: ComponentsComponent },
     { path: 'landing',     component: LandingComponent },
     { path: 'login',       component: LoginComponent },
-    { path: 'profile',     component: ProfileComponent }
+    { path: 'profile',     component: ProfileComponent },
+    { path: 'product/:id',     component: ProductPageComponent }
 ];
 
 @NgModule({

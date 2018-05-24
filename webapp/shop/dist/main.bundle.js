@@ -139,6 +139,7 @@ var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var app_routing_1 = __webpack_require__("../../../../../src/app/app.routing.ts");
 var components_module_1 = __webpack_require__("../../../../../src/app/components/components.module.ts");
 var examples_module_1 = __webpack_require__("../../../../../src/app/examples/examples.module.ts");
+var pages_module_1 = __webpack_require__("../../../../../src/app/pages/pages.module.ts");
 var http_1 = __webpack_require__("../../../common/esm5/http.js");
 var app_component_1 = __webpack_require__("../../../../../src/app/app.component.ts");
 var navbar_component_1 = __webpack_require__("../../../../../src/app/shared/navbar/navbar.component.ts");
@@ -161,7 +162,8 @@ var AppModule = /** @class */ (function () {
                 router_1.RouterModule,
                 app_routing_1.AppRoutingModule,
                 components_module_1.ComponentsModule,
-                examples_module_1.ExamplesModule
+                examples_module_1.ExamplesModule,
+                pages_module_1.PagesModule
             ],
             providers: [],
             bootstrap: [app_component_1.AppComponent]
@@ -194,12 +196,14 @@ var components_component_1 = __webpack_require__("../../../../../src/app/compone
 var landing_component_1 = __webpack_require__("../../../../../src/app/examples/landing/landing.component.ts");
 var login_component_1 = __webpack_require__("../../../../../src/app/examples/login/login.component.ts");
 var profile_component_1 = __webpack_require__("../../../../../src/app/examples/profile/profile.component.ts");
+var product_component_1 = __webpack_require__("../../../../../src/app/pages/product/product.component.ts");
 var routes = [
     { path: '', redirectTo: 'index', pathMatch: 'full' },
     { path: 'index', component: components_component_1.ComponentsComponent },
     { path: 'landing', component: landing_component_1.LandingComponent },
     { path: 'login', component: login_component_1.LoginComponent },
-    { path: 'profile', component: profile_component_1.ProfileComponent }
+    { path: 'profile', component: profile_component_1.ProfileComponent },
+    { path: 'product/:id', component: product_component_1.ProductPageComponent }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -1116,6 +1120,123 @@ var ProfileComponent = /** @class */ (function () {
     return ProfileComponent;
 }());
 exports.ProfileComponent = ProfileComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/pages.module.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var common_1 = __webpack_require__("../../../common/esm5/common.js");
+var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
+var ng2_nouislider_1 = __webpack_require__("../../../../ng2-nouislider/src/nouislider.js");
+var ng_bootstrap_1 = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
+var jw_bootstrap_switch_ng2_1 = __webpack_require__("../../../../jw-bootstrap-switch-ng2/dist/index.js");
+var product_component_1 = __webpack_require__("../../../../../src/app/pages/product/product.component.ts");
+var PagesModule = /** @class */ (function () {
+    function PagesModule() {
+    }
+    PagesModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                common_1.CommonModule,
+                forms_1.FormsModule,
+                ng_bootstrap_1.NgbModule,
+                ng2_nouislider_1.NouisliderModule,
+                jw_bootstrap_switch_ng2_1.JWBootstrapSwitchModule
+            ],
+            declarations: [
+                product_component_1.ProductPageComponent
+            ]
+        })
+    ], PagesModule);
+    return PagesModule;
+}());
+exports.PagesModule = PagesModule;
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/product/product.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"wrapper\">\r\n    <div class=\"page-header page-header-small\">\r\n        <div class=\"page-header-image rellax-header\" data-rellax-speed=\"-8\" style=\"background-image: url('assets/img/bg6.jpg');\">\r\n        </div>\r\n        <div class=\"container\">\r\n            <div class=\"content-center\">\r\n                <h1 class=\"title\">Products</h1>\r\n                <div class=\"text-center\">\r\n                    <a href=\"#pablo\" class=\"btn btn-primary btn-icon btn-round\">\r\n                        <i class=\"fa fa-facebook-square\"></i>\r\n                    </a>\r\n                    <a href=\"#pablo\" class=\"btn btn-primary btn-icon btn-round\">\r\n                        <i class=\"fa fa-twitter\"></i>\r\n                    </a>\r\n                    <a href=\"#pablo\" class=\"btn btn-primary btn-icon btn-round\">\r\n                        <i class=\"fa fa-google-plus\"></i>\r\n                    </a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/product/product.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/product/product.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var Rellax = __webpack_require__("../../../../rellax/rellax.js");
+var ProductPageComponent = /** @class */ (function () {
+    function ProductPageComponent() {
+        this.data = new Date();
+    }
+    ProductPageComponent.prototype.ngOnInit = function () {
+        var rellaxHeader = new Rellax('.rellax-header');
+        var body = document.getElementsByTagName('body')[0];
+        body.classList.add('landing-page');
+        var navbar = document.getElementsByTagName('nav')[0];
+        navbar.classList.add('navbar-transparent');
+    };
+    ProductPageComponent.prototype.ngOnDestroy = function () {
+        var body = document.getElementsByTagName('body')[0];
+        body.classList.remove('landing-page');
+        var navbar = document.getElementsByTagName('nav')[0];
+        navbar.classList.remove('navbar-transparent');
+    };
+    ProductPageComponent = __decorate([
+        core_1.Component({
+            selector: 'app-product-page',
+            template: __webpack_require__("../../../../../src/app/pages/product/product.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/pages/product/product.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ProductPageComponent);
+    return ProductPageComponent;
+}());
+exports.ProductPageComponent = ProductPageComponent;
 
 
 /***/ }),
