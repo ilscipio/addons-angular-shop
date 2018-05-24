@@ -1,19 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { SlickModule } from 'ngx-slick';
+import { ProductService } from '../services/products.services';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
-  styleUrls: ['./slider.component.scss']
+  styleUrls: ['./slider.component.scss'],
+  providers: [ProductService]
 })
 export class SliderComponent implements OnInit {
 
-  slides = [
-    {img: "http://placehold.it/350x150/000000"},
-    {img: "http://placehold.it/350x150/111111"},
-    {img: "http://placehold.it/350x150/333333"},
-    {img: "http://placehold.it/350x150/666666"}
-  ];
+  slides = [];
   slideConfig = {
       'slidesToShow': 4,
       'slidesToScroll': 1,
@@ -24,18 +22,18 @@ export class SliderComponent implements OnInit {
       autoplay: true,
       autoplaySpeed: 2000
       };
-  
-  constructor() { }
+
+  constructor(private products: ProductService) { }
 
   ngOnInit() {
+    this.loadProduct();
   }
 
-   addSlide() {
-    this.slides.push({img: "http://placehold.it/350x150/777777"})
-  }
-
-  removeSlide() {
-    this.slides.length = this.slides.length - 1;
+  loadProduct() {
+    return this.products.getProducts('ELTRN-100').subscribe(resp => {
+      console.log(resp);
+      this.slides = resp.results;
+    });
   }
 
   afterChange(e) {

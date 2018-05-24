@@ -139,6 +139,7 @@ var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var app_routing_1 = __webpack_require__("../../../../../src/app/app.routing.ts");
 var components_module_1 = __webpack_require__("../../../../../src/app/components/components.module.ts");
 var examples_module_1 = __webpack_require__("../../../../../src/app/examples/examples.module.ts");
+var http_1 = __webpack_require__("../../../common/esm5/http.js");
 var app_component_1 = __webpack_require__("../../../../../src/app/app.component.ts");
 var navbar_component_1 = __webpack_require__("../../../../../src/app/shared/navbar/navbar.component.ts");
 var footer_component_1 = __webpack_require__("../../../../../src/app/shared/footer/footer.component.ts");
@@ -156,6 +157,7 @@ var AppModule = /** @class */ (function () {
                 animations_1.BrowserAnimationsModule,
                 ng_bootstrap_1.NgbModule.forRoot(),
                 forms_1.FormsModule,
+                http_1.HttpClientModule,
                 router_1.RouterModule,
                 app_routing_1.AppRoutingModule,
                 components_module_1.ComponentsModule,
@@ -1346,10 +1348,49 @@ exports.ProductsliderComponent = ProductsliderComponent;
 
 /***/ }),
 
+/***/ "../../../../../src/app/shared/services/products.services.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var http_1 = __webpack_require__("../../../common/esm5/http.js");
+__webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
+var ProductService = /** @class */ (function () {
+    function ProductService(httpClient) {
+        this.httpClient = httpClient;
+        this.URL = 'control/solrProductsSearch';
+    }
+    ProductService.prototype.getProducts = function (productCategoryId) {
+        return this.httpClient.post(this.URL, {
+            'productCategoryId': productCategoryId
+        }, { responseType: 'json' });
+    };
+    ProductService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_1.HttpClient])
+    ], ProductService);
+    return ProductService;
+}());
+exports.ProductService = ProductService;
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/shared/slider/slider.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"section section-images\">\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <div class=\"col-md-12\">\r\n\r\n                <ngx-slick class=\"slider slider-nav\" #slickModal=\"slick-modal\" [config]=\"slideConfig\" (afterChange)=\"afterChange($event)\">\r\n                    <div ngxSlickItem *ngFor=\"let slide of slides\" class=\"slide\">\r\n                        <img src=\"{{ slide.img }}\" alt=\"\" width=\"100%\">\r\n                    </div>\r\n                </ngx-slick>\r\n\r\n                <button (click)=\"addSlide()\" class=\"btn btn-primary\">Add</button>\r\n                <button (click)=\"removeSlide()\" class=\"btn btn-primary\">Remove</button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"section section-images\">\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <div class=\"col-md-12\">\r\n\r\n                <ngx-slick class=\"slider slider-nav\" #slickModal=\"slick-modal\" [config]=\"slideConfig\" (afterChange)=\"afterChange($event)\">\r\n                    <div ngxSlickItem *ngFor=\"let slide of slides\" class=\"slide\">\r\n                        <a href=\"{{ slide.href }}\"><img src=\"{{ slide.smallImage }}\" alt=\"\">{{slide.title_18n_general}}</a>\r\n                    </div>\r\n                </ngx-slick>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -1387,14 +1428,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var products_services_1 = __webpack_require__("../../../../../src/app/shared/services/products.services.ts");
 var SliderComponent = /** @class */ (function () {
-    function SliderComponent() {
-        this.slides = [
-            { img: "http://placehold.it/350x150/000000" },
-            { img: "http://placehold.it/350x150/111111" },
-            { img: "http://placehold.it/350x150/333333" },
-            { img: "http://placehold.it/350x150/666666" }
-        ];
+    function SliderComponent(products) {
+        this.products = products;
+        this.slides = [];
         this.slideConfig = {
             'slidesToShow': 4,
             'slidesToScroll': 1,
@@ -1407,12 +1445,14 @@ var SliderComponent = /** @class */ (function () {
         };
     }
     SliderComponent.prototype.ngOnInit = function () {
+        this.loadProduct();
     };
-    SliderComponent.prototype.addSlide = function () {
-        this.slides.push({ img: "http://placehold.it/350x150/777777" });
-    };
-    SliderComponent.prototype.removeSlide = function () {
-        this.slides.length = this.slides.length - 1;
+    SliderComponent.prototype.loadProduct = function () {
+        var _this = this;
+        return this.products.getProducts('ELTRN-100').subscribe(function (resp) {
+            console.log(resp);
+            _this.slides = resp.results;
+        });
     };
     SliderComponent.prototype.afterChange = function (e) {
         console.log('afterChange');
@@ -1421,9 +1461,10 @@ var SliderComponent = /** @class */ (function () {
         core_1.Component({
             selector: 'app-slider',
             template: __webpack_require__("../../../../../src/app/shared/slider/slider.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/shared/slider/slider.component.scss")]
+            styles: [__webpack_require__("../../../../../src/app/shared/slider/slider.component.scss")],
+            providers: [products_services_1.ProductService]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [products_services_1.ProductService])
     ], SliderComponent);
     return SliderComponent;
 }());
