@@ -1,20 +1,43 @@
 <div class="wrapper">
     <div class="page-header page-header-small">
-        <div class="page-header-image rellax-header" data-rellax-speed="-8" style="background-image: url('assets/img/bg6.jpg');">
+        <div class="page-header-image rellax-header" data-rellax-speed="-8" [ngStyle]="{'background-image': 'url(' + product[0]?.largeImage + ')'}">
         </div>
         <div class="container">
             <div class="content-center">
-                <h1 class="title">Products</h1>
-                <div class="text-center">
-                    <a href="#pablo" class="btn btn-primary btn-icon btn-round">
-                        <i class="fa fa-facebook-square"></i>
-                    </a>
-                    <a href="#pablo" class="btn btn-primary btn-icon btn-round">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                    <a href="#pablo" class="btn btn-primary btn-icon btn-round">
-                        <i class="fa fa-google-plus"></i>
-                    </a>
+                <h1 class="title">{{product[0]?.title_i18n_general}}</h1>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="container">
+            <form #cartForm="ngForm" (ngSubmit)="onSubmit(cartForm.value)" novalidate>
+                <input type="hidden" name="product_id" [(ngModel)]="productId" />
+                <input type="hidden" name="add_product_id" [(ngModel)]="productId" />
+
+                <h3 class="title">{{product[0]?.title_i18n_general}}</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="{{product[0]?.mediumImage}}" alt="" class="img-raised">
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{product[0]?.description_i18n_general}}</p>
+                        <p>
+                            <span id="product-price_old">
+                                <del>{{product[0]?.listPrice | currency}}</del>
+                            </span>
+                            <span id="product-price">
+                                <strong>{{product[0]?.defaultPrice | currency}}</strong>
+                            </span>
+                        </p>
+                        <button class="btn btn-danger" (click)="onSubmit()">Add to Cart</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="row" style="margin-top:40px;">
+                <div class="col-md-12">
+                    <h3 class="description">Description</h3>
+                    <p>{{product[0]?.longdescription_i18n_general}}</p>
                 </div>
             </div>
         </div>

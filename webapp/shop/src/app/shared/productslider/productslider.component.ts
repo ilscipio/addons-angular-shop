@@ -35,14 +35,14 @@ export class ProductSliderComponent implements OnInit {
   }
 
   loadProduct() {
-    console.log('CategoryId is set to: ', this.productcategoryid)
-    return this.products.getProducts(this.productcategoryid).subscribe(resp => {
-      console.log(resp['results']);
+    // console.log('CategoryId is set to: ', this.productcategoryid)
+    return this.products.getProductsByCategory(this.productcategoryid).subscribe(resp => {
+      // console.log(resp['results']);
       this.slides = resp['results'];
     });
   }
 
   afterChange(e) {
-    console.log('afterChange');
+    // console.log('afterChange');
   }
 }

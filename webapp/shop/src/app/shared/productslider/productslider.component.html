@@ -23,7 +23,7 @@
                             </div>
                             <div class="card-text">{{product.description_i18n_general}}
                             </div>
-                            <div class="price">$ {{product.defaultPrice}}</div>
+                            <div class="price">{{product.defaultPrice | currency}}</div>
                             <div class="card-link">
                                 <a href="product/{{product.productId}}" class="link-type-text action-nav action-primary btn btn-raised btn-sm btn-primary action-readonly action-read action-view"
                                     tabindex="0">Detail</a>

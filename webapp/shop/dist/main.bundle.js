@@ -1170,7 +1170,7 @@ exports.PagesModule = PagesModule;
 /***/ "../../../../../src/app/pages/product/product.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\r\n    <div class=\"page-header page-header-small\">\r\n        <div class=\"page-header-image rellax-header\" data-rellax-speed=\"-8\" style=\"background-image: url('assets/img/bg6.jpg');\">\r\n        </div>\r\n        <div class=\"container\">\r\n            <div class=\"content-center\">\r\n                <h1 class=\"title\">Products</h1>\r\n                <div class=\"text-center\">\r\n                    <a href=\"#pablo\" class=\"btn btn-primary btn-icon btn-round\">\r\n                        <i class=\"fa fa-facebook-square\"></i>\r\n                    </a>\r\n                    <a href=\"#pablo\" class=\"btn btn-primary btn-icon btn-round\">\r\n                        <i class=\"fa fa-twitter\"></i>\r\n                    </a>\r\n                    <a href=\"#pablo\" class=\"btn btn-primary btn-icon btn-round\">\r\n                        <i class=\"fa fa-google-plus\"></i>\r\n                    </a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"wrapper\">\r\n    <div class=\"page-header page-header-small\">\r\n        <div class=\"page-header-image rellax-header\" data-rellax-speed=\"-8\" [ngStyle]=\"{'background-image': 'url(' + product[0]?.largeImage + ')'}\">\r\n        </div>\r\n        <div class=\"container\">\r\n            <div class=\"content-center\">\r\n                <h1 class=\"title\">{{product[0]?.title_i18n_general}}</h1>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"section\">\r\n        <div class=\"container\">\r\n            <form #cartForm=\"ngForm\" (ngSubmit)=\"onSubmit(cartForm.value)\" novalidate>\r\n                <input type=\"hidden\" name=\"product_id\" [(ngModel)]=\"productId\" />\r\n                <input type=\"hidden\" name=\"add_product_id\" [(ngModel)]=\"productId\" />\r\n\r\n                <h3 class=\"title\">{{product[0]?.title_i18n_general}}</h3>\r\n                <div class=\"row\">\r\n                    <div class=\"col-md-6\">\r\n                        <img src=\"{{product[0]?.mediumImage}}\" alt=\"\" class=\"img-raised\">\r\n                    </div>\r\n                    <div class=\"col-md-6\">\r\n                        <p>{{product[0]?.description_i18n_general}}</p>\r\n                        <p>\r\n                            <span id=\"product-price_old\">\r\n                                <del>{{product[0]?.listPrice | currency}}</del>\r\n                            </span>\r\n                            <span id=\"product-price\">\r\n                                <strong>{{product[0]?.defaultPrice | currency}}</strong>\r\n                            </span>\r\n                        </p>\r\n                        <button class=\"btn btn-danger\" (click)=\"onSubmit()\">Add to Cart</button>\r\n                    </div>\r\n                </div>\r\n            </form>\r\n\r\n            <div class=\"row\" style=\"margin-top:40px;\">\r\n                <div class=\"col-md-12\">\r\n                    <h3 class=\"description\">Description</h3>\r\n                    <p>{{product[0]?.longdescription_i18n_general}}</p>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -1208,21 +1208,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var Rellax = __webpack_require__("../../../../rellax/rellax.js");
+var products_services_1 = __webpack_require__("../../../../../src/app/shared/services/products.services.ts");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var ProductPageComponent = /** @class */ (function () {
-    function ProductPageComponent() {
+    function ProductPageComponent(products, route) {
+        this.products = products;
+        this.route = route;
         this.data = new Date();
+        this.product = new Map();
     }
+    ProductPageComponent.prototype.loadProductInfo = function (productId) {
+        var _this = this;
+        return this.products.getProductsById(productId).subscribe(function (resp) {
+            console.log(resp['results']);
+            _this.product = resp['results'];
+        });
+    };
+    ProductPageComponent.prototype.onSubmit = function (f) {
+        console.log(f); // { first: '', last: '' }
+    };
     ProductPageComponent.prototype.ngOnInit = function () {
-        var rellaxHeader = new Rellax('.rellax-header');
         var body = document.getElementsByTagName('body')[0];
-        body.classList.add('landing-page');
+        body.classList.add('product-page');
         var navbar = document.getElementsByTagName('nav')[0];
         navbar.classList.add('navbar-transparent');
+        // add parameter
+        this.productId = this.route.snapshot.params['id'];
+        this.loadProductInfo(this.productId);
     };
     ProductPageComponent.prototype.ngOnDestroy = function () {
         var body = document.getElementsByTagName('body')[0];
-        body.classList.remove('landing-page');
+        body.classList.remove('product-page');
         var navbar = document.getElementsByTagName('nav')[0];
         navbar.classList.remove('navbar-transparent');
     };
@@ -1230,9 +1246,10 @@ var ProductPageComponent = /** @class */ (function () {
         core_1.Component({
             selector: 'app-product-page',
             template: __webpack_require__("../../../../../src/app/pages/product/product.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/pages/product/product.component.scss")]
+            styles: [__webpack_require__("../../../../../src/app/pages/product/product.component.scss")],
+            providers: [products_services_1.ProductService]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [products_services_1.ProductService, router_1.ActivatedRoute])
     ], ProductPageComponent);
     return ProductPageComponent;
 }());
@@ -1284,6 +1301,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
 var FooterComponent = /** @class */ (function () {
     function FooterComponent() {
+        this.data = new Date();
     }
     FooterComponent.prototype.ngOnInit = function () {
     };
@@ -1410,7 +1428,7 @@ exports.NavbarComponent = NavbarComponent;
 /***/ "../../../../../src/app/shared/productslider/productslider.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n    <div class=\"col-md-12\">\r\n        <h3>{{title}}</h3>\r\n        <ngx-slick class=\"slider slider-nav\" #slickModal=\"slick-modal\" [config]=\"slideConfig\" (afterChange)=\"afterChange($event)\">\r\n            <div ngxSlickItem *ngFor=\"let product of slides\" class=\"slide\">\r\n                <div>\r\n\r\n                    <div class=\"card text-center\">\r\n                        <div class=\"card-title card-header\">{{product.title_i18n_general}}</div>\r\n\r\n                        <div class=\"card-block\">\r\n                            <div class=\"ribbon\">\r\n                                <span>On Sale!</span>\r\n                            </div>\r\n\r\n                            <div>\r\n                                <div class=\"scipio-image-container\" style=\"width: 100%; height: 100px;\" scipiofit=\"contain\">\r\n                                    <a href=\"product/{{product.productId}}\" tabindex=\"0\">\r\n                                        <img src=\"{{ product.smallImage }}\" class=\"scipio-image\" style=\"width: 100%; height: 100px;object-fit: contain;\">\r\n                                    </a>\r\n                                </div>\r\n\r\n                            </div>\r\n                            <div class=\"card-text\">{{product.description_i18n_general}}\r\n                            </div>\r\n                            <div class=\"price\">$ {{product.defaultPrice}}</div>\r\n                            <div class=\"card-link\">\r\n                                <a href=\"product/{{product.productId}}\" class=\"link-type-text action-nav action-primary btn btn-raised btn-sm btn-primary action-readonly action-read action-view\"\r\n                                    tabindex=\"0\">Detail</a>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </ngx-slick>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"row\">\r\n    <div class=\"col-md-12\">\r\n        <h3>{{title}}</h3>\r\n        <ngx-slick class=\"slider slider-nav\" #slickModal=\"slick-modal\" [config]=\"slideConfig\" (afterChange)=\"afterChange($event)\">\r\n            <div ngxSlickItem *ngFor=\"let product of slides\" class=\"slide\">\r\n                <div>\r\n\r\n                    <div class=\"card text-center\">\r\n                        <div class=\"card-title card-header\">{{product.title_i18n_general}}</div>\r\n\r\n                        <div class=\"card-block\">\r\n                            <div class=\"ribbon\">\r\n                                <span>On Sale!</span>\r\n                            </div>\r\n\r\n                            <div>\r\n                                <div class=\"scipio-image-container\" style=\"width: 100%; height: 100px;\" scipiofit=\"contain\">\r\n                                    <a href=\"product/{{product.productId}}\" tabindex=\"0\">\r\n                                        <img src=\"{{ product.smallImage }}\" class=\"scipio-image\" style=\"width: 100%; height: 100px;object-fit: contain;\">\r\n                                    </a>\r\n                                </div>\r\n\r\n                            </div>\r\n                            <div class=\"card-text\">{{product.description_i18n_general}}\r\n                            </div>\r\n                            <div class=\"price\">{{product.defaultPrice | currency}}</div>\r\n                            <div class=\"card-link\">\r\n                                <a href=\"product/{{product.productId}}\" class=\"link-type-text action-nav action-primary btn btn-raised btn-sm btn-primary action-readonly action-read action-view\"\r\n                                    tabindex=\"0\">Detail</a>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </ngx-slick>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -1469,14 +1487,14 @@ var ProductSliderComponent = /** @class */ (function () {
     };
     ProductSliderComponent.prototype.loadProduct = function () {
         var _this = this;
-        console.log('CategoryId is set to: ', this.productcategoryid);
-        return this.products.getProducts(this.productcategoryid).subscribe(function (resp) {
-            console.log(resp['results']);
+        // console.log('CategoryId is set to: ', this.productcategoryid)
+        return this.products.getProductsByCategory(this.productcategoryid).subscribe(function (resp) {
+            // console.log(resp['results']);
             _this.slides = resp['results'];
         });
     };
     ProductSliderComponent.prototype.afterChange = function (e) {
-        console.log('afterChange');
+        // console.log('afterChange');
     };
     __decorate([
         core_1.Input(),
@@ -1523,11 +1541,18 @@ __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
 var ProductService = /** @class */ (function () {
     function ProductService(httpClient) {
         this.httpClient = httpClient;
-        this.URL = 'control/solrProductsSearch';
+        this.productsByCategory = 'control/solrProductsSearch';
+        this.productsByKeyword = 'control/solrKeywordSearch';
     }
-    ProductService.prototype.getProducts = function (productCategoryId) {
-        return this.httpClient.post(this.URL, {
+    ProductService.prototype.getProductsByCategory = function (productCategoryId) {
+        return this.httpClient.post(this.productsByCategory, {
             'productCategoryId': productCategoryId
+        }, { responseType: 'json' });
+    };
+    ProductService.prototype.getProductsById = function (productId) {
+        console.log('productId:' + productId);
+        return this.httpClient.post(this.productsByKeyword, {
+            'query': 'productId:' + productId
         }, { responseType: 'json' });
     };
     ProductService = __decorate([
