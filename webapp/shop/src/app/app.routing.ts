@@ -8,6 +8,7 @@ import { LandingComponent } from './examples/landing/landing.component';
 import { LoginComponent } from './examples/login/login.component';
 import { ProfileComponent } from './examples/profile/profile.component';
 import { ProductPageComponent } from './pages/product/product.component';
+import { CategoryPageComponent } from './pages/category/category.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -15,7 +16,8 @@ const routes: Routes = [
     { path: 'landing',     component: LandingComponent },
     { path: 'login',       component: LoginComponent },
     { path: 'profile',     component: ProfileComponent },
-    { path: 'product/:id',     component: ProductPageComponent }
+    { path: 'product/:id',     component: ProductPageComponent },
+    { path: 'category/:id',     component: CategoryPageComponent }
 ];
 
 @NgModule({

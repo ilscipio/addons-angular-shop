@@ -197,13 +197,15 @@ var landing_component_1 = __webpack_require__("../../../../../src/app/examples/l
 var login_component_1 = __webpack_require__("../../../../../src/app/examples/login/login.component.ts");
 var profile_component_1 = __webpack_require__("../../../../../src/app/examples/profile/profile.component.ts");
 var product_component_1 = __webpack_require__("../../../../../src/app/pages/product/product.component.ts");
+var category_component_1 = __webpack_require__("../../../../../src/app/pages/category/category.component.ts");
 var routes = [
     { path: '', redirectTo: 'index', pathMatch: 'full' },
     { path: 'index', component: components_component_1.ComponentsComponent },
     { path: 'landing', component: landing_component_1.LandingComponent },
     { path: 'login', component: login_component_1.LoginComponent },
     { path: 'profile', component: profile_component_1.ProfileComponent },
-    { path: 'product/:id', component: product_component_1.ProductPageComponent }
+    { path: 'product/:id', component: product_component_1.ProductPageComponent },
+    { path: 'category/:id', component: category_component_1.CategoryPageComponent }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -1124,6 +1126,96 @@ exports.ProfileComponent = ProfileComponent;
 
 /***/ }),
 
+/***/ "../../../../../src/app/pages/category/category.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"wrapper\">\r\n    <div class=\"page-header page-header-small\">\r\n        <div class=\"container\">\r\n            <div class=\"content-center\">\r\n                <h1 class=\"title\"></h1>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"section\">\r\n        <div class=\"container\">\r\n            <div class=\"row\" style=\"margin-top:40px;\">\r\n\r\n                <div class=\"col-md-12\">\r\n                    <h2 class=\"description\">Products</h2>\r\n                    <div class=\"card-columns\">\r\n                        <div ngxSlickItem *ngFor=\"let product of products\">\r\n                            <div class=\"card text-center\">\r\n                                <div class=\"card-title card-header\">{{product.title_i18n_general}}</div>\r\n\r\n                                <div class=\"card-block\">\r\n                                    <div class=\"ribbon\">\r\n                                        <span>On Sale!</span>\r\n                                    </div>\r\n\r\n                                    <div>\r\n                                        <div class=\"scipio-image-container\" style=\"width: 100%; height: 100px;\" scipiofit=\"contain\">\r\n                                            <a href=\"product/{{product.productId}}\" tabindex=\"0\">\r\n                                                <img src=\"{{ product.smallImage }}\" class=\"scipio-image\" style=\"width: 100%; height: 100px;object-fit: contain;\">\r\n                                            </a>\r\n                                        </div>\r\n\r\n                                    </div>\r\n                                    <div class=\"card-text\">{{product.description_i18n_general}}\r\n                                    </div>\r\n                                    <div class=\"price\">{{product.defaultPrice | currency}}</div>\r\n                                    <div class=\"card-link\">\r\n                                        <a href=\"product/{{product.productId}}\" class=\"link-type-text action-nav action-primary btn btn-raised btn-sm btn-primary action-readonly action-read action-view\"\r\n                                            tabindex=\"0\">Detail</a>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/category/category.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/category/category.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var products_services_1 = __webpack_require__("../../../../../src/app/shared/services/products.services.ts");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var CategoryPageComponent = /** @class */ (function () {
+    function CategoryPageComponent(catService, route) {
+        this.catService = catService;
+        this.route = route;
+        this.data = new Date();
+    }
+    CategoryPageComponent.prototype.loadCategoryInfo = function (categoryId) {
+        var _this = this;
+        return this.catService.getProductsByCategory(categoryId).subscribe(function (resp) {
+            console.log(resp['results']);
+            _this.products = resp['results'];
+        });
+    };
+    CategoryPageComponent.prototype.onSubmit = function (f) {
+        console.log(f); // { first: '', last: '' }
+    };
+    CategoryPageComponent.prototype.ngOnInit = function () {
+        var body = document.getElementsByTagName('body')[0];
+        body.classList.add('category-page');
+        var navbar = document.getElementsByTagName('nav')[0];
+        navbar.classList.add('navbar-transparent');
+        // add parameter
+        this.categoryId = this.route.snapshot.params['id'];
+        this.loadCategoryInfo(this.categoryId);
+    };
+    CategoryPageComponent.prototype.ngOnDestroy = function () {
+        var body = document.getElementsByTagName('body')[0];
+        body.classList.remove('category-page');
+        var navbar = document.getElementsByTagName('nav')[0];
+        navbar.classList.remove('navbar-transparent');
+    };
+    CategoryPageComponent = __decorate([
+        core_1.Component({
+            selector: 'app-category-page',
+            template: __webpack_require__("../../../../../src/app/pages/category/category.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/pages/category/category.component.scss")],
+            providers: [products_services_1.ProductService]
+        }),
+        __metadata("design:paramtypes", [products_services_1.ProductService, router_1.ActivatedRoute])
+    ], CategoryPageComponent);
+    return CategoryPageComponent;
+}());
+exports.CategoryPageComponent = CategoryPageComponent;
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/pages/pages.module.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1143,6 +1235,7 @@ var ng2_nouislider_1 = __webpack_require__("../../../../ng2-nouislider/src/nouis
 var ng_bootstrap_1 = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
 var jw_bootstrap_switch_ng2_1 = __webpack_require__("../../../../jw-bootstrap-switch-ng2/dist/index.js");
 var product_component_1 = __webpack_require__("../../../../../src/app/pages/product/product.component.ts");
+var category_component_1 = __webpack_require__("../../../../../src/app/pages/category/category.component.ts");
 var PagesModule = /** @class */ (function () {
     function PagesModule() {
     }
@@ -1156,7 +1249,8 @@ var PagesModule = /** @class */ (function () {
                 jw_bootstrap_switch_ng2_1.JWBootstrapSwitchModule
             ],
             declarations: [
-                product_component_1.ProductPageComponent
+                product_component_1.ProductPageComponent,
+                category_component_1.CategoryPageComponent
             ]
         })
     ], PagesModule);

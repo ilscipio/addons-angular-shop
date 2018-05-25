@@ -6,6 +6,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { JWBootstrapSwitchModule } from 'jw-bootstrap-switch-ng2';
 
 import { ProductPageComponent } from './product/product.component';
+import { CategoryPageComponent } from './category/category.component';
+
 
 @NgModule({
     imports: [
@@ -16,7 +18,8 @@ import { ProductPageComponent } from './product/product.component';
         JWBootstrapSwitchModule
     ],
     declarations: [
-        ProductPageComponent
+        ProductPageComponent,
+        CategoryPageComponent
     ]
 })
 export class PagesModule { }
