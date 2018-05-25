@@ -13,7 +13,7 @@ import { NgForm} from '@angular/forms';
 
 export class CategoryPageComponent implements OnInit {
   data: Date = new Date();
-  products: [];
+  products = [];
   categoryId: String;
 
   constructor(private catService: ProductService, private route: ActivatedRoute) {

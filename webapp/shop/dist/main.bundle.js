@@ -1174,6 +1174,7 @@ var CategoryPageComponent = /** @class */ (function () {
         this.catService = catService;
         this.route = route;
         this.data = new Date();
+        this.products = [];
     }
     CategoryPageComponent.prototype.loadCategoryInfo = function (categoryId) {
         var _this = this;
