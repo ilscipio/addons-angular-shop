@@ -36,19 +36,16 @@
     </rule>
 
     <!-- DEFAULT REQUEST MAPPING RULE - maps default request ("/") to main
-        uncomment this to get rid of /control/main URLs
+        uncomment this to get rid of /control/main URLs -->
+    <!--
     <rule>
         <from>^/[^/]+/?([?;#][^/]*)?$</from>
         <to last="true">%{attribute:scpCtrlServPath}/main$1</to>
+    </rule>-->
+    <rule>
+        <from>^([^/]*//[^/]*)?(/[^/]*?)?/control/main([?;#].*)?$</from>
+        <to type="redirect">$1$2/index$3</to>
     </rule>
-    <outbound-rule>
-        <from>^([^/]*//[^/]*)?(/[^/]*?)?(/control)?/main([?;#].*)?$</from>
-        <to last="true">$1$2/$4</to>
-    </outbound-rule>
-    <outbound-rule>
-        <from>^([^/]*//[^/]*)?(/[^/]*?)?(/control)?/main(/.*)$</from>
-        <to last="true">$1$2$4</to>
-    </outbound-rule> -->
 
     <!-- stop if already /dist/ to prevent endless loop after forwards -->
     <rule>
