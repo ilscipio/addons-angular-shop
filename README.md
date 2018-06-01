@@ -1,4 +1,4 @@
-
+```
 **************************************************************************
 
    _____    _____   _   _____    _    ____      _____   _____    _____
@@ -8,12 +8,14 @@
   ____) | | |____  | | | |      | | | |__| |   | |___  | | \ \  | |
  |_____/   \_____| |_| |_|      |_|  \____/    |_____| |_|  \_\ |_|
 
-                    https://www.scipioerp.com
+					https://www.scipioerp.com
+					
+					ANGULAR SHOP PROTOTYPE
 
 **************************************************************************
+```
 
-SCIPIO ERP - Angular Shop (PROTOTYPE)
-
+# Angular Shop (Prototype)
 
 ##  General
 This is a variant of the original shop component, containing a complete angular product store. 
