@@ -1,11 +1,11 @@
 /*!
 
  =========================================================
- * Now-ui-kit - v1.1.0
+ * Now-ui-kit-angular - v1.0.1
  =========================================================
 
- * Product Page: http://www.creative-tim.com/product/now-ui-kit
- * Copyright 2017 Creative Tim (http://www.creative-tim.com)
+ * Product Page: https://www.creative-tim.com/product/now-ui-kit-angular
+ * Copyright 2017 Creative Tim (https://www.creative-tim.com)
  * Licensed under MIT (https://github.com/creativetimofficial/now-ui-kit/blob/master/LICENSE.md)
 
  * Designed by www.invisionapp.com Coded by www.creative-tim.com
@@ -43,9 +43,7 @@
 @import "now-ui-kit/alerts";
 @import "now-ui-kit/images";
 @import "now-ui-kit/popups";
-/* Removed for licensing reasons
-    @import "now-ui-kit/nucleo-outline";
-*/
+@import "now-ui-kit/nucleo-outline";
 @import "now-ui-kit/modals";
 @import "now-ui-kit/carousel";
 @import "now-ui-kit/cards";
@@ -57,6 +55,5 @@
 
 
 @import "now-ui-kit/responsive";
-
 //custom
 @import "scipio";

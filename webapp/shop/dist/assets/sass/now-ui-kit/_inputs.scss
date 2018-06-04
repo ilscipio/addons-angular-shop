@@ -81,8 +81,8 @@
 .has-success,
 .has-danger{
     &:after{
-        font-family: 'FontAwesome';
-        content: "\f00c";
+        font-family: 'Nucleo Outline';
+        content: "\ea22";
         display: inline-block;
         position: absolute;
         right: 15px;
@@ -101,7 +101,7 @@
 
 .has-danger{
     &:after{
-        content: "\f071";
+        content: "\ea53";
         color: $danger-color;
     }
 }

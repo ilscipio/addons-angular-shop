@@ -1,6 +1,6 @@
 {
   "name": "now-ui-kit-angular",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -57,6 +57,7 @@
     "protractor": "5.1.2",
     "ts-node": "3.0.4",
     "tslint": "5.3.2",
-    "typescript": "2.6.1"
+    "typescript": "2.6.1",
+    "webpack": "^4.10.2"
   }
 }
