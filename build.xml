@@ -2,7 +2,7 @@
 
 <project name="SCIPIO ERP - AngularShop Component" default="jar" basedir=".">
     <import file="../../common.xml"/>
-<!-- test -->
+
     <!-- ================================================================== -->
     <!-- Initialization of all property settings                            -->
     <!-- ================================================================== -->
