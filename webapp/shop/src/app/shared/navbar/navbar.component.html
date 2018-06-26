@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent" color-on-scroll="500">
+    <div class="container">
+      <div class="dropdown button-dropdown">
+        <div ngbDropdown>
+          <a class="dropdown-toggle" ngbDropdownToggle>
+              <span class="button-bar"></span>
+              <span class="button-bar"></span>
+              <span class="button-bar"></span>
+          </a>
+           <div ngbDropdownMenu>
+             <a class="dropdown-header">Catalog</a>
+             <a class="dropdown-item" href="category/CATALOG1">Demo Catalog</a>
+             <a class="dropdown-item" href="category/PROMOTIONS">Featured Products</a>
+             <div class="dropdown-divider"></div>
+             <a class="dropdown-header">(Now UI) Example Pages</a>
+             <a class="dropdown-item" href="landing">Landing Page</a>
+             <a class="dropdown-item" href="profile">Profile</a>
+             <a class="dropdown-item" href="login">Login</a>
+           </div>
+         </div>
+      </div>
+        <div class="navbar-translate">
+            <a class="navbar-brand" [routerLink]="['/index']" placement="bottom" ngbTooltip="">
+                <img alt="SCIPIO Store" src="/images/scipio/scipio-logo-small.png" class="navbar-logo">Angular Shop
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" data-nav-image="assets/img/blurred-image-1.jpg" data-color="orange">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="category/CATALOG1" target="_blank">
+                      <i class="fa fa-shopping-bag"></i>
+                      <p>Catalog</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login">
+                      <i class="fa fa-sign-in"></i>
+                      <p>Login</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="checkout/cart" target="_blank">
+                      <i class="fa fa-shopping-cart"></i>
+                      <p>$0.00</p>
+                  </a>
+                </li>
+                
+                <!-- 
+                <li class="nav-item">
+                    <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="#" target="_blank" data-original-title="Follow us on Twitter">
+                        <i class="fa fa-twitter"></i>
+                        <p class="d-lg-none d-xl-none">Twitter</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="#" target="_blank" data-original-title="Like us on Facebook">
+                        <i class="fa fa-facebook-square"></i>
+                        <p class="d-lg-none d-xl-none">Facebook</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="#" target="_blank" data-original-title="Follow us on Instagram">
+                        <i class="fa fa-instagram"></i>
+                        <p class="d-lg-none d-xl-none">Instagram</p>
+                    </a>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</nav>

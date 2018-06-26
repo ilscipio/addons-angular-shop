@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-md-12">
+        <h3>{{title}}</h3>
+        <ngx-slick class="slider slider-nav" #slickModal="slick-modal" [config]="slideConfig" (afterChange)="afterChange($event)">
+            <div ngxSlickItem *ngFor="let product of slides" class="slide">
+                <div>
+
+                    <div class="card text-center">
+                        <div class="card-title card-header">{{product.title_i18n_general}}</div>
+
+                        <div class="card-block">
+                            <div class="ribbon">
+                                <span>On Sale!</span>
+                            </div>
+
+                            <div>
+                                <div class="scipio-image-container" style="width: 100%; height: 100px;" scipiofit="contain">
+                                    <a href="product/{{product.productId}}" tabindex="0">
+                                        <img src="{{ product.smallImage }}" class="scipio-image" style="width: 100%; height: 100px;object-fit: contain;">
+                                    </a>
+                                </div>
+
+                            </div>
+                            <div class="card-text">{{product.description_i18n_general}}
+                            </div>
+                            <div class="price">{{product.defaultPrice | currency}}</div>
+                            <div class="card-link">
+                                <a href="product/{{product.productId}}" class="link-type-text action-nav action-primary btn btn-raised btn-sm btn-primary action-readonly action-read action-view"
+                                    tabindex="0">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ngx-slick>
+    </div>
+</div>

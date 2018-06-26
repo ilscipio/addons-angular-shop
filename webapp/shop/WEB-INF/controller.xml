@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+
+    <description>AngularShop Component Site Configuration File</description>
+    <errorpage>/control/error</errorpage> <!-- /error/error.jsp -->    
+
+    <!-- Events run from here for the first hit in a visit -->
+    <firstvisit>
+        <event name="checkTrackingCodeCookies" type="java" path="org.ofbiz.marketing.tracking.TrackingCodeEvents" invoke="checkTrackingCodeCookies"/>
+        <event name="setDefaultStoreSettings" type="java" path="org.ofbiz.product.product.ProductEvents" invoke="setDefaultStoreSettings"/>
+        <event name="createGuestShoppingListCookies" type="java" path="org.ofbiz.order.shoppinglist.ShoppingListEvents" invoke="createGuestShoppingListCookies"/>
+        <event name="restoreAutoSaveList" type="java" path="org.ofbiz.order.shoppinglist.ShoppingListEvents" invoke="restoreAutoSaveList"/>
+    </firstvisit>
+
+    <!-- Events to run on every request before security (chains exempt) -->
+    <preprocessor>
+        <!-- This event allows affilate/distributor entry on any page -->
+        <event name="setAssociationId" type="java" path="com.ilscipio.scipio.shop.misc.ThirdPartyEvents" invoke="setAssociationId"/>
+        <event name="checkTrackingCodeUrlParam" type="java" path="org.ofbiz.marketing.tracking.TrackingCodeEvents" invoke="checkTrackingCodeUrlParam"/>
+        <event name="checkPartnerTrackingCodeUrlParam" type="java" path="org.ofbiz.marketing.tracking.TrackingCodeEvents" invoke="checkPartnerTrackingCodeUrlParam"/>
+        <event name="keepCartUpdated" type="java" path="org.ofbiz.order.shoppingcart.ShoppingCartEvents" invoke="keepCartUpdated"/>
+    </preprocessor>
+
+    
+    <!-- SCIPIO: extends shop
+    <include location="component://shop/webapp/shop/WEB-INF/controller.xml"/>-->
+    
+    <!-- 2016: FIXME?: using the common-controller for now because RequestHandler crashes without it
+    <include location="component://common/webcommon/WEB-INF/handlers-controller.xml"/>-->
+    <include location="component://common/webcommon/WEB-INF/common-controller.xml"/>
+    <!-- 2016: new common cms client controller -->  
+    <include location="component://cms/webcommon/WEB-INF/cms-client-controller.xml"/>     
+
+
+    <!-- Request Mappings -->
+    <request-map uri="solrProductsSearch">
+        <security https="true" auth="false" />
+        <event type="service" invoke="solrProductsSearch"/>
+        <response name="success" type="request" value="json" />
+        <response name="error" type="request" value="json" />
+    </request-map>
+    
+    <request-map uri="solrSideDeepCategory">
+        <security https="true" auth="false" />
+        <event type="service" invoke="solrSideDeepCategory"/>
+        <response name="success" type="request" value="json" />
+        <response name="error" type="request" value="json" />
+    </request-map>
+    
+    <request-map uri="solrAvailableCategories">
+        <security https="true" auth="false" />
+        <event type="service" invoke="solrAvailableCategories"/>
+        <response name="success" type="request" value="json" />
+        <response name="error" type="request" value="json" />
+    </request-map>
+
+    <request-map uri="solrKeywordSearch">
+        <security https="true" auth="false" />
+        <event type="service" invoke="solrKeywordSearch"/>
+        <response name="success" type="request" value="json" />
+        <response name="error" type="request" value="json" />
+    </request-map>
+
+    
+    <!-- View Mappings -->
+    <!-- main screen view override
+    <view-map name="main" type="screen" page="component://angular-shop/widget/CommonScreens.xml#main"/> -->
+</site-conf>

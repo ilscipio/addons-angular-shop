@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
+    <info module="angular-shop" organisation="com.ilscipio.ce.external"/>
+    <configurations defaultconfmapping="sources->sources;%->default">
+        <conf name="build" description="download all jars required for build"/>
+        <conf name="sources" description="download all available source jars"/>
+    </configurations>
+
+    <dependencies>
+        <!-- dependencies for initial/build downloads 
+            NOTE: these should be listed in lib/.gitignore, e.g.: /example-*.jar -->
+        <!-- /lib/example-1.0.0.jar
+        <dependency org="org.example" name="example" rev="1.0.0" transitive="false" conf="build,sources"/>-->
+    </dependencies>
+</ivy-module>

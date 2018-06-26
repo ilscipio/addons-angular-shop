@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-md-12">
+        <h3>{{title}}</h3>
+        <ngx-slick class="slider slider-nav" #slickModal="slick-modal" [config]="slideConfig" (afterChange)="afterChange($event)">
+            <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+                <a href="{{ slide.href }}">
+                    <img src="{{ slide.img }}" alt="" />
+                </a>
+            </div>
+        </ngx-slick>
+
+        <button (click)="addSlide()" class="btn btn-primary">Add</button>
+        <button (click)="removeSlide()" class="btn btn-primary">Remove</button>
+    </div>
+</div>
