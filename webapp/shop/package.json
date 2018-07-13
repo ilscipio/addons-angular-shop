@@ -37,8 +37,8 @@
     "popper.js": "1.14.3",
     "rellax": "1.6.2",
     "rxjs": "6.2.0",
-    "zone.js": "0.8.26",
-    "rxjs-compat": "^6.0.0-rc.0"
+    "rxjs-compat": "^6.0.0-rc.0",
+    "zone.js": "0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.7.0-rc.2",
@@ -56,7 +56,9 @@
     "karma-coverage-istanbul-reporter": "2.0.1",
     "karma-jasmine": "1.1.2",
     "karma-jasmine-html-reporter": "1.1.0",
+    "node-gyp": "^3.7",
     "protractor": "5.3.2",
+    "request": "^2.87.0",
     "ts-node": "6.1.0",
     "tslint": "5.10.0",
     "typescript": "2.7.2",
