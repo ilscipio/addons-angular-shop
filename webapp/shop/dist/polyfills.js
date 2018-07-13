@@ -9942,7 +9942,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! c:\java\workspace\scipioce-alladdons-dev\addons\angular-shop\webapp\shop\src\polyfills.ts */"./src/polyfills.ts");
+module.exports = __webpack_require__(/*! C:\java\workspace\scipioce-alladdons-dev\addons\angular-shop\webapp\shop\src\polyfills.ts */"./src/polyfills.ts");
 
 
 /***/ })
