@@ -42,16 +42,11 @@ $ng build --watch
 
 ## Installation
 ### Addon installation
-On a copy of SCIPIO ERP add this addon as a subtree:
+Scipio ERP provides a simple bash script to manage all addons. Detailed installation instructions are available on the [Scipio ERP website](https://www.scipioerp.com/community/end-user/addons/). For help, simply type on the console:
 
 ```
-git remote add addons-angular-shop git@github.com:ilscipio/addons-angular-shop.git
-git subtree add --squash --prefix=addons/angular-shop addons-angular-shop master
-```
+./git-addons help
 
-For future updates, use: 
-```
-git subtree pull --squash --prefix=addons/angular-shop addons-angular-shop master
 ```
 
 
