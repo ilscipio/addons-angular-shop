@@ -2,6 +2,15 @@
 <site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
 
+    <!-- SCIPIO: extends shop
+    <include location="component://shop/webapp/shop/WEB-INF/controller.xml"/>-->
+    
+    <!-- 2016: FIXME?: using the common-controller for now because RequestHandler crashes without it
+    <include location="component://common/webcommon/WEB-INF/handlers-controller.xml"/>-->
+    <include location="component://common/webcommon/WEB-INF/common-controller.xml"/>
+    <!-- 2016: new common cms client controller -->  
+    <include location="component://cms/webcommon/WEB-INF/cms-client-controller.xml"/>    
+    
     <description>AngularShop Component Site Configuration File</description>
     <errorpage>/control/error</errorpage> <!-- /error/error.jsp -->    
 
@@ -21,18 +30,7 @@
         <event name="checkPartnerTrackingCodeUrlParam" type="java" path="org.ofbiz.marketing.tracking.TrackingCodeEvents" invoke="checkPartnerTrackingCodeUrlParam"/>
         <event name="keepCartUpdated" type="java" path="org.ofbiz.order.shoppingcart.ShoppingCartEvents" invoke="keepCartUpdated"/>
     </preprocessor>
-
-    
-    <!-- SCIPIO: extends shop
-    <include location="component://shop/webapp/shop/WEB-INF/controller.xml"/>-->
-    
-    <!-- 2016: FIXME?: using the common-controller for now because RequestHandler crashes without it
-    <include location="component://common/webcommon/WEB-INF/handlers-controller.xml"/>-->
-    <include location="component://common/webcommon/WEB-INF/common-controller.xml"/>
-    <!-- 2016: new common cms client controller -->  
-    <include location="component://cms/webcommon/WEB-INF/cms-client-controller.xml"/>     
-
-
+ 
     <!-- Request Mappings -->
     <request-map uri="solrProductsSearch">
         <security https="true" auth="false" />
