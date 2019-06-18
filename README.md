@@ -33,7 +33,7 @@ To get started, the following information may be of interest to you:
   https://www.scipioerp.com/community/end-user/addons/
 * Default load directory
   webapp/shop/
-    
+
 Compile with (in webapp/shop/):
 
 ```
